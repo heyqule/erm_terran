@@ -1,0 +1,14 @@
+{
+  "name": "erm_terran",
+  "version": "1.0.0",
+  "date": "2021-02-13",
+  "title": "ERM - Terran Units for Players",
+  "author": "heyqule",
+  "description": "Add terran units as player controllable units",
+  "factorio_version": "1.1",
+  "dependencies": [
+    "base >= 1.1.0",
+    "enemyracemanager >= 0.4",
+    "Unit_Control >= 0.2.4"
+  ]
+}
