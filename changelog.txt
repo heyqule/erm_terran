@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
+Date: 02. 13. 2021
+
+  Features:
     - Added Battlecruiser, Wraith, Marine and tank as player controllable units.
     - They can be repair by construction robot
     - The repair rate is at 1/4 efficiency
