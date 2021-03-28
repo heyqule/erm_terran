@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 04. 24. 2021
+
+  Features:
+    - Poison Science Vessel - deal poison AOE damage, 2500 health
+    - Cold Science Vessel - deal cold AOE damage, 2500 health
+
+  Change:
+    - MK2 marine has 50 resist, up from 50.
+    - MK3 marine has 70 resist, up from 60.
+    - MK3 marine consumes 25 uranium round, down from 50.
+    - Marine now repairs at 1/2 efficiency
+    - Battlecruise health buff from 3500 to 5000
+    - Wraith consume 10 low density structures, down from 25
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 02. 13. 2021
 
