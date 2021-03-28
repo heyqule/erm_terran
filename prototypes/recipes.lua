@@ -48,7 +48,7 @@ data:extend({
         {
             {"modular-armor", 2},
             {"submachine-gun", 1},
-            {"uranium-rounds-magazine", 50},
+            {"uranium-rounds-magazine", 25},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk3'
@@ -95,7 +95,7 @@ data:extend({
             {"rocket-control-unit", 10},
             {"explosive-rocket", 100},
             {"rocket-fuel", 20},
-            {"low-density-structure", 25},
+            {"low-density-structure", 10},
             {"flying-robot-frame", 10},
         },
         result = MOD_NAME .. '/' .. wraith

@@ -48,7 +48,7 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 1'},
         icon = "__erm_terran__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "breaths-air" },
         has_belt_immunity = false,
         max_health = 300,
         order = MOD_NAME .. name,
@@ -61,7 +61,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.15,
-        repair_speed_modifier = 0.25,
+        repair_speed_modifier = 0.5,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -173,7 +173,7 @@ local marine_mk2 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/
 marine_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 marine_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
 marine_mk2.max_health = 500
-marine_mk2.resistances = get_resistance(40)
+marine_mk2.resistances = get_resistance(50)
 marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
     type = "damage",
@@ -188,7 +188,7 @@ local marine_mk3 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/
 marine_mk3.name = MOD_NAME .. '/' .. name .. '/mk3'
 marine_mk3.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 3'}
 marine_mk3.max_health = 1000
-marine_mk3.resistances = get_resistance(55)
+marine_mk3.resistances = get_resistance(70)
 marine_mk3['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
     type = "damage",
