@@ -37,7 +37,7 @@ data:extend({
         icon_size = 64,
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid" },
         has_belt_immunity = true,
-        max_health = 3500,
+        max_health = 5000,
         order = MOD_NAME .. name,
         subgroup = "enemies",
         shooting_cursor_size = 2,
@@ -205,7 +205,7 @@ data:extend({
                     },
                     {
                         type = "damage",
-                        damage = { amount = 600, type = "laser" }
+                        damage = { amount = 500, type = "laser" }
                     },
                     {
                         type = "nested-result",
@@ -220,6 +220,11 @@ data:extend({
                                     {
                                         type = "damage",
                                         damage = { amount = 150, type = "explosion" },
+                                        apply_damage_to_trees = true,
+                                    },
+                                    {
+                                        type = "damage",
+                                        damage = { amount = 150, type = "electric" },
                                         apply_damage_to_trees = true,
                                     },
                                     {

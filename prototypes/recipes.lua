@@ -48,7 +48,7 @@ data:extend({
         {
             {"modular-armor", 2},
             {"submachine-gun", 1},
-            {"uranium-rounds-magazine", 50},
+            {"uranium-rounds-magazine", 25},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk3'
@@ -57,7 +57,7 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/' .. tank,
         enabled = false,
-        energy_required = 180,
+        energy_required = 90,
         ingredients =
         {
             {"tank", 1},
@@ -67,6 +67,21 @@ data:extend({
             {"rocket-fuel", 10},
         },
         result = MOD_NAME .. '/' .. tank
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/' .. tank .. '/mk2',
+        enabled = false,
+        energy_required = 180,
+        ingredients =
+        {
+            {"tank", 1},
+            {"rocket-control-unit", 10},
+            {"uranium-cannon-shell", 100},
+            {"low-density-structure", 40},
+            {"rocket-fuel", 20},
+        },
+        result = MOD_NAME .. '/' .. tank .. '/mk2'
     },
     {
         type = "recipe",
@@ -95,9 +110,41 @@ data:extend({
             {"rocket-control-unit", 10},
             {"explosive-rocket", 100},
             {"rocket-fuel", 20},
-            {"low-density-structure", 25},
+            {"low-density-structure", 10},
             {"flying-robot-frame", 10},
         },
         result = MOD_NAME .. '/' .. wraith
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/' .. wraith .. '/cold',
+        enabled = false,
+        energy_required = 120,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"slowdown-capsule", 100},
+            {"rocket-fuel", 20},
+            {"low-density-structure", 10},
+            {"flying-robot-frame", 10},
+        },
+        result = MOD_NAME .. '/' .. wraith .. '/cold'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/' .. wraith  .. '/acid',
+        enabled = false,
+        energy_required = 120,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"poison-capsule", 100},
+            {"rocket-fuel", 20},
+            {"low-density-structure", 10},
+            {"flying-robot-frame", 10},
+        },
+        result = MOD_NAME .. '/' .. wraith  .. '/acid'
     },
 })
