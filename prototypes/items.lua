@@ -74,8 +74,58 @@ data:extend({
     {
         type = "item",
         name = MOD_NAME .. '/' .. tank,
-        icon = "__erm_terran__/graphics/entity/icons/units/"..tank..".png",
-        icon_size = 64,
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..tank..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_units",
+        order = "a-erm-"..tank,
+        place_result = MOD_NAME .. '/' .. tank ,
+        stack_size = 5
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/' .. tank .. '/mk2',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..tank..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_units",
+        order = "a-erm-"..tank,
+        place_result = MOD_NAME .. '/' .. tank .. '/mk2' ,
+        stack_size = 5
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/' .. tank,
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..tank..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
         subgroup = "erm_controlable_units",
         order = "a-erm-"..tank,
         place_result = MOD_NAME .. '/' .. tank ,
@@ -94,11 +144,61 @@ data:extend({
     {
         type = "item",
         name = MOD_NAME .. '/' .. wraith,
-        icon = "__erm_terran__/graphics/entity/icons/units/"..wraith..".png",
-        icon_size = 64,
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..wraith..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_red.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
         subgroup = "erm_controlable_units",
         order = "a-erm-"..wraith,
         place_result = MOD_NAME .. '/' .. wraith,
+        stack_size = 10
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/' .. wraith .. '/cold',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..wraith..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_blue.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_units",
+        order = "a-erm-"..wraith,
+        place_result = MOD_NAME .. '/' .. wraith .. '/cold',
+        stack_size = 10
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/' .. wraith .. '/acid',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..wraith..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_green.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_units",
+        order = "a-erm-"..wraith,
+        place_result = MOD_NAME .. '/' .. wraith .. '/acid',
         stack_size = 10
     },
 })
