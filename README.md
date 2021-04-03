@@ -6,7 +6,7 @@ This mod is created as a player controllable combat units demo for [Enemy Race M
 All graphic and sound assets in this mod are properties of Blizzard Entertainment Inc
 
 # Requirement
-* Enemy Race Manager >= 0.4
+* Enemy Race Manager >= 0.7
 * Factorio Standard Library >= 1.4.6
 * Unit Control >= 0.2.4
 * Factorio Base >= 1.1
@@ -16,29 +16,38 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 
 Marine MK1
  * Health 250
- * Resistance 20
+ * Resistance 30
  * Damage 
     * 8 physical, bullet type
 
 Marine MK2
  * Health 500
- * Resistance 35
+ * Resistance 50
  * Damage 
-    * 16 physical, bullet type 
+    * 12 physical, bullet type 
  
 Marine MK3
- * Health 1000
- * Resistance 55
+ * Health 750
+ * Resistance 70
  * Damage 
-    * 24 physical, bullet type
+    * 48 physical, bullet type
  
 Tank
  * Health 2500
  * Resistance 75
  * Cannon Damage 
-    * 100 physical, on target
-    * 300 explosive ground units, 6 area AOE
-    * 100 explosive, all units, 3 area AOE
+    * 50 physical, on target
+    * 150 explosive ground units, 6 area AOE
+    * 50 explosive, all units, 3 area AOE
+
+Tank MK 2
+* Health 3500
+* Resistance 75
+* Cannon Damage
+   * 100 physical, on target
+   * 300 explosive ground units, 6 area AOE
+   * 100 explosive, all units, 3 area AOE
+
  
 Wairth
  * Health 2000
@@ -47,9 +56,24 @@ Wairth
     * 50 physical, on target    
     * 150 explosive, all units, 3 area AOE
 
+Cold Wairth
+* Health 2000
+* Resistance 60
+* Rocket Damage
+   * 50 physical, on target
+   * 150 cold, all units, 3 area AOE
+
+Acid Wairth
+* Health 2000
+* Resistance 60
+* Rocket Damage
+   * 50 physical, on target
+   * 150 acid, all units, 3 area AOE
+
 Battlecruiser
- * Health 3500
+ * Health 5000
  * Resistance 75
  * Cannon Damage
-    * 600 laser, on target
+    * 500 laser, on target
     * 150 explosion, all units, 3 area AOE
+    * 150 electric, all units, 3 area AOE
