@@ -74,6 +74,7 @@ data:extend({
         repair_speed_modifier = 0.5,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
+        can_open_gates = true,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
         attack_parameters = {

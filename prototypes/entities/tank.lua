@@ -51,6 +51,7 @@ data:extend({
         order = MOD_NAME .. name,
         subgroup = "enemies",
         shooting_cursor_size = 2,
+        can_open_gates = true,
         resistances = {
             { type = "acid", percent = 75 },
             { type = "poison", percent = 100 },

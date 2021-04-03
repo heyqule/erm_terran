@@ -14,9 +14,10 @@ Date: 04. 24. 2021
     - MM3 marine health 700, down from 1000
     - Marines now repair at 1/2 efficiency
     - Wraith consume 10 low density structures, down from 25
-    - Tank MK1 - Downgrade from 500 to 250 damage, lower resource requirement
-    - Battlecruiser health buff from 3500 to 5000
+    - Tank MK1 - Downgrade from 500 to 250 damage, lower resource requirement.
+    - Battlecruiser health buff from 3500 to 5000.
     - Battlecruiser now deals 500 laser to target, 150 explosion and 150 electric in AOE.
+    - Tanks and Marines can open gates.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
