@@ -46,8 +46,18 @@ data:extend({
         type = "unit",
         name = MOD_NAME .. '/' .. name .. '/mk1',
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 1'},
-        icon = "__erm_terran__/graphics/entity/icons/units/" .. name .. ".png",
-        icon_size = 64,
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "breaths-air" },
         has_belt_immunity = false,
         max_health = 300,
@@ -172,6 +182,12 @@ local marine_mk2 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/
 
 marine_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 marine_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
+marine_mk2['icons'][2] = {
+    icon = "__base__/graphics/icons/signal/signal_2.png",
+    icon_size = 64,
+    scale = 0.25,
+    shift = {-9,-9}
+}
 marine_mk2.max_health = 500
 marine_mk2.resistances = get_resistance(50)
 marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
@@ -187,12 +203,18 @@ local marine_mk3 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/
 
 marine_mk3.name = MOD_NAME .. '/' .. name .. '/mk3'
 marine_mk3.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 3'}
-marine_mk3.max_health = 1000
+marine_mk3['icons'][2] = {
+    icon = "__base__/graphics/icons/signal/signal_3.png",
+    icon_size = 64,
+    scale = 0.25,
+    shift = {-9,-9}
+}
+marine_mk3.max_health = 750
 marine_mk3.resistances = get_resistance(70)
 marine_mk3['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
     type = "damage",
-    damage = { amount = 24, type = "physical"}
+    damage = { amount = 48, type = "physical"}
 }
 
 data:extend({marine_mk3})

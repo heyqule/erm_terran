@@ -34,8 +34,18 @@ data:extend({
         type = "unit",
         name = MOD_NAME .. '/' .. name,
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name },
-        icon = "__erm_terran__/graphics/entity/icons/units/" .. name .. ".png",
-        icon_size = 64,
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_red.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid" },
         has_belt_immunity = true,
         max_health = 2000,
@@ -68,7 +78,7 @@ data:extend({
             type = "projectile",
             ammo_category = 'rocket',
             range = attack_range,
-            cooldown = 90,
+            cooldown = 120,
             cooldown_deviation = 0.1,
             warmup = 6,
             ammo_type = {
@@ -79,32 +89,7 @@ data:extend({
                     action_delivery = {
                         type = "projectile",
                         projectile = "wraith-rocket",
-                        starting_speed = 0.3,
-                        target_effects = {
-                            {
-                                type = "damage",
-                                damage = { amount = 50, type = "physical" }
-                            },
-                            {
-                                type = "nested-result",
-                                action = {
-                                    type = "area",
-                                    force = "enemy",
-                                    radius = 3,
-                                    ignore_collision_condition = true,
-                                    action_delivery = {
-                                        type = "instant",
-                                        target_effects = {
-                                            {
-                                                type = "damage",
-                                                damage = { amount = 150, type = "explosion" },
-                                                apply_damage_to_trees = true,
-                                            },
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        starting_speed = 0.3
                     }
                 }
             },
@@ -249,6 +234,29 @@ data:extend({
                         invoke_decorative_trigger = true,
                         decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
                         radius = 1.5 -- large radius for demostrative purposes
+                    },
+                    {
+                        type = "damage",
+                        damage = { amount = 50, type = "physical" }
+                    },
+                    {
+                        type = "nested-result",
+                        action = {
+                            type = "area",
+                            force = "enemy",
+                            radius = 3,
+                            ignore_collision_condition = true,
+                            action_delivery = {
+                                type = "instant",
+                                target_effects = {
+                                    {
+                                        type = "damage",
+                                        damage = { amount = 150, type = "explosion" },
+                                        apply_damage_to_trees = true,
+                                    },
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -287,3 +295,99 @@ data:extend({
         }
     }
 })
+
+-- Cold Wraith --
+-- Cold explosion --
+local cold_wraith_explosion = table.deepcopy(data.raw["explosion"]['explosion'])
+cold_wraith_explosion['name'] = 'cold-explosion'
+cold_wraith_explosion['localised_name'] = {"entity-name.cold-explosion"}
+table.remove(cold_wraith_explosion['animations'], 1)
+for i, animation in pairs(cold_wraith_explosion['animations']) do
+    cold_wraith_explosion['animations'][i]['filename'] = "__erm_terran__/graphics/entity/explosion/bw-explosion-3.png"
+    cold_wraith_explosion['animations'][i]['tint'] = ERM_UnitTint.tint_cold_explosion()
+    cold_wraith_explosion['animations'][i]['scale'] = 1.5
+    cold_wraith_explosion['animations'][i]['hr_version']['filename'] = "__erm_terran__/graphics/entity/explosion/bw-hr-explosion-3.png"
+    cold_wraith_explosion['animations'][i]['hr_version']['tint'] = ERM_UnitTint.tint_cold_explosion()
+    cold_wraith_explosion['animations'][i]['hr_version']['scale'] = 1.5
+end
+data:extend({cold_wraith_explosion})
+
+-- Cold projectile --
+local cold_wraith_projectile = table.deepcopy(data.raw["projectile"]['wraith-rocket'])
+cold_wraith_projectile['name'] = 'cold-wraith-projectile'
+cold_wraith_projectile['action']['action_delivery']
+    ['target_effects'][1]['entity_name'] = 'cold-explosion'
+cold_wraith_projectile['action']['action_delivery']
+    ['target_effects'][6]['action']['action_delivery']
+    ['target_effects'][1]['damage'] = { amount = 165, type = "cold" }
+
+data:extend({cold_wraith_projectile})
+
+-- Cold entity --
+local cold_wraith = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
+
+cold_wraith.name = MOD_NAME .. '/' .. name .. '/cold'
+cold_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/cold'}
+cold_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_blue.png"
+
+table.insert(cold_wraith['run_animation']['layers'], {
+    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+    width = 64,
+    height = 64,
+    frame_count = 1,
+    repeat_count = 2,
+    axially_symmetrical = false,
+    direction_count = 16,
+    scale = unit_scale,
+    animation_speed = 0.6,
+    tint = ERM_UnitTint.tint_cold()
+})
+
+cold_wraith['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = 'cold-wraith-projectile'
+
+data:extend({cold_wraith})
+
+-- Acid Wraith --
+local acid_wraith_explosion = table.deepcopy(data.raw["explosion"]['explosion'])
+acid_wraith_explosion['name'] = 'acid-explosion'
+acid_wraith_explosion['localised_name'] = {"entity-name.acid-explosion"}
+table.remove(acid_wraith_explosion['animations'], 1)
+for i, animation in pairs(acid_wraith_explosion['animations']) do
+    acid_wraith_explosion['animations'][i]['tint'] = ERM_UnitTint.tint_acid_explosion()
+    acid_wraith_explosion['animations'][i]['scale'] = 1.5
+    acid_wraith_explosion['animations'][i]['hr_version']['tint'] = ERM_UnitTint.tint_acid_explosion()
+    acid_wraith_explosion['animations'][i]['hr_version']['scale'] = 1.5
+end
+
+data:extend({acid_wraith_explosion})
+
+local acid_wraith_projectile = table.deepcopy(data.raw["projectile"]['wraith-rocket'])
+acid_wraith_projectile['name'] = 'acid-wraith-projectile'
+acid_wraith_projectile['action']['action_delivery']
+    ['target_effects'][1]['entity_name'] = 'acid-explosion'
+acid_wraith_projectile['action']['action_delivery']
+    ['target_effects'][6]['action']['action_delivery']
+    ['target_effects'][1]['damage'] = { amount = 180, type = "acid" }
+
+data:extend({acid_wraith_projectile})
+
+local acid_wraith = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
+acid_wraith.name = MOD_NAME .. '/' .. name .. '/acid'
+acid_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/acid' }
+acid_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_green.png"
+
+table.insert(acid_wraith['run_animation']['layers'], {
+    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+    width = 64,
+    height = 64,
+    frame_count = 1,
+    repeat_count = 2,
+    axially_symmetrical = false,
+    direction_count = 16,
+    scale = unit_scale,
+    animation_speed = 0.6,
+    tint = ERM_UnitTint.tint_acid()
+})
+acid_wraith['attack_parameters']['ammo_type']
+    ['action']['action_delivery']['projectile'] = 'acid-wraith-projectile'
+data:extend({acid_wraith})

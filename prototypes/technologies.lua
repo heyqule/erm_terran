@@ -101,6 +101,10 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/' .. tank
             },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/' .. tank .. '/mk2'
+            },
         },
         prerequisites = {
             "military-4", "tank", "rocket-control-unit",
@@ -130,6 +134,14 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/' .. wraith
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/' .. wraith .. '/cold'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/' .. wraith .. '/acid'
             },
         },
         prerequisites = {

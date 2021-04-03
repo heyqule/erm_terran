@@ -205,7 +205,7 @@ data:extend({
                     },
                     {
                         type = "damage",
-                        damage = { amount = 600, type = "laser" }
+                        damage = { amount = 500, type = "laser" }
                     },
                     {
                         type = "nested-result",
@@ -220,6 +220,11 @@ data:extend({
                                     {
                                         type = "damage",
                                         damage = { amount = 150, type = "explosion" },
+                                        apply_damage_to_trees = true,
+                                    },
+                                    {
+                                        type = "damage",
+                                        damage = { amount = 150, type = "electric" },
                                         apply_damage_to_trees = true,
                                     },
                                     {
