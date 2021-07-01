@@ -52,7 +52,7 @@ data:extend({
             { type = "cold", percent = 75 }
         },
         healing_per_tick = 0,
-        collision_mask = {},
+        collision_mask = { 'layer-33' },
         collision_box = collision_box,
         selection_box = selection_box,
         sticker_box = selection_box,
