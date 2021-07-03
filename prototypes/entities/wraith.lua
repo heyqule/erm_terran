@@ -11,6 +11,7 @@ require('__erm_terran__/global')
 local ERM_UnitTint = require('__enemyracemanager__/lib/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
+local ERMDataHelper = require('__enemyracemanager__/lib/helper/data_helper')
 local TerranSound = require('__erm_terran__/prototypes/sound')
 
 local name = 'wraith'
@@ -27,7 +28,6 @@ local unit_scale = 1.5
 
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } }
-
 
 data:extend({
     {
@@ -64,7 +64,7 @@ data:extend({
             { type = "cold", percent = 60 }
         },
         healing_per_tick = 0,
-        collision_mask = { 'layer-33' },
+        collision_mask = ERMDataHelper.getFlyingCollisionMask(),
         collision_box = collision_box,
         selection_box = selection_box,
         sticker_box = selection_box,
