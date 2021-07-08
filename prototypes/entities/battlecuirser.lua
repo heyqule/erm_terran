@@ -39,7 +39,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 5000,
         order = MOD_NAME .. name,
-        subgroup = "enemies",
+        subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         resistances = {
             { type = "acid", percent = 75 },
@@ -121,7 +121,7 @@ data:extend({
                         tint = ERM_UnitTint.tint_shadow(),
                         animation_speed = 0.6,
                         draw_as_shadow = true,
-                        shift = { 4, 0 }
+                        shift = { 6, 0 }
                     }
                 }
             }
@@ -165,7 +165,7 @@ data:extend({
                     direction_count = 16,
                     scale = unit_scale,
                     tint = ERM_UnitTint.tint_shadow(),
-                    shift = { 4, 0 },
+                    shift = { 6, 0 },
                     animation_speed = 0.6,
                     draw_as_shadow = true
                 }

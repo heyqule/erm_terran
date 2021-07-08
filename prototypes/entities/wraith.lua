@@ -50,7 +50,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 2000,
         order = MOD_NAME .. name,
-        subgroup = "enemies",
+        subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         radar_range = 1,
         resistances = {

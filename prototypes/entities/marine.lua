@@ -62,7 +62,7 @@ data:extend({
         has_belt_immunity = false,
         max_health = 300,
         order = MOD_NAME .. name,
-        subgroup = "enemies",
+        subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         resistances = get_resistance(30),
         healing_per_tick = 0,
@@ -132,6 +132,19 @@ data:extend({
                         scale = unit_scale,
                         frame_sequence = { 1, 2, 3, 4, 3, 4, 3, 4 }
                     },
+                    {
+                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
+                        width = 64,
+                        height = 64,
+                        frame_count = 4,
+                        axially_symmetrical = false,
+                        direction_count = 16,
+                        scale = unit_scale,
+                        frame_sequence = { 1, 2, 3, 4, 3, 4, 3, 4 },
+                        draw_as_shadow = true,
+                        shift = { 0.25, 0 },
+                        tint = ERM_UnitTint.tint_shadow(),
+                    },
                 }
             }
         },
@@ -146,6 +159,18 @@ data:extend({
                     axially_symmetrical = false,
                     direction_count = 16,
                     scale = unit_scale,
+                },
+                {
+                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                    width = 64,
+                    height = 64,
+                    frame_count = 9,
+                    axially_symmetrical = false,
+                    direction_count = 16,
+                    scale = unit_scale,
+                    draw_as_shadow = true,
+                    shift = { 0.25, 0 },
+                    tint = ERM_UnitTint.tint_shadow(),
                 }
             }
         },

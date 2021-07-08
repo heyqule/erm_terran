@@ -49,7 +49,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 2500,
         order = MOD_NAME .. name,
-        subgroup = "enemies",
+        subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
         resistances = {
@@ -217,7 +217,7 @@ data:extend({
                         {
                             type = "area",
                             force = "enemy",
-                            radius = 6,
+                            radius = 5,
                             action_delivery =
                             {
                                 type = "instant",
@@ -243,7 +243,7 @@ data:extend({
                         {
                             type = "area",
                             force = "enemy",
-                            radius = 3,
+                            radius = 2,
                             ignore_collision_condition = true,
                             action_delivery =
                             {
