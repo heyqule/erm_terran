@@ -4,6 +4,7 @@
 --- DateTime: 2/9/2021 6:53 PM
 ---
 require('__stdlib__/stdlib/utils/defines/time')
+require('util')
 local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
@@ -204,7 +205,7 @@ data:extend({
 })
 
 -- Marine MK2 --
-local marine_mk2 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
+local marine_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
 
 marine_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 marine_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
@@ -225,7 +226,7 @@ marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['targe
 data:extend({marine_mk2})
 
 -- Marine MK3 --
-local marine_mk3 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
+local marine_mk3 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
 
 marine_mk3.name = MOD_NAME .. '/' .. name .. '/mk3'
 marine_mk3.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 3'}

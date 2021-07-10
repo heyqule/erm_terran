@@ -1,5 +1,5 @@
 # ERM_Terran
-Add Terran units as controllable unit for players
+Add Terran units as controllable unit for players.  They take friendly fire. MOVE THEM AWAY FROM EXPLOSIVE AND FIRE TURRETS :)
 
 This mod is created as a player controllable combat units demo for [Enemy Race Manager](https://github.com/heyqule/enemy_race_manager)
 
