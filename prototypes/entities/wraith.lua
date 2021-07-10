@@ -4,6 +4,7 @@
 --- DateTime: 2/9/2021 6:53 PM
 ---
 require('__stdlib__/stdlib/utils/defines/time')
+require('util')
 local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
@@ -298,7 +299,7 @@ data:extend({
 
 -- Cold Wraith --
 -- Cold explosion --
-local cold_wraith_explosion = table.deepcopy(data.raw["explosion"]['explosion'])
+local cold_wraith_explosion = util.table.deepcopy(data.raw["explosion"]['explosion'])
 cold_wraith_explosion['name'] = 'cold-explosion'
 cold_wraith_explosion['localised_name'] = {"entity-name.cold-explosion"}
 table.remove(cold_wraith_explosion['animations'], 1)
@@ -313,7 +314,7 @@ end
 data:extend({cold_wraith_explosion})
 
 -- Cold projectile --
-local cold_wraith_projectile = table.deepcopy(data.raw["projectile"]['wraith-rocket'])
+local cold_wraith_projectile = util.table.deepcopy(data.raw["projectile"]['wraith-rocket'])
 cold_wraith_projectile['name'] = 'cold-wraith-projectile'
 cold_wraith_projectile['action']['action_delivery']
     ['target_effects'][1]['entity_name'] = 'cold-explosion'
@@ -324,7 +325,7 @@ cold_wraith_projectile['action']['action_delivery']
 data:extend({cold_wraith_projectile})
 
 -- Cold entity --
-local cold_wraith = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
+local cold_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 
 cold_wraith.name = MOD_NAME .. '/' .. name .. '/cold'
 cold_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/cold'}
@@ -348,7 +349,7 @@ cold_wraith['attack_parameters']['ammo_type']['action']['action_delivery']['proj
 data:extend({cold_wraith})
 
 -- Acid Wraith --
-local acid_wraith_explosion = table.deepcopy(data.raw["explosion"]['explosion'])
+local acid_wraith_explosion = util.table.deepcopy(data.raw["explosion"]['explosion'])
 acid_wraith_explosion['name'] = 'acid-explosion'
 acid_wraith_explosion['localised_name'] = {"entity-name.acid-explosion"}
 table.remove(acid_wraith_explosion['animations'], 1)
@@ -361,7 +362,7 @@ end
 
 data:extend({acid_wraith_explosion})
 
-local acid_wraith_projectile = table.deepcopy(data.raw["projectile"]['wraith-rocket'])
+local acid_wraith_projectile = util.table.deepcopy(data.raw["projectile"]['wraith-rocket'])
 acid_wraith_projectile['name'] = 'acid-wraith-projectile'
 acid_wraith_projectile['action']['action_delivery']
     ['target_effects'][1]['entity_name'] = 'acid-explosion'
@@ -371,7 +372,7 @@ acid_wraith_projectile['action']['action_delivery']
 
 data:extend({acid_wraith_projectile})
 
-local acid_wraith = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
+local acid_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 acid_wraith.name = MOD_NAME .. '/' .. name .. '/acid'
 acid_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/acid' }
 acid_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_green.png"

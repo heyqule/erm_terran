@@ -4,6 +4,7 @@
 --- DateTime: 2/9/2021 6:53 PM
 ---
 require('__stdlib__/stdlib/utils/defines/time')
+require('util')
 local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
@@ -297,7 +298,7 @@ data:extend({
     }
 })
 
-local tank_projectile_mk2 = table.deepcopy(data.raw["projectile"]['terran-tank-explosive-cannon-projectile'])
+local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"]['terran-tank-explosive-cannon-projectile'])
 tank_projectile_mk2['name'] = 'terran-tank-explosive-cannon-projectile-mk2'
 tank_projectile_mk2['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 100, type = "physical"}
 -- Ground AOE --
@@ -307,7 +308,7 @@ tank_projectile_mk2['final_action']['action_delivery']['target_effects'][3]['act
 
 data:extend({tank_projectile_mk2})
 
-local tank_mk2 = table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
+local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 tank_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 tank_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK2' }
 tank_mk2['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_2.png"
