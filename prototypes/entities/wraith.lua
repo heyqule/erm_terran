@@ -244,7 +244,7 @@ data:extend({
                         type = "nested-result",
                         action = {
                             type = "area",
-                            force = "enemy",
+                            force = "not-same",
                             radius = 3,
                             ignore_collision_condition = true,
                             action_delivery = {
