@@ -57,7 +57,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.2,
+        movement_speed = 0.25,
         repair_speed_modifier = 0.25,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -211,7 +211,7 @@ data:extend({
                         type = "nested-result",
                         action = {
                             type = "area",
-                            force = "enemy",
+                            force = "not-same",
                             radius = 3,
                             ignore_collision_condition = true,
                             action_delivery = {
