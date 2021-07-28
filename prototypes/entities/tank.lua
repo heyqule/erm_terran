@@ -68,7 +68,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.225,
+        movement_speed = 0.15,
         repair_speed_modifier = 0.25,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -313,6 +313,7 @@ tank_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 tank_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK2' }
 tank_mk2['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_2.png"
 tank_mk2.max_health = 3500
+tank_mk2.movement_speed = 0.2
 tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = 'terran-tank-explosive-cannon-projectile-mk2'
 
 data:extend({tank_mk2})
