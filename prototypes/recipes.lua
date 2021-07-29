@@ -90,8 +90,8 @@ data:extend({
         energy_required = 300,
         ingredients =
         {
-            {"nuclear-reactor", 1},
-            {"nuclear-fuel", 10},
+            {"nuclear-reactor", 4},
+            {"nuclear-fuel", 40},
             {"rocket-control-unit", 50},
             {"low-density-structure", 50},
             {"laser-turret", 20},
