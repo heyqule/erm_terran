@@ -190,7 +190,7 @@ data:extend({
                 {
                     {
                         type = "damage",
-                        damage = {amount = 50, type = "physical"}
+                        damage = {amount = 100, type = "physical"}
                     },
                     {
                         type = "create-entity",
@@ -226,7 +226,7 @@ data:extend({
                                 {
                                     {
                                         type = "damage",
-                                        damage = {amount = 150, type = "explosion"},
+                                        damage = {amount = 100, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     },
                                     {
@@ -300,9 +300,9 @@ data:extend({
 
 local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"]['terran-tank-explosive-cannon-projectile'])
 tank_projectile_mk2['name'] = 'terran-tank-explosive-cannon-projectile-mk2'
-tank_projectile_mk2['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 100, type = "physical"}
+tank_projectile_mk2['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 200, type = "physical"}
 -- Ground AOE --
-tank_projectile_mk2['final_action']['action_delivery']['target_effects'][2]['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 300, type = "explosion"}
+tank_projectile_mk2['final_action']['action_delivery']['target_effects'][2]['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 200, type = "explosion"}
 -- Air AOE --
 tank_projectile_mk2['final_action']['action_delivery']['target_effects'][3]['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 100, type = "explosion"}
 

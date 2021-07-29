@@ -1,10 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.6.0
-Date: 2021-07-29
+Date: 2021-07-28
 
   Changes:
     - Movement Speed change
     - change AOE's force = "not-same"
+    - Tank MK1 now depends on marine-2
+    - Tank MK2 has its own research.
+    - Raise nuclear reactor and fuel 4x for battlecruiser's 4 engines.
+    - Lower battlecruiser AOE damage, increase single target damage.
+    - Lower tank ground AOE damage, increase single target damage
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.0
