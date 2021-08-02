@@ -18,7 +18,7 @@ local name = 'marine'
 local attack_range = 12
 
 -- Misc Settings
-local vision_distance = 25
+local vision_distance = 30
 local pollution_to_join_attack = 250
 local distraction_cooldown = 20
 
