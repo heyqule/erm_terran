@@ -38,8 +38,8 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 * Health 2500
 * Resistance 75
 * Cannon Damage
-    * 50 physical, on target
-    * 150 explosive ground units, 6 area AOE
+    * 100 physical, on target
+    * 100 explosive ground units, 6 area AOE
     * 50 explosive, all units, 3 area AOE
 
 ###### Tank MK 2
@@ -76,6 +76,6 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 * Health 5000
 * Resistance 75
 * Cannon Damage
-    * 500 laser, on target
-    * 150 explosion, all units, 3 area AOE
-    * 150 electric, all units, 3 area AOE
+    * 600 laser, on target
+    * 100 explosion, all units, 3 area AOE
+    * 100 electric, all units, 3 area AOE

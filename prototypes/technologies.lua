@@ -92,7 +92,7 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. '/' .. tank,
+        name = MOD_NAME .. '/' .. tank .. '/mk-1',
         icon_size = 64,
         icon = "__erm_terran__/graphics/entity/icons/units/"..tank..".png",
         effects =
