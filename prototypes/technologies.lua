@@ -198,7 +198,11 @@ data:extend({
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. '/' .. battlecruiser
+                recipe = MOD_NAME .. '/' .. battlecruiser .. '/yamato'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/' .. battlecruiser .. '/laser'
             },
         },
         prerequisites = {

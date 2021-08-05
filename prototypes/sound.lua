@@ -21,6 +21,14 @@ function TerranSound.attack(name, volume, distance)
     }
 end
 
+function TerranSound.laser_attack(name, volume, distance)
+    return {
+        filename = "__erm_terran__/sound/" .. name .. "/laser_attack.ogg",
+        volume = volume,
+        audible_distance_modifier = distance
+    }
+end
+
 function TerranSound.marine_death(volume)
     return {
 

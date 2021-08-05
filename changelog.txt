@@ -1,9 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.7.0
-Date: 2021-08-03
+Date: 2021-08-08
+
+  Features:
+    - Added Laser variant of battlecruiser
 
   Changes:
     - Change marine vision to 30
+    - Tank, Battlecruiser and Wraith are no longer flammable.
+    - Up wraith resistance from 60 to 70
+    - Unit colors are now green on the map.
 
   Bugfixes:
     - Fix tank tech migration

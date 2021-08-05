@@ -1,6 +1,14 @@
 {
   "technology":
   [
-    ["erm_terran/tank","erm_terran/tank/mk-1"]
+    ["erm_terran/tank", "erm_terran/tank/mk-1"]
+  ],
+  "entity":
+  [
+    ["erm_terran/battlecruiser", "erm_terran/battlecruiser/yamato"]
+  ],
+  "recipe":
+  [
+    ["erm_terran/battlecruiser", "erm_terran/battlecruiser/yamato"]
   ]
 }

@@ -46,7 +46,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "not-flammable" },
         has_belt_immunity = true,
         max_health = 2500,
         order = MOD_NAME .. name,
@@ -159,7 +159,8 @@ data:extend({
         },
         dying_explosion = "big-explosion",
         dying_sound = TerranSound.death(name, 0.75),
-        corpse = name .. '-corpse'
+        corpse = name .. '-corpse',
+        map_color = ERM_UnitTint.tint_army_color()
     },
     {
         type = "corpse",

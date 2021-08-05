@@ -47,7 +47,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "not-flammable" },
         has_belt_immunity = true,
         max_health = 2000,
         order = MOD_NAME .. name,
@@ -55,14 +55,14 @@ data:extend({
         shooting_cursor_size = 2,
         radar_range = 1,
         resistances = {
-            { type = "acid", percent = 60 },
+            { type = "acid", percent = 70 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 60 },
-            { type = "fire", percent = 60 },
-            { type = "explosion", percent = 60 },
-            { type = "laser", percent = 60 },
-            { type = "electric", percent = 60 },
-            { type = "cold", percent = 60 }
+            { type = "physical", percent = 70 },
+            { type = "fire", percent = 70 },
+            { type = "explosion", percent = 70 },
+            { type = "laser", percent = 70 },
+            { type = "electric", percent = 70 },
+            { type = "cold", percent = 70 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),
