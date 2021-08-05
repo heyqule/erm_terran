@@ -76,7 +76,7 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 * Health 3500
 * Resistance 75
 * Cannon Damage
-  * 300 laser, on target
+  * 250 laser, on target
 
 ###### Battlecruiser (Yamato Cannon)
 * Health 5000

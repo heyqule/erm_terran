@@ -122,7 +122,7 @@ data:extend({
             type = "projectile",
             ammo_category = 'laser',
             range = attack_range,
-            cooldown = 480,
+            cooldown = 360,
             cooldown_deviation = 0.1,
             warmup = 6,
             ammo_type = {
@@ -318,7 +318,7 @@ data:extend({
                 target_effects = {
                     {
                         type = "damage",
-                        damage = { amount = 300, type = "laser" }
+                        damage = { amount = 250, type = "laser" }
                     },
                 }
             }

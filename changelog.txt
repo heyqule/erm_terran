@@ -10,6 +10,7 @@ Date: 2021-08-08
     - Tank, Battlecruiser and Wraith are no longer flammable.
     - Up wraith resistance from 60 to 70
     - Unit colors are now green on the map.
+    - Yamato Battlecruiser shoots a little bit faster and have higher damage to justify its cost.
 
   Bugfixes:
     - Fix tank tech migration
