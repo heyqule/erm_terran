@@ -176,7 +176,8 @@ data:extend({
             }
         },
         dying_sound = TerranSound.marine_death(1),
-        corpse = name .. '-corpse'
+        corpse = name .. '-corpse',
+        map_color = ERM_UnitTint.tint_army_color()
     },
     {
         type = "corpse",

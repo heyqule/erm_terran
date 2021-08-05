@@ -39,43 +39,49 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 * Resistance 75
 * Cannon Damage
     * 100 physical, on target
-    * 100 explosive ground units, 6 area AOE
-    * 50 explosive, all units, 3 area AOE
+    * 100 explosive ground units, 5 area AOE
+    * 50 explosive, all units, 2 area AOE
 
 ###### Tank MK 2
 * Health 3500
 * Resistance 75
 * Cannon Damage
-    * 100 physical, on target
-    * 300 explosive ground units, 6 area AOE
-    * 100 explosive, all units, 3 area AOE
+    * 200 physical, on target
+    * 200 explosive ground units, 5 area AOE
+    * 100 explosive, all units, 2 area AOE
 
 
 ###### Wairth
 * Health 2000
-* Resistance 60
+* Resistance 70
 * Rocket Damage
     * 50 physical, on target
     * 150 explosive, all units, 3 area AOE
 
 ###### Cold Wairth
 * Health 2000
-* Resistance 60
+* Resistance 70
 * Rocket Damage
     * 50 physical, on target
     * 150 cold, all units, 3 area AOE
 
 ###### Acid Wairth
 * Health 2000
-* Resistance 60
+* Resistance 70
 * Rocket Damage
     * 50 physical, on target
     * 150 acid, all units, 3 area AOE
 
-###### Battlecruiser
+###### Battlecruiser (Laser Turret)
+* Health 3500
+* Resistance 75
+* Cannon Damage
+  * 300 laser, on target
+
+###### Battlecruiser (Yamato Cannon)
 * Health 5000
 * Resistance 75
 * Cannon Damage
-    * 600 laser, on target
-    * 100 explosion, all units, 3 area AOE
-    * 100 electric, all units, 3 area AOE
+    * 750 laser, on target
+    * 125 explosion, all units, 3 area AOE
+    * 125 electric, all units, 3 area AOE

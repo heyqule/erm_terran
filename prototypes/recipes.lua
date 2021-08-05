@@ -85,7 +85,7 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. battlecruiser,
+        name = MOD_NAME .. '/' .. battlecruiser .. '/yamato',
         enabled = false,
         energy_required = 300,
         ingredients =
@@ -97,7 +97,23 @@ data:extend({
             {"laser-turret", 20},
             {"flying-robot-frame", 50},
         },
-        result = MOD_NAME .. '/' .. battlecruiser
+        result = MOD_NAME .. '/' .. battlecruiser .. '/yamato'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/' .. battlecruiser .. '/laser',
+        enabled = false,
+        energy_required = 300,
+        ingredients =
+        {
+            {"nuclear-reactor", 1},
+            {"nuclear-fuel", 10},
+            {"rocket-control-unit", 30},
+            {"low-density-structure", 30},
+            {"laser-turret", 10},
+            {"flying-robot-frame", 30},
+        },
+        result = MOD_NAME .. '/' .. battlecruiser .. '/laser'
     },
     {
         type = "recipe",

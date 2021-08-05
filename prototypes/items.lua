@@ -133,12 +133,42 @@ data:extend({
     },
     {
         type = "item",
-        name = MOD_NAME .. '/' .. battlecruiser,
-        icon = "__erm_terran__/graphics/entity/icons/units/"..battlecruiser..".png",
-        icon_size = 64,
+        name = MOD_NAME .. '/' .. battlecruiser .. '/yamato',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..battlecruiser..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_Y.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
         subgroup = "erm_controlable_units",
         order = "a-erm-"..battlecruiser,
-        place_result = MOD_NAME .. '/' .. battlecruiser,
+        place_result = MOD_NAME .. '/' .. battlecruiser .. '/yamato',
+        stack_size = 5
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/' .. battlecruiser .. '/laser',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..battlecruiser..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_L.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_units",
+        order = "a-erm-"..battlecruiser,
+        place_result = MOD_NAME .. '/' .. battlecruiser .. '/laser',
         stack_size = 5
     },
     {
