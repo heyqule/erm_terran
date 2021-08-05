@@ -11,6 +11,7 @@ Date: 2021-08-08
     - Up wraith resistance from 60 to 70
     - Unit colors are now green on the map.
     - Yamato Battlecruiser shoots a little bit faster and have higher damage to justify its cost.
+    - Battlecruise research cost changed from 4000 to 6000
 
   Bugfixes:
     - Fix tank tech migration

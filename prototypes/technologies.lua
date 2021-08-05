@@ -221,7 +221,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 4000
+            count = 6000
         },
     },
 })
