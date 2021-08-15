@@ -183,6 +183,7 @@ data:extend({
                 }
             }
         },
+        map_color = ERM_UnitTint.tint_army_color(),
         dying_explosion = "medium-explosion",
         dying_sound = TerranSound.death(name, 1),
         corpse = name .. '-corpse'
