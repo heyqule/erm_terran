@@ -71,7 +71,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.3,
-        repair_speed_modifier = 0.25,
+        repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
