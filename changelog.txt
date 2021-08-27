@@ -2,6 +2,9 @@
 Version: 1.7.1
 Date: 2021-09-03
 
+  Changes:
+    - Changed battlecruise, tank and wraith repair rate from 25% to 33%
+
   Bugfixes:
     - Wraith's Unit colors in map view.
 
