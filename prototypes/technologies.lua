@@ -169,6 +169,10 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/' .. wraith .. '/acid'
             },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/' .. wraith .. '/scout'
+            },
         },
         prerequisites = {
             "military-4", "low-density-structure",

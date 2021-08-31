@@ -231,4 +231,24 @@ data:extend({
         place_result = MOD_NAME .. '/' .. wraith .. '/acid',
         stack_size = 10
     },
+    {
+        type = "item",
+        name = MOD_NAME .. '/' .. wraith .. '/scout',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/"..wraith..".png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_S.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_units",
+        order = "a-erm-"..wraith,
+        place_result = MOD_NAME .. '/' .. wraith .. '/scout',
+        stack_size = 10
+    },
 })
