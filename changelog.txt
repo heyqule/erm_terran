@@ -1,9 +1,14 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.7.1
+Version: 1.8.0
 Date: 2021-09-03
+
+  Feature:
+    - Scout Wraith.  Fly @ 108km/h, instead of 64km/h.
+    - More expansive on flying robot frame and rocket fuel.
 
   Changes:
     - Changed battlecruise, tank and wraith repair rate from 25% to 33%
+    - Wraith damage adjusted based on material cost.  Cold: 155, Acid: 165, Explosive: 175
 
   Bugfixes:
     - Wraith's Unit colors in map view.

@@ -133,6 +133,22 @@ data:extend({
     },
     {
         type = "recipe",
+        name = MOD_NAME .. '/' .. wraith .. '/scout',
+        enabled = false,
+        energy_required = 120,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"explosive-rocket", 100},
+            {"rocket-fuel", 40},
+            {"low-density-structure", 15},
+            {"flying-robot-frame", 20},
+        },
+        result = MOD_NAME .. '/' .. wraith .. '/scout'
+    },
+    {
+        type = "recipe",
         name = MOD_NAME .. '/' .. wraith .. '/cold',
         enabled = false,
         energy_required = 120,

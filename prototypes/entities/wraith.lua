@@ -253,7 +253,7 @@ data:extend({
                                 target_effects = {
                                     {
                                         type = "damage",
-                                        damage = { amount = 150, type = "explosion" },
+                                        damage = { amount = 175, type = "explosion" },
                                         apply_damage_to_trees = true,
                                     },
                                 }
@@ -298,6 +298,15 @@ data:extend({
     }
 })
 
+-- Scout Wraith --
+local scout_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
+scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
+scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
+scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_S.png"
+scout_wraith.movement_speed = 0.5
+
+data:extend({scout_wraith})
+
 -- Cold Wraith --
 -- Cold explosion --
 local cold_wraith_explosion = util.table.deepcopy(data.raw["explosion"]['explosion'])
@@ -321,7 +330,7 @@ cold_wraith_projectile['action']['action_delivery']
     ['target_effects'][1]['entity_name'] = 'cold-explosion'
 cold_wraith_projectile['action']['action_delivery']
     ['target_effects'][6]['action']['action_delivery']
-    ['target_effects'][1]['damage'] = { amount = 165, type = "cold" }
+    ['target_effects'][1]['damage'] = { amount = 155, type = "cold" }
 
 data:extend({cold_wraith_projectile})
 
@@ -369,7 +378,7 @@ acid_wraith_projectile['action']['action_delivery']
     ['target_effects'][1]['entity_name'] = 'acid-explosion'
 acid_wraith_projectile['action']['action_delivery']
     ['target_effects'][6]['action']['action_delivery']
-    ['target_effects'][1]['damage'] = { amount = 180, type = "acid" }
+    ['target_effects'][1]['damage'] = { amount = 165, type = "acid" }
 
 data:extend({acid_wraith_projectile})
 
