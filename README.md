@@ -17,7 +17,7 @@ All graphic and sound assets in this mod are properties of Blizzard Entertainmen
 This demo feature 4 unique units.  Damage researches enhanced these units' damage as well.
 
 ###### Marine MK1
-* Health 250
+* Health 300
 * Resistance 30
 * Damage
     * 8 physical, bullet type
