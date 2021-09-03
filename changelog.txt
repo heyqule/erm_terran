@@ -13,6 +13,7 @@ Date: 2021-09-03
 
   Bugfixes:
     - Wraith's Unit colors in map view.
+    - changed Marine MK3 recipe, instead of 2 armor, now it takes 1 armor and 50 uranium bullets.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.7.0

@@ -46,9 +46,9 @@ data:extend({
         energy_required = 90,
         ingredients =
         {
-            {"modular-armor", 2},
+            {"modular-armor", 1},
             {"submachine-gun", 1},
-            {"uranium-rounds-magazine", 25},
+            {"uranium-rounds-magazine", 50},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk3'
