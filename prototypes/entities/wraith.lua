@@ -55,14 +55,14 @@ data:extend({
         shooting_cursor_size = 2,
         radar_range = 1,
         resistances = {
-            { type = "acid", percent = 70 },
+            { type = "acid", percent = 75 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 70 },
-            { type = "fire", percent = 70 },
-            { type = "explosion", percent = 70 },
-            { type = "laser", percent = 70 },
-            { type = "electric", percent = 70 },
-            { type = "cold", percent = 70 }
+            { type = "physical", percent = 75 },
+            { type = "fire", percent = 75 },
+            { type = "explosion", percent = 75 },
+            { type = "laser", percent = 75 },
+            { type = "electric", percent = 75 },
+            { type = "cold", percent = 75 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),

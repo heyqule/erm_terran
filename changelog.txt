@@ -9,6 +9,7 @@ Date: 2021-09-03
   Changes:
     - Changed battlecruise, tank and wraith repair rate from 25% to 33%
     - Wraith damage adjusted based on material cost.  Cold: 155, Acid: 165, Explosive: 175
+    - Wraith resistance to 75
 
   Bugfixes:
     - Wraith's Unit colors in map view.

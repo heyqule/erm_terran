@@ -53,21 +53,21 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 
 ###### Wairth
 * Health 2000
-* Resistance 70
+* Resistance 75
 * Rocket Damage
     * 50 physical, on target
     * 150 explosive, all units, 3 area AOE
 
 ###### Cold Wairth
 * Health 2000
-* Resistance 70
+* Resistance 75
 * Rocket Damage
     * 50 physical, on target
     * 150 cold, all units, 3 area AOE
 
 ###### Acid Wairth
 * Health 2000
-* Resistance 70
+* Resistance 75
 * Rocket Damage
     * 50 physical, on target
     * 150 acid, all units, 3 area AOE
