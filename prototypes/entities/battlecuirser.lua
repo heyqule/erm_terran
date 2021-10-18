@@ -122,6 +122,7 @@ data:extend({
             type = "projectile",
             ammo_category = 'laser',
             range = attack_range,
+            min_attack_distance = attack_range - 4,
             cooldown = 360,
             cooldown_deviation = 0.1,
             warmup = 6,
@@ -197,6 +198,7 @@ data:extend({
             type = "projectile",
             ammo_category = 'laser',
             range = attack_range,
+            min_attack_distance = attack_range - 4,
             cooldown = 90,
             cooldown_deviation = 0.1,
             warmup = 6,
@@ -237,103 +239,5 @@ data:extend({
         subgroup = "corpses",
         order = "x" .. name,
         animation = Sprites.empty_pictures(),
-    },
-    {
-        type = "projectile",
-        name = name .. "-yamato-projectile",
-        flags = { "not-on-map" },
-        acceleration = 0.01,
-        action = {
-            type = "direct",
-            action_delivery = {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "create-entity",
-                        entity_name = "medium-explosion"
-                    },
-                    {
-                        type = "damage",
-                        damage = { amount = 750, type = "laser" }
-                    },
-                    {
-                        type = "nested-result",
-                        action = {
-                            type = "area",
-                            force = "not-same",
-                            radius = 3,
-                            ignore_collision_condition = true,
-                            action_delivery = {
-                                type = "instant",
-                                target_effects = {
-                                    {
-                                        type = "damage",
-                                        damage = { amount = 125, type = "explosion" },
-                                        apply_damage_to_trees = true,
-                                    },
-                                    {
-                                        type = "damage",
-                                        damage = { amount = 125, type = "electric" },
-                                        apply_damage_to_trees = true,
-                                    },
-                                    {
-                                        type = "destroy-decoratives",
-                                        from_render_layer = "decorative",
-                                        to_render_layer = "object",
-                                        include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
-                                        include_decals = false,
-                                        invoke_decorative_trigger = true,
-                                        decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
-                                        radius = 3 -- large radius for demostrative purposes
-                                    }
-                                },
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        animation = {
-            filename = "__erm_terran__/graphics/entity/units/"..name.."/"..name.."-projectile.png",
-            priority = "extra-high",
-            width = 96,
-            height = 96,
-            frame_count = 1,
-            animation_speed = 0.2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = 1.25,
-            draw_as_glow = true,
-        }
-    },
-    {
-        type = "projectile",
-        name = name .. "-laser-projectile",
-        flags = { "not-on-map" },
-        acceleration = 0.01,
-        action = {
-            type = "direct",
-            action_delivery = {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "damage",
-                        damage = { amount = 250, type = "laser" }
-                    },
-                }
-            }
-        },
-        animation = {
-            filename = "__erm_terran__/graphics/entity/units/"..name.."/"..name.."-laser-projectile.png",
-            priority = "extra-high",
-            width = 64,
-            height = 64,
-            frame_count = 1,
-            animation_speed = 0.2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = 1.5,
-            draw_as_glow = true,
-        }
     }
 })

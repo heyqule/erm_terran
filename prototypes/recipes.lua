@@ -138,12 +138,12 @@ data:extend({
         energy_required = 120,
         ingredients =
         {
-            {"rocket-launcher", 2},
+            {"laser-turret", 5},
             {"rocket-control-unit", 10},
-            {"explosive-rocket", 100},
+            {"battery", 50},
             {"rocket-fuel", 40},
             {"low-density-structure", 15},
-            {"flying-robot-frame", 20},
+            {"flying-robot-frame", 15},
         },
         result = MOD_NAME .. '/' .. wraith .. '/scout'
     },

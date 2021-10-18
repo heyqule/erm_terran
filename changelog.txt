@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.9.0
+Date: ???
+
+  Changes:
+    - Scout Wraith now shoot laser, instead of rockets
+    - Scout Wraith recipe changed
+    - Raised battlecruise laser damage
+
+---------------------------------------------------------------------------------------------------
 Version: 1.8.0
 Date: 2021-09-03
 
