@@ -30,6 +30,50 @@ local unit_scale = 1.5
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } }
 
+local wraith_animation = {
+    layers = {
+        {
+            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+            width = 64,
+            height = 64,
+            frame_count = 1,
+            repeat_count = 2,
+            axially_symmetrical = false,
+            direction_count = 16,
+            scale = unit_scale,
+            animation_speed = 0.6,
+        },
+        {
+            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
+            width = 64,
+            height = 64,
+            frame_count = 2,
+            axially_symmetrical = false,
+            direction_count = 16,
+            scale = unit_scale,
+            animation_speed = 0.6,
+            draw_as_glow = true,
+            blend_mode = 'additive',
+            tint = ERM_UnitTint.tint_plane_burner(),
+        },
+        {
+            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+            width = 64,
+            height = 64,
+            frame_count = 1,
+            repeat_count = 2,
+            axially_symmetrical = false,
+            direction_count = 16,
+            scale = unit_scale,
+            tint = ERM_UnitTint.tint_shadow(),
+            animation_speed = 0.6,
+            draw_as_shadow = true,
+            shift = { 4, 0 }
+        }
+    }
+}
+
+
 data:extend({
     {
         type = "unit",
@@ -79,6 +123,7 @@ data:extend({
             type = "projectile",
             ammo_category = 'rocket',
             range = attack_range,
+            min_attack_distance = attack_range - 4,
             cooldown = 120,
             cooldown_deviation = 0.1,
             warmup = 6,
@@ -95,94 +140,12 @@ data:extend({
                 }
             },
             sound = TerranSound.attack(name, 0.75, 1),
-            animation = {
-                layers = {
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                        width = 64,
-                        height = 64,
-                        frame_count = 1,
-                        repeat_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        animation_speed = 0.6,
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
-                        width = 64,
-                        height = 64,
-                        frame_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        animation_speed = 0.6,
-                        draw_as_glow = true,
-                        blend_mode = 'additive',
-                        tint = ERM_UnitTint.tint_plane_burner(),
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                        width = 64,
-                        height = 64,
-                        frame_count = 1,
-                        repeat_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        tint = ERM_UnitTint.tint_shadow(),
-                        animation_speed = 0.6,
-                        draw_as_shadow = true,
-                        shift = { 4, 0 }
-                    }
-                }
-            }
+            animation = wraith_animation
         },
         render_layer = "air-object",
         final_render_layer = "air-object",
         distance_per_frame = 0.5,
-        run_animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 64,
-                    height = 64,
-                    frame_count = 1,
-                    repeat_count = 2,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    animation_speed = 0.6
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
-                    width = 64,
-                    height = 64,
-                    frame_count = 2,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    animation_speed = 0.6,
-                    draw_as_glow = true,
-                    blend_mode = 'additive',
-                    tint = ERM_UnitTint.tint_plane_burner(),
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 64,
-                    height = 64,
-                    frame_count = 1,
-                    repeat_count = 2,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    tint = ERM_UnitTint.tint_shadow(),
-                    shift = { 4, 0 },
-                    animation_speed = 0.6,
-                    draw_as_shadow = true
-                }
-            }
-        },
+        run_animation = wraith_animation,
         map_color = ERM_UnitTint.tint_army_color(),
         dying_explosion = "medium-explosion",
         dying_sound = TerranSound.death(name, 1),
@@ -304,6 +267,29 @@ scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
 scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
 scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_S.png"
 scout_wraith.movement_speed = 0.5
+scout_wraith.attack_parameters = {
+    type = "projectile",
+    ammo_category = 'laser',
+    range = attack_range,
+    min_attack_distance = attack_range - 4,
+    cooldown = 90,
+    cooldown_deviation = 0.1,
+    warmup = 6,
+    ammo_type = {
+        category = "laser",
+        target_type = "direction",
+        action = {
+            type = "direct",
+            action_delivery = {
+                type = "projectile",
+                projectile = "wraith-laser-projectile",
+                starting_speed = 0.5,
+            }
+        }
+    },
+    sound = TerranSound.laser_attack('battlecruiser', 0.6, 1),
+    animation = wraith_animation,
+},
 
 data:extend({scout_wraith})
 

@@ -82,6 +82,7 @@ data:extend({
             type = "projectile",
             ammo_category = 'bullet',
             range = attack_range,
+            min_attack_distance = attack_range - 4,
             cooldown = 20,
             cooldown_deviation = 0.1,
             ammo_type =

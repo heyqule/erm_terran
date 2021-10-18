@@ -1,5 +1,6 @@
 require('__erm_terran__/global')
 
+require "prototypes.entities.projectiles"
 require "prototypes.entities.battlecuirser"
 require "prototypes.entities.wraith"
 require "prototypes.entities.tank"
