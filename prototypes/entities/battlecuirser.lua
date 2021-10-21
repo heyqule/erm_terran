@@ -90,7 +90,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "not-flammable" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 5000,
         order = MOD_NAME .. name,
@@ -166,7 +166,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "not-flammable" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation","not-flammable" },
         has_belt_immunity = true,
         max_health = 3500,
         order = MOD_NAME .. name,
@@ -199,7 +199,7 @@ data:extend({
             ammo_category = 'laser',
             range = attack_range,
             min_attack_distance = attack_range - 4,
-            cooldown = 90,
+            cooldown = 60,
             cooldown_deviation = 0.1,
             warmup = 6,
             ammo_type = {

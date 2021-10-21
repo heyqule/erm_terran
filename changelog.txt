@@ -6,6 +6,10 @@ Date: ???
     - Scout Wraith now shoot laser, instead of rockets
     - Scout Wraith recipe changed
     - Raised battlecruise laser damage
+    - Increased shoot speed of laser battlecruise
+
+  Bugfixes:
+    - Fix a bug where you can't repair unit by hand.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.0

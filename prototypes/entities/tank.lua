@@ -46,7 +46,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "not-flammable" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 2500,
         order = MOD_NAME .. name,
