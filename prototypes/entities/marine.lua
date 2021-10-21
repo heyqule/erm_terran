@@ -59,7 +59,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "breaths-air" },
+        flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
         max_health = 300,
         order = MOD_NAME .. name,
