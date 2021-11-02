@@ -9,9 +9,10 @@ local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/unit_tint')
+local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
+local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
 local TerranSound = require('__erm_terran__/prototypes/sound')
 local name = 'marine'
 
@@ -23,7 +24,7 @@ local pollution_to_join_attack = 250
 local distraction_cooldown = 20
 
 -- Animation Settings
-local unit_scale = 1.25
+local unit_scale = 1.5
 
 local collision_box = { { -0.4, -0.4 }, { 0.4, 0.4 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
@@ -61,7 +62,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
-        max_health = 300,
+        max_health = 30 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
@@ -71,7 +72,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.1,
+        movement_speed = 0.1 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -85,6 +86,7 @@ data:extend({
             min_attack_distance = attack_range - 4,
             cooldown = 20,
             cooldown_deviation = 0.1,
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_type =
             {
                 category = "bullet",
@@ -217,8 +219,8 @@ marine_mk2['icons'][2] = {
     scale = 0.25,
     shift = {-9,-9}
 }
-marine_mk2.movement_speed = 0.15
-marine_mk2.max_health = 500
+marine_mk2.movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier()
+marine_mk2.max_health = 50 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = get_resistance(50)
 marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
@@ -239,8 +241,8 @@ marine_mk3['icons'][2] = {
     scale = 0.25,
     shift = {-9,-9}
 }
-marine_mk3.max_health = 750
-marine_mk3.movement_speed = 0.2
+marine_mk3.max_health = 75 * ERMPlayerUnitHelper.get_health_multiplier()
+marine_mk3.movement_speed = 0.2 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = get_resistance(70)
 marine_mk3['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {

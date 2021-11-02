@@ -114,7 +114,6 @@ data:extend({
                 {"logistic-science-pack", 1},
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1},
-                {"utility-science-pack", 1}
             },
             time = 60,
             count = 1000

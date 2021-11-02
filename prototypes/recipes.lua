@@ -61,10 +61,9 @@ data:extend({
         ingredients =
         {
             {"tank", 1},
-            {"rocket-control-unit", 5},
             {"explosive-cannon-shell", 100},
             {"low-density-structure", 20},
-            {"rocket-fuel", 10},
+            {"solid-fuel", 50},
         },
         result = MOD_NAME .. '/' .. tank
     },
@@ -124,7 +123,7 @@ data:extend({
         {
             {"rocket-launcher", 2},
             {"rocket-control-unit", 10},
-            {"explosive-rocket", 100},
+            {"rocket", 100},
             {"rocket-fuel", 20},
             {"low-density-structure", 10},
             {"flying-robot-frame", 10},

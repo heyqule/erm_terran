@@ -3,6 +3,7 @@
 --- Created by heyqule.
 --- DateTime: 10/17/2021 9:54 PM
 ---
+local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 data:extend({
     {
         type = "projectile",
@@ -252,5 +253,14 @@ data:extend({
             height = 50,
             priority = "high"
         }
+    },
+    {
+        type = "sticker",
+        name = "5-075-slowdown-sticker",
+        flags = {},
+        animation = Sprites.empty_pictures(),
+        duration_in_ticks = 5 * 60,
+        target_movement_modifier = 0.75,
+        vehicle_speed_modifier = 0.75,
     }
 })
