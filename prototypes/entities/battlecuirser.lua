@@ -8,10 +8,11 @@ local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/unit_tint')
+local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/helper/data_helper')
+local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
+local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
 local TerranSound = require('__erm_terran__/prototypes/sound')
 local name = 'battlecruiser'
 
@@ -24,7 +25,7 @@ local pollution_to_join_attack = 250
 local distraction_cooldown = 20
 
 -- Animation Settings
-local unit_scale = 1.5
+local unit_scale = 1.75
 
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
@@ -92,7 +93,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
-        max_health = 5000,
+        max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
@@ -112,7 +113,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.225,
+        movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -125,6 +126,7 @@ data:extend({
             min_attack_distance = attack_range - 4,
             cooldown = 360,
             cooldown_deviation = 0.1,
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
             ammo_type = {
                 category = "laser",
@@ -168,7 +170,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation","not-flammable" },
         has_belt_immunity = true,
-        max_health = 3500,
+        max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
@@ -188,7 +190,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.225,
+        movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -201,6 +203,7 @@ data:extend({
             min_attack_distance = attack_range - 4,
             cooldown = 60,
             cooldown_deviation = 0.1,
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
             ammo_type = {
                 category = "laser",

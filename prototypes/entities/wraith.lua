@@ -9,10 +9,11 @@ local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/unit_tint')
+local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/helper/data_helper')
+local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
+local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
 local TerranSound = require('__erm_terran__/prototypes/sound')
 
 local name = 'wraith'
@@ -93,7 +94,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
-        max_health = 2000,
+        max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
@@ -114,7 +115,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.3,
+        movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -126,6 +127,7 @@ data:extend({
             min_attack_distance = attack_range - 4,
             cooldown = 120,
             cooldown_deviation = 0.1,
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
             ammo_type = {
                 category = "rocket",
@@ -266,7 +268,7 @@ local scout_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. nam
 scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
 scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
 scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_S.png"
-scout_wraith.movement_speed = 0.5
+scout_wraith.movement_speed = 0.5 * ERMPlayerUnitHelper.get_speed_multiplier()
 scout_wraith.attack_parameters = {
     type = "projectile",
     ammo_category = 'laser',
@@ -275,6 +277,7 @@ scout_wraith.attack_parameters = {
     cooldown = 90,
     cooldown_deviation = 0.1,
     warmup = 6,
+    damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
     ammo_type = {
         category = "laser",
         target_type = "direction",
@@ -316,7 +319,14 @@ cold_wraith_projectile['action']['action_delivery']
     ['target_effects'][1]['entity_name'] = 'cold-explosion'
 cold_wraith_projectile['action']['action_delivery']
     ['target_effects'][6]['action']['action_delivery']
-    ['target_effects'][1]['damage'] = { amount = 155, type = "cold" }
+    ['target_effects'][1]['damage'] = { amount = 175, type = "cold" }
+table.insert(
+    cold_wraith_projectile['action']['action_delivery']['target_effects'],
+{
+        type = "create-sticker",
+        sticker = "5-075-slowdown-sticker"
+    }
+)
 
 data:extend({cold_wraith_projectile})
 
@@ -364,7 +374,9 @@ acid_wraith_projectile['action']['action_delivery']
     ['target_effects'][1]['entity_name'] = 'acid-explosion'
 acid_wraith_projectile['action']['action_delivery']
     ['target_effects'][6]['action']['action_delivery']
-    ['target_effects'][1]['damage'] = { amount = 165, type = "acid" }
+    ['target_effects'][1]['damage'] = { amount = 175, type = "acid" }
+acid_wraith_projectile['action']['action_delivery']
+['target_effects'][6]['action']['radius'] = 4
 
 data:extend({acid_wraith_projectile})
 

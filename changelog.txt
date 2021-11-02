@@ -1,4 +1,26 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.10.0
+Date: ???
+
+  Changes:
+    - Health now tied to ERM's Unit Max Hit Points Multiplier setting.
+    - Running speed now tied to ERM's Unit Running/Flying speed multiplier setting
+    - Damage now tied to ERM's Unit Running/Flying speed multiplier setting.
+    - The above numbers are unchanged with default settings.
+    - The multipliers only take 75% of the settings' value.
+    - Up unit_scale on various units
+    - Removed yellow-science from Tank MK1.
+    - ***Tank MK1 recipe changed***, changed from 10 rocket fuel to 50 solid fuel
+    - ***Wraith recipe now use regular rocket***, instead of explosive rocket
+    - Cold and Acid Wraith damage are now same as Rocket Wraith.
+    - Acid Wraith up from 3 to 4 area damage.
+    - Cold Wraith now slows enemy for 5s
+
+  Bugfixes:
+    - Fix Poison Wraith has a wrong name.
+
+
+---------------------------------------------------------------------------------------------------
 Version: 1.9.0
 Date: 2021-10-23
 

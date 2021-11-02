@@ -9,9 +9,10 @@ local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/unit_tint')
+local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
+local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
 local TerranSound = require('__erm_terran__/prototypes/sound')
 local name = 'tank'
 
@@ -48,7 +49,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
-        max_health = 2500,
+        max_health = 180 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
@@ -68,7 +69,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.15,
+        movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -82,6 +83,7 @@ data:extend({
             cooldown = 360,
             cooldown_deviation = 0.1,
             warmup = 6,
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_type = {
                 category = "cannon-shell",
                 target_type = "position",
@@ -193,8 +195,8 @@ local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 tank_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 tank_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK2' }
 tank_mk2['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_2.png"
-tank_mk2.max_health = 3500
-tank_mk2.movement_speed = 0.2
+tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
+tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = 'terran-tank-explosive-cannon-projectile-mk2'
 
 data:extend({tank_mk2})
