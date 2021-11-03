@@ -7,7 +7,7 @@ Date: ???
     - Running speed now tied to ERM's Unit Running/Flying speed multiplier setting
     - Damage now tied to ERM's Unit Running/Flying speed multiplier setting.
     - The above numbers are unchanged with default settings.
-    - The multipliers only take 75% of the settings' value.
+    - The multipliers only take 50% of the settings' value.
     - Up unit_scale on various units
     - Removed yellow-science from Tank MK1.
     - ***Tank MK1 recipe changed***, changed from 10 rocket fuel to 50 solid fuel
