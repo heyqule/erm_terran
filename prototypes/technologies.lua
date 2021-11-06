@@ -103,8 +103,8 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-3", "tank", "rocket-control-unit",
-            "rocket-fuel", "low-density-structure", MOD_NAME .. '/' .. marine .. '/mk-2'
+            "military-3", "tank",
+             "low-density-structure", MOD_NAME .. '/' .. marine .. '/mk-2'
         },
         unit =
         {
