@@ -11,10 +11,12 @@ Date: ???
     - Up unit_scale on various units
     - Removed yellow-science from Tank MK1.
     - ***Tank MK1 recipe changed***, changed from 10 rocket fuel to 50 solid fuel
+    - ***Tank MK1 technology changed***, removed rocket-fuel and rocket-control-unit as requirement
     - ***Wraith recipe now use regular rocket***, instead of explosive rocket
     - Cold and Acid Wraith damage are now same as Rocket Wraith.
     - Acid Wraith up from 3 to 4 area damage.
     - Cold Wraith now slows enemy for 5s
+    - Marine cooldown changed MK1 from 20 -> 30, MK2 20 -> 25, MK3 unchanged.
 
   Bugfixes:
     - Fix Poison Wraith has a wrong name.
