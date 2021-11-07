@@ -13,6 +13,22 @@ function TerranSound.death(name, volume)
     }
 end
 
+function TerranSound.rapid_attack(name, volume, distance)
+    return {
+        variations = {
+            {
+                filename = "__core__/sound/silence-1sec.ogg",
+                volume = 0
+            },
+            {
+                filename = "__erm_terran__/sound/" .. name .. "/attack.ogg",
+                volume = volume,
+                audible_distance_modifier = distance
+            }
+        }
+    }
+end
+
 function TerranSound.attack(name, volume, distance)
     return {
         filename = "__erm_terran__/sound/" .. name .. "/attack.ogg",
@@ -23,9 +39,17 @@ end
 
 function TerranSound.laser_attack(name, volume, distance)
     return {
-        filename = "__erm_terran__/sound/" .. name .. "/laser_attack.ogg",
-        volume = volume,
-        audible_distance_modifier = distance
+        variations = {
+            {
+                filename = "__core__/sound/silence-1sec.ogg",
+                volume = 0
+            },
+            {
+                filename = "__erm_terran__/sound/" .. name .. "/laser_attack.ogg",
+                volume = volume,
+                audible_distance_modifier = distance
+            }
+        }
     }
 end
 
