@@ -141,7 +141,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.75, 1),
+            sound = TerranSound.rapid_attack(name, 0.6, 1),
             animation = wraith_animation
         },
         render_layer = "air-object",

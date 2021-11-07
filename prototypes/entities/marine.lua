@@ -112,7 +112,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.5, 0.3),
+            sound = TerranSound.rapid_attack(name, 0.5, 0.3),
             animation = {
                 layers = {
                     {
