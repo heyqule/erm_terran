@@ -72,7 +72,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.1 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -219,7 +219,7 @@ marine_mk2['icons'][2] = {
     scale = 0.25,
     shift = {-9,-9}
 }
-marine_mk2.movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier()
+marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 50 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = get_resistance(50)
 marine_mk2['attack_parameters']['cooldown'] = 25
@@ -243,7 +243,7 @@ marine_mk3['icons'][2] = {
     shift = {-9,-9}
 }
 marine_mk3.max_health = 75 * ERMPlayerUnitHelper.get_health_multiplier()
-marine_mk3.movement_speed = 0.2 * ERMPlayerUnitHelper.get_speed_multiplier()
+marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = get_resistance(70)
 marine_mk3['attack_parameters']['cooldown'] = 20
 marine_mk3['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =

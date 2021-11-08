@@ -69,7 +69,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
