@@ -18,6 +18,7 @@ Date: ???
     - Cold Wraith now slows enemy for 5s
     - Marine cooldown changed MK1 from 20 -> 30, MK2 20 -> 25, MK3 unchanged.
     - Marine Mk1 and 2, Tank MK1 movement speed raised.
+    - ***Marine MK1 recipe changed***, now use yellow bullet instead of red bullet.
 
   Bugfixes:
     - Fix Poison Wraith has a wrong name.

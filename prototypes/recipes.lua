@@ -20,7 +20,7 @@ data:extend({
         {
             {"heavy-armor", 1},
             {"submachine-gun", 1},
-            {"piercing-rounds-magazine", 25},
+            {"firearm-magazine", 50},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk1'
