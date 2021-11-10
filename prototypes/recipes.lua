@@ -18,7 +18,7 @@ data:extend({
         energy_required = 60,
         ingredients =
         {
-            {"heavy-armor", 1},
+            {"light-armor", 1},
             {"submachine-gun", 1},
             {"firearm-magazine", 50},
             {"radar", 1},
@@ -32,7 +32,7 @@ data:extend({
         energy_required = 60,
         ingredients =
         {
-            {"modular-armor", 1},
+            {"heavy-armor", 1},
             {"submachine-gun", 1},
             {"piercing-rounds-magazine", 50},
             {"radar", 1},
