@@ -55,14 +55,14 @@ data:extend({
         shooting_cursor_size = 2,
         can_open_gates = true,
         resistances = {
-            { type = "acid", percent = 75 },
+            { type = "acid", percent = 60 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 75 },
-            { type = "fire", percent = 75 },
-            { type = "explosion", percent = 75 },
-            { type = "laser", percent = 75 },
-            { type = "electric", percent = 75 },
-            { type = "cold", percent = 75 }
+            { type = "physical", percent = 60 },
+            { type = "fire", percent = 60 },
+            { type = "explosion", percent = 60 },
+            { type = "laser", percent = 60 },
+            { type = "electric", percent = 60 },
+            { type = "cold", percent = 60 }
         },
         healing_per_tick = 0,
         collision_box = collision_box,
