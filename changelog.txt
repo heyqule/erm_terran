@@ -5,9 +5,8 @@ Date: ???
   Changes:
     - Health now tied to ERM's Unit Max Hit Points Multiplier setting.
     - Running speed now tied to ERM's Unit Running/Flying speed multiplier setting
-    - Damage now tied to ERM's Unit Running/Flying speed multiplier setting.
-    - The above numbers are unchanged with default settings.
-    - The multipliers only take 50% of the settings' value.
+    - Damage now tied to ERM's Unit Damage multiplier setting.
+    - The multipliers only take 50% of the settings' values.
     - Up unit_scale on various units
     - Removed yellow-science from Tank MK1.
     - ***Tank MK1 recipe changed***, changed from 10 rocket fuel to 50 solid fuel
@@ -16,12 +15,12 @@ Date: ???
     - Cold and Acid Wraith damage are now same as Rocket Wraith.
     - Acid Wraith up from 3 to 4 area damage.
     - Cold Wraith now slows enemy for 5s
-    - Marine cooldown changed MK1 from 20 -> 30, MK2 20 -> 25, MK3 unchanged.
-    - Marine Mk1 and 2, Tank MK1 movement speed raised.
     - ***Marine MK1 recipe changed***, now use yellow bullet and light-armor instead of red bullet, heavy armor.
+    - Marine MK1 and MK2 have slower attack speed, MK3 unchanged.
+    - Marine Mk1 and 2, Tank MK1 movement speed raised.
     - Marine MK1 damage down from 8 to 5, resistance down from 30 to 25, health down from 300 to 250.
-    - Reduced Marin build time to Mk1: 30s, MK2: 45s, MK3: 60s
-    - Reduced Laser Battlecuirse build time from 300s -> 240s
+    - Reduced Marin build time, Mk1: 30s, MK2: 45s, MK3: 60s
+    - Reduced Laser Battlecruiser build time from 300s -> 240s
 
   Bugfixes:
     - Fix Poison Wraith has a wrong name.
