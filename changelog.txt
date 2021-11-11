@@ -20,6 +20,8 @@ Date: ???
     - Marine Mk1 and 2, Tank MK1 movement speed raised.
     - ***Marine MK1 recipe changed***, now use yellow bullet and light-armor instead of red bullet, heavy armor.
     - Marine MK1 damage down from 8 to 5, resistance down from 30 to 25, health down from 300 to 250.
+    - Reduced Marin build time to Mk1: 30s, MK2: 45s, MK3: 60s
+    - Reduced Laser Battlecuirse build time from 300s -> 240s
 
   Bugfixes:
     - Fix Poison Wraith has a wrong name.

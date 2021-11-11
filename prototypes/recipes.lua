@@ -15,7 +15,7 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/' .. marine .. '/mk1',
         enabled = false,
-        energy_required = 60,
+        energy_required = 30,
         ingredients =
         {
             {"light-armor", 1},
@@ -29,7 +29,7 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/' .. marine .. '/mk2',
         enabled = false,
-        energy_required = 60,
+        energy_required = 45,
         ingredients =
         {
             {"heavy-armor", 1},
@@ -43,7 +43,7 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/' .. marine .. '/mk3',
         enabled = false,
-        energy_required = 90,
+        energy_required = 60,
         ingredients =
         {
             {"modular-armor", 1},
@@ -102,7 +102,7 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/' .. battlecruiser .. '/laser',
         enabled = false,
-        energy_required = 300,
+        energy_required = 180,
         ingredients =
         {
             {"nuclear-reactor", 1},
