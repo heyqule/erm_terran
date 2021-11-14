@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.10.0
-Date: ???
+Date: 2021-11-14
 
   Changes:
     - Health now tied to ERM's Unit Max Hit Points Multiplier setting.
