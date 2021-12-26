@@ -103,7 +103,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.75, 1.5),
+            sound = TerranSound.attack(name, 0.75, 1),
             animation = {
                 layers = {
                     {
