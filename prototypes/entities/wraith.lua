@@ -141,11 +141,10 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.6, 1),
+            sound = TerranSound.rapid_attack(name, 0.6, 0.66),
             animation = wraith_animation
         },
-        render_layer = "air-object",
-        final_render_layer = "air-object",
+        render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = wraith_animation,
         map_color = ERM_UnitTint.tint_army_color(),

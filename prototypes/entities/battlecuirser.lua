@@ -140,11 +140,10 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.75, 1.25),
+            sound = TerranSound.attack(name, 0.75, 0.75),
             animation = battlecruiser_animation,
         },
-        render_layer = "air-object",
-        final_render_layer = "air-object",
+        render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = battlecruiser_animation,
         dying_explosion = "massive-explosion",
@@ -220,8 +219,7 @@ data:extend({
             sound = TerranSound.laser_attack(name, 0.75, 1.25),
             animation = battlecruiser_animation,
         },
-        render_layer = "air-object",
-        final_render_layer = "air-object",
+        render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = battlecruiser_animation,
         dying_explosion = "massive-explosion",
