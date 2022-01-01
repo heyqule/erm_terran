@@ -5,6 +5,8 @@ This mod is created as a player controllable combat units demo for  [Enemy Race 
 
 Discord:  [https://discord.gg/BwWXygyEyQ](https://discord.gg/BwWXygyEyQ)
 
+ERM - Features Reel: [https://www.youtube.com/watch?v=phLRReAjxHA](https://www.youtube.com/watch?v=phLRReAjxHA)
+
 #####Licenses
 Lua code files are licensed under GNU LGPLv3
 
