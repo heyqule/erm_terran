@@ -62,11 +62,11 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
-        max_health = 25 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 35 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
-        resistances = get_resistance(25),
+        resistances = get_resistance(33),
         healing_per_tick = 0,
         collision_box = collision_box,
         selection_box = selection_box,
@@ -106,7 +106,7 @@ data:extend({
                             },
                             {
                                 type = "damage",
-                                damage = { amount = 5, type = "physical"}
+                                damage = { amount = 10, type = "physical"}
                             }
                         }
                     }
@@ -226,7 +226,7 @@ marine_mk2['attack_parameters']['cooldown'] = 25
 marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
     type = "damage",
-    damage = { amount = 12, type = "physical"}
+    damage = { amount = 16, type = "physical"}
 }
 
 data:extend({marine_mk2})
