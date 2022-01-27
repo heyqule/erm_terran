@@ -20,7 +20,7 @@ data:extend({
         {
             {"light-armor", 1},
             {"submachine-gun", 1},
-            {"firearm-magazine", 50},
+            {"firearm-magazine", 20},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk1'
@@ -34,7 +34,7 @@ data:extend({
         {
             {"heavy-armor", 1},
             {"submachine-gun", 1},
-            {"piercing-rounds-magazine", 50},
+            {"piercing-rounds-magazine", 40},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk2'
@@ -48,7 +48,7 @@ data:extend({
         {
             {"modular-armor", 1},
             {"submachine-gun", 1},
-            {"uranium-rounds-magazine", 50},
+            {"uranium-rounds-magazine", 40},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk3'

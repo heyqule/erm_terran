@@ -1,6 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.11.3
+Date: 2012-01-28
+
+  Changes:
+    - Reduce bullet magazine from 50 to 20 for Marine MK1
+    - Reduce bullet magazine from 50 to 40 for Marine MK2 and MK3
+
+---------------------------------------------------------------------------------------------------
 Version: 1.11.2
-Date: 2012-01-22
+Date: 2012-01-25
 
   Changes:
     - Marine MK1 buff, 250 to 350 health, 25 to 33 resistance, 5 to 10 damage
