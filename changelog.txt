@@ -5,6 +5,7 @@ Date: 2012-01-28
   Changes:
     - Reduce bullet magazine from 50 to 20 for Marine MK1
     - Reduce bullet magazine from 50 to 40 for Marine MK2 and MK3
+    - sound adjustment to avoid very loud sound when a group initiate an attack.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.11.2
