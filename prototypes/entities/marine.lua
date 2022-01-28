@@ -112,7 +112,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.5, 0.3),
+            sound = TerranSound.rapid_attack(name, 0.5, 0.6),
             animation = {
                 layers = {
                     {
@@ -244,7 +244,7 @@ marine_mk3['icons'][2] = {
 }
 marine_mk3.max_health = 75 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
-marine_mk3.resistances = get_resistance(70)
+marine_mk3.resistances = get_resistance(75)
 marine_mk3['attack_parameters']['cooldown'] = 20
 marine_mk3['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
