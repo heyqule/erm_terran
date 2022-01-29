@@ -17,7 +17,8 @@ function TerranSound.rapid_attack(name, volume, distance)
     return {
         aggregation = {
             max_count = 1,
-            remove = true
+            remove = true,
+            count_already_playing = true,
         },
         audible_distance_modifier = distance,
         variations = {
@@ -33,7 +34,8 @@ function TerranSound.attack(name, volume, distance)
     return {
         aggregation = {
             max_count = 1,
-            remove = true
+            remove = true,
+            count_already_playing = true,
         },
         audible_distance_modifier = distance,
         variations = {
@@ -50,6 +52,7 @@ function TerranSound.laser_attack(name, volume, distance)
         aggregation = {
             max_count = 1,
             remove = true,
+            count_already_playing = true,
         },
         audible_distance_modifier = distance,
         variations = {
