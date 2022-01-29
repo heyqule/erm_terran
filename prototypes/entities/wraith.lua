@@ -141,7 +141,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.6, 0.66),
+            sound = TerranSound.rapid_attack(name, 0.6, 0.6),
             animation = wraith_animation
         },
         render_layer = "wires-above",
