@@ -16,7 +16,7 @@ end
 function TerranSound.rapid_attack(name, volume, distance)
     return {
         aggregation = {
-            max_count = 2,
+            max_count = 1,
             remove = true,
             count_already_playing = true,
         },
@@ -33,7 +33,7 @@ end
 function TerranSound.attack(name, volume, distance)
     return {
         aggregation = {
-            max_count = 2,
+            max_count = 1,
             remove = true,
             count_already_playing = true,
         },
@@ -50,7 +50,7 @@ end
 function TerranSound.laser_attack(name, volume, distance)
     return {
         aggregation = {
-            max_count = 2,
+            max_count = 1,
             remove = true,
             count_already_playing = true,
         },
