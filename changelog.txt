@@ -3,6 +3,11 @@ Version: 1.11.4
 Date: ???
 
   Changes:
+    - Reduce ammo needed for MK2 and MK3 rines from 40 to 25 magazines.
+    - Buff MK1 resist from 33 resist, 350 HP to 40 resist, 400 HP
+    - Buff MK2 resist from 50 resist, 500 HP to 55 resist, 600 HP
+    - Buff MK3 resist from 750 HP to 800 HP
+    - Buff Battlecruiser resist from 75 to 80
     - RU Translation update. (Thank You! SeptiSe7ven)
 
 ---------------------------------------------------------------------------------------------------
