@@ -89,11 +89,11 @@ data:extend({
         energy_required = 300,
         ingredients =
         {
-            {"nuclear-reactor", 4},
+            {"nuclear-reactor", 2},
             {"nuclear-fuel", 40},
             {"rocket-control-unit", 50},
             {"low-density-structure", 50},
-            {"laser-turret", 20},
+            {"laser-turret", 40},
             {"flying-robot-frame", 50},
         },
         result = MOD_NAME .. '/' .. battlecruiser .. '/yamato'
