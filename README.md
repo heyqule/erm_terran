@@ -12,8 +12,6 @@ Lua code files are licensed under GNU LGPLv3
 
 However, Starcraft graphic and sound assets are properties of Blizzard Entertainment Inc.  They are used for educational purposes. The original game is now free to play.
 
-Youtube: https://www.youtube.com/watch?v=pcrFmtvNYTU
-
 ![Terran](https://mods-data.factorio.com/assets/8edb5f447c0a754f1071256c950107fcae32bfa0.png "Terran")
 
 # Requirement
