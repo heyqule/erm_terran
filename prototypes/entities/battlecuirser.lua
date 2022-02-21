@@ -98,14 +98,14 @@ data:extend({
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         resistances = {
-            { type = "acid", percent = 75 },
+            { type = "acid", percent = 80 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 75 },
-            { type = "fire", percent = 75 },
-            { type = "explosion", percent = 75 },
-            { type = "laser", percent = 75 },
-            { type = "electric", percent = 75 },
-            { type = "cold", percent = 75 }
+            { type = "physical", percent = 80 },
+            { type = "fire", percent = 80 },
+            { type = "explosion", percent = 80 },
+            { type = "laser", percent = 80 },
+            { type = "electric", percent = 80 },
+            { type = "cold", percent = 80 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),

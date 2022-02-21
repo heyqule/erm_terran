@@ -34,7 +34,7 @@ data:extend({
         {
             {"heavy-armor", 1},
             {"submachine-gun", 1},
-            {"piercing-rounds-magazine", 40},
+            {"piercing-rounds-magazine", 25},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk2'
@@ -48,7 +48,7 @@ data:extend({
         {
             {"modular-armor", 1},
             {"submachine-gun", 1},
-            {"uranium-rounds-magazine", 40},
+            {"uranium-rounds-magazine", 25},
             {"radar", 1},
         },
         result = MOD_NAME .. '/' .. marine .. '/mk3'
@@ -89,11 +89,11 @@ data:extend({
         energy_required = 300,
         ingredients =
         {
-            {"nuclear-reactor", 4},
+            {"nuclear-reactor", 2},
             {"nuclear-fuel", 40},
             {"rocket-control-unit", 50},
             {"low-density-structure", 50},
-            {"laser-turret", 20},
+            {"laser-turret", 40},
             {"flying-robot-frame", 50},
         },
         result = MOD_NAME .. '/' .. battlecruiser .. '/yamato'
