@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.11.4
+Version: 1.12.0
 Date: ???
 
   Changes:
@@ -8,6 +8,8 @@ Date: ???
     - Buff MK2 resist from 50 resist, 500 HP to 55 resist, 600 HP
     - Buff MK3 resist from 750 HP to 800 HP
     - Buff Battlecruiser resist from 75 to 80
+    - Reduce Yamato battlecruiser nuclear reactor from 4 to 2.
+    - Increase Yamato battlecruiser laser turret from 20 to 40.
     - RU Translation update. (Thank You! SeptiSe7ven)
 
 ---------------------------------------------------------------------------------------------------
