@@ -30,26 +30,26 @@ You can select the unit using shortcut or Alt + left mouse click to enable selec
 This demo feature 4 unique units.  Damage researches enhanced these units' damage as well.
 
 ###### Marine MK1
-* Health 300
-* Resistance 30
+* Health 400
+* Resistance 40
 * Damage
-  * 8 physical, bullet type
+  * 10 physical, bullet type
 
 ###### Marine MK2
-* Health 500
-* Resistance 50
+* Health 600
+* Resistance 55
 * Damage
-  * 12 physical, bullet type
+  * 16 physical, bullet type
 
 ###### Marine MK3
-* Health 750
-* Resistance 70
+* Health 800
+* Resistance 75
 * Damage
   * 48 physical, bullet type
 
 ###### Tank
-* Health 2500
-* Resistance 75
+* Health 1500
+* Resistance 60
 * Cannon Damage
   * 100 physical, on target
   * 100 explosive ground units, 5 area AOE
@@ -95,13 +95,13 @@ This demo feature 4 unique units.  Damage researches enhanced these units' damag
 
 ###### Battlecruiser (Laser Turret)
 * Health 3500
-* Resistance 75
+* Resistance 80
 * Cannon Damage
   * 250 laser, on target
 
 ###### Battlecruiser (Yamato Cannon)
 * Health 5000
-* Resistance 75
+* Resistance 80
 * Cannon Damage
   * 750 laser, on target
   * 125 explosion, all units, 3 area AOE
