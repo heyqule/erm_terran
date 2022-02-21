@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.12.0
-Date: ???
+Date: 2012-02-20
 
   Changes:
     - Reduce ammo needed for MK2 and MK3 rines from 40 to 25 magazines.
