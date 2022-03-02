@@ -133,7 +133,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "tank", "rocket-control-unit", MOD_NAME .. '/' .. tank .. '/mk-1',
-            "rocket-fuel", "low-density-structure", MOD_NAME .. '/' .. marine .. '/mk-3'
+            "rocket-fuel", "low-density-structure",
         },
         unit =
         {
@@ -146,7 +146,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 3000
+            count = 2000
         },
     },
     {
@@ -175,7 +175,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "rocket-control-unit",  MOD_NAME .. '/' .. marine .. '/mk-3',
+            "rocket-control-unit",  MOD_NAME .. '/' .. marine .. '/mk-2',
             "explosive-rocketry", "rocket-fuel"
         },
         unit =
@@ -189,7 +189,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 2000
+            count = 1000
         },
     },
     {
@@ -224,7 +224,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 6000
+            count = 3000
         },
     },
 })

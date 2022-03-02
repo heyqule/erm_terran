@@ -70,7 +70,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 0.33,
+        repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -103,7 +103,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.75, 1),
+            sound = TerranSound.attack(name, 0.66, 0.75),
             animation = {
                 layers = {
                     {
@@ -198,5 +198,15 @@ tank_mk2['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_2.png"
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
 tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = 'terran-tank-explosive-cannon-projectile-mk2'
+tank_mk2.resistances = {
+    { type = "acid", percent = 80 },
+    { type = "poison", percent = 100 },
+    { type = "physical", percent = 80 },
+    { type = "fire", percent = 80 },
+    { type = "explosion", percent = 80 },
+    { type = "laser", percent = 80 },
+    { type = "electric", percent = 80 },
+    { type = "cold", percent = 80 }
+},
 
 data:extend({tank_mk2})
