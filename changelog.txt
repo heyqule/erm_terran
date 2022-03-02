@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.13.0
+Date: ???
+
+  Changes:
+    - Change repair speed back to 1 for all units.
+    - Reduced research cost for all units
+    - Wraith and tank MK2 have lower prerequisites.
+    - increase battlecruiser resistance, laser 80, yamato 90.
+    - increase tank mk2 resistance to 80
+    - all marine uses attack speed of MK3 rine
+    - increase range of battlecruise from 16 -> 24
+
+---------------------------------------------------------------------------------------------------
 Version: 1.12.0
 Date: 2012-02-20
 

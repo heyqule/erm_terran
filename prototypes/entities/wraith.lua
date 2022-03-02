@@ -116,7 +116,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 0.33,
+        repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -273,7 +273,7 @@ scout_wraith.attack_parameters = {
     ammo_category = 'laser',
     range = attack_range,
     min_attack_distance = attack_range - 4,
-    cooldown = 90,
+    cooldown = 60,
     cooldown_deviation = 0.1,
     warmup = 6,
     damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
@@ -289,7 +289,7 @@ scout_wraith.attack_parameters = {
             }
         }
     },
-    sound = TerranSound.laser_attack('battlecruiser', 0.6, 1),
+    sound = TerranSound.laser_attack('battlecruiser', 0.6, 0.75),
     animation = wraith_animation,
 },
 

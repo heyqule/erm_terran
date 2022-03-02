@@ -73,7 +73,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 0.5,
+        repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
@@ -84,7 +84,7 @@ data:extend({
             ammo_category = 'bullet',
             range = attack_range,
             min_attack_distance = attack_range - 4,
-            cooldown = 30,
+            cooldown = 20,
             cooldown_deviation = 0.1,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_type =
@@ -222,7 +222,7 @@ marine_mk2['icons'][2] = {
 marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = get_resistance(55)
-marine_mk2['attack_parameters']['cooldown'] = 25
+marine_mk2['attack_parameters']['cooldown'] = 20
 marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
 {
     type = "damage",

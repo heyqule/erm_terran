@@ -17,7 +17,7 @@ local TerranSound = require('__erm_terran__/prototypes/sound')
 local name = 'battlecruiser'
 
 
-local attack_range = 16
+local attack_range = 24
 
 -- Misc Settings
 local vision_distance = 35
@@ -98,14 +98,14 @@ data:extend({
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         resistances = {
-            { type = "acid", percent = 80 },
+            { type = "acid", percent = 90 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 80 },
-            { type = "fire", percent = 80 },
-            { type = "explosion", percent = 80 },
-            { type = "laser", percent = 80 },
-            { type = "electric", percent = 80 },
-            { type = "cold", percent = 80 }
+            { type = "physical", percent = 90 },
+            { type = "fire", percent = 90 },
+            { type = "explosion", percent = 90 },
+            { type = "laser", percent = 90 },
+            { type = "electric", percent = 90 },
+            { type = "cold", percent = 90 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),
@@ -114,7 +114,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 0.33,
+        repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -174,14 +174,14 @@ data:extend({
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
         resistances = {
-            { type = "acid", percent = 75 },
+            { type = "acid", percent = 80 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 75 },
-            { type = "fire", percent = 75 },
-            { type = "explosion", percent = 75 },
-            { type = "laser", percent = 75 },
-            { type = "electric", percent = 75 },
-            { type = "cold", percent = 75 }
+            { type = "physical", percent = 80 },
+            { type = "fire", percent = 80 },
+            { type = "explosion", percent = 80 },
+            { type = "laser", percent = 80 },
+            { type = "electric", percent = 80 },
+            { type = "cold", percent = 80 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),
@@ -190,7 +190,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 0.33,
+        repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
