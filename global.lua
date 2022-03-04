@@ -7,6 +7,5 @@
 -- Globals within the mod
 MOD_NAME = 'erm_terran'
 FORCE_NAME = 'enemy_erm_terran'
-MOD_VERSION = 100
 
 DEBUG_MODE = false
