@@ -98,7 +98,7 @@ data:extend({
         order = MOD_NAME .. name,
         subgroup = "erm_controlable_units",
         shooting_cursor_size = 2,
-        radar_range = 1,
+        radar_range = 2,
         resistances = {
             { type = "acid", percent = 75 },
             { type = "poison", percent = 100 },
