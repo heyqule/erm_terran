@@ -93,7 +93,6 @@ data:extend({
                         type = "projectile",
                         projectile = "terran-tank-explosive-cannon-projectile",
                         starting_speed = 1.5,
-                        max_range = 30,
                         min_range = 10,
                         source_effects =
                         {

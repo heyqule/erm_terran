@@ -140,7 +140,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.75, 0.75),
+            sound = TerranSound.attack(name, 0.66, 0.75),
             animation = battlecruiser_animation,
         },
         render_layer = "wires-above",
@@ -216,7 +216,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.laser_attack(name, 0.75, 1.25),
+            sound = TerranSound.laser_attack(name, 0.6, 0.6),
             animation = battlecruiser_animation,
         },
         render_layer = "wires-above",
