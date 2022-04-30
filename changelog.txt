@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.13.2
+Date: ???
+
+  Changes:
+    - Lower battlecruiser sound radius.
+    - Remove tile particles on wraith rockets to improve performance on large group
+
+---------------------------------------------------------------------------------------------------
 Version: 1.13.1
 Date: 2022-04-04
 
