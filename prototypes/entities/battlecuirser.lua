@@ -137,6 +137,7 @@ data:extend({
                         type = "projectile",
                         projectile = name .. "-yamato-projectile",
                         starting_speed = 0.25,
+                        max_range = ERM_Config.get_max_projectile_range(2),
                     }
                 }
             },
@@ -213,6 +214,7 @@ data:extend({
                         type = "projectile",
                         projectile = name .. "-laser-projectile",
                         starting_speed = 0.5,
+                        max_range = ERM_Config.get_max_projectile_range(2),
                     }
                 }
             },

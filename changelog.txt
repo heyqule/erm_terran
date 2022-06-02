@@ -5,6 +5,9 @@ Date: ???
   Changes:
     - Lower battlecruiser sound radius.
     - Remove tile particles on wraith rockets to improve performance on large group
+    - Add max_range to projectiles
+    - MK1 marine research prerequisite changed from heavy-armor to military-science-pack
+    - MK2 marine research prerequisite changed from modular-armor to heavy-armor.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.13.1

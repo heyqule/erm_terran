@@ -93,6 +93,7 @@ data:extend({
                         type = "projectile",
                         projectile = "terran-tank-explosive-cannon-projectile",
                         starting_speed = 1.5,
+                        max_range = ERM_Config.get_max_projectile_range(2),
                         min_range = 10,
                         source_effects =
                         {
