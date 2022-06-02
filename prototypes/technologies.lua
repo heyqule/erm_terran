@@ -24,7 +24,7 @@ data:extend({
                 recipe = MOD_NAME .. '/' .. marine .. '/mk1'
             },
         },
-        prerequisites = {"military-2", "heavy-armor"},
+        prerequisites = {"military-2","military-science-pack"},
         unit =
         {
             ingredients =
@@ -49,7 +49,7 @@ data:extend({
                 recipe = MOD_NAME .. '/' .. marine .. '/mk2'
             },
         },
-        prerequisites = {"military-3","modular-armor", MOD_NAME .. '/' .. marine .. '/mk-1'},
+        prerequisites = {"military-2","heavy-armor", MOD_NAME .. '/' .. marine .. '/mk-1'},
         unit =
         {
             ingredients =

@@ -138,6 +138,7 @@ data:extend({
                         type = "projectile",
                         projectile = "wraith-rocket",
                         starting_speed = 0.3,
+                        max_range = ERM_Config.get_max_projectile_range() * 2,
                     }
                 }
             },
