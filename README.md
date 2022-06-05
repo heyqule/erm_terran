@@ -15,7 +15,7 @@ However, Starcraft graphic and sound assets are properties of Blizzard Entertain
 ![Terran](https://mods-data.factorio.com/assets/8edb5f447c0a754f1071256c950107fcae32bfa0.png "Terran")
 
 # Requirement
-* Enemy Race Manager >= 1.7
+* Enemy Race Manager >= 1.15
 * Factorio Standard Library >= 1.4.6
 * Unit Control >= 0.2.4
 * Factorio Base >= 1.1

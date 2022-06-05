@@ -137,10 +137,11 @@ data:extend({
                         type = "projectile",
                         projectile = name .. "-yamato-projectile",
                         starting_speed = 0.25,
+                        max_range = ERM_Config.get_max_projectile_range(2),
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.75, 0.75),
+            sound = TerranSound.attack(name, 0.66, 0.75),
             animation = battlecruiser_animation,
         },
         render_layer = "wires-above",
@@ -213,10 +214,11 @@ data:extend({
                         type = "projectile",
                         projectile = name .. "-laser-projectile",
                         starting_speed = 0.5,
+                        max_range = ERM_Config.get_max_projectile_range(2),
                     }
                 }
             },
-            sound = TerranSound.laser_attack(name, 0.75, 1.25),
+            sound = TerranSound.laser_attack(name, 0.6, 0.6),
             animation = battlecruiser_animation,
         },
         render_layer = "wires-above",
