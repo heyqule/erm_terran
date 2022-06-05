@@ -4,6 +4,7 @@ Date: 2022-06-06
 
   Changes:
     - Lower battlecruiser sound radius.
+    - Changed yamato gun AOE from 3 to 5
     - Remove tile particles on wraith rockets to improve performance on large group
     - Add max_range to projectiles
     - MK1 marine research prerequisite changed from heavy-armor to military-science-pack
