@@ -176,7 +176,7 @@ data:extend({
                         action = {
                             type = "area",
                             force = "not-same",
-                            radius = 5,
+                            radius = 4,
                             ignore_collision_condition = true,
                             action_delivery = {
                                 type = "instant",
