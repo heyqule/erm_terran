@@ -1,11 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.13.3
+Date: 2022-06-11
+
+  Change:
+    - Remove smoke from wraith rocket to increase performance in large group.
+
+
+---------------------------------------------------------------------------------------------------
 Version: 1.13.2
 Date: 2022-06-06
 
   Changes:
     - Lower battlecruiser sound radius.
     - Changed yamato gun AOE from 3 to 4
-    - Remove tile particles on wraith rockets to improve performance on large group
+    - turned off turning_speed_increases_exponentially_with_projectile_speed for rocket
     - Add max_range to projectiles
     - MK1 marine research prerequisite changed from heavy-armor to military-science-pack
     - MK2 marine research prerequisite changed from modular-armor to heavy-armor.
