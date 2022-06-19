@@ -31,48 +31,51 @@ local unit_scale = 1.5
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } }
 
-local wraith_animation = {
-    layers = {
-        {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-            width = 64,
-            height = 64,
-            frame_count = 1,
-            repeat_count = 2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = unit_scale,
-            animation_speed = 0.6,
-        },
-        {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
-            width = 64,
-            height = 64,
-            frame_count = 2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = unit_scale,
-            animation_speed = 0.6,
-            draw_as_glow = true,
-            blend_mode = 'additive',
-            tint = ERM_UnitTint.tint_plane_burner(),
-        },
-        {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-            width = 64,
-            height = 64,
-            frame_count = 1,
-            repeat_count = 2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = unit_scale,
-            tint = ERM_UnitTint.tint_shadow(),
-            animation_speed = 0.6,
-            draw_as_shadow = true,
-            shift = { 4, 0 }
+function wraith_animation()
+    return
+    {
+        layers = {
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                width = 64,
+                height = 64,
+                frame_count = 1,
+                repeat_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                animation_speed = 0.6,
+            },
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
+                width = 64,
+                height = 64,
+                frame_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                animation_speed = 0.6,
+                draw_as_glow = true,
+                blend_mode = 'additive',
+                tint = ERM_UnitTint.tint_plane_burner(),
+            },
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                width = 64,
+                height = 64,
+                frame_count = 1,
+                repeat_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                tint = ERM_UnitTint.tint_shadow(),
+                animation_speed = 0.6,
+                draw_as_shadow = true,
+                shift = { 4, 0 }
+            }
         }
     }
-}
+end
 
 
 data:extend({
@@ -143,11 +146,11 @@ data:extend({
                 }
             },
             sound = TerranSound.rapid_attack(name, 0.6, 0.6),
-            animation = wraith_animation
+            animation = wraith_animation()
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = wraith_animation,
+        run_animation = wraith_animation(),
         map_color = ERM_UnitTint.tint_army_color(),
         dying_explosion = "medium-explosion",
         dying_sound = TerranSound.death(name, 1),
@@ -197,7 +200,7 @@ scout_wraith.attack_parameters = {
         }
     },
     sound = TerranSound.laser_attack('battlecruiser', 0.6, 0.75),
-    animation = wraith_animation,
+    animation = wraith_animation(),
 },
 
 data:extend({scout_wraith})

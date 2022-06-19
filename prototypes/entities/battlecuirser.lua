@@ -30,48 +30,76 @@ local unit_scale = 1.75
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
-local battlecruiser_animation =  {
-    layers = {
-        {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-            width = 120,
-            height = 120,
-            frame_count = 1,
-            repeat_count = 2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = unit_scale,
-            animation_speed = 0.6,
-        },
-        {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
-            width = 120,
-            height = 120,
-            frame_count = 2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = unit_scale,
-            animation_speed = 0.6,
-            draw_as_glow = true,
-            blend_mode = 'additive',
-            tint = ERM_UnitTint.tint_plane_burner(),
-        },
-        {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-            width = 120,
-            height = 120,
-            frame_count = 1,
-            repeat_count = 2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = unit_scale,
-            tint = ERM_UnitTint.tint_shadow(),
-            animation_speed = 0.6,
-            draw_as_shadow = true,
-            shift = { 6, 0 }
+function battlecruiser_animation()
+    return  {
+        layers = {
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                width = 120,
+                height = 120,
+                frame_count = 1,
+                repeat_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                animation_speed = 0.6,
+            },
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
+                width = 120,
+                height = 120,
+                frame_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                animation_speed = 0.6,
+                draw_as_glow = true,
+                blend_mode = 'additive',
+                tint = ERM_UnitTint.tint_plane_burner(),
+            },
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                width = 120,
+                height = 120,
+                frame_count = 1,
+                repeat_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                tint = ERM_UnitTint.tint_shadow(),
+                animation_speed = 0.6,
+                draw_as_shadow = true,
+                shift = { 6, 0 }
+            }
         }
     }
-}
+end
+
+function battlecruiser_light()
+    local light
+    if settings.startup['erm_terran-add-light'].value then
+        light = {
+            {
+                type = "oriented",
+                minimum_darkness = 0.3,
+                picture =
+                {
+                    filename = "__core__/graphics/light-cone.png",
+                    priority = "extra-high",
+                    flags = { "light"},
+                    scale = 2,
+                    width = 200,
+                    height = 200
+                },
+                shift = {0, -18},
+                size = 3,
+                intensity = 0.6,
+                color = {r = 0.92, g = 0.77, b = 0.3}
+            }
+        }
+    end
+    return light
+end
 
 
 data:extend({
@@ -142,15 +170,16 @@ data:extend({
                 }
             },
             sound = TerranSound.attack(name, 0.66, 0.75),
-            animation = battlecruiser_animation,
+            animation = battlecruiser_animation(),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation,
+        run_animation = battlecruiser_animation(),
         dying_explosion = "massive-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
-        map_color = ERM_UnitTint.tint_army_color()
+        map_color = ERM_UnitTint.tint_army_color(),
+        light = battlecruiser_light()
     },
     {
         type = "unit",
@@ -219,15 +248,16 @@ data:extend({
                 }
             },
             sound = TerranSound.laser_attack(name, 0.6, 0.6),
-            animation = battlecruiser_animation,
+            animation = battlecruiser_animation(),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation,
+        run_animation = battlecruiser_animation(),
         dying_explosion = "massive-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
-        map_color = ERM_UnitTint.tint_army_color()
+        map_color = ERM_UnitTint.tint_army_color(),
+        light = battlecruiser_light()
     },
     {
         type = "corpse",

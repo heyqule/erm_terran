@@ -42,6 +42,32 @@ function get_resistance(value)
     }
 end
 
+function get_light()
+    local light
+    if settings.startup['erm_terran-add-light'].value then
+        light = {
+            {
+                type = "oriented",
+                minimum_darkness = 0.3,
+                picture =
+                {
+                    filename = "__core__/graphics/light-cone.png",
+                    priority = "extra-high",
+                    flags = { "light"},
+                    scale = 2,
+                    width = 200,
+                    height = 200
+                },
+                shift = {0, -6},
+                size = 1,
+                intensity = 0.4,
+                color = {r = 0.92, g = 0.77, b = 0.3}
+            }
+        }
+    end
+    return light
+end
+
 -- Marine MK 1 --
 data:extend({
     {
@@ -180,7 +206,8 @@ data:extend({
         },
         dying_sound = TerranSound.marine_death(1),
         corpse = name .. '-corpse',
-        map_color = ERM_UnitTint.tint_army_color()
+        map_color = ERM_UnitTint.tint_army_color(),
+        light = get_light()
     },
     {
         type = "corpse",

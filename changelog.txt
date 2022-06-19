@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.13.4
+Date: 2022-06-22
+
+  Changes:
+    - Added light to battlecruiser
+    - Added light to marines
+    - Light can be turn off in startup settings.
+
+  Bugfixes:
+    - Fix that the animation is a shared variables for battlecruiser and wraith variants.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.13.3
 Date: 2022-06-11
 
