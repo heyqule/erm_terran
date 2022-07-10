@@ -23,7 +23,7 @@ local attack_range = 16
 -- Misc Settings
 local vision_distance = 35
 local pollution_to_join_attack = 250
-local distraction_cooldown = 20
+local distraction_cooldown = 30
 
 -- Animation Settings
 local unit_scale = 1.5

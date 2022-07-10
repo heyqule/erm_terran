@@ -21,12 +21,12 @@ local attack_range = 12
 -- Misc Settings
 local vision_distance = 30
 local pollution_to_join_attack = 250
-local distraction_cooldown = 20
+local distraction_cooldown = 30
 
 -- Animation Settings
 local unit_scale = 1.5
 
-local collision_box = { { -0.4, -0.4 }, { 0.4, 0.4 } }
+local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
 function get_resistance(value)
