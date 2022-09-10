@@ -160,7 +160,7 @@ data:extend({
                 }
             }
         },
-        dying_explosion = 'erm-fire-explosion-ground_a-1',
+        dying_explosion = 'erm-fire-explosion-ground_normal-1',
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),

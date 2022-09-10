@@ -153,7 +153,7 @@ data:extend({
         run_animation = wraith_animation('orange'),
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
-        dying_explosion = 'erm-fire-explosion-air_b-1',
+        dying_explosion = 'erm-fire-explosion-air_normal-1',
         dying_sound = TerranSound.death(name, 1),
         corpse = name .. '-corpse'
     },
