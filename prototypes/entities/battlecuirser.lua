@@ -149,6 +149,7 @@ data:extend({
         radar_range = 2,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'laser',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -169,8 +170,8 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.66, 0.75),
             animation = battlecruiser_animation('orange'),
+            sound = TerranSound.attack(name, 0.66, 0.66),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
@@ -228,6 +229,7 @@ data:extend({
         radar_range = 1,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'laser',
             range = attack_range,
             min_attack_distance = attack_range - 4,

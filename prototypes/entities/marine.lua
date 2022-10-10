@@ -107,12 +107,17 @@ data:extend({
         radar_range = 1,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'bullet',
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 20,
             cooldown_deviation = 0.1,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
+            cyclic_sound = {
+                begin_sound = TerranSound.rapid_attack(name, 0.5, 0.5),
+                middle_sound = TerranSound.rapid_attack(name, 0.5, 0.5),
+            },
             ammo_type =
             {
                 category = "bullet",

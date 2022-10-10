@@ -125,6 +125,7 @@ data:extend({
         --ai_settings = biter_ai_settings,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'rocket',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -145,8 +146,8 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.6, 0.6),
-            animation = wraith_animation('orange')
+            animation = wraith_animation('orange'),
+            sound = TerranSound.rapid_attack(name, 0.6, 0.5),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
@@ -181,6 +182,7 @@ scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_S.png"
 scout_wraith.movement_speed = 0.6 * ERMPlayerUnitHelper.get_speed_multiplier()
 scout_wraith.attack_parameters = {
     type = "projectile",
+    range_mode = "bounding-box-to-bounding-box",
     ammo_category = 'laser',
     range = attack_range,
     min_attack_distance = attack_range - 4,

@@ -77,6 +77,7 @@ data:extend({
         radar_range = 1,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'cannon-shell',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -103,7 +104,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.66, 0.75),
+            sound = TerranSound.attack(name, 0.66, 0.66),
             animation = {
                 layers = {
                     {
