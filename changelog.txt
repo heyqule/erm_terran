@@ -1,5 +1,26 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.14.0
+Date: ????
+
+  Features:
+    - Introduce unit supply limit.
+    - This can be increase by researching "Follower robot count" tech.
+    - The formula is 150(Base) + maximum_following_robot_count
+    - Marine: 1, Tank / Wraith: 2, Battlecruiser: 5
+    - Introduce Command Center.
+    - Command Center allows units to teleport to another command center. It can be command center in other surfaces.
+    - Introduce Barrack, Factory and Starport.
+    - Barrack allows auto spawn marines
+    - Factory allows auto spawn tanks
+    - Starport allows auto spawn wraith or battlecruiser
+
+  Changes:
+    - Range_mode to bounding_box
+    - another update to marine firing sound
+    - Update explosion effects on vehicles.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.14.0
 Date: 2022-11-15
 
   Graphics:
