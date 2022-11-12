@@ -30,11 +30,11 @@ local unit_scale = 1.75
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
-function battlecruiser_animation()
+function battlecruiser_animation(color)
     return  {
         layers = {
             {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-" .. color .. "-run.png",
                 width = 120,
                 height = 120,
                 frame_count = 1,
@@ -58,7 +58,7 @@ function battlecruiser_animation()
                 tint = ERM_UnitTint.tint_plane_burner(),
             },
             {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-" .. color .. "-run.png",
                 width = 120,
                 height = 120,
                 frame_count = 1,
@@ -170,11 +170,11 @@ data:extend({
                 }
             },
             sound = TerranSound.attack(name, 0.66, 0.75),
-            animation = battlecruiser_animation(),
+            animation = battlecruiser_animation('orange'),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation(),
+        run_animation = battlecruiser_animation('orange'),
         dying_explosion = "massive-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
@@ -248,11 +248,11 @@ data:extend({
                 }
             },
             sound = TerranSound.laser_attack(name, 0.6, 0.6),
-            animation = battlecruiser_animation(),
+            animation = battlecruiser_animation('yellow'),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation(),
+        run_animation = battlecruiser_animation('yellow'),
         dying_explosion = "massive-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
