@@ -207,6 +207,7 @@ data:extend({
         dying_sound = TerranSound.marine_death(1),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
+        enemy_map_color = { r=1, b=0, g=0 },
         light = get_light()
     },
     {

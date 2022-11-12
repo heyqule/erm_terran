@@ -163,7 +163,8 @@ data:extend({
         dying_explosion = "big-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
-        map_color = ERM_UnitTint.tint_army_color()
+        map_color = ERM_UnitTint.tint_army_color(),
+        enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",

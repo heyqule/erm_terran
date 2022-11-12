@@ -2,9 +2,10 @@
 Version: 1.14.0
 Date: 2022-11-15
 
-  Graphic
+  Graphics:
     - Updated graphics. Sprite no longer have unintended holes and black borders
     - Added colors variant for wraith and battlecruiser to indicate their role.
+    - added enemy_map_color = red to all units
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.13.5
