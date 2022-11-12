@@ -36,17 +36,6 @@ function wraith_animation()
     {
         layers = {
             {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                width = 64,
-                height = 64,
-                frame_count = 1,
-                repeat_count = 2,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.6,
-            },
-            {
                 filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
                 width = 64,
                 height = 64,
@@ -56,8 +45,19 @@ function wraith_animation()
                 scale = unit_scale,
                 animation_speed = 0.6,
                 draw_as_glow = true,
-                blend_mode = 'additive',
+                blend_mode = 'additive-soft',
                 tint = ERM_UnitTint.tint_plane_burner(),
+            },
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                width = 64,
+                height = 64,
+                frame_count = 1,
+                repeat_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                animation_speed = 0.6,
             },
             {
                 filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",

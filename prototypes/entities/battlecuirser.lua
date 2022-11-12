@@ -54,7 +54,7 @@ function battlecruiser_animation()
                 scale = unit_scale,
                 animation_speed = 0.6,
                 draw_as_glow = true,
-                blend_mode = 'additive',
+                blend_mode = 'additive-soft',
                 tint = ERM_UnitTint.tint_plane_burner(),
             },
             {
