@@ -3,9 +3,12 @@ Version: 1.14.0
 Date: 2022-11-15
 
   Graphics:
-    - Updated graphics. Sprite no longer have unintended holes and black borders
+    - Updated graphics. Sprites no longer have unintended holes and black borders!!!
     - Added colors variant for wraith and battlecruiser to indicate their role.
-    - added enemy_map_color = red to all units
+    - Added enemy_map_color = red to all units
+
+  Changes:
+    - Marine MK3 HP 800 -> 1000
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.13.5
