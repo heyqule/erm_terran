@@ -138,7 +138,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.5, 0.6),
+            sound = TerranSound.rapid_attack(name, 0.5, 0.5),
             animation = {
                 layers = {
                     {
@@ -207,6 +207,7 @@ data:extend({
         dying_sound = TerranSound.marine_death(1),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
+        enemy_map_color = { r=1, b=0, g=0 },
         light = get_light()
     },
     {
@@ -269,7 +270,7 @@ marine_mk3['icons'][2] = {
     scale = 0.25,
     shift = {-9,-9}
 }
-marine_mk3.max_health = 80 * ERMPlayerUnitHelper.get_health_multiplier()
+marine_mk3.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = get_resistance(75)
 marine_mk3['attack_parameters']['cooldown'] = 20

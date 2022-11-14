@@ -31,21 +31,10 @@ local unit_scale = 1.5
 local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
 local selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } }
 
-function wraith_animation()
+function wraith_animation(color)
     return
     {
         layers = {
-            {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                width = 64,
-                height = 64,
-                frame_count = 1,
-                repeat_count = 2,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.6,
-            },
             {
                 filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
                 width = 64,
@@ -56,11 +45,22 @@ function wraith_animation()
                 scale = unit_scale,
                 animation_speed = 0.6,
                 draw_as_glow = true,
-                blend_mode = 'additive',
+                blend_mode = 'additive-soft',
                 tint = ERM_UnitTint.tint_plane_burner(),
             },
             {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-" .. color .. "-run.png",
+                width = 64,
+                height = 64,
+                frame_count = 1,
+                repeat_count = 2,
+                axially_symmetrical = false,
+                direction_count = 16,
+                scale = unit_scale,
+                animation_speed = 0.6,
+            },
+            {
+                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-" .. color .. "-run.png",
                 width = 64,
                 height = 64,
                 frame_count = 1,
@@ -146,12 +146,13 @@ data:extend({
                 }
             },
             sound = TerranSound.rapid_attack(name, 0.6, 0.6),
-            animation = wraith_animation()
+            animation = wraith_animation('orange')
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = wraith_animation(),
+        run_animation = wraith_animation('orange'),
         map_color = ERM_UnitTint.tint_army_color(),
+        enemy_map_color = { r=1, b=0, g=0 },
         dying_explosion = "medium-explosion",
         dying_sound = TerranSound.death(name, 1),
         corpse = name .. '-corpse'
@@ -200,8 +201,10 @@ scout_wraith.attack_parameters = {
         }
     },
     sound = TerranSound.laser_attack('battlecruiser', 0.6, 0.75),
-    animation = wraith_animation(),
-},
+    animation = wraith_animation('yellow')
+}
+
+scout_wraith['run_animation'] = wraith_animation('yellow')
 
 data:extend({scout_wraith})
 
@@ -246,20 +249,10 @@ cold_wraith.name = MOD_NAME .. '/' .. name .. '/cold'
 cold_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/cold'}
 cold_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_blue.png"
 
-table.insert(cold_wraith['run_animation']['layers'], {
-    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-    width = 64,
-    height = 64,
-    frame_count = 1,
-    repeat_count = 2,
-    axially_symmetrical = false,
-    direction_count = 16,
-    scale = unit_scale,
-    animation_speed = 0.6,
-    tint = ERM_UnitTint.tint_cold()
-})
+cold_wraith['run_animation'] =  wraith_animation('blue')
 
 cold_wraith['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = 'cold-wraith-projectile'
+cold_wraith['attack_parameters']['animation'] = wraith_animation('blue')
 
 data:extend({cold_wraith})
 
@@ -294,8 +287,8 @@ acid_wraith.name = MOD_NAME .. '/' .. name .. '/acid'
 acid_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/acid' }
 acid_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_green.png"
 
-table.insert(acid_wraith['run_animation']['layers'], {
-    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
+acid_wraith['run_animation']['layers'][2] = {
+    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-green-run.png",
     width = 64,
     height = 64,
     frame_count = 1,
@@ -304,8 +297,11 @@ table.insert(acid_wraith['run_animation']['layers'], {
     direction_count = 16,
     scale = unit_scale,
     animation_speed = 0.6,
-    tint = ERM_UnitTint.tint_acid()
-})
+}
 acid_wraith['attack_parameters']['ammo_type']
     ['action']['action_delivery']['projectile'] = 'acid-wraith-projectile'
+
+acid_wraith['attack_parameters']['animation'] = wraith_animation('green')
+acid_wraith['animation'] = wraith_animation('green')
+
 data:extend({acid_wraith})
