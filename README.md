@@ -12,20 +12,20 @@ Lua code files are licensed under GNU LGPLv3
 
 However, Starcraft graphic and sound assets are properties of Blizzard Entertainment Inc.  They are used for educational purposes. The original game is now free to play.
 
-![Terran](https://mods-data.factorio.com/assets/8edb5f447c0a754f1071256c950107fcae32bfa0.png "Terran")
-
 # Requirement
 * Enemy Race Manager >= 1.15
 * Factorio Standard Library >= 1.4.6
-* Unit Control >= 0.2.4
+* Unit Control >= 0.3.11
 * Factorio Base >= 1.1
 
 # Using "Unit Control"
 You can select the unit using shortcut or Alt + left mouse click to enable selector, or Shift + Alt + left mouse click to select ALL units.
-![howto](https://mods-data.factorio.com/assets/ea506209c870c0f1f796469061d631db0be04c27.png "howto")
+
+![Terran](https://assets-mod.factorio.com/assets/36ca20cc5473a570a347d508be0f8fd69070464b.png "Terran")
+
 
 # Features
-This demo feature 4 unique units.  Damage researches enhanced these units' damage as well.
+This demo feature 4 unique units.  Weapon researches enhanced these units' damage as well.
 
 ###### Marine MK1
 * Health 400
