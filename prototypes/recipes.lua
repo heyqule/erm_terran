@@ -178,4 +178,35 @@ data:extend({
         },
         result = MOD_NAME .. '/' .. wraith  .. '/acid'
     },
+
+    --- Building
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/command-center',
+        enabled = false,
+        energy_required = 120,
+        ingredients =
+        {
+            {"radar", 50},
+            {"steel-plate", 500},
+            {"low-density-structure", 250},
+            {"rocket-control-unit", 100},
+        },
+        energy_required = 120,
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_C.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_buildings",
+        order = "a-erm-building-commandcenter",
+        result = MOD_NAME .. '/command-center'
+    }
 })

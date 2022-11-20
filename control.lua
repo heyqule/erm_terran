@@ -18,12 +18,23 @@ local populations = {
 }
 
 local refresh_data = function()
+    -- Register Army Units
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "unit"}})) do
         local nameToken = String.split(prototype.name, '/')
         if nameToken[1] == MOD_NAME and populations[nameToken[2]] then
             remote.call('enemy_race_manager','army_units_register', prototype.name, populations[nameToken[2]]);
         end
     end
+
+    -- Register Command Center
+    for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "radar"}})) do
+        local nameToken = String.split(prototype.name, '/')
+        if nameToken[1] == MOD_NAME then
+            remote.call('enemy_race_manager','army_command_center_register', prototype.name);
+        end
+    end
+
+    -- Register Auto Deployer
 end
 
 Event.on_init(function(event)

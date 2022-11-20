@@ -251,4 +251,27 @@ data:extend({
         place_result = MOD_NAME .. '/' .. wraith .. '/scout',
         stack_size = 10
     },
+
+
+    --- Building
+    {
+        type = "item",
+        name = MOD_NAME .. '/command-center',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_C.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controlable_buildings",
+        order = "a-erm-building-commandcenter",
+        place_result = MOD_NAME .. '/command-center',
+        stack_size = 6
+    }
 })

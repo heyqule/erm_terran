@@ -227,4 +227,87 @@ data:extend({
             count = 3000
         },
     },
+
+
+    --- Buildings
+    {
+        type = "technology",
+        name = MOD_NAME .. '/command-center',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_C.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-20,-20}
+            },
+        },
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/command-center'
+            },
+        },
+        prerequisites = {
+            "military-4",
+            "low-density-structure",
+            "rocket-control-unit"
+        },
+        unit = {
+            ingredients = {
+                { "automation-science-pack", 1 },
+                { "logistic-science-pack", 1 },
+                { "chemical-science-pack", 1 },
+                { "military-science-pack", 1 },
+                { "utility-science-pack", 1 }
+            },
+            time = 30,
+            count = 1000
+        }
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/auto-deploy',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-20,-20}
+            },
+        },
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/command-center'
+            },
+        },
+        prerequisites = {
+            "military-4",
+            "low-density-structure",
+            "rocket-control-unit"
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 30,
+            count = 1000
+        },
+    }
+
 })
