@@ -99,7 +99,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         radar_range = 2,
         resistances = {

@@ -10,9 +10,10 @@ Date: ????-??-??
     - Introduce Command Center.
     - Command Center allows units to teleport to another command center. It can be command center in other surfaces.
     - Introduce Barrack, Factory and Starport.
-    - Barrack allows auto spawn marines
-    - Factory allows auto spawn tanks
-    - Starport allows auto spawn wraith or battlecruiser
+    - ** Assembling-Machine can no long build combat units. **
+    - Barrack builds and auto spawn infantry
+    - Factory builds and auto spawn land vehicles
+    - Starport builds and auto spawn air vehicles
 
   Changes:
     - Range_mode to bounding_box

@@ -34,7 +34,13 @@ local refresh_data = function()
         end
     end
 
-    -- Register Auto Deployer
+    -- Register Auto Deployers
+    for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "assembling-machine"}})) do
+        local nameToken = String.split(prototype.name, '/')
+        if nameToken[1] == MOD_NAME then
+            remote.call('enemy_race_manager','army_deployer_register', prototype.name);
+        end
+    end
 end
 
 Event.on_init(function(event)

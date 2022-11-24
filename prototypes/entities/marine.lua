@@ -90,7 +90,7 @@ data:extend({
         has_belt_immunity = false,
         max_health = 40 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = get_resistance(40),
         healing_per_tick = 0,

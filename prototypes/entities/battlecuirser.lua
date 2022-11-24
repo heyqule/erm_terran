@@ -123,7 +123,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
             { type = "acid", percent = 90 },
@@ -203,7 +203,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
             { type = "acid", percent = 80 },

@@ -5,17 +5,12 @@
 ---
 require('__erm_terran__/global')
 
-local marine = 'marine'
-local tank = 'tank'
-local wraith = 'wraith'
-local battlecruiser = 'battlecruiser'
-
 data:extend({
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. marine .. '/mk1',
+        name = MOD_NAME .. '/marine/mk1',
         enabled = false,
-        energy_required = 30,
+        energy_required = 24,
         ingredients =
         {
             {"light-armor", 1},
@@ -23,13 +18,15 @@ data:extend({
             {"firearm-magazine", 20},
             {"radar", 1},
         },
-        result = MOD_NAME .. '/' .. marine .. '/mk1'
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/marine/mk1'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. marine .. '/mk2',
+        name = MOD_NAME .. '/marine/mk2',
         enabled = false,
-        energy_required = 45,
+        energy_required = 24,
         ingredients =
         {
             {"heavy-armor", 1},
@@ -37,13 +34,15 @@ data:extend({
             {"piercing-rounds-magazine", 25},
             {"radar", 1},
         },
-        result = MOD_NAME .. '/' .. marine .. '/mk2'
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/marine/mk2'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. marine .. '/mk3',
+        name = MOD_NAME .. '/marine/mk3',
         enabled = false,
-        energy_required = 60,
+        energy_required = 24,
         ingredients =
         {
             {"modular-armor", 1},
@@ -51,13 +50,15 @@ data:extend({
             {"uranium-rounds-magazine", 25},
             {"radar", 1},
         },
-        result = MOD_NAME .. '/' .. marine .. '/mk3'
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/marine/mk3'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. tank,
+        name = MOD_NAME .. '/tank',
         enabled = false,
-        energy_required = 90,
+        energy_required = 50,
         ingredients =
         {
             {"tank", 1},
@@ -65,13 +66,15 @@ data:extend({
             {"low-density-structure", 20},
             {"solid-fuel", 50},
         },
-        result = MOD_NAME .. '/' .. tank
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/tank'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. tank .. '/mk2',
+        name = MOD_NAME .. '/tank/mk2',
         enabled = false,
-        energy_required = 180,
+        energy_required = 50,
         ingredients =
         {
             {"tank", 1},
@@ -80,13 +83,15 @@ data:extend({
             {"low-density-structure", 40},
             {"rocket-fuel", 20},
         },
-        result = MOD_NAME .. '/' .. tank .. '/mk2'
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/tank/mk2'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. battlecruiser .. '/yamato',
+        name = MOD_NAME .. '/battlecruiser/yamato',
         enabled = false,
-        energy_required = 300,
+        energy_required = 133,
         ingredients =
         {
             {"nuclear-reactor", 2},
@@ -96,13 +101,15 @@ data:extend({
             {"laser-turret", 40},
             {"flying-robot-frame", 50},
         },
-        result = MOD_NAME .. '/' .. battlecruiser .. '/yamato'
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/battlecruiser/yamato'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. battlecruiser .. '/laser',
+        name = MOD_NAME .. '/battlecruiser/laser',
         enabled = false,
-        energy_required = 180,
+        energy_required = 133,
         ingredients =
         {
             {"nuclear-reactor", 1},
@@ -112,13 +119,15 @@ data:extend({
             {"laser-turret", 10},
             {"flying-robot-frame", 30},
         },
-        result = MOD_NAME .. '/' .. battlecruiser .. '/laser'
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/battlecruiser/laser'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. wraith,
+        name = MOD_NAME .. '/wraith',
         enabled = false,
-        energy_required = 120,
+        energy_required = 60,
         ingredients =
         {
             {"rocket-launcher", 2},
@@ -128,13 +137,15 @@ data:extend({
             {"low-density-structure", 10},
             {"flying-robot-frame", 10},
         },
-        result = MOD_NAME .. '/' .. wraith
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. wraith .. '/scout',
+        name = MOD_NAME .. '/wraith/scout',
         enabled = false,
-        energy_required = 120,
+        energy_required = 60,
         ingredients =
         {
             {"laser-turret", 5},
@@ -144,13 +155,15 @@ data:extend({
             {"low-density-structure", 15},
             {"flying-robot-frame", 15},
         },
-        result = MOD_NAME .. '/' .. wraith .. '/scout'
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith/scout'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. wraith .. '/cold',
+        name = MOD_NAME .. '/wraith/cold',
         enabled = false,
-        energy_required = 120,
+        energy_required = 60,
         ingredients =
         {
             {"rocket-launcher", 2},
@@ -160,13 +173,15 @@ data:extend({
             {"low-density-structure", 10},
             {"flying-robot-frame", 10},
         },
-        result = MOD_NAME .. '/' .. wraith .. '/cold'
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith/cold'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/' .. wraith  .. '/acid',
+        name = MOD_NAME .. '/wraith/acid',
         enabled = false,
-        energy_required = 120,
+        energy_required = 60,
         ingredients =
         {
             {"rocket-launcher", 2},
@@ -176,7 +191,9 @@ data:extend({
             {"low-density-structure", 10},
             {"flying-robot-frame", 10},
         },
-        result = MOD_NAME .. '/' .. wraith  .. '/acid'
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith/acid'
     },
 
     --- Building
@@ -205,8 +222,228 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        subgroup = "erm_controlable_buildings",
+        subgroup = "erm_controllable_buildings",
         order = "a-erm-building-commandcenter",
         result = MOD_NAME .. '/command-center'
-    }
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/barrack',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"assembling-machine-3", 1},
+            {"steel-plate", 200},
+            {"low-density-structure", 100},
+            {"advanced-circuit", 100},
+        },
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_B.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-barrack",
+        result = MOD_NAME .. '/barrack'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/factory',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"assembling-machine-3", 1},
+            {"steel-plate", 200},
+            {"low-density-structure", 100},
+            {"processing-unit", 50},
+        },
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_F.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-commandcenter",
+        result = MOD_NAME .. '/factory'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/starport',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"assembling-machine-3", 1},
+            {"steel-plate", 200},
+            {"low-density-structure", 100},
+            {"rocket-control-unit", 20},
+        },
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_S.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-starport",
+        result = MOD_NAME .. '/starport'
+    },
+
+
+    --- Auto Deploy Recipe
+    --- Half of SC1 build time
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/wraith/acid/autodeploy',
+        energy_required =  20,
+        ingredients =
+        {
+            {MOD_NAME .. '/wraith/acid', 1}
+        },
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith/acid'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/wraith/scout/autodeploy',
+        energy_required = 20,
+        ingredients =
+        {
+            {MOD_NAME .. '/wraith/scout', 1}
+        },
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith/scout'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/wraith/cold/autodeploy',
+        energy_required = 20,
+        ingredients =
+        {
+            {MOD_NAME .. '/wraith/cold', 1}
+        },
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith/cold'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/wraith/autodeploy',
+        energy_required = 20,
+        ingredients =
+        {
+            {MOD_NAME .. '/wraith', 1}
+        },
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/wraith'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/battlecruiser/yamato/autodeploy',
+        energy_required = 45,
+        ingredients =
+        {
+            {MOD_NAME .. '/battlecruiser/yamato', 1}
+        },
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/battlecruiser/yamato'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/battlecruiser/laser/autodeploy',
+        energy_required = 45,
+        ingredients =
+        {
+            {MOD_NAME .. '/battlecruiser/laser', 1}
+        },
+        category = "erm_controllable_starport",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/battlecruiser/laser'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/tank/autodeploy',
+        energy_required = 16,
+        ingredients =
+        {
+            {MOD_NAME .. '/tank', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/tank'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/tank/mk2/autodeploy',
+        energy_required = 16,
+        ingredients =
+        {
+            {MOD_NAME .. '/tank/mk2', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/tank/mk2'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/marine/mk1/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/marine/mk1', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/marine/mk1'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/marine/mk2/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/marine/mk2', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/marine/mk2'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/marine/mk3/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/marine/mk3', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/marine/mk3'
+    },
 })
