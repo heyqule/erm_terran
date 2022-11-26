@@ -26,7 +26,7 @@ data:extend({
         },
         flags = {"placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/starport'},
-        max_health = 2500,
+        max_health = 5000,
         --- @todo explosion and dying remants
         corpse = "radar-remnants",
         dying_explosion = "radar-explosion",

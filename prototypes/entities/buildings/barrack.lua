@@ -25,7 +25,7 @@ data:extend({
             },
         },
         flags = {"placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. '/command-center'},
+        minable = {mining_time = 1, result = MOD_NAME .. '/barrack'},
         max_health = 2000,
         --- @todo explosion and dying remants
         corpse = "radar-remnants",

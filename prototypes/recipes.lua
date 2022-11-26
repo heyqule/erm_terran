@@ -233,10 +233,10 @@ data:extend({
         energy_required = 60,
         ingredients =
         {
-            {"assembling-machine-3", 1},
-            {"steel-plate", 200},
-            {"low-density-structure", 100},
-            {"advanced-circuit", 100},
+            {"assembling-machine-2", 1},
+            {"steel-plate", 100},
+            {"iron-plate", 100},
+            {"electronic-circuit", 100},
         },
         icons = {
             {
@@ -261,10 +261,10 @@ data:extend({
         energy_required = 60,
         ingredients =
         {
-            {"assembling-machine-3", 1},
+            {"assembling-machine-2", 1},
             {"steel-plate", 200},
             {"low-density-structure", 100},
-            {"processing-unit", 50},
+            {"advanced-circuit", 50},
         },
         icons = {
             {

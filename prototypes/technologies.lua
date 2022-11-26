@@ -6,11 +6,6 @@
 
 require('__erm_terran__/global')
 
-local marine = 'marine'
-local tank = 'tank'
-local wraith = 'wraith'
-local battlecruiser = 'battlecruiser'
-
 data:extend({
     {
         type = "technology",
@@ -24,7 +19,7 @@ data:extend({
                 recipe = MOD_NAME .. '/marine/mk1'
             },
         },
-        prerequisites = {"military-2","military-science-pack"},
+        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack'},
         unit =
         {
             ingredients =
@@ -34,7 +29,7 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 30,
-            count = 250
+            count = 150
         },
     },
     {
@@ -49,7 +44,7 @@ data:extend({
                 recipe = MOD_NAME .. '/marine/mk2'
             },
         },
-        prerequisites = {"military-2","heavy-armor", MOD_NAME .. '/marine/mk-1'},
+        prerequisites = {"military-2","heavy-armor", MOD_NAME .. '/marine/mk-1', MOD_NAME .. '/barrack'},
         unit =
         {
             ingredients =
@@ -59,7 +54,7 @@ data:extend({
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1},
             },
-            time = 60,
+            time = 45,
             count = 500
         },
     },
@@ -75,7 +70,7 @@ data:extend({
                 recipe = MOD_NAME .. '/marine/mk3'
             },
         },
-        prerequisites = {"military-4","modular-armor",'uranium-ammo', MOD_NAME .. '/marine/mk-2'},
+        prerequisites = {"military-4","modular-armor",'uranium-ammo', MOD_NAME .. '/marine/mk-2', MOD_NAME .. '/barrack'},
         unit =
         {
             ingredients =
@@ -99,11 +94,11 @@ data:extend({
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. '/' .. tank
+                recipe = MOD_NAME .. '/tank'
             },
         },
         prerequisites = {
-            "military-3", "tank",
+            "military-3", "tank", MOD_NAME .. '/factory',
              "low-density-structure", MOD_NAME .. '/marine/mk-2'
         },
         unit =
@@ -115,8 +110,8 @@ data:extend({
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1},
             },
-            time = 60,
-            count = 1000
+            time = 45,
+            count = 800
         },
     },
     {
@@ -133,7 +128,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "tank", "rocket-control-unit", MOD_NAME .. '/tank/mk-1',
-            "rocket-fuel", "low-density-structure",
+            "rocket-fuel", "low-density-structure", MOD_NAME .. '/factory',
         },
         unit =
         {
@@ -146,19 +141,19 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 2000
+            count = 1800
         },
     },
     {
         type = "technology",
-        name = MOD_NAME .. '/' .. wraith,
+        name = MOD_NAME .. '/wraith',
         icon_size = 64,
         icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. '/' .. wraith
+                recipe = MOD_NAME .. '/wraith'
             },
             {
                 type = "unlock-recipe",
@@ -176,7 +171,7 @@ data:extend({
         prerequisites = {
             "military-4", "low-density-structure",
             "rocket-control-unit",  MOD_NAME .. '/marine/mk-2',
-            "explosive-rocketry", "rocket-fuel"
+            "explosive-rocketry", "rocket-fuel", MOD_NAME .. '/starport'
         },
         unit =
         {
@@ -189,12 +184,12 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 1000
+            count = 500
         },
     },
     {
         type = "technology",
-        name = MOD_NAME .. '/' .. battlecruiser,
+        name = MOD_NAME .. '/battlecruiser',
         icon_size = 64,
         icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
         effects =
@@ -211,7 +206,7 @@ data:extend({
         prerequisites = {
             "military-4", "nuclear-power",
             "low-density-structure",  MOD_NAME .. '/marine/mk-3',
-            "rocket-control-unit", "laser-turret"
+            "rocket-control-unit", "laser-turret", MOD_NAME .. '/starport'
         },
         unit =
         {
@@ -224,7 +219,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 3000
+            count = 2500
         },
     },
 
@@ -270,14 +265,14 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. '/auto-deploy',
+        name = MOD_NAME .. '/barrack',
         icons = {
             {
                 icon = "__erm_terran__/graphics/entity/icons/advisor.png",
                 icon_size = 64,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon = "__base__/graphics/icons/signal/signal_B.png",
                 icon_size = 64,
                 scale = 0.25,
                 shift = {-20,-20}
@@ -289,10 +284,79 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/barrack'
             },
+        },
+        prerequisites = {
+            "military-2",
+            "automation-2"
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"military-science-pack", 1},
+            },
+            time = 30,
+            count = 100
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/factory',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_F.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-20,-20}
+            },
+        },
+        effects =
+        {
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/factory'
             },
+        },
+        prerequisites = {
+            "military-2",
+            "low-density-structure",
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"military-science-pack", 1},
+                { "chemical-science-pack", 1 },
+            },
+            time = 45,
+            count = 200
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/starport',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_S.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-20,-20}
+            },
+        },
+        effects =
+        {
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/starport'
@@ -308,10 +372,11 @@ data:extend({
             {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
-                {"chemical-science-pack", 1},
                 {"military-science-pack", 1},
+                { "chemical-science-pack", 1 },
+                { "utility-science-pack", 1 }
             },
-            time = 30,
+            time = 60,
             count = 500
         },
     }
