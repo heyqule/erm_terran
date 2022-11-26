@@ -13,7 +13,7 @@ local gui = require("__enemyracemanager__/gui/army_control_window")
 local populations = {
     ['battlecruiser'] = 5,
     ['marine'] = 1,
-    ['tank'] = 2,
+    ['tank'] = 3,
     ['wraith'] = 2,
 }
 

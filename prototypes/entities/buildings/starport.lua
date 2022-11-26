@@ -34,25 +34,26 @@ data:extend({
         is_military_target = true,
         resistances =
         {
-            { type = "poison", percent = 33 },
-            { type = "physical", percent = 33 },
-            { type = "fire", percent = 33 },
-            { type = "explosion", percent = 33},
-            { type = "laser", percent = 33 },
-            { type = "electric", percent = 33 },
-            { type = "cold", percent = 33},
+            { type = "poison", percent = 50 },
+            { type = "physical", percent = 50 },
+            { type = "fire", percent = 50 },
+            { type = "explosion", percent = 50},
+            { type = "laser", percent = 50 },
+            { type = "electric", percent = 50 },
+            { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
         collision_box = {{-2.7, -2.7}, {2.7, 2.7}},
         selection_box = {{-3, -3}, {3, 3}},
+        map_generator_bounding_box = {{-4,-4}, {4,4}},
         damaged_trigger_effect = hit_effects.entity(),
         energy_source =
         {
             type = "electric",
             usage_priority = "secondary-input",
-            emissions_per_minute = 20
+            emissions_per_minute = 8
         },
-        energy_usage = "2MW",
+        energy_usage = "4MW",
         crafting_categories = {'erm_controllable_starport'},
         crafting_speed = 1,
         animation = {
