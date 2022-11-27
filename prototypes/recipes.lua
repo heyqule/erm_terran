@@ -20,7 +20,8 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/marine/mk1'
+        result = MOD_NAME .. '/marine/mk1',
+        order = MOD_NAME .. '/marine/mk1'
     },
     {
         type = "recipe",
@@ -36,7 +37,8 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/marine/mk2'
+        result = MOD_NAME .. '/marine/mk2',
+        order = MOD_NAME .. '/marine/mk2'
     },
     {
         type = "recipe",
@@ -52,7 +54,8 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/marine/mk3'
+        result = MOD_NAME .. '/marine/mk3',
+        order = MOD_NAME .. '/marine/mk3'
     },
     {
         type = "recipe",
@@ -68,7 +71,8 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/tank'
+        result = MOD_NAME .. '/tank',
+        order = MOD_NAME .. '/tank',
     },
     {
         type = "recipe",
@@ -85,7 +89,8 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/tank/mk2'
+        result = MOD_NAME .. '/tank/mk2',
+        order = MOD_NAME .. '/tank/mk2',
     },
     {
         type = "recipe",
@@ -103,7 +108,8 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/battlecruiser/yamato'
+        result = MOD_NAME .. '/battlecruiser/yamato',
+        order = MOD_NAME .. '/battlecruiser/yamato'
     },
     {
         type = "recipe",
@@ -121,7 +127,8 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/battlecruiser/laser'
+        result = MOD_NAME .. '/battlecruiser/laser',
+        order = MOD_NAME .. '/battlecruiser/laser'
     },
     {
         type = "recipe",
@@ -139,7 +146,8 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/wraith'
+        result = MOD_NAME .. '/wraith',
+        order = MOD_NAME .. '/wraith',
     },
     {
         type = "recipe",
@@ -157,7 +165,8 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/wraith/scout'
+        result = MOD_NAME .. '/wraith/scout',
+        order = MOD_NAME .. '/wraith/scout'
     },
     {
         type = "recipe",
@@ -175,7 +184,8 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/wraith/cold'
+        result = MOD_NAME .. '/wraith/cold',
+        order = MOD_NAME .. '/wraith/cold',
     },
     {
         type = "recipe",
@@ -193,7 +203,8 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        result = MOD_NAME .. '/wraith/acid'
+        result = MOD_NAME .. '/wraith/acid',
+        order = MOD_NAME .. '/wraith/acid'
     },
 
     --- Building
@@ -313,7 +324,7 @@ data:extend({
 
 
     --- Auto Deploy Recipe
-    --- Half of SC1 build time
+    --- 1/3 of SC1 build time
     {
         type = "recipe",
         name = MOD_NAME .. '/wraith/acid/autodeploy',
@@ -324,6 +335,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/wraith/acid'
     },
     {
@@ -336,6 +348,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/wraith/scout'
     },
     {
@@ -348,6 +361,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/wraith/cold'
     },
     {
@@ -360,6 +374,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/wraith'
     },
     {
@@ -372,6 +387,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/battlecruiser/yamato'
     },
     {
@@ -384,6 +400,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/battlecruiser/laser'
     },
     {
@@ -396,6 +413,7 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/tank'
     },
     {
@@ -408,6 +426,7 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/tank/mk2'
     },
     {
@@ -420,6 +439,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/marine/mk1'
     },
     {
@@ -432,6 +452,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/marine/mk2'
     },
     {
@@ -444,6 +465,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+        order = 'zzz',
         result = MOD_NAME .. '/marine/mk3'
     },
 })
