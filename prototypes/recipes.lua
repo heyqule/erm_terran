@@ -336,7 +336,25 @@ data:extend({
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/wraith/acid'
+        result = MOD_NAME .. '/wraith/acid',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_green.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -349,7 +367,25 @@ data:extend({
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/wraith/scout'
+        result = MOD_NAME .. '/wraith/scout',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_S.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -362,7 +398,25 @@ data:extend({
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/wraith/cold'
+        result = MOD_NAME .. '/wraith/cold',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_blue.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -375,7 +429,25 @@ data:extend({
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/wraith'
+        result = MOD_NAME .. '/wraith',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_red.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -388,7 +460,25 @@ data:extend({
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/battlecruiser/yamato'
+        result = MOD_NAME .. '/battlecruiser/yamato',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_Y.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -401,7 +491,25 @@ data:extend({
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/battlecruiser/laser'
+        result = MOD_NAME .. '/battlecruiser/laser',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_L.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -414,7 +522,25 @@ data:extend({
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/tank'
+        result = MOD_NAME .. '/tank',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -427,7 +553,25 @@ data:extend({
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/tank/mk2'
+        result = MOD_NAME .. '/tank/mk2',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -440,7 +584,25 @@ data:extend({
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/marine/mk1'
+        result = MOD_NAME .. '/marine/mk1',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -453,7 +615,25 @@ data:extend({
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/marine/mk2'
+        result = MOD_NAME .. '/marine/mk2',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
     {
         type = "recipe",
@@ -466,6 +646,24 @@ data:extend({
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/marine/mk3'
+        result = MOD_NAME .. '/marine/mk3',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_3.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
     },
 })
