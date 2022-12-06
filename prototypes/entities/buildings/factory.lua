@@ -27,9 +27,8 @@ data:extend({
         flags = {"placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/factory'},
         max_health = 3000,
-        --- @todo explosion and dying remants
-        corpse = "radar-remnants",
-        dying_explosion = "radar-explosion",
+        corpse = "terran-large-base-corpse",
+        dying_explosion = "erm-terran-building-large-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =
@@ -60,18 +59,58 @@ data:extend({
             layers = {
                 {
                     filename = "__erm_terran__/graphics/entity/buildings/factory.png",
-                    priority = "low",
                     width = 128,
                     height = 160,
                     direction_count = 1,
+                    frame_count = 1,
+                    repeat_count = 3,
+                    animation_speed = 0.25,
+                    scale = 1.5
+                },
+                {
+                    filename = "__erm_terran__/graphics/entity/buildings/factory_working.png",
+                    width = 128,
+                    height = 160,
+                    direction_count = 1,
+                    frame_count = 3,
+                    animation_speed = 0.25,
+                    scale = 1.5,
+                    draw_as_glow = true,
+                },
+                {
+                    filename = "__erm_terran__/graphics/entity/buildings/factory.png",
+                    width = 128,
+                    height = 160,
+                    direction_count = 1,
+                    frame_count = 1,
+                    repeat_count = 3,
+                    animation_speed = 0.25,
+                    scale = 1.5,
+                    shift = {0.3, 0.1},
+                    draw_as_shadow = true,
+                },
+            }
+        },
+        idle_animation = {
+            layers = {
+                {
+                    filename = "__erm_terran__/graphics/entity/buildings/factory.png",
+                    width = 128,
+                    height = 160,
+                    direction_count = 1,
+                    frame_count = 1,
+                    repeat_count = 3,
+                    animation_speed = 0.25,
                     scale = 1.5
                 },
                 {
                     filename = "__erm_terran__/graphics/entity/buildings/factory.png",
-                    priority = "low",
                     width = 128,
                     height = 160,
                     direction_count = 1,
+                    frame_count = 1,
+                    repeat_count = 3,
+                    animation_speed = 0.25,
                     scale = 1.5,
                     shift = {0.3, 0.1},
                     draw_as_shadow = true,

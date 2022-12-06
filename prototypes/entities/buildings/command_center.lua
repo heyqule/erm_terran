@@ -27,9 +27,8 @@ data:extend({
         flags = {"placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/command-center'},
         max_health = 3000,
-        --- @todo explosion and dying remants
-        corpse = "radar-remnants",
-        dying_explosion = "radar-explosion",
+        corpse = "terran-large-base-corpse",
+        dying_explosion = "erm-terran-building-xlarge-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =
@@ -61,7 +60,6 @@ data:extend({
             layers = {
                 {
                     filename = "__erm_terran__/graphics/entity/buildings/command_center.png",
-                    priority = "low",
                     width = 128,
                     height = 160,
                     direction_count = 1,
@@ -69,7 +67,6 @@ data:extend({
                 },
                 {
                     filename = "__erm_terran__/graphics/entity/buildings/command_center.png",
-                    priority = "low",
                     width = 128,
                     height = 160,
                     direction_count = 1,

@@ -87,6 +87,58 @@ data:extend({
     },
     {
         type = "technology",
+        name = MOD_NAME .. '/firebat/mk-1',
+        icon_size = 64,
+        icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/firebat/mk1'
+            },
+        },
+        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack','flamethrower'},
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"military-science-pack", 1},
+            },
+            time = 30,
+            count = 300
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/firebat/mk-2',
+        icon_size = 64,
+        icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/firebat/mk2'
+            },
+        },
+        prerequisites = {"military-4","modular-armor", 'refined-flammables-5',MOD_NAME .. '/firebat/mk-1', MOD_NAME .. '/barrack'},
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 1000
+        },
+    },
+    {
+        type = "technology",
         name = MOD_NAME .. '/tank/mk-1',
         icon_size = 64,
         icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
@@ -148,7 +200,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/goliath',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+        icon = "__erm_terran__/graphics/entity/icons/units/goliath.png",
         effects =
         {
             {

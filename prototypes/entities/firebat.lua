@@ -11,6 +11,7 @@
 ---
 require('__stdlib__/stdlib/utils/defines/time')
 require('util')
+local math3d = require "math3d"
 local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 
 require('__erm_terran__/global')
@@ -107,7 +108,7 @@ data:extend({
                             },
                             {
                                 type = "create-sticker",
-                                sticker = "fire-sticker",
+                                sticker = "firebat-sticker",
                                 show_in_tooltip = true
                             },
                         }
@@ -202,7 +203,7 @@ data:extend({
                             },
                             {
                                 type = "damage",
-                                damage = {amount = 400 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
+                                damage = {amount = 300 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
                             }
                         }
                     }
@@ -210,6 +211,7 @@ data:extend({
             }
         },
         dying_sound = TerranSound.firebat_death(1),
+        dying_explosion = "erm-terran-small-explosion",
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
@@ -229,6 +231,34 @@ data:extend({
         order = "x" .. name,
         animation = Sprites.empty_pictures(),
     },
+    {
+        type = "sticker",
+        name = "firebat-sticker",
+        flags = {"not-on-map"},
+
+        animation =
+        {
+            filename = "__base__/graphics/entity/fire-flame/fire-flame-13.png",
+            line_length = 8,
+            width = 60,
+            height = 118,
+            frame_count = 25,
+            blend_mode = "normal",
+            animation_speed = 1,
+            scale = 0.2,
+            tint = { r = 0.5, g = 0.5, b = 0.5, a = 0.18 }, --{ r = 1, g = 1, b = 1, a = 0.35 },
+            shift = math3d.vector2.mul({-0.078125, -1.8125}, 0.1),
+            draw_as_glow = true
+        },
+
+        duration_in_ticks = 10 * 60,
+        damage_interval = 10,
+        target_movement_modifier = 0.8,
+        damage_per_tick = { amount = 10 * 25 / 60, type = "fire" },
+        spread_fire_entity = "fire-flame-on-tree",
+        fire_spread_cooldown = 30,
+        fire_spread_radius = 1
+    }
 })
 
 -- Firebat MK2 --
@@ -263,11 +293,11 @@ firebat_mk2['dying_trigger_effect'] = {
                 {
                     {
                         type = "damage",
-                        damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
+                        damage = {amount = 400 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
                     },
                     {
                         type = "damage",
-                        damage = {amount = 1000 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
+                        damage = {amount = 600 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
                     }
                 }
             }

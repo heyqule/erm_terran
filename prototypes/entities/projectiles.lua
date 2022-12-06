@@ -4,6 +4,8 @@
 --- DateTime: 10/17/2021 9:54 PM
 ---
 local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+local sounds = require("__base__/prototypes/entity/sounds")
+
 data:extend({
     {
         type = "projectile",
@@ -341,5 +343,109 @@ data:extend({
             height = 50,
             priority = "high"
         }
-    }
+    },
+    {
+        type = "explosion",
+        name = "erm-terran-small-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = "erm-terran-small-explosion",
+        animations = {
+            filename = "__erm_terran__/graphics/entity/explosion/small-explosion.png",
+            priority = "extra-high",
+            width = 128,
+            height = 128,
+            frame_count = 9,
+            animation_speed = 0.25,
+            direction_count = 1,
+            scale = 1.25,
+            draw_as_glow = true,
+        },
+        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+    },
+    {
+        type = "explosion",
+        name = "erm-terran-large-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = "erm-terran-large-explosion",
+        animations = {
+            filename = "__erm_terran__/graphics/entity/explosion/large-explosion.png",
+            priority = "extra-high",
+            width = 200,
+            height = 200,
+            frame_count = 10,
+            animation_speed = 0.25,
+            direction_count = 1,
+            scale = 1.25,
+            draw_as_glow = true,
+        },
+        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+    },
+    {
+        type = "explosion",
+        name = "erm-terran-building-large-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = "erm-terran-large-explosion",
+        animations = {
+            filename = "__erm_terran__/graphics/entity/explosion/large-explosion.png",
+            priority = "extra-high",
+            width = 200,
+            height = 200,
+            frame_count = 10,
+            animation_speed = 0.25,
+            direction_count = 1,
+            scale = 1.25,
+            draw_as_glow = true,
+            shift = {0, 1}
+        },
+        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+    },
+    {
+        type = "explosion",
+        name = "erm-terran-building-xlarge-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = "erm-terran-xlarge-explosion",
+        animations = {
+            filename = "__erm_terran__/graphics/entity/explosion/xlarge-explosion.png",
+            priority = "extra-high",
+            width = 252,
+            height = 200,
+            frame_count = 10,
+            animation_speed = 0.25,
+            direction_count = 1,
+            scale = 1.25,
+            draw_as_glow = true,
+            shift = {0, 1}
+        },
+        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+    },
+    {
+        type = "corpse",
+        name = "terran-large-base-corpse",
+        flags = { "placeable-neutral",  "not-on-map" },
+        icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+        icon_size = 64,
+        collision_box = { { -2, -2 }, { 2, 2 } },
+        selection_box = { { -2, -2 }, { 2, 2 } },
+        selectable_in_game = false,
+        dying_speed = 0.04,
+        time_before_removed = defines.time.minute * settings.startup["enemyracemanager-enemy-corpse-time"].value,
+        subgroup = "corpses",
+        order = "c[corpse]-c[large-terran-base-corpse]",
+        final_render_layer = "remnants",
+        animation = {
+            {
+                filename = "__erm_terran__/graphics/entity/buildings/large-rubble.png",
+                width = 128,
+                height = 128,
+                variation_count = 1,
+                frame_count = 1,
+                direction_count = 1,
+                scale = 1.5,
+            }
+        }
+    },
 })

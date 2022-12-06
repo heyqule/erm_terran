@@ -57,7 +57,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
-        max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 250 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
@@ -258,7 +258,7 @@ data:extend({
                 },
             }
         },
-        dying_explosion = 'erm-fire-explosion-ground_normal-1',
+        dying_explosion = "erm-terran-large-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
