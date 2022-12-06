@@ -58,7 +58,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
-        max_health = 75 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
@@ -198,11 +198,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = {amount = 200 , type = "fire"}
+                                damage = {amount = 200 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = {amount = 400 , type = "explosion"}
+                                damage = {amount = 400 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
                             }
                         }
                     }
@@ -243,7 +243,7 @@ firebat_mk2['icons'][2] = {
     shift = {-9,-9}
 }
 firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
-firebat_mk2.max_health = 150 * ERMPlayerUnitHelper.get_health_multiplier()
+firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
 firebat_mk2['attack_parameters']['cooldown'] = 60
 firebat_mk2['attack_parameters']['damage_modifier'] = 1.2 + ERMPlayerUnitHelper.get_damage_multiplier()
@@ -263,11 +263,11 @@ firebat_mk2['dying_trigger_effect'] = {
                 {
                     {
                         type = "damage",
-                        damage = {amount = 500 , type = "fire"}
+                        damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
                     },
                     {
                         type = "damage",
-                        damage = {amount = 1000 , type = "explosion"}
+                        damage = {amount = 1000 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
                     }
                 }
             }
