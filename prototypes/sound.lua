@@ -79,4 +79,39 @@ function TerranSound.marine_death(volume)
     }
 end
 
+function TerranSound.firebat_death(volume)
+    return {
+        variations = {
+            {
+                filename = "__erm_terran__/sound/firebat/death.ogg",
+                volume = volume
+            },
+            {
+                filename = "__erm_terran__/sound/firebat/death1.ogg",
+                volume = volume
+            },
+            {
+                filename = "__erm_terran__/sound/firebat/death2.ogg",
+                volume = volume
+            },
+        }
+    }
+end
+
+function TerranSound.firebat_attack(volume, distance)
+    return {
+        audible_distance_modifier = distance,
+        variations = {
+            {
+                filename = "__erm_terran__/sound/firebat/attack.ogg",
+                volume = volume
+            },
+            {
+                filename = "__erm_terran__/sound/firebat/attack1.ogg",
+                volume = volume
+            },
+        }
+    }
+end
+
 return TerranSound;

@@ -69,6 +69,46 @@ data:extend({
     },
     {
         type = "item",
+        name = MOD_NAME .. '/firebat/mk1',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-firebat-mk1",
+        place_result = MOD_NAME .. '/firebat/mk1',
+        stack_size = 20
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/firebat/mk2',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-firebat-mk2",
+        place_result = MOD_NAME .. '/firebat/mk2',
+        stack_size = 20
+    },
+    {
+        type = "item",
         name = MOD_NAME .. '/tank',
         icons = {
             {
@@ -105,6 +145,20 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-tank2",
         place_result = MOD_NAME .. '/tank/mk2' ,
+        stack_size = 5
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/goliath',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/goliath.png",
+                icon_size = 64,
+            }
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-goliath2",
+        place_result = MOD_NAME .. '/goliath',
         stack_size = 5
     },
     {

@@ -59,6 +59,61 @@ data:extend({
     },
     {
         type = "recipe",
+        name = MOD_NAME .. '/firebat/mk1',
+        enabled = false,
+        energy_required = 24,
+        ingredients =
+        {
+            {"heavy-armor", 1},
+            {"flamethrower", 1},
+            {"petroleum-gas-barrel", 20},
+            {"explosives", 10},
+            {"radar", 1},
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/firebat/mk1',
+        order = MOD_NAME .. '/firebat/mk1'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/firebat/mk2',
+        enabled = false,
+        energy_required = 24,
+        ingredients =
+        {
+            {"modular-armor", 1},
+            {"flamethrower", 1},
+            {"light-oil-barrel", 20},
+            {"explosives", 20},
+            {"radar", 1},
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/firebat/mk2',
+        order = MOD_NAME .. '/firebat/mk2'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/goliath',
+        enabled = false,
+        energy_required = 40,
+        ingredients =
+        {
+            {"exoskeleton-equipment", 1},
+            {"accumulator", 10},
+            {"rocket-control-unit", 5},
+            {"low-density-structure", 25},
+            {"uranium-rounds-magazine", 50},
+            {"rocket", 25},
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        result = MOD_NAME .. '/goliath',
+        order = MOD_NAME .. '/goliath',
+    },
+    {
+        type = "recipe",
         name = MOD_NAME .. '/tank',
         enabled = false,
         energy_required = 50,
@@ -513,6 +568,31 @@ data:extend({
     },
     {
         type = "recipe",
+        name = MOD_NAME .. '/goliath/autodeploy',
+        energy_required = 12,
+        ingredients =
+        {
+            {MOD_NAME .. '/goliath', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        order = 'zzz',
+        result = MOD_NAME .. '/goliath',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/goliath.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
         name = MOD_NAME .. '/tank/autodeploy',
         energy_required = 16,
         ingredients =
@@ -654,6 +734,68 @@ data:extend({
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_3.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/firebat/mk1/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/firebat/mk1', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz',
+        result = MOD_NAME .. '/firebat/mk1',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/firebat/mk2/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/firebat/mk2', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz',
+        result = MOD_NAME .. '/firebat/mk2',
+        icons = {
+            {
+                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
                 icon_size = 64,
                 scale = 0.25,
                 shift = {-9,-9}

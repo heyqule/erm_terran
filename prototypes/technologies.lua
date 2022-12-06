@@ -111,7 +111,7 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 45,
-            count = 800
+            count = 600
         },
     },
     {
@@ -141,7 +141,37 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 1800
+            count = 1200
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/goliath',
+        icon_size = 64,
+        icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/goliath'
+            },
+        },
+        prerequisites = {
+            "military-4", "rocket-control-unit", 'exoskeleton-equipment', "electric-energy-accumulators",
+            "rocketry","uranium-ammo", "low-density-structure", MOD_NAME .. '/factory',
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 750
         },
     },
     {

@@ -111,25 +111,36 @@ data:extend({
                         filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
                         width = 128,
                         height = 128,
-                        frame_count = 2,
+                        frame_count = 1,
                         axially_symmetrical = false,
                         direction_count = 16,
                         scale = unit_scale,
-                        animation_speed = 0.6,
+                        animation_speed = 0.2,
                     },
                     {
                         filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
                         width = 128,
                         height = 128,
-                        frame_count = 2,
+                        frame_count = 1,
                         axially_symmetrical = false,
                         direction_count = 16,
                         scale = unit_scale,
                         tint = ERM_UnitTint.tint_shadow(),
-                        animation_speed = 0.6,
+                        animation_speed = 0.2,
                         draw_as_shadow = true,
                         shift = { 0.5, 0 }
-                    }
+                    },
+                    {
+                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-flash.png",
+                        width = 128,
+                        height = 128,
+                        frame_count = 1,
+                        axially_symmetrical = false,
+                        direction_count = 16,
+                        scale = unit_scale,
+                        animation_speed = 0.2,
+                        draw_as_glow = true
+                    },
                 }
             }
         },

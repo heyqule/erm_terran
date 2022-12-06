@@ -17,7 +17,7 @@ data:extend({
                 target_effects = {
                     {
                         type = "create-entity",
-                        entity_name = "explosion"
+                        entity_name = "medium-explosion"
                     },
                     {
                         type = "create-entity",
