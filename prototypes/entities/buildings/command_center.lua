@@ -24,7 +24,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = {"placeable-player", "player-creation"},
+        flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/command-center'},
         max_health = 3000,
         corpse = "terran-large-base-corpse",

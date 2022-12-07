@@ -24,7 +24,7 @@ data:extend({
                 shift = {-9,-9}
             },
         },
-        flags = {"placeable-player", "player-creation"},
+        flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/starport'},
         max_health = 5000,
         corpse = "terran-large-base-corpse",
