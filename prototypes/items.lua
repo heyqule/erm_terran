@@ -159,7 +159,7 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-goliath2",
         place_result = MOD_NAME .. '/goliath',
-        stack_size = 5
+        stack_size = 10
     },
     {
         type = "item",

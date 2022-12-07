@@ -75,27 +75,39 @@ data:extend({
             min_attack_distance = attack_range - 4,
             cooldown = 75,
             cooldown_deviation = 0.1,
-            damage_modifier = 3 + ERMPlayerUnitHelper.get_damage_multiplier(),
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_type =
             {
                 category = "bullet",
-                action =
-                {
-                    type = "direct",
-                    action_delivery =
+                action = {
                     {
-                        type = "instant",
-                        target_effects =
+                        type = "direct",
+                        repeat_count = 4,
+                        action_delivery =
                         {
+                            type = "instant",
+                            target_effects =
                             {
-                                type = "create-entity",
-                                entity_name = "explosion-hit",
-                                offsets = {{0, 1}},
-                                offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
-                            },
+                                {
+                                    type = "damage",
+                                    damage = { amount = 10, type = "physical"}
+                                }
+                            }
+                        }
+                    },
+                    {
+                        type = "direct",
+                        action_delivery =
+                        {
+                            type = "instant",
+                            target_effects =
                             {
-                                type = "damage",
-                                damage = { amount = 10, type = "physical"}
+                                {
+                                    type = "create-entity",
+                                    entity_name = "explosion-hit",
+                                    offsets = {{0, 1}},
+                                    offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
+                                },
                             }
                         }
                     }
@@ -216,7 +228,7 @@ marine_mk2['icons'][2] = {
 marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = DataHelper.getResistance(55)
-marine_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
+marine_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
     damage = { amount = 16, type = "physical"}
@@ -238,7 +250,7 @@ marine_mk3['icons'][2] = {
 marine_mk3.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = DataHelper.getResistance(75)
-marine_mk3['attack_parameters']['ammo_type']['action']['action_delivery']['target_effects'][2] =
+marine_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
     damage = { amount = 48, type = "physical"}

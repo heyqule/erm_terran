@@ -92,7 +92,7 @@ data:extend({
                     type = "line",
                     force = 'not-same',
                     range = 3,
-                    width = 1,
+                    width = 2,
                     ignore_collision_condition = true,
                     action_delivery = {
                         type = "instant",
@@ -100,11 +100,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = { amount = 100, type = "fire"}
+                                damage = { amount = 75, type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = { amount = 100, type = "explosion"}
+                                damage = { amount = 75, type = "explosion"}
                             },
                             {
                                 type = "create-sticker",
@@ -275,8 +275,7 @@ firebat_mk2['icons'][2] = {
 firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
-firebat_mk2['attack_parameters']['cooldown'] = 60
-firebat_mk2['attack_parameters']['damage_modifier'] = 1.2 + ERMPlayerUnitHelper.get_damage_multiplier()
+firebat_mk2['attack_parameters']['damage_modifier'] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
 
 firebat_mk2['dying_trigger_effect'] = {
     {
