@@ -50,7 +50,7 @@ data:extend({
         {
             type = "electric",
             usage_priority = "secondary-input",
-            emissions_per_minute = 6
+            emissions_per_minute = 5
         },
         energy_usage = "2MW",
         crafting_categories = {'erm_controllable_factory'},

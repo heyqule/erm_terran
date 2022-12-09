@@ -5,13 +5,12 @@ Date: ????-??-??
   Major Features:
     - Added Firebat MK1 and MK2, deal fire damages. Deal explosion damage on death.
     - Added Goliath, Gun deal physical and explosion damage. 25% change to shoot rocket.
-    - Added Vulture, 33% lays a custom landmines.
 
   Features:
     - Introduce unit supply limit.
     - This can be increase by researching "Follower robot count" tech.
     - The formula is 150(Base) + maximum_following_robot_count
-    - Marine/Firebat: 1, Wraith/Goliath/Vulture: 2, Tank/Vessel: 3, Battlecruiser: 5
+    - Marine/Firebat: 1, Wraith/Goliath: 2, Tank: 3, Battlecruiser: 5
     - Introduce Command Center.
     - Command Center allows units to teleport to another command center. It can be command center in other surfaces.
     - Introduce Barrack, Factory and Starport.  They don't accept modules.
