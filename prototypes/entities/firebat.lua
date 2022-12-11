@@ -45,6 +45,7 @@ data:extend({
         type = "unit",
         name = MOD_NAME .. '/' .. name .. '/mk1',
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 1'},
+        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
                 icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",

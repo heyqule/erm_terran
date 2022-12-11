@@ -69,8 +69,8 @@ data:extend({
         {
             {"heavy-armor", 1},
             {"flamethrower", 1},
-            {"petroleum-gas-barrel", 20},
-            {"explosives", 10},
+            {"petroleum-gas-barrel", 25},
+            {"explosives", 25},
             {"radar", 1},
         },
         category = "erm_controllable_infantry",
@@ -88,8 +88,8 @@ data:extend({
         {
             {"modular-armor", 1},
             {"flamethrower", 1},
-            {"light-oil-barrel", 20},
-            {"explosives", 20},
+            {"light-oil-barrel", 50},
+            {"explosives", 50},
             {"radar", 1},
         },
         category = "erm_controllable_infantry",
@@ -107,7 +107,6 @@ data:extend({
         {
             {"exoskeleton-equipment", 1},
             {"accumulator", 10},
-            {"rocket-control-unit", 5},
             {"low-density-structure", 25},
             {"uranium-rounds-magazine", 50},
             {"rocket", 25},

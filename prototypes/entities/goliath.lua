@@ -35,7 +35,7 @@ goliath_rocket_projectile['localised_name'] = {'entity-name.goliath-rocket-proje
 goliath_rocket_projectile['name'] = 'goliath-rocket-projectile'
 goliath_rocket_projectile['action']['action_delivery']
 ['target_effects'][5]['action']['action_delivery']
-['target_effects'][1]['damage'] = { amount = 60, type = "explosion" }
+['target_effects'][1]['damage'] = { amount = 75, type = "explosion" }
 
 data:extend({goliath_rocket_projectile})
 
@@ -115,11 +115,11 @@ data:extend({
                                 },
                                 {
                                     type = "damage",
-                                    damage = { amount = 48, type = "physical"}
+                                    damage = { amount = 70, type = "physical"}
                                 },
                                 {
                                     type = "damage",
-                                    damage = { amount = 24, type = "explosion"}
+                                    damage = { amount = 32, type = "explosion"}
                                 }
                             }
                         }

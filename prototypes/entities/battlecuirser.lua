@@ -27,7 +27,7 @@ local distraction_cooldown = 30
 -- Animation Settings
 local unit_scale = 1.75
 
-local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
+local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 function battlecruiser_animation(color)
