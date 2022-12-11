@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.15.0
-Date: ????-??-??
+Date: 2022-12-12
 
   Major Features:
     - Added Firebat MK1 and MK2, deal fire damages. Deal explosion damage on death.
