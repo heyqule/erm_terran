@@ -31,44 +31,44 @@ You can select the unit using shortcut or Alt + left mouse click to enable selec
 # Features
 Weapon researches enhanced these units' damage as well.  Units must build in its assigned 
 
-###### Marine MK1
+##### Marine MK1
 Build from Barrack, deal physical damage in medium range
 
-###### Marine MK2
+##### Marine MK2
 Build from Barrack, deal physical damage in medium range
 
-###### Marine MK3
+##### Marine MK3
 Build from Barrack, deal physical damage in medium range
 
-###### Firebat MK1
+##### Firebat MK1
 Build from Barrack, deal fire damage in close range
 
-###### Firebat MK2
+##### Firebat MK2
 Build from Barrack, deal fire damage in close range
 
-###### Tank
+##### Tank
 Build from Factory, deal AOE damage in long range
 
-###### Tank MK 2
+##### Tank MK 2
 Build from Factory, deal AOE damage in long range
 
-###### Goliath
+##### Goliath
 Build from Factory, deal damage to single target in long range, occasionally fire a rocket to deal AOE damage
 
-###### Wraith
+##### Wraith
 Build from Starport, aerial unit, deal AOE explosive damage in medium range.
 
-###### Scout Wraith
+##### Scout Wraith
 Build from Starport, aerial unit, deal single target laser damage in medium range. Flies faster than other wraith.
 
-###### Cold Wraith
+##### Cold Wraith
 Build from Starport, aerial unit, deal AOE cold damage in medium range.
 
-###### Acid Wraith
+##### Acid Wraith
 Build from Starport, aerial unit, deal AOE acid damage in medium range.
 
-###### Battlecruiser (Laser Turret)
+##### Battlecruiser (Laser Turret)
 Build from Starport, aerial unit, deal single target laser damage in long range
 
-###### Battlecruiser (Yamato Cannon)
+##### Battlecruiser (Yamato Cannon)
 Build from Starport, aerial unit, deal heavy single target and AOE damage in long range. Have tougher armor.
