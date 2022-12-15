@@ -7,16 +7,20 @@ Discord:  [https://discord.gg/BwWXygyEyQ](https://discord.gg/BwWXygyEyQ)
 
 ERM - Features Reel: [https://www.youtube.com/watch?v=phLRReAjxHA](https://www.youtube.com/watch?v=phLRReAjxHA)
 
-#####Licenses
+##### Changes in 1.15
+- Dedicated assembly lines.  **Regular assembly machines can no longer build them.**
+  - Check your technology window to research them. 
+- Automated unit deployment.
+- Unit population control.
+- Unit teleportation support between surfaces.
+- Firebat and Goliath join the fun.
+- Feature Preview: https://www.youtube.com/watch?v=Oxl2AB0kulE
+- Tutorial: 
+
+##### Licenses
 Lua code files are licensed under GNU LGPLv3
 
 However, Starcraft graphic and sound assets are properties of Blizzard Entertainment Inc.  They are used for educational purposes. The original game is now free to play.
-
-# Requirement
-* Enemy Race Manager >= 1.15
-* Factorio Standard Library >= 1.4.6
-* Unit Control >= 0.3.11
-* Factorio Base >= 1.1
 
 # Using "Unit Control"
 You can select the unit using shortcut or Alt + left mouse click to enable selector, or Shift + Alt + left mouse click to select ALL units.
@@ -25,82 +29,46 @@ You can select the unit using shortcut or Alt + left mouse click to enable selec
 
 
 # Features
-This demo feature 4 unique units.  Weapon researches enhanced these units' damage as well.
+Weapon researches enhanced these units' damage as well.  Units must build in its assigned 
 
-###### Marine MK1
-* Health 400
-* Resistance 40
-* Damage
-  * 10 physical, bullet type
+##### Marine MK1
+Build from Barrack, deal physical damage in medium range
 
-###### Marine MK2
-* Health 600
-* Resistance 55
-* Damage
-  * 16 physical, bullet type
+##### Marine MK2
+Build from Barrack, deal physical damage in medium range
 
-###### Marine MK3
-* Health 800
-* Resistance 75
-* Damage
-  * 48 physical, bullet type
+##### Marine MK3
+Build from Barrack, deal physical damage in medium range
 
-###### Tank
-* Health 1500
-* Resistance 60
-* Cannon Damage
-  * 100 physical, on target
-  * 100 explosive ground units, 5 area AOE
-  * 50 explosive, all units, 2 area AOE
+##### Firebat MK1
+Build from Barrack, deal fire damage in close range
 
-###### Tank MK 2
-* Health 3500
-* Resistance 75
-* Cannon Damage
-  * 200 physical, on target
-  * 200 explosive ground units, 5 area AOE
-  * 100 explosive, all units, 2 area AOE
+##### Firebat MK2
+Build from Barrack, deal fire damage in close range
 
+##### Tank
+Build from Factory, deal AOE damage in long range
 
-###### Wairth
-* Health 2000
-* Resistance 75
-* Rocket Damage
-  * 50 physical, on target
-  * 150 explosive, all units, 3 area AOE
+##### Tank MK 2
+Build from Factory, deal AOE damage in long range
 
-###### Scout Wairth
-* Health 2000
-* Resistance 75
-* Flies at 100KM/h
-* Rocket Damage
-  * 50 physical, on target
-  * 150 explosive, all units, 3 area AOE
+##### Goliath
+Build from Factory, deal damage to single target in long range, occasionally fire a rocket to deal AOE damage
 
-###### Cold Wairth
-* Health 2000
-* Resistance 75
-* Rocket Damage
-  * 50 physical, on target
-  * 150 cold, all units, 3 area AOE
+##### Wraith
+Build from Starport, aerial unit, deal AOE explosive damage in medium range.
 
-###### Acid Wairth
-* Health 2000
-* Resistance 75
-* Rocket Damage
-  * 50 physical, on target
-  * 150 acid, all units, 3 area AOE
+##### Scout Wraith
+Build from Starport, aerial unit, deal single target laser damage in medium range. Flies faster than other wraith.
 
-###### Battlecruiser (Laser Turret)
-* Health 3500
-* Resistance 80
-* Cannon Damage
-  * 250 laser, on target
+##### Cold Wraith
+Build from Starport, aerial unit, deal AOE cold damage in medium range.
 
-###### Battlecruiser (Yamato Cannon)
-* Health 5000
-* Resistance 80
-* Cannon Damage
-  * 750 laser, on target
-  * 125 explosion, all units, 3 area AOE
-  * 125 electric, all units, 3 area AOE
+##### Acid Wraith
+Build from Starport, aerial unit, deal AOE acid damage in medium range.
+
+##### Battlecruiser (Laser Turret)
+Build from Starport, aerial unit, deal single target laser damage in long range
+
+##### Battlecruiser (Yamato Cannon)
+Build from Starport, aerial unit, deal heavy single target and AOE damage in long range. Have tougher armor.

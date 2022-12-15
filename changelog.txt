@@ -1,4 +1,31 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.15.0
+Date: 2022-12-12
+
+  Major Features:
+    - Added Firebat MK1 and MK2, deal fire damages. Deal explosion damage on death.
+    - Added Goliath, Gun deal physical and explosion damage. 25% change to shoot rocket.
+    - Introduce unit supply limit.
+    - This can be increase by researching "Follower robot count" tech.
+    - The formula is 150(Base) + maximum_following_robot_count
+    - Marine/Firebat: 1, Wraith/Goliath: 2, Tank: 3, Battlecruiser: 5
+    - Introduce Command Center.
+    - Command Center allows units to teleport to another command center. It can be command center in other surfaces.
+    - Introduce Barrack, Factory and Starport.  They don't accept modules.
+    - ** Assembling-Machine and handcrafting can no long build combat units. **
+    - Unit build time are now matches SC1's unit build time.
+    - Barrack builds and auto spawns infantry
+    - Factory builds and auto spawns land vehicles
+    - Starport builds and auto spawns air vehicles
+    - Press CTRL + A (default) to bring up Army UI.
+
+  Changes:
+    - Changed attack range_mode to bounding_box
+    - another update to marine firing sound, lowered attack speed and buff damage.
+    - Updated explosion effects on vehicles.
+    - Lower tank research cost from 800 to 600 for MK1, 1800 to 1200 for MK2
+
+---------------------------------------------------------------------------------------------------
 Version: 1.14.0
 Date: 2022-11-15
 

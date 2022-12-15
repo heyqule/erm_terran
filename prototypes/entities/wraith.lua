@@ -28,7 +28,7 @@ local distraction_cooldown = 30
 -- Animation Settings
 local unit_scale = 1.5
 
-local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
+local collision_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 local selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } }
 
 function wraith_animation(color)
@@ -99,7 +99,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         radar_range = 2,
         resistances = {
@@ -125,6 +125,7 @@ data:extend({
         --ai_settings = biter_ai_settings,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'rocket',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -145,15 +146,15 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.6, 0.6),
-            animation = wraith_animation('orange')
+            animation = wraith_animation('orange'),
+            sound = TerranSound.rapid_attack(name, 0.6, 0.5),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = wraith_animation('orange'),
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
-        dying_explosion = "medium-explosion",
+        dying_explosion = 'erm-fire-explosion-air_normal-1',
         dying_sound = TerranSound.death(name, 1),
         corpse = name .. '-corpse'
     },
@@ -181,6 +182,7 @@ scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_S.png"
 scout_wraith.movement_speed = 0.6 * ERMPlayerUnitHelper.get_speed_multiplier()
 scout_wraith.attack_parameters = {
     type = "projectile",
+    range_mode = "bounding-box-to-bounding-box",
     ammo_category = 'laser',
     range = attack_range,
     min_attack_distance = attack_range - 4,

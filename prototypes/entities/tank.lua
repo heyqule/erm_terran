@@ -35,6 +35,7 @@ data:extend({
         type = "unit",
         name = MOD_NAME .. '/' .. name,
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK1' },
+        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
                 icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
@@ -51,7 +52,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 150 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
         resistances = {
@@ -77,6 +78,7 @@ data:extend({
         radar_range = 1,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'cannon-shell',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -103,32 +105,43 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.66, 0.75),
+            sound = TerranSound.attack(name, 0.66, 0.66),
             animation = {
                 layers = {
                     {
                         filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
                         width = 128,
                         height = 128,
-                        frame_count = 2,
+                        frame_count = 1,
                         axially_symmetrical = false,
                         direction_count = 16,
                         scale = unit_scale,
-                        animation_speed = 0.6,
+                        animation_speed = 0.2,
                     },
                     {
                         filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
                         width = 128,
                         height = 128,
-                        frame_count = 2,
+                        frame_count = 1,
                         axially_symmetrical = false,
                         direction_count = 16,
                         scale = unit_scale,
                         tint = ERM_UnitTint.tint_shadow(),
-                        animation_speed = 0.6,
+                        animation_speed = 0.2,
                         draw_as_shadow = true,
                         shift = { 0.5, 0 }
-                    }
+                    },
+                    {
+                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-flash.png",
+                        width = 128,
+                        height = 128,
+                        frame_count = 1,
+                        axially_symmetrical = false,
+                        direction_count = 16,
+                        scale = unit_scale,
+                        animation_speed = 0.2,
+                        draw_as_glow = true
+                    },
                 }
             }
         },
@@ -160,7 +173,7 @@ data:extend({
                 }
             }
         },
-        dying_explosion = "big-explosion",
+        dying_explosion = "erm-terran-large-explosion",
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),

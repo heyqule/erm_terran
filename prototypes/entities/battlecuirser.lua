@@ -27,7 +27,7 @@ local distraction_cooldown = 30
 -- Animation Settings
 local unit_scale = 1.75
 
-local collision_box = { { -0.25, -0.25 }, { 0.25, 0.25 } }
+local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 function battlecruiser_animation(color)
@@ -123,7 +123,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
             { type = "acid", percent = 90 },
@@ -149,6 +149,7 @@ data:extend({
         radar_range = 2,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'laser',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -169,13 +170,13 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.66, 0.75),
             animation = battlecruiser_animation('orange'),
+            sound = TerranSound.attack(name, 0.66, 0.66),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = battlecruiser_animation('orange'),
-        dying_explosion = "massive-explosion",
+        dying_explosion = 'erm-fire-explosion-air_large-1',
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
@@ -202,7 +203,7 @@ data:extend({
         has_belt_immunity = true,
         max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
-        subgroup = "erm_controlable_units",
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
             { type = "acid", percent = 80 },
@@ -228,6 +229,7 @@ data:extend({
         radar_range = 1,
         attack_parameters = {
             type = "projectile",
+            range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'laser',
             range = attack_range,
             min_attack_distance = attack_range - 4,
@@ -254,7 +256,7 @@ data:extend({
         render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = battlecruiser_animation('yellow'),
-        dying_explosion = "massive-explosion",
+        dying_explosion = 'erm-fire-explosion-air_large-1',
         dying_sound = TerranSound.death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
