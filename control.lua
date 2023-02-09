@@ -24,7 +24,7 @@ local refresh_data = function()
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "unit"}})) do
         local nameToken = String.split(prototype.name, '/')
         if nameToken[1] == MOD_NAME and populations[nameToken[2]] then
-            remote.call('enemy_race_manager','army_units_register', prototype.name, populations[nameToken[2]]);
+            remote.call('enemyracemanager','army_units_register', prototype.name, populations[nameToken[2]]);
         end
     end
 
@@ -32,7 +32,7 @@ local refresh_data = function()
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "radar"}})) do
         local nameToken = String.split(prototype.name, '/')
         if nameToken[1] == MOD_NAME then
-            remote.call('enemy_race_manager','army_command_center_register', prototype.name);
+            remote.call('enemyracemanager','army_command_center_register', prototype.name);
         end
     end
 
@@ -40,7 +40,7 @@ local refresh_data = function()
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "assembling-machine"}})) do
         local nameToken = String.split(prototype.name, '/')
         if nameToken[1] == MOD_NAME then
-            remote.call('enemy_race_manager','army_deployer_register', prototype.name);
+            remote.call('enemyracemanager','army_deployer_register', prototype.name);
         end
     end
 end
@@ -60,3 +60,6 @@ end)
 Event.register(defines.events.on_player_created, function(event)
     gui.update_overhead_button(event.player_index)
 end)
+
+local RemoteApi = require('scripts/remote')
+remote.add_interface("erm_terran", RemoteApi)
