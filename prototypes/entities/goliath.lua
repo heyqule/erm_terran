@@ -16,10 +16,10 @@ local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_he
 local TerranSound = require('__erm_terran__/prototypes/sound')
 local name = 'goliath'
 
-local attack_range = 18
+local attack_range = ERMPlayerUnitHelper.get_attack_range(1, 4)
 
 -- Misc Settings
-local vision_distance = 30
+local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
 local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 

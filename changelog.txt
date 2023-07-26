@@ -5,9 +5,11 @@ Date: 2023-07-16
   Changes:
     - ERM 1.18 compatibility changes.
     - Removed priority property from animations.
+    - Updated unit for dynamic attack range and dynamic vision distance
     - Reduced tech science pack count by 20-50%.
     - Added Cheap Mode in startup setting.
     - Unit recipe changes in cheap mode (about 1/3 - 2/3 cost reduction). All unit health reduces by 30%.
+    - Cheap Mode's Battlecruisers uses uranium-fuel-cell, instead of nuclear-fuel and  nuclear reactor.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.16.1

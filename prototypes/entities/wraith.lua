@@ -18,10 +18,10 @@ local TerranSound = require('__erm_terran__/prototypes/sound')
 
 local name = 'wraith'
 
-local attack_range = 16
+local attack_range = ERMPlayerUnitHelper.get_attack_range(1, 2)
 
 -- Misc Settings
-local vision_distance = 35
+local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
 local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 

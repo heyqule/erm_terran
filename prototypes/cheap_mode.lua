@@ -83,9 +83,16 @@ recipe['ingredients'] = {
 local unit = data.raw['unit'][MOD_NAME .. '/tank/mk2']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
+local tech = data.raw['technology'][MOD_NAME .. '/battlecruiser']
+tech['prerequisites'] = {
+    "military-4", "uranium-processing",
+    "low-density-structure",  MOD_NAME .. '/marine/mk-3',
+    "rocket-control-unit", "laser-turret", MOD_NAME .. '/starport'
+}
+
 local recipe = data.raw['recipe'][MOD_NAME .. '/battlecruiser/yamato']
 recipe['ingredients'] = {
-    {"nuclear-fuel", 20},
+    {"uranium-fuel-cell", 200},
     {"rocket-control-unit", 30},
     {"low-density-structure", 30},
     {"laser-turret", 20},
@@ -96,7 +103,7 @@ unit.max_health = math.ceil(unit.max_health * health_reduction)
 
 local recipe = data.raw['recipe'][MOD_NAME .. '/battlecruiser/laser']
 recipe['ingredients'] =         {
-    {"nuclear-fuel", 10},
+    {"uranium-fuel-cell", 100},
     {"rocket-control-unit", 15},
     {"low-density-structure", 15},
     {"laser-turret", 10},

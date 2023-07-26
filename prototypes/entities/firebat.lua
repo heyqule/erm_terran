@@ -25,7 +25,7 @@ local DataHelper = require('__erm_terran__/prototypes/data_helper')
 local name = 'firebat'
 
 -- Misc Settings
-local vision_distance = 30
+local vision_distance = ERMPlayerUnitHelper.get_vision_distance(2)
 local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 
