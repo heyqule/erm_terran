@@ -7,15 +7,11 @@ Discord:  [https://discord.gg/BwWXygyEyQ](https://discord.gg/BwWXygyEyQ)
 
 ERM - Features Reel: [https://www.youtube.com/watch?v=phLRReAjxHA](https://www.youtube.com/watch?v=phLRReAjxHA)
 
-##### Changes in 1.15
-- Dedicated assembly lines.  **Regular assembly machines can no longer build them.**
-  - Check your technology window to research them. 
-- Automated unit deployment.
-- Unit population control.
-- Unit teleportation support between surfaces.
-- Firebat and Goliath join the fun.
-- Feature Preview: https://www.youtube.com/watch?v=Oxl2AB0kulE
-- Tutorial: 
+ERM - Terran Tutorial: [https://www.youtube.com/watch?v=MzDwGJ3OOGY](https://www.youtube.com/watch?v=MzDwGJ3OOGY)
+
+##### Changes in 1.17
+- ERM 1.18 related changes
+- Cheap mode, Unit costs are 30 - 50% off. Some recipes required cheaper material. Unit health reduced by 30%
 
 ##### Licenses
 Lua code files are licensed under GNU LGPLv3
