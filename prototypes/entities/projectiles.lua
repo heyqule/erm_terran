@@ -71,14 +71,12 @@ data:extend({
             width = 9,
             height = 35,
             shift = { 0, 0 },
-            priority = "high"
         },
         shadow = {
             filename = "__base__/graphics/entity/rocket/rocket-shadow.png",
             frame_count = 1,
             width = 7,
             height = 24,
-            priority = "high",
             shift = { 0, 0 }
         },
         smoke = {
@@ -114,7 +112,6 @@ data:extend({
         },
         animation = {
             filename = "__erm_terran__/graphics/entity/units/battlecruiser/battlecruiser-laser-projectile.png",
-            priority = "extra-high",
             width = 64,
             height = 64,
             frame_count = 1,
@@ -144,7 +141,6 @@ data:extend({
         },
         animation = {
             filename = "__erm_terran__/graphics/entity/units/battlecruiser/battlecruiser-laser-projectile.png",
-            priority = "extra-high",
             width = 64,
             height = 64,
             frame_count = 1,
@@ -212,7 +208,6 @@ data:extend({
         },
         animation = {
             filename = "__erm_terran__/graphics/entity/units/battlecruiser/battlecruiser-projectile.png",
-            priority = "extra-high",
             width = 96,
             height = 96,
             frame_count = 1,
@@ -341,7 +336,6 @@ data:extend({
             frame_count = 1,
             width = 3,
             height = 50,
-            priority = "high"
         }
     },
     {
@@ -352,7 +346,6 @@ data:extend({
         order = "erm-terran-small-explosion",
         animations = {
             filename = "__erm_terran__/graphics/entity/explosion/small-explosion.png",
-            priority = "extra-high",
             width = 128,
             height = 128,
             frame_count = 9,
@@ -371,7 +364,6 @@ data:extend({
         order = "erm-terran-large-explosion",
         animations = {
             filename = "__erm_terran__/graphics/entity/explosion/large-explosion.png",
-            priority = "extra-high",
             width = 200,
             height = 200,
             frame_count = 10,
@@ -390,7 +382,6 @@ data:extend({
         order = "erm-terran-large-explosion",
         animations = {
             filename = "__erm_terran__/graphics/entity/explosion/large-explosion.png",
-            priority = "extra-high",
             width = 200,
             height = 200,
             frame_count = 10,
@@ -410,7 +401,6 @@ data:extend({
         order = "erm-terran-xlarge-explosion",
         animations = {
             filename = "__erm_terran__/graphics/entity/explosion/xlarge-explosion.png",
-            priority = "extra-high",
             width = 252,
             height = 200,
             frame_count = 10,

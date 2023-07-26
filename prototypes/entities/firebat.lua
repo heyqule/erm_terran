@@ -128,7 +128,6 @@ data:extend({
                         animation_speed = 0.65,
                         scale = unit_scale,
                         draw_as_glow = true,
-                        priority = "extra-high",
                     },
                     {
                         filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",

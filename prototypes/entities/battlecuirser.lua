@@ -85,7 +85,6 @@ function battlecruiser_light()
                 picture =
                 {
                     filename = "__core__/graphics/light-cone.png",
-                    priority = "extra-high",
                     flags = { "light"},
                     scale = 2,
                     width = 200,

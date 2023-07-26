@@ -29,7 +29,7 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 30,
-            count = 150
+            count = 100
         },
     },
     {
@@ -55,7 +55,7 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 45,
-            count = 500
+            count = 250
         },
     },
     {
@@ -82,7 +82,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 1000
+            count = 500
         },
     },
     {
@@ -108,7 +108,7 @@ data:extend({
                 {"chemical-science-pack", 1},
             },
             time = 30,
-            count = 300
+            count = 150
         },
     },
     {
@@ -135,7 +135,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 1000
+            count = 600
         },
     },
     {
@@ -164,7 +164,7 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 45,
-            count = 600
+            count = 300
         },
     },
     {
@@ -194,7 +194,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 1200
+            count = 750
         },
     },
     {
@@ -224,7 +224,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 750
+            count = 500
         },
     },
     {
@@ -287,7 +287,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-4", "nuclear-power",
+            "military-4", "nuclear-power", "kovarex-enrichment-process",
             "low-density-structure",  MOD_NAME .. '/marine/mk-3',
             "rocket-control-unit", "laser-turret", MOD_NAME .. '/starport'
         },
@@ -302,7 +302,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 2500
+            count = 2000
         },
     },
 
