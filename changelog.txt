@@ -3,12 +3,12 @@ Version: 1.17.1
 Date: 2023-07-26
 
   Changes:
-    - Fixed naming in ru locale
+    - Fixed naming in ru locale.  Special thanks: sawarad
     - added entity-description in ru locale
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.17.0
-Date: 2023-07-16
+Date: 2023-07-26
 
   Changes:
     - ERM 1.18 compatibility changes.
