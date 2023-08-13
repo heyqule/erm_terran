@@ -223,46 +223,6 @@ data:extend({
     },
     {
         type = "item",
-        name = MOD_NAME .. '/wraith/cold',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_blue.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
-        },
-        subgroup = "erm_controllable_units",
-        order = "a-erm-wraith",
-        place_result = MOD_NAME .. '/wraith/cold',
-        stack_size = 10
-    },
-    {
-        type = "item",
-        name = MOD_NAME .. '/wraith/acid',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_green.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
-        },
-        subgroup = "erm_controllable_units",
-        order = "a-erm-wraith",
-        place_result = MOD_NAME .. '/wraith/acid',
-        stack_size = 10
-    },
-    {
-        type = "item",
         name = MOD_NAME .. '/wraith/scout',
         icons = {
             {
@@ -279,6 +239,26 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-wraith",
         place_result = MOD_NAME .. '/wraith/scout',
+        stack_size = 10
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/valkyrie',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_red.png",
+                icon_size = 64,
+                scale = 0.2,
+                shift = {-9,-9}
+            },
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-valkyrie",
+        place_result = MOD_NAME .. '/valkyrie',
         stack_size = 10
     },
 

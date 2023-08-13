@@ -17,6 +17,7 @@ local populations = {
     ['tank'] = 3,
     ['wraith'] = 2,
     ['goliath'] = 2,
+    ['valkyrie'] = 2,
 }
 
 local refresh_data = function()
@@ -55,6 +56,24 @@ Event.on_configuration_changed(function(event)
         gui.update_overhead_button(player.index)
     end
 end)
+---
+--- Cap max color to belong 66% to avoid opaque color mask.
+---
+Event.register(defines.events.on_console_command, function(event)
+    if event.command == 'color' then
+        local color = game.players[event.player_index].color
+        local max_strength = 0.5
+        if color.r > max_strength or color.g > max_strength or color.b > max_strength then
+            color.r = color.r * max_strength
+            color.g = color.g * max_strength
+            color.b = color.b * max_strength
+        end
+
+        local force = game.players[event.player_index].force
+        force.custom_color = color
+    end
+end)
+
 
 
 Event.register(defines.events.on_player_created, function(event)

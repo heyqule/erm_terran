@@ -11,7 +11,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/marine/mk-1',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
         effects =
         {
             {
@@ -36,7 +36,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/marine/mk-2',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
         effects =
         {
             {
@@ -62,7 +62,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/marine/mk-3',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
         effects =
         {
             {
@@ -89,7 +89,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/firebat/mk-1',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat.png",
         effects =
         {
             {
@@ -115,7 +115,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/firebat/mk-2',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat.png",
         effects =
         {
             {
@@ -142,7 +142,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/tank/mk-1',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
         effects =
         {
             {
@@ -171,7 +171,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/tank/mk-2',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
         effects =
         {
             {
@@ -201,7 +201,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/goliath',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/goliath.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath.png",
         effects =
         {
             {
@@ -231,7 +231,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/wraith',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith.png",
         effects =
         {
             {
@@ -240,15 +240,11 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. '/wraith/cold'
-            },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/wraith/acid'
-            },
-            {
-                type = "unlock-recipe",
                 recipe = MOD_NAME .. '/wraith/scout'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/valkyrie'
             },
         },
         prerequisites = {
@@ -274,7 +270,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/battlecruiser',
         icon_size = 64,
-        icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser.png",
         effects =
         {
             {
@@ -313,7 +309,7 @@ data:extend({
         name = MOD_NAME .. '/command-center',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -351,7 +347,7 @@ data:extend({
         name = MOD_NAME .. '/barrack',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -389,7 +385,7 @@ data:extend({
         name = MOD_NAME .. '/factory',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -428,7 +424,7 @@ data:extend({
         name = MOD_NAME .. '/starport',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {

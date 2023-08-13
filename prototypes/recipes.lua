@@ -236,14 +236,14 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/wraith/cold',
+        name = MOD_NAME .. '/valkyrie',
         enabled = false,
         energy_required = 60,
         ingredients =
         {
             {"rocket-launcher", 2},
             {"rocket-control-unit", 10},
-            {"slowdown-capsule", 100},
+            {"rocket", 100},
             {"rocket-fuel", 20},
             {"low-density-structure", 10},
             {"flying-robot-frame", 10},
@@ -251,28 +251,8 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/wraith/cold',
-        order = MOD_NAME .. '/wraith/cold',
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/wraith/acid',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"rocket-launcher", 2},
-            {"rocket-control-unit", 10},
-            {"poison-capsule", 100},
-            {"rocket-fuel", 20},
-            {"low-density-structure", 10},
-            {"flying-robot-frame", 10},
-        },
-        category = "erm_controllable_starport",
-        allow_as_intermediate = false,
-        always_show_made_in = true,
-        result = MOD_NAME .. '/wraith/acid',
-        order = MOD_NAME .. '/wraith/acid'
+        result = MOD_NAME .. '/valkyrie',
+        order = MOD_NAME .. '/valkyrie',
     },
 
     --- Building
@@ -395,37 +375,6 @@ data:extend({
     --- 1/3 of SC1 build time
     {
         type = "recipe",
-        name = MOD_NAME .. '/wraith/acid/autodeploy',
-        energy_required =  20,
-        ingredients =
-        {
-            {MOD_NAME .. '/wraith/acid', 1}
-        },
-        category = "erm_controllable_starport",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/wraith/acid',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_green.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
-    },
-    {
-        type = "recipe",
         name = MOD_NAME .. '/wraith/scout/autodeploy',
         energy_required = 20,
         ingredients =
@@ -443,37 +392,6 @@ data:extend({
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_S.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/wraith/cold/autodeploy',
-        energy_required = 20,
-        ingredients =
-        {
-            {MOD_NAME .. '/wraith/cold', 1}
-        },
-        category = "erm_controllable_starport",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/wraith/cold',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_blue.png",
                 icon_size = 64,
                 scale = 0.25,
                 shift = {-9,-9}

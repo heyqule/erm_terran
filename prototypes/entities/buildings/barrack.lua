@@ -8,13 +8,21 @@ local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
 local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+
+local idle = AnimationDB.get_layered_animations('buildings', 'barracks', 'run')
+
+idle = AnimationDB.change_frame_count(idle, 1)
+
+local working = AnimationDB.get_layered_animations('buildings', 'barracks', 'run')
+
 data:extend({
     {
         type = "assembling-machine",
         name = MOD_NAME .. '/barrack',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -55,57 +63,8 @@ data:extend({
         energy_usage = "1MW",
         crafting_categories = {'erm_controllable_infantry'},
         crafting_speed = 1,
-        animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/barrack_working.png",
-                    width = 192,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5,
-                    draw_as_glow = true
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/barrack_working.png",
-                    width = 192,
-                    height = 160,
-                    direction_count = 1,
-                    scale = 1.5,
-                    frame_count = 3,
-                    animation_speed = 0.25,
-                    shift = {0.3, 0.1},
-                    draw_as_shadow = true,
-                },
-            }
-        },
-        idle_animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/barrack.png",
-                    width = 192,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 1,
-                    repeat_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5,
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/barrack.png",
-                    width = 192,
-                    height = 160,
-                    direction_count = 1,
-                    scale = 1.5,
-                    frame_count = 1,
-                    repeat_count = 3,
-                    animation_speed = 0.25,
-                    shift = {0.3, 0.1},
-                    draw_as_shadow = true,
-                },
-            }
-        },
+        animation = working,
+        idle_animation = idle,
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
         vehicle_impact_sound = sounds.generic_impact,

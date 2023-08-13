@@ -135,27 +135,3 @@ recipe['ingredients'] = {
 }
 local unit = data.raw['unit'][MOD_NAME .. '/wraith/scout']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
-
-local recipe = data.raw['recipe'][MOD_NAME .. '/wraith/cold']
-recipe['ingredients'] = {
-    {"rocket-launcher", 2},
-    {"rocket-control-unit", 5},
-    {"slowdown-capsule", 50},
-    {"rocket-fuel", 10},
-    {"low-density-structure", 5},
-    {"flying-robot-frame", 5},
-}
-local unit = data.raw['unit'][MOD_NAME .. '/wraith/cold']
-unit.max_health = math.ceil(unit.max_health * health_reduction)
-
-local recipe = data.raw['recipe'][MOD_NAME .. '/wraith/acid']
-recipe['ingredients'] = {
-    {"rocket-launcher", 2},
-    {"rocket-control-unit", 5},
-    {"poison-capsule", 50},
-    {"rocket-fuel", 10},
-    {"low-density-structure", 5},
-    {"flying-robot-frame", 5},
-}
-local unit = data.raw['unit'][MOD_NAME .. '/wraith/acid']
-unit.max_health = math.ceil(unit.max_health * health_reduction)

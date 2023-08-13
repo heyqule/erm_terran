@@ -3,8 +3,8 @@
 --- Created by heyqule.
 --- DateTime: 10/17/2021 9:54 PM
 ---
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
-local sounds = require("__base__/prototypes/entity/sounds")
+require('__erm_terran__/global')
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 
 data:extend({
     {
@@ -197,7 +197,7 @@ data:extend({
                                         include_decals = false,
                                         invoke_decorative_trigger = true,
                                         decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
-                                        radius = 3 -- large radius for demostrative purposes
+                                        radius = 5 -- large radius for demostrative purposes
                                     }
                                 },
                             }
@@ -324,7 +324,7 @@ data:extend({
                         include_decals = false,
                         invoke_decorative_trigger = true,
                         decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
-                        radius = 3 -- large radius for demostrative purposes
+                        radius = 5 -- large radius for demostrative purposes
                     }
                 }
             }
@@ -340,21 +340,11 @@ data:extend({
     },
     {
         type = "explosion",
-        name = "erm-terran-small-explosion",
+        name = MOD_NAME.."/firebat-explosion",
         flags = { "not-on-map" },
         subgroup = 'explosions',
-        order = "erm-terran-small-explosion",
-        animations = {
-            filename = "__erm_terran__/graphics/entity/explosion/small-explosion.png",
-            width = 128,
-            height = 128,
-            frame_count = 9,
-            animation_speed = 0.25,
-            direction_count = 1,
-            scale = 1.25,
-            draw_as_glow = true,
-        },
-        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+        order = MOD_NAME.."/firebat-explosion",
+        animations = AnimationDB.get_layered_animations('death', 'firebat', 'explosion'),
     },
     {
         type = "explosion",

@@ -14,7 +14,7 @@ data:extend({
         name = MOD_NAME .. '/factory',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {

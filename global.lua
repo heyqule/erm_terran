@@ -6,6 +6,7 @@
 
 -- Globals within the mod
 MOD_NAME = 'erm_terran'
-FORCE_NAME = 'enemy_erm_terran'
 
 DEBUG_MODE = false
+
+TERRAN_TEAM_COLOR = {r=255,g=255,b=0}

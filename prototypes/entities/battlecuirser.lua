@@ -13,7 +13,8 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
 local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran__/prototypes/sound')
+local TerranSound = require('__erm_terran_hd_assets__/sound')
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 local name = 'battlecruiser'
 
 
@@ -30,52 +31,16 @@ local unit_scale = 1.75
 local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
-function battlecruiser_animation(color)
-    return  {
-        layers = {
-            {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-" .. color .. "-run.png",
-                width = 120,
-                height = 120,
-                frame_count = 1,
-                repeat_count = 2,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.6,
-            },
-            {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-effect.png",
-                width = 120,
-                height = 120,
-                frame_count = 2,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.6,
-                draw_as_glow = true,
-                blend_mode = 'additive-soft',
-                tint = ERM_UnitTint.tint_plane_burner(),
-            },
-            {
-                filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-" .. color .. "-run.png",
-                width = 120,
-                height = 120,
-                frame_count = 1,
-                repeat_count = 2,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                tint = ERM_UnitTint.tint_shadow(),
-                animation_speed = 0.6,
-                draw_as_shadow = true,
-                shift = { 6, 0 }
-            }
-        }
-    }
+
+local battlecruiser_animation = function()
+    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser', 'run')
+
+    runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
+
+    return runAnimation
 end
 
-function battlecruiser_light()
+local battlecruiser_light = function()
     local light
     if settings.startup['erm_terran-add-light'].value then
         light = {
@@ -108,7 +73,7 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/yamato' },
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
                 icon_size = 64,
             },
             {
@@ -169,14 +134,14 @@ data:extend({
                     }
                 }
             },
-            animation = battlecruiser_animation('orange'),
-            sound = TerranSound.attack(name, 0.66, 0.66),
+            animation = battlecruiser_animation(),
+            sound = TerranSound.battlecruiser_yamato(0.66, 0.66),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation('orange'),
+        run_animation = battlecruiser_animation(),
         dying_explosion = 'erm-fire-explosion-air_large-1',
-        dying_sound = TerranSound.death(name, 0.75),
+        dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
@@ -225,7 +190,7 @@ data:extend({
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
-        radar_range = 1,
+        radar_range = 2,
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
@@ -249,14 +214,14 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.laser_attack(name, 0.6, 0.6),
-            animation = battlecruiser_animation('yellow'),
+            sound = TerranSound.battlecruiser_laser(0.6, 0.6),
+            animation = battlecruiser_animation(),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation('yellow'),
+        run_animation = battlecruiser_animation(),
         dying_explosion = 'erm-fire-explosion-air_large-1',
-        dying_sound = TerranSound.death(name, 0.75),
+        dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
@@ -265,7 +230,7 @@ data:extend({
     {
         type = "corpse",
         name = name .. '-corpse',
-        icon = "__erm_terran__/graphics/entity/icons/units/" .. name .. ".png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
         selection_box = selection_box,

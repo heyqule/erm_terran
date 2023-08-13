@@ -20,8 +20,12 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran__/prototypes/sound')
+
 local DataHelper = require('__erm_terran__/prototypes/data_helper')
+
+local TerranSound = require('__erm_terran_hd_assets__/sound')
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+
 local name = 'firebat'
 
 -- Misc Settings
@@ -39,6 +43,15 @@ local mk1_resist = DataHelper.getResistance(55)
 table.insert(mk1_resist,{type='fire', percent=100})
 local mk2_resist = DataHelper.getResistance(75)
 table.insert(mk2_resist,{type='fire', percent=100})
+
+local attackAnimation = AnimationDB.get_layered_animations('units', 'firebat', 'attack')
+
+attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
+
+local runningAnimation = AnimationDB.get_layered_animations('units', 'firebat', 'run')
+
+runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
+
 -- Firebat MK 1 --
 data:extend({
     {
@@ -48,7 +61,7 @@ data:extend({
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
                 icon_size = 64,
             },
             {
@@ -116,74 +129,10 @@ data:extend({
                     }
                 },
             },
-            animation = {
-                layers = {
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/".. name .."-effect-flamer.png",
-                        width = 256,
-                        height = 256,
-                        frame_count = 13,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        animation_speed = 0.65,
-                        scale = unit_scale,
-                        draw_as_glow = true,
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                        width = 256,
-                        height = 256,
-                        frame_count = 13,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        frame_sequence = { 1,2,2,2,2,2,2,2,2,1,1,1,1 },
-                        animation_speed = 0.65,
-                        draw_as_glow = true,
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                        width = 256,
-                        height = 256,
-                        frame_count = 13,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        frame_sequence = { 1,2,2,2,2,2,2,2,2,1,1,1,1 },
-                        animation_speed = 0.65,
-                        draw_as_shadow = true,
-                        shift = { 0.25, 0 },
-                        tint = ERM_UnitTint.tint_shadow(),
-                    },
-                }
-            }
+            animation = attackAnimation
         },
-        distance_per_frame = 0.2,
-        run_animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 256,
-                    height = 256,
-                    frame_count = 8,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 256,
-                    height = 256,
-                    frame_count = 8,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    draw_as_shadow = true,
-                    shift = { 0.25, 0 },
-                    tint = ERM_UnitTint.tint_shadow(),
-                }
-            }
-        },
+        distance_per_frame = 0.16,
+        run_animation = runningAnimation,
         dying_trigger_effect = {
             {
                 type = "nested-result",
@@ -211,7 +160,7 @@ data:extend({
             }
         },
         dying_sound = TerranSound.firebat_death(1),
-        dying_explosion = "erm-terran-small-explosion",
+        dying_explosion = MOD_NAME.."/firebat-explosion",
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },

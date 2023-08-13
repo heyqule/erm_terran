@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2023-??-??
+
+  Features:
+    - HD graphic is now required for player Terran
+    - Player force tint is now support for all units and turrets.  Assembler can not be tint unfortunately.
+    - Cold Wraith is now Valkyrie, shoot cold missiles, slow targets.
+    - Poison Wraith is now Science-Vessel. cast irradiate at location.
+    - Added Vulture, shoots grenade and 30% spidermine
+    - Added Ghost, sniper and 20% lockdown, slow enemy units 95% for 5s.
+    - Added Mass Destruction Ghost, deploys a nuke. :)
+    - Added Missile Turret, accepts rockets, default: 30, min-range: 6, HP: 1200, 25% repair speed
+    - Added Siege Tank turret, accepts cannon-shells, default: 36 range, min-range: 10, HP: 1500, 25% repair speed
+    - Added Bunker Turret, default:24 range, HP 2000, 25% repair speed
+
+  Changes:
+    - Tank and flyers are radar range.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.17.2
 Date: 2023-07-29
 

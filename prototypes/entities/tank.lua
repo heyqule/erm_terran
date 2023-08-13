@@ -13,7 +13,9 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran__/prototypes/sound')
+local TerranSound = require('__erm_terran_hd_assets__/sound')
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+
 local name = 'tank'
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.3, 6)
@@ -29,6 +31,23 @@ local unit_scale = 1.5
 local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
+local runAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_body', 'run')
+local runTurretAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_turret', 'run')
+
+for _, ani_data in pairs(runTurretAnimation['layers']) do
+    table.insert(runAnimation['layers'],ani_data)
+end
+
+runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
+
+local attackAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_body', 'attack')
+local attackTurretAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_turret', 'attack')
+
+for _, ani_data in pairs(attackTurretAnimation['layers']) do
+    table.insert(attackAnimation['layers'],ani_data)
+end
+
+attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
 data:extend({
     {
@@ -38,7 +57,7 @@ data:extend({
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
                 icon_size = 64,
             },
             {
@@ -75,7 +94,7 @@ data:extend({
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
-        radar_range = 1,
+        radar_range = 2,
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
@@ -97,84 +116,16 @@ data:extend({
                         starting_speed = 1.5,
                         max_range = ERM_Config.get_max_projectile_range(2),
                         min_range = 10,
-                        source_effects =
-                        {
-                            type = "create-explosion",
-                            entity_name = "explosion-gunshot"
-                        }
                     }
                 }
             },
-            sound = TerranSound.attack(name, 0.66, 0.66),
-            animation = {
-                layers = {
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                        width = 128,
-                        height = 128,
-                        frame_count = 1,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        animation_speed = 0.2,
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                        width = 128,
-                        height = 128,
-                        frame_count = 1,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        tint = ERM_UnitTint.tint_shadow(),
-                        animation_speed = 0.2,
-                        draw_as_shadow = true,
-                        shift = { 0.5, 0 }
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-flash.png",
-                        width = 128,
-                        height = 128,
-                        frame_count = 1,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        animation_speed = 0.2,
-                        draw_as_glow = true
-                    },
-                }
-            }
+            sound = TerranSound.siege_tank_attack(0.66, 0.66),
+            animation = attackAnimation
         },
-        distance_per_frame = 0.5,
-        run_animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 128,
-                    height = 128,
-                    frame_count = 2,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    animation_speed = 0.6
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 128,
-                    height = 128,
-                    frame_count = 2,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    tint = ERM_UnitTint.tint_shadow(),
-                    shift = { 0.5, 0 },
-                    animation_speed = 0.6,
-                    draw_as_shadow = true
-                }
-            }
-        },
+        distance_per_frame = 0.2,
+        run_animation = runAnimation,
         dying_explosion = "erm-terran-large-explosion",
-        dying_sound = TerranSound.death(name, 0.75),
+        dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },

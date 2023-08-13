@@ -13,8 +13,9 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local ERM_Config = require('__enemyracemanager__/lib/global_config')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran__/prototypes/sound')
+local TerranSound = require('__erm_terran_hd_assets__/sound')
 local DataHelper = require('__erm_terran__/prototypes/data_helper')
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 local name = 'marine'
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(0.86, 0)
@@ -24,11 +25,19 @@ local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
 local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 
--- Animation Settings
-local unit_scale = 1.5
 
 local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
+
+local attackAnimation = AnimationDB.get_layered_animations('units', 'marine', 'attack')
+
+attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
+
+local runningAnimation = AnimationDB.get_layered_animations('units', 'marine', 'run')
+
+runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
+
+local corpseAnimation = AnimationDB.get_single_animation('death', 'marine_death', 'explosion')
 
 -- Marine MK 1 --
 data:extend({
@@ -39,7 +48,7 @@ data:extend({
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
                 icon_size = 64,
             },
             {
@@ -114,75 +123,11 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.rapid_attack(name, 0.5, 0.5),
-            animation = {
-                layers = {
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack-effect.png",
-                        width = 64,
-                        height = 64,
-                        frame_count = 8,
-                        axially_symmetrical = false,
-                        animation_speed = 0.65,
-                        direction_count = 16,
-                        scale = unit_scale,
-                        frame_sequence = { 1, 2, 3, 4, 3, 4, 3, 4 },
-                        draw_as_glow = true,
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                        width = 64,
-                        height = 64,
-                        frame_count = 8,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        animation_speed = 0.65,
-                        scale = unit_scale,
-                        frame_sequence = { 1, 2, 3, 4, 3, 4, 3, 4 }
-                    },
-                    {
-                        filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                        width = 64,
-                        height = 64,
-                        frame_count = 8,
-                        axially_symmetrical = false,
-                        direction_count = 16,
-                        animation_speed = 0.65,
-                        scale = unit_scale,
-                        frame_sequence = { 1, 2, 3, 4, 3, 4, 3, 4 },
-                        draw_as_shadow = true,
-                        shift = { 0.25, 0 },
-                        tint = ERM_UnitTint.tint_shadow(),
-                    },
-                }
-            }
+            sound = TerranSound.marine_attack(0.5),
+            animation = attackAnimation
         },
-        distance_per_frame = 0.2,
-        run_animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 64,
-                    height = 64,
-                    frame_count = 9,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                    width = 64,
-                    height = 64,
-                    frame_count = 9,
-                    axially_symmetrical = false,
-                    direction_count = 16,
-                    scale = unit_scale,
-                    draw_as_shadow = true,
-                    shift = { 0.25, 0 },
-                    tint = ERM_UnitTint.tint_shadow(),
-                }
-            }
-        },
+        distance_per_frame = 0.16,
+        run_animation = runningAnimation,
         dying_sound = TerranSound.marine_death(1),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
@@ -192,7 +137,7 @@ data:extend({
     {
         type = "corpse",
         name = name .. '-corpse',
-        icon = "__erm_terran__/graphics/entity/icons/units/" .. name .. ".png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
         selection_box = selection_box,
@@ -202,16 +147,7 @@ data:extend({
         subgroup = "corpses",
         order = "x" .. name,
         final_render_layer = "lower-object-above-shadow",
-        animation = {
-            filename = "__erm_terran__/graphics/entity/units/" .. name .. "/" .. name .. "-death.png",
-            width = 64,
-            height = 64,
-            frame_count = 8,
-            direction_count = 1,
-            axially_symmetrical = false,
-            scale = unit_scale,
-            animation_speed = 0.2
-        },
+        animation = corpseAnimation,
     },
 })
 
