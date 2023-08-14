@@ -26,10 +26,11 @@ local DataHelper = require('__erm_terran__/prototypes/data_helper')
 local TerranSound = require('__erm_terran_hd_assets__/sound')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 
-local name = 'firebat'
+local name = 'ghost'
 
 -- Misc Settings
-local vision_distance = ERMPlayerUnitHelper.get_vision_distance(2)
+local attack_range = ERMPlayerUnitHelper.get_attack_range(1)
+local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
 local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 
@@ -39,16 +40,15 @@ local unit_scale = 1.5
 local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
-local mk1_resist = DataHelper.getResistance(55)
-table.insert(mk1_resist,{type='fire', percent=100})
-local mk2_resist = DataHelper.getResistance(75)
-table.insert(mk2_resist,{type='fire', percent=100})
+local regular_resist = DataHelper.getResistance(65)
+local nuke_resist = DataHelper.getResistance(75)
 
-local attackAnimation = AnimationDB.get_layered_animations('units', 'firebat', 'attack')
+
+local attackAnimation = AnimationDB.get_layered_animations('units', 'ghost', 'attack')
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
-local runningAnimation = AnimationDB.get_layered_animations('units', 'firebat', 'run')
+local runningAnimation = AnimationDB.get_layered_animations('units', 'ghost', 'run')
 
 runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 
@@ -56,8 +56,8 @@ runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name .. '/mk1',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 1'},
+        name = MOD_NAME .. '/' .. name .. '/regular',
+        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'Regular'},
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
@@ -77,7 +77,7 @@ data:extend({
         order = MOD_NAME .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
-        resistances = mk1_resist,
+        resistances = regular_resist,
         healing_per_tick = 0,
         collision_box = collision_box,
         selection_box = selection_box,
@@ -160,7 +160,6 @@ data:extend({
             }
         },
         dying_sound = TerranSound.firebat_death(1),
-        dying_explosion = MOD_NAME.."/firebat-explosion",
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
@@ -179,79 +178,24 @@ data:extend({
         order = "x" .. name,
         animation = Sprites.empty_pictures(),
     },
-    {
-        type = "sticker",
-        name = "firebat-sticker",
-        flags = {"not-on-map"},
-
-        animation =
-        {
-            filename = "__base__/graphics/entity/fire-flame/fire-flame-13.png",
-            line_length = 8,
-            width = 60,
-            height = 118,
-            frame_count = 25,
-            blend_mode = "normal",
-            animation_speed = 1,
-            scale = 0.2,
-            tint = { r = 0.5, g = 0.5, b = 0.5, a = 0.18 }, --{ r = 1, g = 1, b = 1, a = 0.35 },
-            shift = math3d.vector2.mul({-0.078125, -1.8125}, 0.1),
-            draw_as_glow = true
-        },
-
-        duration_in_ticks = 10 * 60,
-        damage_interval = 10,
-        target_movement_modifier = 0.8,
-        damage_per_tick = { amount = 10 * 25 / 60, type = "fire" },
-        spread_fire_entity = "fire-flame-on-tree",
-        fire_spread_cooldown = 30,
-        fire_spread_radius = 1
-    }
 })
 
--- Firebat MK2 --
-local firebat_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
+-- Ghost Mass Destruction --
+local ghost_nuke = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/regular'])
 
-firebat_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
-firebat_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
-firebat_mk2['icons'][2] = {
-    icon = "__base__/graphics/icons/signal/signal_2.png",
+ghost_nuke.name = MOD_NAME .. '/' .. name .. '/nuke'
+ghost_nuke.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'Mass Destruction'}
+ghost_nuke['icons'][2] = {
+    icon = "__base__/graphics/icons/atomic-bomb.png",
     icon_size = 64,
     scale = 0.25,
     shift = {-9,-9}
 }
-firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
-firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
-firebat_mk2.resistances = mk2_resist
-firebat_mk2['attack_parameters']['damage_modifier'] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
+ghost_nuke.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
+ghost_nuke.max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier()
+ghost_nuke.resistances = nuke_resist
+ghost_nuke['attack_parameters']['damage_modifier'] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
 
-firebat_mk2['dying_trigger_effect'] = {
-    {
-        type = "nested-result",
-        action =
-        {
-            type = "area",
-            radius = 4,
-            force = 'not-same',
-            action_delivery =
-            {
-                type = "instant",
-                target_effects =
-                {
-                    {
-                        type = "damage",
-                        damage = {amount = 400 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
-                    },
-                    {
-                        type = "damage",
-                        damage = {amount = 600 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
-                    }
-                }
-            }
-        }
-    }
-},
-
-data:extend({firebat_mk2})
+data:extend({ ghost_nuke })
 
 

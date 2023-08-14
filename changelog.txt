@@ -3,19 +3,24 @@ Version: 2.0.0
 Date: 2023-??-??
 
   Features:
-    - HD graphic is now required for player Terran
-    - Player force tint is now support for all units and turrets.  Assembler can not be tint unfortunately.
-    - Cold Wraith is now Valkyrie, shoot cold missiles, slow targets.
-    - Poison Wraith is now Science-Vessel. cast irradiate at location.
-    - Added Vulture, shoots grenade and 30% spidermine
+    - This mod now requires HD Terran asset pack. (https://mods.factorio.com/mod/erm_terran_hd_assets)
+    - Player force tint is now support for all units and turrets. Assembler can not be tinted, unfortunately.
+    - Add Valkyrie, shoot cold missiles, slow targets.
+    - Cold Wraith migrate to Valkyrie
+    - Add Science Vessel, cast may irradiate and emp at location.
+    - Poison Wraith migrate to Science Vessel
+    - Added Vulture, shoots grenade and 30% drop a spidermine
     - Added Ghost, sniper and 20% lockdown, slow enemy units 95% for 5s.
     - Added Mass Destruction Ghost, deploys a nuke. :)
     - Added Missile Turret, accepts rockets, default: 30, min-range: 6, HP: 1200, 25% repair speed
     - Added Siege Tank turret, accepts cannon-shells, default: 36 range, min-range: 10, HP: 1500, 25% repair speed
-    - Added Bunker Turret, default:24 range, HP 2000, 25% repair speed
+    - Added Bunker Turret, no-ammo-required, default:20 range, HP 2000, 10% repair speed
 
   Changes:
-    - Tank and flyers are radar range.
+    - Siege Tank and flyers are 2 radar range.
+    - Rename "Tank" to "Siege Tank"
+    - Change collision box for barrack/command center/factory/starport.
+
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.17.2

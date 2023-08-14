@@ -140,14 +140,14 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. '/tank/mk-1',
+        name = MOD_NAME .. '/siege_tank/mk-1',
         icon_size = 64,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. '/tank'
+                recipe = MOD_NAME .. '/siege_tank'
             },
         },
         prerequisites = {
@@ -169,18 +169,18 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. '/tank/mk-2',
+        name = MOD_NAME .. '/siege_tank/mk-2',
         icon_size = 64,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. '/tank/mk2'
+                recipe = MOD_NAME .. '/siege_tank/mk2'
             },
         },
         prerequisites = {
-            "military-4", "tank", "rocket-control-unit", MOD_NAME .. '/tank/mk-1',
+            "military-4", "tank", "rocket-control-unit", MOD_NAME .. '/siege_tank/mk-1',
             "rocket-fuel", "low-density-structure", MOD_NAME .. '/factory',
         },
         unit =
@@ -245,6 +245,22 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/valkyrie'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/science_vessel'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/vulture'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/ghost/regular'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/ghost/nuke'
             },
         },
         prerequisites = {

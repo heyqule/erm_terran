@@ -8,6 +8,19 @@ local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
 local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+
+local idle = AnimationDB.get_layered_animations('buildings', 'factory', 'run')
+
+idle = AnimationDB.change_frame_count(idle, 1)
+
+idle = AnimationDB.alter_team_color(idle, nil, true)
+
+local working = AnimationDB.get_layered_animations('buildings', 'factory', 'run')
+
+working = AnimationDB.alter_team_color(working, nil, true)
+
+
 data:extend({
     {
         type = "assembling-machine",
@@ -42,9 +55,9 @@ data:extend({
             { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
-        collision_box = {{-2.7, -2.7}, {2.7, 2.7}},
-        selection_box = {{-3, -3}, {3, 3}},
-        map_generator_bounding_box = {{-4,-4}, {4, 4}},
+        collision_box = {{-3.5, -2.7}, {3.25, 2.7}},
+        selection_box = {{-3.5, -3}, {3.25, 3}},
+        map_generator_bounding_box = {{-4.5,-4}, {4.25, 4}},
         damaged_trigger_effect = hit_effects.entity(),
         energy_source =
         {
@@ -55,68 +68,8 @@ data:extend({
         energy_usage = "2MW",
         crafting_categories = {'erm_controllable_factory'},
         crafting_speed = 1,
-        animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/factory.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 1,
-                    repeat_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/factory_working.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5,
-                    draw_as_glow = true,
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/factory.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 1,
-                    repeat_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5,
-                    shift = {0.3, 0.1},
-                    draw_as_shadow = true,
-                },
-            }
-        },
-        idle_animation = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/factory.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 1,
-                    repeat_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/factory.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    frame_count = 1,
-                    repeat_count = 3,
-                    animation_speed = 0.25,
-                    scale = 1.5,
-                    shift = {0.3, 0.1},
-                    draw_as_shadow = true,
-                },
-            }
-        },
+        animation = working,
+        idle_animation = idle,
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
         vehicle_impact_sound = sounds.generic_impact,

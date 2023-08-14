@@ -14,7 +14,11 @@ local idle = AnimationDB.get_layered_animations('buildings', 'barracks', 'run')
 
 idle = AnimationDB.change_frame_count(idle, 1)
 
+idle = AnimationDB.alter_team_color(idle, nil, true)
+
 local working = AnimationDB.get_layered_animations('buildings', 'barracks', 'run')
+
+working = AnimationDB.alter_team_color(working, nil, true)
 
 data:extend({
     {
@@ -50,9 +54,9 @@ data:extend({
             { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
-        collision_box = {{-2.7, -2.7}, {3, 2.7}},
-        selection_box = {{-3, -3}, {3, 3}},
-        map_generator_bounding_box = {{-4,-4}, {4,4}},
+        collision_box = {{-3, -2.7}, {3.2, 2.7}},
+        selection_box = {{-3, -3}, {3.2, 3}},
+        map_generator_bounding_box = {{-4,-4}, {4.2,4}},
         damaged_trigger_effect = hit_effects.entity(),
         energy_source =
         {

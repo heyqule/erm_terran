@@ -17,7 +17,7 @@ local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
 local TerranSound = require('__erm_terran_hd_assets__/sound')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'valkyrie'
+local name = 'vulture'
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1)
 
@@ -33,16 +33,7 @@ local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
 
-local goliath_rocket_projectile = util.table.deepcopy(data.raw["projectile"]['wraith-rocket'])
-goliath_rocket_projectile['localised_name'] = {'entity-name.goliath-rocket-projectile'}
-goliath_rocket_projectile['name'] = 'goliath-rocket-projectile'
-goliath_rocket_projectile['action']['action_delivery']
-['target_effects'][5]['action']['action_delivery']
-['target_effects'][1]['damage'] = { amount = 75, type = "cold" }
-
-data:extend({goliath_rocket_projectile})
-
-local runAnimation = AnimationDB.get_layered_animations('units', 'valkyrie', 'run')
+local runAnimation = AnimationDB.get_layered_animations('units', 'vulture', 'run')
 
 runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
@@ -58,23 +49,22 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
-        max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 80 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
         resistances = {
-            { type = "acid", percent = 75 },
+            { type = "acid", percent = 66 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 75 },
-            { type = "fire", percent = 75 },
-            { type = "explosion", percent = 75 },
-            { type = "laser", percent = 75 },
-            { type = "electric", percent = 75 },
-            { type = "cold", percent = 75 }
+            { type = "physical", percent = 66 },
+            { type = "fire", percent = 66 },
+            { type = "explosion", percent = 66 },
+            { type = "laser", percent = 66 },
+            { type = "electric", percent = 66 },
+            { type = "cold", percent = 66 }
         },
         healing_per_tick = 0,
-        collision_mask = ERMDataHelper.getFlyingCollisionMask(),
         collision_box = collision_box,
         selection_box = selection_box,
         sticker_box = selection_box,
@@ -91,7 +81,7 @@ data:extend({
             ammo_category = 'rocket',
             range = attack_range,
             min_attack_distance = attack_range - 4,
-            cooldown = 30,
+            cooldown = 90,
             cooldown_deviation = 0.1,
             warmup = 6,
             damage_modifier = 2 + ERMPlayerUnitHelper.get_damage_multiplier(),

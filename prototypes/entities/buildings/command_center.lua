@@ -8,6 +8,14 @@ local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
 local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+
+local idle = AnimationDB.get_layered_animations('buildings', 'command_centre', 'run')
+
+idle = AnimationDB.change_frame_count(idle, 1)
+
+idle = AnimationDB.alter_team_color(idle, nil, true)
+
 data:extend({
     {
         type = "radar",
@@ -42,9 +50,9 @@ data:extend({
             { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
-        collision_box = {{-2.7, -2.7}, {2.7, 2.7}},
-        selection_box = {{-3, -3}, {3, 3}},
-        map_generator_bounding_box = {{-4,-4}, {4,4}},
+        collision_box = {{-3.7, -2.7}, {3.2, 2.7}},
+        selection_box = {{-3.7, -3}, {3.2, 3}},
+        map_generator_bounding_box = {{-4.7,-4}, {4.2,4}},
         damaged_trigger_effect = hit_effects.entity(),
         energy_per_sector = "100MJ",
         max_distance_of_sector_revealed = 14,
@@ -56,26 +64,7 @@ data:extend({
             usage_priority = "secondary-input"
         },
         energy_usage = "10MW",
-        pictures = {
-            layers = {
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/command_center.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    scale = 1.5
-                },
-                {
-                    filename = "__erm_terran__/graphics/entity/buildings/command_center.png",
-                    width = 128,
-                    height = 160,
-                    direction_count = 1,
-                    scale = 1.5,
-                    shift = {0.3, 0.1},
-                    draw_as_shadow = true,
-                },
-            }
-        },
+        pictures = idle,
         vehicle_impact_sound = sounds.generic_impact,
         working_sound =
         {

@@ -62,17 +62,17 @@ recipe['ingredients'] = {
 local unit = data.raw['unit'][MOD_NAME .. '/goliath']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
-local recipe = data.raw['recipe'][MOD_NAME .. '/tank']
+local recipe = data.raw['recipe'][MOD_NAME .. '/siege_tank']
 recipe['ingredients'] = {
     {"tank", 1},
     {"explosive-cannon-shell", 30},
     {"low-density-structure", 10},
     {"solid-fuel", 20},
 }
-local unit = data.raw['unit'][MOD_NAME .. '/tank']
+local unit = data.raw['unit'][MOD_NAME .. '/siege_tank']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
-local recipe = data.raw['recipe'][MOD_NAME .. '/tank/mk2']
+local recipe = data.raw['recipe'][MOD_NAME .. '/siege_tank/mk2']
 recipe['ingredients'] = {
     {"tank", 1},
     {"rocket-control-unit", 5},
@@ -80,7 +80,7 @@ recipe['ingredients'] = {
     {"low-density-structure", 10},
     {"rocket-fuel", 10},
 }
-local unit = data.raw['unit'][MOD_NAME .. '/tank/mk2']
+local unit = data.raw['unit'][MOD_NAME .. '/siege_tank/mk2']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
 local tech = data.raw['technology'][MOD_NAME .. '/battlecruiser']

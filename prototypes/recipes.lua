@@ -119,7 +119,7 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/tank',
+        name = MOD_NAME .. '/siege_tank',
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -132,12 +132,12 @@ data:extend({
         category = "erm_controllable_factory",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/tank',
-        order = MOD_NAME .. '/tank',
+        result = MOD_NAME .. '/siege_tank',
+        order = MOD_NAME .. '/siege_tank',
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/tank/mk2',
+        name = MOD_NAME .. '/siege_tank/mk2',
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -151,8 +151,8 @@ data:extend({
         category = "erm_controllable_factory",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/tank/mk2',
-        order = MOD_NAME .. '/tank/mk2',
+        result = MOD_NAME .. '/siege_tank/mk2',
+        order = MOD_NAME .. '/siege_tank/mk2',
     },
     {
         type = "recipe",
@@ -253,6 +253,86 @@ data:extend({
         always_show_made_in = true,
         result = MOD_NAME .. '/valkyrie',
         order = MOD_NAME .. '/valkyrie',
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/science_vessel',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"rocket", 100},
+            {"rocket-fuel", 20},
+            {"low-density-structure", 10},
+            {"flying-robot-frame", 10},
+        },
+        category = "erm_controllable_starport",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/science_vessel',
+        order = MOD_NAME .. '/science_vessel',
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/vulture',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"rocket", 100},
+            {"rocket-fuel", 20},
+            {"low-density-structure", 10},
+            {"flying-robot-frame", 10},
+        },
+        category = "erm_controllable_starport",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/vulture',
+        order = MOD_NAME .. '/vulture',
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/ghost/regular',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"rocket", 100},
+            {"rocket-fuel", 20},
+            {"low-density-structure", 10},
+            {"flying-robot-frame", 10},
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/ghost/regular',
+        order = MOD_NAME .. '/ghost/regular',
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/ghost/nuke',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"rocket-launcher", 2},
+            {"rocket-control-unit", 10},
+            {"rocket", 100},
+            {"rocket-fuel", 20},
+            {"low-density-structure", 10},
+            {"flying-robot-frame", 10},
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/ghost/nuke',
+        order = MOD_NAME .. '/ghost/nuke',
     },
 
     --- Building
@@ -524,19 +604,19 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/tank/autodeploy',
+        name = MOD_NAME .. '/siege_tank/autodeploy',
         energy_required = 16,
         ingredients =
         {
-            {MOD_NAME .. '/tank', 1}
+            {MOD_NAME .. '/siege_tank', 1}
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/tank',
+        result = MOD_NAME .. '/siege_tank',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
                 icon_size = 64,
             },
             {
@@ -555,19 +635,19 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/tank/mk2/autodeploy',
+        name = MOD_NAME .. '/siege_tank/mk2/autodeploy',
         energy_required = 16,
         ingredients =
         {
-            {MOD_NAME .. '/tank/mk2', 1}
+            {MOD_NAME .. '/siege_tank/mk2', 1}
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
         order = 'zzz',
-        result = MOD_NAME .. '/tank/mk2',
+        result = MOD_NAME .. '/siege_tank/mk2',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
                 icon_size = 64,
             },
             {

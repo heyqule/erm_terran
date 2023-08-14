@@ -16,7 +16,7 @@ local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_he
 local TerranSound = require('__erm_terran_hd_assets__/sound')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 
-local name = 'tank'
+local name = 'siege_tank'
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.3, 6)
 
@@ -133,7 +133,7 @@ data:extend({
     {
         type = "corpse",
         name = name .. '-corpse',
-        icon = "__erm_terran__/graphics/entity/icons/units/" .. name .. ".png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
         selection_box = selection_box,

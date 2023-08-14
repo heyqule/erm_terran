@@ -33,7 +33,7 @@ local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 
 local battlecruiser_animation = function()
-    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser', 'run')
+    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser', 'run', 1)
 
     runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
@@ -153,7 +153,7 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/laser' },
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
                 icon_size = 64,
             },
             {

@@ -40,7 +40,7 @@ data:extend {
         name = "erm_terran-team_color_preserve_gloss",
         description = "erm_terran-team_color_preserve_gloss",
         setting_type = "startup",
-        default_value = false,
+        default_value = true,
         order = "erm_terran-113",
     },
 }

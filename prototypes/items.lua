@@ -12,7 +12,7 @@ data:extend({
         name = MOD_NAME .. '/marine/mk1',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
                 icon_size = 64,
             },
             {
@@ -32,7 +32,7 @@ data:extend({
         name = MOD_NAME .. '/marine/mk2',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
                 icon_size = 64,
             },
             {
@@ -52,7 +52,7 @@ data:extend({
         name = MOD_NAME .. '/marine/mk3',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
                 icon_size = 64,
             },
             {
@@ -72,7 +72,7 @@ data:extend({
         name = MOD_NAME .. '/firebat/mk1',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat.png",
                 icon_size = 64,
             },
             {
@@ -92,7 +92,7 @@ data:extend({
         name = MOD_NAME .. '/firebat/mk2',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat.png",
                 icon_size = 64,
             },
             {
@@ -109,10 +109,10 @@ data:extend({
     },
     {
         type = "item",
-        name = MOD_NAME .. '/tank',
+        name = MOD_NAME .. '/siege_tank',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
                 icon_size = 64,
             },
             {
@@ -123,16 +123,16 @@ data:extend({
             },
         },
         subgroup = "erm_controllable_units",
-        order = "a-erm-tank",
-        place_result = MOD_NAME .. '/tank' ,
+        order = "a-erm-siege_tank",
+        place_result = MOD_NAME .. '/siege_tank' ,
         stack_size = 5
     },
     {
         type = "item",
-        name = MOD_NAME .. '/tank/mk2',
+        name = MOD_NAME .. '/siege_tank/mk2',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/tank.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
                 icon_size = 64,
             },
             {
@@ -143,8 +143,8 @@ data:extend({
             },
         },
         subgroup = "erm_controllable_units",
-        order = "a-erm-tank2",
-        place_result = MOD_NAME .. '/tank/mk2' ,
+        order = "a-erm-siege_tank",
+        place_result = MOD_NAME .. '/siege_tank/mk2' ,
         stack_size = 5
     },
     {
@@ -152,7 +152,7 @@ data:extend({
         name = MOD_NAME .. '/goliath',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/goliath.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath.png",
                 icon_size = 64,
             }
         },
@@ -166,7 +166,7 @@ data:extend({
         name = MOD_NAME .. '/battlecruiser/yamato',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser.png",
                 icon_size = 64,
             },
             {
@@ -186,7 +186,7 @@ data:extend({
         name = MOD_NAME .. '/battlecruiser/laser',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser.png",
                 icon_size = 64,
             },
             {
@@ -206,7 +206,7 @@ data:extend({
         name = MOD_NAME .. '/wraith',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith.png",
                 icon_size = 64,
             },
             {
@@ -226,7 +226,7 @@ data:extend({
         name = MOD_NAME .. '/wraith/scout',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith.png",
                 icon_size = 64,
             },
             {
@@ -249,18 +249,75 @@ data:extend({
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie.png",
                 icon_size = 64,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_red.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-valkyrie",
         place_result = MOD_NAME .. '/valkyrie',
         stack_size = 10
     },
+    {
+        type = "item",
+        name = MOD_NAME .. '/science_vessel',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel.png",
+                icon_size = 64,
+            },
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-science_vessel",
+        place_result = MOD_NAME .. '/science_vessel',
+        stack_size = 10
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/vulture',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture.png",
+                icon_size = 64,
+            },
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-vulture",
+        place_result = MOD_NAME .. '/vulture',
+        stack_size = 10
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/ghost/regular',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost.png",
+                icon_size = 64,
+            },
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-ghost",
+        place_result = MOD_NAME .. '/ghost/regular',
+        stack_size = 10
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/ghost/nuke',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__base__/graphics/icons/atomic-bomb.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_units",
+        order = "a-erm-ghost-nuke",
+        place_result = MOD_NAME .. '/ghost/nuke',
+        stack_size = 5
+    },
+
 
 
     --- Building
@@ -269,7 +326,7 @@ data:extend({
         name = MOD_NAME .. '/command-center',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -289,7 +346,7 @@ data:extend({
         name = MOD_NAME .. '/barrack',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -309,7 +366,7 @@ data:extend({
         name = MOD_NAME .. '/factory',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {
@@ -329,7 +386,7 @@ data:extend({
         name = MOD_NAME .. '/starport',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
                 icon_size = 64,
             },
             {

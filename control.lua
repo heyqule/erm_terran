@@ -14,10 +14,13 @@ local populations = {
     ['battlecruiser'] = 5,
     ['marine'] = 1,
     ['firebat'] = 1,
-    ['tank'] = 3,
+    ['ghost'] = 1,
+    ['siege_tank'] = 3,
     ['wraith'] = 2,
     ['goliath'] = 2,
     ['valkyrie'] = 2,
+    ['science_vessel'] = 2,
+    ['vulture'] = 2,
 }
 
 local refresh_data = function()
@@ -62,7 +65,8 @@ end)
 Event.register(defines.events.on_console_command, function(event)
     if event.command == 'color' then
         local color = game.players[event.player_index].color
-        local max_strength = 0.5
+        local tint_alpha_options_as_dec = {0.1, 0.25, 0.5, 0.66, 0.75, 0.9}
+        local max_strength = tint_alpha_options_as_dec[settings.startup[MOD_NAME..'-team_blend_mode'].value]
         if color.r > max_strength or color.g > max_strength or color.b > max_strength then
             color.r = color.r * max_strength
             color.g = color.g * max_strength
