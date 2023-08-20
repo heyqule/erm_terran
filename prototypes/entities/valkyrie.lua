@@ -33,15 +33,6 @@ local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
 
-local goliath_rocket_projectile = util.table.deepcopy(data.raw["projectile"]['wraith-rocket'])
-goliath_rocket_projectile['localised_name'] = {'entity-name.goliath-rocket-projectile'}
-goliath_rocket_projectile['name'] = 'goliath-rocket-projectile'
-goliath_rocket_projectile['action']['action_delivery']
-['target_effects'][5]['action']['action_delivery']
-['target_effects'][1]['damage'] = { amount = 75, type = "cold" }
-
-data:extend({goliath_rocket_projectile})
-
 local runAnimation = AnimationDB.get_layered_animations('units', 'valkyrie', 'run')
 
 runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
@@ -59,7 +50,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -88,33 +79,26 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'rocket',
+            ammo_category = 'shotgun-shell',
             range = attack_range,
-            min_attack_distance = attack_range - 4,
-            cooldown = 30,
-            cooldown_deviation = 0.1,
+            min_attack_distance = attack_range - 2,
+            cooldown = 90,
+            cooldown_deviation = 0.2,
             warmup = 6,
-            damage_modifier = 2 + ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.valkyrie_attack(0.5),
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
+            sound = TerranSound.vulture_attack(0.5),
             ammo_type =
             {
-                category = "rocket",
+                category = "shotgun-shell",
                 action =
                 {
                     {
                         type = "direct",
-                        probability = 0.25,
                         action_delivery = {
                             type = "projectile",
-                            projectile = "goliath-rocket-projectile",
+                            projectile = MOD_NAME.."/valkyrie_rocket_projectile",
                             starting_speed = 0.3,
-                            max_range = ERM_Config.get_max_projectile_range() * 2,
-                            source_effects = {
-                                {
-                                    type = "play-sound",
-                                    sound = TerranSound.goliath_attack_rockets(0.66)
-                                }
-                            },
+                            max_range = attack_range * 1.5,
                         }
                     }
                 },
@@ -124,7 +108,7 @@ data:extend({
         distance_per_frame = 0.2,
         render_layer = "wires-above",
         run_animation = runAnimation,
-        dying_explosion = "erm-terran-large-explosion",
+        dying_explosion = 'erm-fire-explosion-air_normal-1',
         dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),

@@ -26,21 +26,15 @@ data:extend({
         name = MOD_NAME .. '/starport',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_S.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
+                icon_size = 256,
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/starport'},
         max_health = 5000,
-        corpse = "terran-large-base-corpse",
-        dying_explosion = "erm-terran-building-large-explosion",
+        corpse = MOD_NAME.."/large-base-corpse",
+        dying_explosion = MOD_NAME.."/building-large-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =

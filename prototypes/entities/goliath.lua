@@ -30,16 +30,6 @@ local unit_scale = 1.5
 local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
-
-local goliath_rocket_projectile = util.table.deepcopy(data.raw["projectile"]['wraith-rocket'])
-goliath_rocket_projectile['localised_name'] = {'entity-name.goliath-rocket-projectile'}
-goliath_rocket_projectile['name'] = 'goliath-rocket-projectile'
-goliath_rocket_projectile['action']['action_delivery']
-['target_effects'][5]['action']['action_delivery']
-['target_effects'][1]['damage'] = { amount = 75, type = "explosion" }
-
-data:extend({goliath_rocket_projectile})
-
 local goliathAnimation = AnimationDB.get_layered_animations('units', 'goliath_body', 'run')
 local goliathTurret = AnimationDB.get_layered_animations('units', 'goliath_turret', 'run')
 
@@ -64,7 +54,7 @@ data:extend({
         name = MOD_NAME .. '/' .. name,
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
                 icon_size = 64,
             },
             {
@@ -77,7 +67,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 250 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -96,7 +86,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -109,15 +99,31 @@ data:extend({
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 150,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             warmup = 6,
             damage_modifier = 2 + ERMPlayerUnitHelper.get_damage_multiplier(),
             sound = TerranSound.goliath_attack(0.66),
             ammo_type =
             {
                 category = "bullet",
+                target_type = "entity",
                 action =
                 {
+                    {
+                        type = "direct",
+                        action_delivery = {
+                            type = "instant",
+                            target_effects =
+                            {
+                                {
+                                    type = "create-entity",
+                                    entity_name = MOD_NAME.."/marine_attack_hit-explosion",
+                                    offsets = {{0, 1}},
+                                    offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
+                                },
+                            }
+                        }
+                    },
                     {
                         type = "direct",
                         repeat_count = 2,
@@ -127,18 +133,12 @@ data:extend({
                             target_effects =
                             {
                                 {
-                                    type = "create-entity",
-                                    entity_name = "explosion-hit",
-                                    offsets = {{0, 1}},
-                                    offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
-                                },
-                                {
                                     type = "damage",
                                     damage = { amount = 70, type = "physical"}
                                 },
                                 {
                                     type = "damage",
-                                    damage = { amount = 32, type = "explosion"}
+                                    damage = { amount = 30, type = "explosion"}
                                 }
                             }
                         }
@@ -148,9 +148,9 @@ data:extend({
                         probability = 0.25,
                         action_delivery = {
                             type = "projectile",
-                            projectile = "goliath-rocket-projectile",
+                            projectile = MOD_NAME.."/goliath_rocket_projectile",
                             starting_speed = 0.3,
-                            max_range = ERM_Config.get_max_projectile_range() * 2,
+                            max_range = attack_range * 1.5,
                             source_effects = {
                                 {
                                     type = "play-sound",
@@ -165,7 +165,7 @@ data:extend({
         },
         distance_per_frame = 0.2,
         run_animation = goliathAnimation,
-        dying_explosion = "erm-terran-large-explosion",
+        dying_explosion = MOD_NAME.."/large-explosion",
         dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),

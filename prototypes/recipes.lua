@@ -6,6 +6,7 @@
 require('__erm_terran__/global')
 
 data:extend({
+    ---- Barrack ----
     {
         type = "recipe",
         name = MOD_NAME .. '/marine/mk1',
@@ -100,6 +101,259 @@ data:extend({
     },
     {
         type = "recipe",
+        name = MOD_NAME .. '/ghost/regular',
+        enabled = false,
+        energy_required = 50,
+        ingredients =
+        {
+            {"submachine-gun", 1},
+            {"uranium-rounds-magazine", 50},
+            {"discharge-defense-equipment", 1},
+            {"modular-armor", 1},
+            {"night-vision-equipment", 1},
+            {"battery-equipment", 10}
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/ghost/regular',
+        order = MOD_NAME .. '/ghost/regular',
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/ghost/nuke',
+        enabled = false,
+        energy_required = 50,
+        ingredients =
+        {
+            {"rocket-launcher", 1},
+            {"atomic-bomb", 2},
+            {"modular-armor", 1},
+            {"night-vision-equipment", 1},
+            {"battery-equipment", 4}
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/ghost/nuke',
+        order = MOD_NAME .. '/ghost/nuke',
+    },
+    --- Barrack Autodeploy ---
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/marine/mk1/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/marine/mk1', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/marine/mk1',
+        result = MOD_NAME .. '/marine/mk1',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/marine/mk2/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/marine/mk2', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/marine/mk2',
+        result = MOD_NAME .. '/marine/mk2',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/marine/mk3/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/marine/mk3', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/marine/mk3',
+        result = MOD_NAME .. '/marine/mk3',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_3.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/firebat/mk1/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/firebat/mk1', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/firebat/mk1',
+        result = MOD_NAME .. '/firebat/mk1',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/firebat/mk2/autodeploy',
+        energy_required = 8,
+        ingredients =
+        {
+            {MOD_NAME .. '/firebat/mk2', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/firebat/mk2',
+        result = MOD_NAME .. '/firebat/mk2',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/ghost/regular/autodeploy',
+        energy_required = 15,
+        ingredients =
+        {
+            {MOD_NAME .. '/ghost/regular', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/ghost/regular',
+        result = MOD_NAME .. '/ghost/regular',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/ghost/nuke/autodeploy',
+        energy_required = 15,
+        ingredients =
+        {
+            {MOD_NAME .. '/ghost/nuke', 1}
+        },
+        category = "erm_controllable_infantry",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/ghost/nuke',
+        result = MOD_NAME .. '/ghost/nuke',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/atomic-bomb.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+
+    --- Factory ---
+    {
+        type = "recipe",
         name = MOD_NAME .. '/goliath',
         enabled = false,
         energy_required = 40,
@@ -154,6 +408,141 @@ data:extend({
         result = MOD_NAME .. '/siege_tank/mk2',
         order = MOD_NAME .. '/siege_tank/mk2',
     },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/vulture',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"iron-gear-wheel", 100},
+            {"steel-plate", 50},
+            {"petroleum-gas-barrel", 10},
+            {"engine-unit", 12},
+            {"land-mine", 20},
+            {"grenade", 20},
+        },
+        category = "erm_controllable_factory",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        result = MOD_NAME .. '/vulture',
+        order = MOD_NAME .. '/vulture',
+    },
+    --- Factory Autodeploy ---
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/vulture/autodeploy',
+        energy_required = 12,
+        ingredients =
+        {
+            {MOD_NAME .. '/vulture', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        order = 'zzz' ..  MOD_NAME .. '/vulture',
+        result = MOD_NAME .. '/vulture',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/goliath/autodeploy',
+        energy_required = 12,
+        ingredients =
+        {
+            {MOD_NAME .. '/goliath', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/goliath',
+        result = MOD_NAME .. '/goliath',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/siege_tank/autodeploy',
+        energy_required = 16,
+        ingredients =
+        {
+            {MOD_NAME .. '/siege_tank', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/siege_tank',
+        result = MOD_NAME .. '/siege_tank',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/siege_tank/mk2/autodeploy',
+        energy_required = 16,
+        ingredients =
+        {
+            {MOD_NAME .. '/siege_tank/mk2', 1}
+        },
+        category = "erm_controllable_factory",
+        hide_from_player_crafting = true,
+        order = 'zzz'..MOD_NAME .. '/siege_tank/mk2',
+        result = MOD_NAME .. '/siege_tank/mk2',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_D.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {9,9}
+            },
+        },
+    },
+
+    --- Starport ---
     {
         type = "recipe",
         name = MOD_NAME .. '/battlecruiser/yamato',
@@ -238,15 +627,15 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/valkyrie',
         enabled = false,
-        energy_required = 60,
+        energy_required = 50,
         ingredients =
         {
             {"rocket-launcher", 2},
-            {"rocket-control-unit", 10},
-            {"rocket", 100},
+            {"low-density-structure", 15},
+            {"flying-robot-frame", 15},
             {"rocket-fuel", 20},
-            {"low-density-structure", 10},
-            {"flying-robot-frame", 10},
+            {"slowdown-capsule", 25},
+            {"rocket-control-unit", 10},
         },
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
@@ -258,15 +647,15 @@ data:extend({
         type = "recipe",
         name = MOD_NAME .. '/science_vessel',
         enabled = false,
-        energy_required = 60,
+        energy_required = 80,
         ingredients =
         {
             {"rocket-launcher", 2},
-            {"rocket-control-unit", 10},
-            {"rocket", 100},
+            {"low-density-structure", 15},
+            {"flying-robot-frame", 15},
             {"rocket-fuel", 20},
-            {"low-density-structure", 10},
-            {"flying-robot-frame", 10},
+            {"poison-capsule", 25},
+            {"rocket-control-unit", 12},
         },
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
@@ -274,185 +663,7 @@ data:extend({
         result = MOD_NAME .. '/science_vessel',
         order = MOD_NAME .. '/science_vessel',
     },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/vulture',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"rocket-launcher", 2},
-            {"rocket-control-unit", 10},
-            {"rocket", 100},
-            {"rocket-fuel", 20},
-            {"low-density-structure", 10},
-            {"flying-robot-frame", 10},
-        },
-        category = "erm_controllable_starport",
-        allow_as_intermediate = false,
-        always_show_made_in = true,
-        result = MOD_NAME .. '/vulture',
-        order = MOD_NAME .. '/vulture',
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/ghost/regular',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"rocket-launcher", 2},
-            {"rocket-control-unit", 10},
-            {"rocket", 100},
-            {"rocket-fuel", 20},
-            {"low-density-structure", 10},
-            {"flying-robot-frame", 10},
-        },
-        category = "erm_controllable_infantry",
-        allow_as_intermediate = false,
-        always_show_made_in = true,
-        result = MOD_NAME .. '/ghost/regular',
-        order = MOD_NAME .. '/ghost/regular',
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/ghost/nuke',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"rocket-launcher", 2},
-            {"rocket-control-unit", 10},
-            {"rocket", 100},
-            {"rocket-fuel", 20},
-            {"low-density-structure", 10},
-            {"flying-robot-frame", 10},
-        },
-        category = "erm_controllable_infantry",
-        allow_as_intermediate = false,
-        always_show_made_in = true,
-        result = MOD_NAME .. '/ghost/nuke',
-        order = MOD_NAME .. '/ghost/nuke',
-    },
-
-    --- Building
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/command-center',
-        enabled = false,
-        energy_required = 120,
-        ingredients =
-        {
-            {"radar", 50},
-            {"steel-plate", 500},
-            {"low-density-structure", 250},
-            {"rocket-control-unit", 100},
-        },
-        energy_required = 120,
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_C.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
-        },
-        subgroup = "erm_controllable_buildings",
-        order = "a-erm-building-commandcenter",
-        result = MOD_NAME .. '/command-center'
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/barrack',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"assembling-machine-2", 1},
-            {"steel-plate", 100},
-            {"iron-plate", 100},
-            {"electronic-circuit", 100},
-        },
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_B.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
-        },
-        subgroup = "erm_controllable_buildings",
-        order = "a-erm-building-barrack",
-        result = MOD_NAME .. '/barrack'
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/factory',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"assembling-machine-2", 1},
-            {"steel-plate", 200},
-            {"low-density-structure", 100},
-            {"advanced-circuit", 50},
-        },
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_F.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
-        },
-        subgroup = "erm_controllable_buildings",
-        order = "a-erm-building-commandcenter",
-        result = MOD_NAME .. '/factory'
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/starport',
-        enabled = false,
-        energy_required = 60,
-        ingredients =
-        {
-            {"assembling-machine-3", 1},
-            {"steel-plate", 200},
-            {"low-density-structure", 100},
-            {"rocket-control-unit", 20},
-        },
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_S.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
-            },
-        },
-        subgroup = "erm_controllable_buildings",
-        order = "a-erm-building-starport",
-        result = MOD_NAME .. '/starport'
-    },
-
-
-    --- Auto Deploy Recipe
-    --- 1/3 of SC1 build time
+    --- Starport Autodeploy ---
     {
         type = "recipe",
         name = MOD_NAME .. '/wraith/scout/autodeploy',
@@ -463,15 +674,15 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz',
+        order = 'zzz'..MOD_NAME .. '/wraith/scout',
         result = MOD_NAME .. '/wraith/scout',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
                 icon_size = 64,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_S.png",
+                icon = "__base__/graphics/icons/laser-turret.png",
                 icon_size = 64,
                 scale = 0.25,
                 shift = {-9,-9}
@@ -494,15 +705,15 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz',
+        order = 'zzz'..MOD_NAME .. '/wraith',
         result = MOD_NAME .. '/wraith',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/wraith.png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
+                icon_size = 256,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_red.png",
+                icon = "__base__/graphics/icons/rocket.png",
                 icon_size = 64,
                 scale = 0.25,
                 shift = {-9,-9}
@@ -525,12 +736,12 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz',
+        order = 'zzz'..MOD_NAME .. '/battlecruiser/yamato',
         result = MOD_NAME .. '/battlecruiser/yamato',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_Y.png",
@@ -556,12 +767,12 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz',
+        order = 'zzz'..MOD_NAME .. '/battlecruiser/laser',
         result = MOD_NAME .. '/battlecruiser/laser',
         icons = {
             {
-                icon = "__erm_terran__/graphics/entity/icons/units/battlecruiser.png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_L.png",
@@ -579,51 +790,20 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/goliath/autodeploy',
-        energy_required = 12,
-        ingredients =
-        {
-            {MOD_NAME .. '/goliath', 1}
-        },
-        category = "erm_controllable_factory",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/goliath',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/goliath.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/siege_tank/autodeploy',
+        name = MOD_NAME .. '/valkyrie',
         energy_required = 16,
         ingredients =
         {
-            {MOD_NAME .. '/siege_tank', 1}
+            {MOD_NAME .. '/valkyrie', 1}
         },
-        category = "erm_controllable_factory",
+        category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/siege_tank',
+        order = 'zzz'..MOD_NAME .. '/valkyrie',
+        result = MOD_NAME .. '/valkyrie',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie256.png",
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -635,26 +815,20 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/siege_tank/mk2/autodeploy',
-        energy_required = 16,
+        name = MOD_NAME .. '/science_vessel/autodeploy',
+        energy_required = 26,
         ingredients =
         {
-            {MOD_NAME .. '/siege_tank/mk2', 1}
+            {MOD_NAME .. '/science_vessel', 1}
         },
-        category = "erm_controllable_factory",
+        category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/siege_tank/mk2',
+        order = 'zzz'..MOD_NAME .. '/science_vessel',
+        result = MOD_NAME .. '/science_vessel',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel256.png",
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -663,160 +837,82 @@ data:extend({
                 shift = {9,9}
             },
         },
+    },
+
+    --- Building
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/command-center',
+        enabled = false,
+        energy_required = 120,
+        ingredients =
+        {
+            {"radar", 50},
+            {"steel-plate", 200},
+            {"low-density-structure", 50},
+            {"rocket-control-unit", 20},
+        },
+        energy_required = 120,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
+        icon_size = 256,
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-commandcenter",
+        result = MOD_NAME .. '/command-center'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk1/autodeploy',
-        energy_required = 8,
+        name = MOD_NAME .. '/barrack',
+        enabled = false,
+        energy_required = 60,
         ingredients =
         {
-            {MOD_NAME .. '/marine/mk1', 1}
+            {"assembling-machine-2", 1},
+            {"steel-plate", 100},
+            {"fast-inserter", 50},
+            {"electronic-circuit", 100},
         },
-        category = "erm_controllable_infantry",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/marine/mk1',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/barracks256.png",
+        icon_size = 256,
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-barrack",
+        result = MOD_NAME .. '/barrack'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk2/autodeploy',
-        energy_required = 8,
-        ingredients =
-        {
-            {MOD_NAME .. '/marine/mk2', 1}
+        name = MOD_NAME .. '/factory',
+        enabled = false,
+        energy_required = 60,
+        ingredients = {
+            { "assembling-machine-2", 1 },
+            { "steel-plate", 200 },
+            { "fast-inserter", 50},
+            {"advanced-circuit", 50},
         },
-        category = "erm_controllable_infantry",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/marine/mk2',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
+        icon_size = 256,
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-commandcenter",
+        result = MOD_NAME .. '/factory'
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk3/autodeploy',
-        energy_required = 8,
+        name = MOD_NAME .. '/starport',
+        enabled = false,
+        energy_required = 60,
         ingredients =
         {
-            {MOD_NAME .. '/marine/mk3', 1}
+            {"assembling-machine-3", 1},
+            {"steel-plate", 200},
+            {"fast-inserter", 50},
+            {"low-density-structure", 50},
+            {"rocket-control-unit", 20},
         },
-        category = "erm_controllable_infantry",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/marine/mk3',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/marine.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_3.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
+        icon_size = 256,
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-starport",
+        result = MOD_NAME .. '/starport'
     },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/firebat/mk1/autodeploy',
-        energy_required = 8,
-        ingredients =
-        {
-            {MOD_NAME .. '/firebat/mk1', 1}
-        },
-        category = "erm_controllable_infantry",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/firebat/mk1',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
-    },
-    {
-        type = "recipe",
-        name = MOD_NAME .. '/firebat/mk2/autodeploy',
-        energy_required = 8,
-        ingredients =
-        {
-            {MOD_NAME .. '/firebat/mk2', 1}
-        },
-        category = "erm_controllable_infantry",
-        hide_from_player_crafting = true,
-        order = 'zzz',
-        result = MOD_NAME .. '/firebat/mk2',
-        icons = {
-            {
-                icon = "__erm_terran__/graphics/entity/icons/units/firebat.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_D.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {9,9}
-            },
-        },
-    },
+
+
 })

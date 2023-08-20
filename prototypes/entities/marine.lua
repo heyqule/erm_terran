@@ -48,20 +48,20 @@ data:extend({
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
+            --{
+            --    icon = "__base__/graphics/icons/signal/signal_1.png",
+            --    icon_size = 64,
+            --    scale = 0.25,
+            --    shift = {-9,-9}
+            --},
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
         max_health = 40 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = DataHelper.getResistance(40),
@@ -82,9 +82,9 @@ data:extend({
             range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'bullet',
             range = attack_range,
-            min_attack_distance = attack_range - 4,
+            min_attack_distance = attack_range - 2,
             cooldown = 75,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_type =
             {
@@ -114,7 +114,7 @@ data:extend({
                             {
                                 {
                                     type = "create-entity",
-                                    entity_name = "explosion-hit",
+                                    entity_name = MOD_NAME.."/marine_attack_hit-explosion",
                                     offsets = {{0, 1}},
                                     offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
                                 },

@@ -19,10 +19,8 @@ local TerranSound = require('__erm_terran_hd_assets__/sound')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 local name = 'spidermine'
 
-local attack_range = ERMPlayerUnitHelper.get_attack_range(1)
-
 -- Misc Settings
-local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
+local vision_distance = ERMPlayerUnitHelper.get_vision_distance(ERMPlayerUnitHelper.get_attack_range(1))
 local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 
@@ -50,8 +48,8 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 80 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
-        subgroup = "erm_controllable_units",
+        order = MOD_NAME .. "/" .. name,
+        subgroup = "enemies",
         shooting_cursor_size = 2,
         can_open_gates = true,
         resistances = {
@@ -73,36 +71,59 @@ data:extend({
         repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
+        min_pursue_time = 60 * defines.time.second,
         --ai_settings = biter_ai_settings,
-        radar_range = 2,
+        radar_range = 1,
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'rocket',
-            range = attack_range,
-            min_attack_distance = attack_range - 4,
+            ammo_category = "landmine",
+            range = 1,
             cooldown = 90,
-            cooldown_deviation = 0.1,
-            warmup = 6,
-            damage_modifier = 2 + ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.valkyrie_attack(0.5),
-            ammo_type =
-            {
-                category = "rocket",
-                action =
-                {
-                    {
-                        type = "direct",
-                        probability = 0.25,
-                        action_delivery = {
-                            type = "projectile",
-                            projectile = "goliath-rocket-projectile",
-                            starting_speed = 0.3,
-                            max_range = ERM_Config.get_max_projectile_range() * 2,
-                            source_effects = {
-                                {
-                                    type = "play-sound",
-                                    sound = TerranSound.goliath_attack_rockets(0.66)
+            cooldown_deviation = 0.2,
+            warmup = 15,
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
+            sound = TerranSound.spidermine_burrow(0.5),
+            ammo_type = {
+                category = "landmine",
+                target_type = "direction",
+                action = {
+                    type = "direct",
+                    action_delivery = {
+                        type = "instant",
+                        source_effects =
+                        {
+                            {
+                                type = "script",
+                                effect_id = SELF_DESTRUCT_ATTACK,
+                            },
+                            {
+                                type = "create-entity",
+                                entity_name =  MOD_NAME.."/spidermine-explosion"
+                            }
+                        },
+                        target_effects = {
+                            {
+                                type = "play-sound",
+                                sound = TerranSound.spidermine_attack(0.5)
+                            },
+                            {
+                                type = "nested-result",
+                                action = {
+                                    type = "area",
+                                    force = 'not-same',
+                                    radius = 4,
+                                    ignore_collision_condition = true,
+                                    action_delivery = {
+                                        type = "instant",
+                                        target_effects = {
+                                            {
+                                                type = "damage",
+                                                damage = { amount = 500, type = "explosion" },
+                                                apply_damage_to_trees = true
+                                            },
+                                        }
+                                    }
                                 }
                             },
                         }
@@ -114,8 +135,26 @@ data:extend({
         distance_per_frame = 0.2,
         render_layer = "wires-above",
         run_animation = runAnimation,
-        dying_explosion = "erm-terran-large-explosion",
-        dying_sound = TerranSound.enemy_death(name, 0.75),
+        created_effect = {
+            type = "direct",
+            action_delivery = {
+                type = "instant",
+                source_effects = {
+                    {
+                        type = "script",
+                        effect_id = TIME_TO_LIVE_CREATED,
+                    }
+                }
+            }
+        },
+        dying_trigger_effect = {
+            {
+                type = "script",
+                effect_id = TIME_TO_LIVE_DIED,
+            }
+        },
+        dying_explosion = MOD_NAME.."/spidermine-explosion",
+        dying_sound = TerranSound.spidermine_attack(0.5),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },

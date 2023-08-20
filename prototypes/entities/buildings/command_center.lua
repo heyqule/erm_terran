@@ -22,21 +22,15 @@ data:extend({
         name = MOD_NAME .. '/command-center',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_C.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
+                icon_size = 256,
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/command-center'},
-        max_health = 3000,
-        corpse = "terran-large-base-corpse",
-        dying_explosion = "erm-terran-building-xlarge-explosion",
+        max_health = 10000,
+        corpse = MOD_NAME.."/large-base-corpse",
+        dying_explosion = MOD_NAME.."/building-xlarge-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =

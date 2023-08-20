@@ -9,6 +9,7 @@ require "prototypes.entities.firebat"
 require "prototypes.entities.goliath"
 require "prototypes.entities.valkyrie"
 require "prototypes.entities.science_vessel"
+require "prototypes.entities.spidermine"
 require "prototypes.entities.vulture"
 require "prototypes.entities.ghost"
 

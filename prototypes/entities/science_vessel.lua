@@ -25,7 +25,7 @@ local TerranSound = require('__erm_terran_hd_assets__/sound')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 local name = 'science_vessel'
 
-local attack_range = ERMPlayerUnitHelper.get_attack_range(1)
+local attack_range = ERMPlayerUnitHelper.get_attack_range(1,4)
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
@@ -71,7 +71,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -91,7 +91,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 1,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
@@ -100,33 +100,35 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'rocket',
+            ammo_category = 'shotgun-shell',
             range = attack_range,
             min_attack_distance = attack_range - 4,
-            cooldown = 30,
-            cooldown_deviation = 0.1,
+            cooldown = 300,
+            cooldown_deviation = 0.2,
             warmup = 6,
-            damage_modifier = 2 + ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.valkyrie_attack(0.5),
+            damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
+            sound = TerranSound.science_vessel_irradiate(0.5),
             ammo_type =
             {
-                category = "rocket",
+                category = "shotgun-shell",
                 action =
                 {
                     {
                         type = "direct",
-                        probability = 0.25,
                         action_delivery = {
-                            type = "projectile",
-                            projectile = "goliath-rocket-projectile",
-                            starting_speed = 0.3,
-                            max_range = ERM_Config.get_max_projectile_range() * 2,
-                            source_effects = {
+                            type = "instant",
+                            target_effects = {
                                 {
-                                    type = "play-sound",
-                                    sound = TerranSound.goliath_attack_rockets(0.66)
-                                }
-                            },
+                                    type = "damage",
+                                    damage = {amount = 250, type = "acid"},
+                                    apply_damage_to_trees = true,
+                                },
+                                {
+                                    type = "create-fire",
+                                    show_in_tooltip = true,
+                                    entity_name = MOD_NAME..'/science-vessel-irradiate-cloud',
+                                },
+                            }
                         }
                     }
                 },
@@ -136,15 +138,15 @@ data:extend({
         distance_per_frame = 0.2,
         render_layer = "wires-above",
         run_animation = runAnimation,
-        dying_explosion = "erm-terran-large-explosion",
+        dying_explosion = "erm-fire-explosion-air_large-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. '-corpse',
+        corpse = MOD_NAME..'/'..name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = MOD_NAME..'/'..name .. '-corpse',
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -155,5 +157,110 @@ data:extend({
         subgroup = "corpses",
         order = "x" .. name,
         animation = Sprites.empty_pictures(),
+    },
+    {
+        type = "fire",
+        name = MOD_NAME..'/science-vessel-irradiate-cloud',
+        localised_name = {'entity-name.science-vessel-irradiate'},
+        flags = {"placeable-off-grid", "not-on-map"},
+        damage_per_tick  = { amount = 0 / 60, type= 'acid' },
+        on_damage_tick_effect  =                         {
+            type = "area",
+            radius = 3.0,
+            force = "not-same",
+            ignore_collision_condition = true,
+            action_delivery =
+            {
+                type = "instant",
+                target_effects =
+                {
+                    {
+                        type = "damage",
+                        damage = {amount = 2000 / 60 , type = "poison"}
+                    },
+                    {
+                        type = "create-sticker",
+                        sticker = "5-075-slowdown-sticker",
+                        show_in_tooltip = true,
+                    }
+                }
+            }
+        },
+
+        pictures = AnimationDB.get_single_animation('projectiles', 'science_vessel_irradiate', 'explosion', 'glow'),
+
+        spawn_entity = MOD_NAME..'/science-vessel-irradiate-cloud',
+
+        maximum_damage_multiplier = 3,
+        damage_multiplier_increase_per_added_fuel = 1,
+        damage_multiplier_decrease_per_tick = 0.005,
+
+        spread_delay = 60,
+        spread_delay_deviation = 15,
+        maximum_spread_count = 5,
+
+        emissions_per_second = 0.01,
+
+        initial_lifetime = 180,
+        lifetime_increase_by = 180,
+        lifetime_increase_cooldown = 60,
+        maximum_lifetime = 540,
+        --delay_between_initial_flames = 10,
+        --initial_flame_count = 1,
+
     }
+    --{
+    --    name = MOD_NAME..'/science-vessel-irradiate-cloud',
+    --    localised_name = {'entity-name.science-vessel-irradiate'},
+    --    type = "smoke-with-trigger",
+    --    flags = { "not-on-map" },
+    --    show_when_smoke_off = true,
+    --    particle_count = 1,
+    --    --particle_spread = { 3.6 * 1.05, 3.6 * 0.6 * 1.05 },
+    --    --particle_distance_scale_factor = 0.5,
+    --    --particle_scale_factor = { 1, 0.707 },
+    --    --wave_speed = { 1/80, 1/60 },
+    --    --wave_distance = { 0.3, 0.2 },
+    --    --spread_duration_variation = 20,
+    --    --particle_duration_variation = 60 * 3,
+    --    render_layer = "explosion",
+    --
+    --    affected_by_wind = false,
+    --    duration = 180,
+    --    cyclic = true,
+    --    --spread_duration = 20,
+    --
+    --    animation = AnimationDB.get_single_animation('projectiles', 'science_vessel_irradiate', 'explosion', 'glow'),
+    --    action = {
+    --        type = "direct",
+    --        action_delivery = {
+    --            type = "instant",
+    --            target_effects = {
+    --                type = "nested-result",
+    --                action = {
+    --                    type = "area",
+    --                    force = 'not-same',
+    --                    radius = 3,
+    --                    ignore_collision_condition = true,
+    --                    action_delivery = {
+    --                        type = "instant",
+    --                        target_effects = {
+    --                            {
+    --                                type = "damage",
+    --                                damage = {amount = 100, type = "poison"},
+    --                                apply_damage_to_trees = true,
+    --                            },
+    --                            {
+    --                                type = "create-sticker",
+    --                                sticker = "5-075-slowdown-sticker",
+    --                                show_in_tooltip = true,
+    --                            }
+    --                        }
+    --                    }
+    --                }
+    --            }
+    --        }
+    --    },
+    --    action_cooldown = 30
+    --},
 })

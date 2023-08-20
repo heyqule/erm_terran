@@ -52,7 +52,7 @@ data:extend({
                 icon_size = 64,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_red.png",
+                icon = "__base__/graphics/icons/rocket.png",
                 icon_size = 64,
                 scale = 0.2,
                 shift = {-9,-9}
@@ -61,7 +61,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         radar_range = 2,
@@ -93,7 +93,7 @@ data:extend({
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 120,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
             ammo_type = {
@@ -103,9 +103,9 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = "wraith-rocket",
+                        projectile = MOD_NAME.."/wraith-rocket",
                         starting_speed = 0.3,
-                        max_range = ERM_Config.get_max_projectile_range() * 2,
+                        max_range = attack_range * 1.5
                     }
                 }
             },
@@ -141,7 +141,7 @@ data:extend({
 local scout_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
 scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
-scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_S.png"
+scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/laser-turret.png"
 scout_wraith.movement_speed = 0.6 * ERMPlayerUnitHelper.get_speed_multiplier()
 scout_wraith.attack_parameters = {
     type = "projectile",
@@ -150,7 +150,7 @@ scout_wraith.attack_parameters = {
     range = attack_range,
     min_attack_distance = attack_range - 4,
     cooldown = 60,
-    cooldown_deviation = 0.1,
+    cooldown_deviation = 0.2,
     warmup = 6,
     damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
     ammo_type = {
@@ -160,8 +160,9 @@ scout_wraith.attack_parameters = {
             type = "direct",
             action_delivery = {
                 type = "projectile",
-                projectile = "wraith-laser-projectile",
+                projectile = MOD_NAME.."/wraith-laser-projectile",
                 starting_speed = 0.5,
+                max_range = attack_range * 1.5
             }
         }
     },

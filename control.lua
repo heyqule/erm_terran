@@ -9,6 +9,8 @@ require('global')
 local Event = require('__stdlib__/stdlib/event/event')
 local String = require('__stdlib__/stdlib/utils/string')
 local gui = require("__enemyracemanager__/gui/army_control_window")
+local CustomAttacks = require('__erm_terran__/scripts/custom_attacks')
+local ErmRaceSettingsHelper = require('__enemyracemanager__/lib/helper/race_settings_helper')
 
 local populations = {
     ['battlecruiser'] = 5,
@@ -49,12 +51,46 @@ local refresh_data = function()
     end
 end
 
+local addRaceSettings = function()
+    local race_settings = remote.call('enemyracemanager', 'get_race', MOD_NAME)
+    if race_settings == nil then
+        race_settings = {}
+    end
+
+    race_settings.race =  race_settings.race or MOD_NAME
+
+    race_settings.timed_units = {
+        spidermine=true,
+    }
+
+
+    ErmRaceSettingsHelper.process_unit_spawn_rate_cache(race_settings)
+
+    remote.call('enemyracemanager', 'register_race', race_settings)
+
+    -- reload local cache
+    CustomAttacks.get_race_settings(MOD_NAME, true)
+end
+
 Event.on_init(function(event)
     refresh_data()
+    addRaceSettings()
+
+
+    --- Used for ghost's nuke launch tracking, data structure
+    --- global.nuke_tracker[unit.unit_number] = {
+    ---     entity = entity
+    ---     launched_tick = event.tick
+    ---     drawing = target_drawing
+    --- }
+    global.nuke_tracker = global.nuke_tracker or {}
+
+    global.nuke_tracker_total = global.nuke_tracker_total or 0
 end)
 
 Event.on_configuration_changed(function(event)
     refresh_data()
+    addRaceSettings()
     for _, player in pairs(game.connected_players) do
         gui.update_overhead_button(player.index)
     end
@@ -79,6 +115,38 @@ Event.register(defines.events.on_console_command, function(event)
 end)
 
 
+local attack_functions = {
+    [SELF_DESTRUCT_ATTACK] = function(args)
+        CustomAttacks.process_self_destruct(args)
+    end,
+    [TIME_TO_LIVE_DIED] = function(args)
+        CustomAttacks.process_time_to_live_unit_died(args)
+    end,
+    [TIME_TO_LIVE_CREATED] = function(args)
+        CustomAttacks.process_time_to_live_unit_created(args)
+    end,
+    [GHOST_ATOMIC_SEQUENCE] = function(args)
+        CustomAttacks.add_nuke_to_queue(args)
+    end,
+    [CANCEL_GHOST_ATOMIC_SEQUENCE] = function(args)
+        CustomAttacks.cancel_nuke_from_queue(args)
+    end
+}
+Event.register(defines.events.on_script_trigger_effect, function(event)
+    if  attack_functions[event.effect_id] and
+            CustomAttacks.valid(event, MOD_NAME)
+    then
+        attack_functions[event.effect_id](event)
+    end
+end)
+
+Event.on_nth_tick(903, function(event)
+    CustomAttacks.clear_time_to_live_units(event)
+end)
+
+Event.on_nth_tick(93, function(event)
+    CustomAttacks.spawn_nuke(event)
+end)
 
 Event.register(defines.events.on_player_created, function(event)
     gui.update_overhead_button(event.player_index)

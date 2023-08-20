@@ -6,20 +6,32 @@ Date: 2023-??-??
     - This mod now requires HD Terran asset pack. (https://mods.factorio.com/mod/erm_terran_hd_assets)
     - Player force tint is now support for all units and turrets. Assembler can not be tinted, unfortunately.
     - Add Valkyrie, shoot cold missiles, slow targets.
-    - Cold Wraith migrate to Valkyrie
+    - Cold Wraith migrates to Valkyrie
     - Add Science Vessel, cast may irradiate and emp at location.
-    - Poison Wraith migrate to Science Vessel
+    - Poison Wraith migrates to Science Vessel
     - Added Vulture, shoots grenade and 30% drop a spidermine
-    - Added Ghost, sniper and 20% lockdown, slow enemy units 95% for 5s.
-    - Added Mass Destruction Ghost, deploys a nuke. :)
-    - Added Missile Turret, accepts rockets, default: 30, min-range: 6, HP: 1200, 25% repair speed
-    - Added Siege Tank turret, accepts cannon-shells, default: 36 range, min-range: 10, HP: 1500, 25% repair speed
-    - Added Bunker Turret, no-ammo-required, default:20 range, HP 2000, 10% repair speed
+    - Added Ghost, sniper and 20% lockdown, slow enemy units 75% for 5s.
+    - Added Mass Destruction Ghost, deploys a nuke. They are not expected to survive, but sometimes they do.
+    - Added Missile Turret, accepts rockets, default: 26, min-range: 6, HP: 1500, repair speed 33%.
+    - Added Siege Tank turret, accepts cannon-shells, default: 36 range, min-range: 10, HP 2000, repair speed 33%, Friendly Fire ON with reduced damage.
+    - Added Bunker Turret, no-ammo-required, required 4 marines to build, default:20 range, HP 1000 - 2500, repair speed 50%.
+    - When Bunker Turret destroyed, it returns 2 (100%), 3 (33%) or 4 (10%) marines of same tier.
 
   Changes:
     - Siege Tank and flyers are 2 radar range.
     - Rename "Tank" to "Siege Tank"
-    - Change collision box for barrack/command center/factory/starport.
+    - Changed collision box for barrack/command center/factory/starport.
+    - Changed Yamato battlecruiser resistance from 90 to 85
+    - Factory removed low density structure as ingredient.
+    - Barrack / Factory / Starport now requires 50 fast-inserter.
+    - Icons have changed to unit icon, instead portraits.
+    - Overall technology cost have been lowered.
+    - Significantly lowered command center build cost.
+    - Increase command center HP to 10000.
+
+
+  Optimizations:
+    - Units mostly use terran explosion without particles.  This improves performance on large battle.
 
 
 ---------------------------------------------------------------------------------------------------

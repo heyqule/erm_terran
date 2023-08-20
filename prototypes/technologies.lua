@@ -10,8 +10,8 @@ data:extend({
     {
         type = "technology",
         name = MOD_NAME .. '/marine/mk-1',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
         effects =
         {
             {
@@ -35,8 +35,8 @@ data:extend({
     {
         type = "technology",
         name = MOD_NAME .. '/marine/mk-2',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
         effects =
         {
             {
@@ -55,14 +55,14 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 45,
-            count = 250
+            count = 200
         },
     },
     {
         type = "technology",
         name = MOD_NAME .. '/marine/mk-3',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
         effects =
         {
             {
@@ -82,14 +82,14 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 500
+            count = 400
         },
     },
     {
         type = "technology",
         name = MOD_NAME .. '/firebat/mk-1',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
         effects =
         {
             {
@@ -114,8 +114,8 @@ data:extend({
     {
         type = "technology",
         name = MOD_NAME .. '/firebat/mk-2',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
         effects =
         {
             {
@@ -135,14 +135,113 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 600
+            count = 400
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/ghost/regular',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/ghost/regular'
+            },
+        },
+        prerequisites = {
+            "military-4", 'night-vision-equipment','discharge-defense-equipment', MOD_NAME .. '/marine/mk-3', MOD_NAME .. '/barrack'
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 250
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/ghost/nuke',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/atomic-bomb.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/ghost/nuke'
+            },
+        },
+        prerequisites = {
+            "military-4",  'night-vision-equipment', 'atomic-bomb',  MOD_NAME .. '/marine/mk-3', MOD_NAME .. '/barrack'
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 250
+        },
+    },
+
+    ----- Factory Units ----
+    {
+        type = "technology",
+        name = MOD_NAME .. '/vulture/mk-1',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/vulture'
+            },
+        },
+        prerequisites = {
+            "military-2", "engine", MOD_NAME .. '/factory', MOD_NAME .. '/marine/mk-2',
+            'land-mine'
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+            },
+            time = 45,
+            count = 150
         },
     },
     {
         type = "technology",
         name = MOD_NAME .. '/siege_tank/mk-1',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
         effects =
         {
             {
@@ -170,8 +269,8 @@ data:extend({
     {
         type = "technology",
         name = MOD_NAME .. '/siege_tank/mk-2',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
         effects =
         {
             {
@@ -200,8 +299,8 @@ data:extend({
     {
         type = "technology",
         name = MOD_NAME .. '/goliath',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath256.png",
         effects =
         {
             {
@@ -227,11 +326,13 @@ data:extend({
             count = 500
         },
     },
+
+    ----- Starport Units ----
     {
         type = "technology",
         name = MOD_NAME .. '/wraith',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
         effects =
         {
             {
@@ -242,31 +343,11 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/wraith/scout'
             },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/valkyrie'
-            },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/science_vessel'
-            },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/vulture'
-            },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/ghost/regular'
-            },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/ghost/nuke'
-            },
         },
         prerequisites = {
             "military-4", "low-density-structure",
             "rocket-control-unit",  MOD_NAME .. '/marine/mk-2',
-            "explosive-rocketry", "rocket-fuel", MOD_NAME .. '/starport'
+            "rocketry", "rocket-fuel", MOD_NAME .. '/starport'
         },
         unit =
         {
@@ -279,14 +360,76 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 60,
-            count = 500
+            count = 150
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/valkyrie',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/valkyrie'
+            },
+        },
+        prerequisites = {
+            "military-4", "low-density-structure",
+            "rocket-control-unit",  MOD_NAME .. '/marine/mk-2',
+            "rocket-fuel", MOD_NAME .. '/starport'
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 150
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/science_vessel',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/science_vessel'
+            },
+        },
+        prerequisites = {
+            "military-4", "low-density-structure",
+            "rocket-control-unit",  MOD_NAME .. '/marine/mk-2',
+            "rocket-fuel", MOD_NAME .. '/starport'
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 150
         },
     },
     {
         type = "technology",
         name = MOD_NAME .. '/battlecruiser',
-        icon_size = 64,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser.png",
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
         effects =
         {
             {
@@ -319,20 +462,14 @@ data:extend({
     },
 
 
-    --- Buildings
+    --- Buildings ---
     {
         type = "technology",
         name = MOD_NAME .. '/command-center',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_C.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-20,-20}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
+                icon_size = 256,
             },
         },
         effects = {
@@ -355,7 +492,7 @@ data:extend({
                 { "utility-science-pack", 1 }
             },
             time = 30,
-            count = 1000
+            count = 500
         }
     },
     {
@@ -363,14 +500,8 @@ data:extend({
         name = MOD_NAME .. '/barrack',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_B.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-20,-20}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/barracks256.png",
+                icon_size = 256,
             },
         },
         effects =
@@ -401,14 +532,8 @@ data:extend({
         name = MOD_NAME .. '/factory',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_F.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-20,-20}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
+                icon_size = 256,
             },
         },
         effects =
@@ -419,8 +544,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-2",
-            "low-density-structure",
+            "military-2", "chemical-science-pack", "engine"
         },
         unit =
         {
@@ -440,14 +564,8 @@ data:extend({
         name = MOD_NAME .. '/starport',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_S.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-20,-20}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
+                icon_size = 256,
             },
         },
         effects =

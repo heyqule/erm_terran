@@ -74,7 +74,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
         max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = mk1_resist,
@@ -96,7 +96,7 @@ data:extend({
             ammo_category = 'flamethrower',
             range = 2,
             cooldown = 60,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             sound = TerranSound.firebat_attack(0.66, 0.33),
             ammo_type =

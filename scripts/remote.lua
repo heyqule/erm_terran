@@ -28,4 +28,11 @@ function RemoteAPI.milestones_preset_addons()
     return preset
 end
 
+---
+--- Print global for debug purpose when you run remote.call('enemyracemanager_debug', 'print_global')"
+---
+function RemoteAPI.print_global()
+    game.write_file('erm_terran/erm-global.json',game.table_to_json(util.copy(global)))
+end
+
 return RemoteAPI

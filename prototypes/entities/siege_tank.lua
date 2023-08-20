@@ -70,7 +70,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 150 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -94,7 +94,7 @@ data:extend({
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
-        radar_range = 2,
+        radar_range = 3,
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
@@ -102,20 +102,20 @@ data:extend({
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 360,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             warmup = 6,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_type = {
                 category = "cannon-shell",
-                target_type = "position",
+                target_type = "entity",
                 action = {
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = "terran-tank-explosive-cannon-projectile",
+                        projectile = MOD_NAME.."/tank-cannon-projectile",
                         starting_speed = 1.5,
-                        max_range = ERM_Config.get_max_projectile_range(2),
-                        min_range = 10,
+                        max_range = attack_range * 1.5,
+                        min_range = 6,
                     }
                 }
             },
@@ -124,7 +124,7 @@ data:extend({
         },
         distance_per_frame = 0.2,
         run_animation = runAnimation,
-        dying_explosion = "erm-terran-large-explosion",
+        dying_explosion = 'erm-fire-explosion-ground_normal-1',
         dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
@@ -146,8 +146,8 @@ data:extend({
     }
 })
 
-local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"]['terran-tank-explosive-cannon-projectile'])
-tank_projectile_mk2['name'] = 'terran-tank-explosive-cannon-projectile-mk2'
+local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][MOD_NAME.."/tank-cannon-projectile"])
+tank_projectile_mk2['name'] = MOD_NAME.."/tank-cannon-projectile-mk2"
 tank_projectile_mk2['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 200, type = "physical"}
 -- Ground AOE --
 tank_projectile_mk2['final_action']['action_delivery']['target_effects'][2]['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 200, type = "explosion"}
@@ -162,7 +162,7 @@ tank_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK2' }
 tank_mk2['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_2.png"
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
 tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
-tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = 'terran-tank-explosive-cannon-projectile-mk2'
+tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = MOD_NAME.."/tank-cannon-projectile-mk2"
 tank_mk2.resistances = {
     { type = "acid", percent = 80 },
     { type = "poison", percent = 100 },

@@ -9,4 +9,13 @@ MOD_NAME = 'erm_terran'
 
 DEBUG_MODE = false
 
+SELF_DESTRUCT_ATTACK = 'emtrn-slfd'
+TIME_TO_LIVE_DIED = 'emtrn-ttld'
+TIME_TO_LIVE_CREATED = 'emtrn-ttlc'
+
+GHOST_ATOMIC_SEQUENCE = 'emtrn-ghnk'
+CANCEL_GHOST_ATOMIC_SEQUENCE = 'emtrn-cgnk'
+
+NUKE_WAIT_TIME = 420
+
 TERRAN_TEAM_COLOR = {r=255,g=255,b=0}

@@ -39,8 +39,8 @@ data:extend({
         flags = {"placeable-neutral","placeable-player", "player-creation"},
         minable = {mining_time = 1, result = MOD_NAME .. '/barrack'},
         max_health = 2000,
-        corpse = "terran-large-base-corpse",
-        dying_explosion = "erm-terran-building-large-explosion",
+        corpse = MOD_NAME.."/large-base-corpse",
+        dying_explosion = MOD_NAME.."/building-large-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =

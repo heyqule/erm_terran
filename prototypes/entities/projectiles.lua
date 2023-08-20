@@ -5,36 +5,68 @@
 ---
 require('__erm_terran__/global')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local TerranSound = require('__erm_terran_hd_assets__/sound')
+local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
+local ERMPlayerDataHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
+local smoke_animations = require("__base__/prototypes/entity/smoke-animations")
+local smoke_fast_animation = smoke_animations.trivial_smoke_fast
 
+
+
+--- Smokes
+data:extend({
+    {
+        type = "trivial-smoke",
+        name = MOD_NAME.."/smoke-fast",
+        animation = smoke_fast_animation(),
+        duration = 60,
+        fade_away_duration = 60,
+        color =  {r = 150, g = 150, b = 150, a = 0.5}
+    },
+    {
+        type = "trivial-smoke",
+        name = MOD_NAME .. "/valkyrie-smoke-fast",
+        animation = smoke_fast_animation(),
+        duration = 60,
+        fade_away_duration = 60,
+        color =  {r = 65, g = 150, b = 240, a = 1}
+    },
+})
+
+
+--- Projectiles
 data:extend({
     {
         type = "projectile",
-        name = "wraith-rocket",
+        name = MOD_NAME.."/wraith-rocket",
         flags = { "not-on-map" },
         acceleration = 0.005,
-        action = {
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action = {
             type = "direct",
             action_delivery = {
                 type = "instant",
                 target_effects = {
                     {
                         type = "create-entity",
-                        entity_name = "medium-explosion"
-                    },
-                    {
-                        type = "create-entity",
-                        entity_name = "small-scorchmark-tintable",
-                        check_buildability = true
+                        entity_name = MOD_NAME.."/small_tri_explosion",
+                        offset_deviation = {{-1, -1}, {1, 1}}
                     },
                     {
                         type = "destroy-decoratives",
-                        from_render_layer = "decorative",
+                        from_render_layer = "decals",
                         to_render_layer = "object",
                         include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
                         include_decals = false,
                         invoke_decorative_trigger = true,
                         decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
-                        radius = 1.5 -- large radius for demostrative purposes
+                        radius = 3 -- large radius for demostrative purposes
                     },
                     {
                         type = "damage",
@@ -63,25 +95,10 @@ data:extend({
             }
         },
         --light = {intensity = 0.5, size = 4},
-        animation = {
-            filename = "__base__/graphics/entity/rocket/rocket.png",
-            draw_as_glow = true,
-            frame_count = 8,
-            line_length = 8,
-            width = 9,
-            height = 35,
-            shift = { 0, 0 },
-        },
-        shadow = {
-            filename = "__base__/graphics/entity/rocket/rocket-shadow.png",
-            frame_count = 1,
-            width = 7,
-            height = 24,
-            shift = { 0, 0 }
-        },
+        animation = AnimationDB.get_layered_animations('projectiles', 'wraith_rockets', 'projectile'),
         smoke = {
             {
-                name = "smoke-fast",
+                name = MOD_NAME.."/smoke-fast",
                 deviation = { 0.15, 0.15 },
                 frequency = 1 / 5,
                 position = { 0, 1 },
@@ -95,10 +112,17 @@ data:extend({
     },
     {
         type = "projectile",
-        name = "wraith-laser-projectile",
+        name = MOD_NAME.."/wraith-laser-projectile",
         flags = { "not-on-map" },
         acceleration = 0.01,
-        action = {
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action = {
             type = "direct",
             action_delivery = {
                 type = "instant",
@@ -110,23 +134,167 @@ data:extend({
                 }
             }
         },
-        animation = {
-            filename = "__erm_terran__/graphics/entity/units/battlecruiser/battlecruiser-laser-projectile.png",
-            width = 64,
-            height = 64,
-            frame_count = 1,
-            animation_speed = 0.2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = 1.5,
-            draw_as_glow = true,
+        animation = AnimationDB.get_single_animation('projectiles', 'wraith_laser', 'projectile', 'glow')
+    },
+    {
+        type = "projectile",
+        name = MOD_NAME.."/valkyrie_rocket_projectile",
+        flags = { "not-on-map" },
+        acceleration = 0.003,
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action = {
+            type = "direct",
+            action_delivery = {
+                type = "instant",
+                target_effects = {
+                    {
+                        type = "play-sound",
+                        sound = TerranSound.valkyrie_rocket_hit(0.5)
+                    },
+                    {
+                        type = "create-entity",
+                        entity_name = MOD_NAME.."/small_tri_explosion",
+                        offset_deviation = {{-1, -1}, {1, 1}}
+                    },
+                    {
+                        type = "damage",
+                        damage = { amount = 100, type = "physical" }
+                    },
+                    {
+                        type = "nested-result",
+                        action = {
+                            type = "area",
+                            force = "not-same",
+                            radius = 3,
+                            ignore_collision_condition = true,
+                            action_delivery = {
+                                type = "instant",
+                                target_effects = {
+                                    {
+                                        type = "damage",
+                                        damage = { amount = 175, type = "cold" },
+                                        apply_damage_to_trees = true,
+                                    },
+                                    {
+                                        type = "create-sticker",
+                                        sticker = "5-050-slowdown-sticker",
+                                        show_in_tooltip = true,
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        animation = AnimationDB.get_layered_animations('projectiles', 'valkyrie_rocket', 'projectile'),
+        smoke = {
+            {
+                name = MOD_NAME.."/valkyrie-smoke-fast",
+                deviation = { 0.15, 0.15 },
+                frequency = 1 / 5,
+                position = { 0, 1 },
+                slow_down_factor = 1,
+                starting_frame = 3,
+                starting_frame_deviation = 5,
+                starting_frame_speed = 0,
+                starting_frame_speed_deviation = 5
+            }
         }
     },
     {
         type = "projectile",
-        name = "battlecruiser-laser-projectile",
+        name = MOD_NAME.."/goliath_rocket_projectile",
+        flags = { "not-on-map" },
+        acceleration = 0.003,
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action = {
+            type = "direct",
+            action_delivery = {
+                type = "instant",
+                target_effects = {
+                    {
+                        type = "create-entity",
+                        entity_name = MOD_NAME.."/small_tri_explosion",
+                        offsets = {{0, 1}},
+                        offset_deviation = {{-1, -1}, {1, 1}}
+                    },
+                    {
+                        type = "destroy-decoratives",
+                        from_render_layer = "decals",
+                        to_render_layer = "object",
+                        include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
+                        include_decals = false,
+                        invoke_decorative_trigger = true,
+                        decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
+                        radius = 3 -- large radius for demostrative purposes
+                    },
+                    {
+                        type = "damage",
+                        damage = { amount = 50, type = "physical" }
+                    },
+                    {
+                        type = "nested-result",
+                        action = {
+                            type = "area",
+                            force = "not-same",
+                            radius = 3,
+                            ignore_collision_condition = true,
+                            action_delivery = {
+                                type = "instant",
+                                target_effects = {
+                                    {
+                                        type = "damage",
+                                        damage = { amount = 175, type = "explosion" },
+                                        apply_damage_to_trees = true,
+                                    },
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        --light = {intensity = 0.5, size = 4},
+        animation = AnimationDB.get_layered_animations('projectiles', 'goliath_rockets', 'projectile'),
+        smoke = {
+            {
+                name = MOD_NAME.."/smoke-fast",
+                deviation = { 0.15, 0.15 },
+                frequency = 1 / 5,
+                position = { 0, 1 },
+                slow_down_factor = 1,
+                starting_frame = 3,
+                starting_frame_deviation = 5,
+                starting_frame_speed = 0,
+                starting_frame_speed_deviation = 5
+            }
+        }
+    },
+    {
+        type = "projectile",
+        name = MOD_NAME.."/battlecruiser-laser-projectile",
         flags = { "not-on-map" },
         acceleration = 0.01,
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
         action = {
             type = "direct",
             action_delivery = {
@@ -139,31 +307,28 @@ data:extend({
                 }
             }
         },
-        animation = {
-            filename = "__erm_terran__/graphics/entity/units/battlecruiser/battlecruiser-laser-projectile.png",
-            width = 64,
-            height = 64,
-            frame_count = 1,
-            animation_speed = 0.2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = 1.5,
-            draw_as_glow = true,
-        }
+        animation = AnimationDB.get_single_animation('projectiles', 'battlecruiser_laser', 'projectile', 'glow')
     },
     {
         type = "projectile",
-        name = "battlecruiser-yamato-projectile",
+        name = MOD_NAME.."/battlecruiser-yamato-projectile",
         flags = { "not-on-map" },
         acceleration = 0.01,
-        action = {
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action = {
             type = "direct",
             action_delivery = {
                 type = "instant",
                 target_effects = {
                     {
                         type = "create-entity",
-                        entity_name = "medium-explosion"
+                        entity_name = MOD_NAME.."/battlecruiser_yamato-explosion"
                     },
                     {
                         type = "damage",
@@ -191,13 +356,13 @@ data:extend({
                                     },
                                     {
                                         type = "destroy-decoratives",
-                                        from_render_layer = "decorative",
+                                        from_render_layer = "decals",
                                         to_render_layer = "object",
                                         include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
                                         include_decals = false,
                                         invoke_decorative_trigger = true,
                                         decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
-                                        radius = 5 -- large radius for demostrative purposes
+                                        radius = 6 -- large radius for demostrative purposes
                                     }
                                 },
                             }
@@ -206,23 +371,20 @@ data:extend({
                 }
             }
         },
-        animation = {
-            filename = "__erm_terran__/graphics/entity/units/battlecruiser/battlecruiser-projectile.png",
-            width = 96,
-            height = 96,
-            frame_count = 1,
-            animation_speed = 0.2,
-            axially_symmetrical = false,
-            direction_count = 16,
-            scale = 1.25,
-            draw_as_glow = true,
-        }
+        animation = AnimationDB.get_single_animation('projectiles', 'battlecruiser_yamato', 'projectile', 'glow')
     },
     {
         type = "projectile",
-        name = "terran-tank-explosive-cannon-projectile",
+        name = MOD_NAME.."/tank-cannon-projectile",
         flags = {"not-on-map"},
         acceleration = 0,
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
         action =
         {
             type = "direct",
@@ -235,10 +397,6 @@ data:extend({
                         type = "damage",
                         damage = {amount = 100, type = "physical"}
                     },
-                    {
-                        type = "create-entity",
-                        entity_name = "explosion"
-                    }
                 }
             }
         },
@@ -252,7 +410,7 @@ data:extend({
                 {
                     {
                         type = "create-entity",
-                        entity_name = "big-explosion"
+                        entity_name = MOD_NAME.."/tank-shell-explosion"
                     },
                     --- Heavy ground AOE damage
                     {
@@ -272,10 +430,6 @@ data:extend({
                                         damage = {amount = 100, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     },
-                                    {
-                                        type = "create-entity",
-                                        entity_name = "explosion"
-                                    }
                                 }
                             }
                         }
@@ -298,10 +452,6 @@ data:extend({
                                         type = "damage",
                                         damage = {amount = 50, type = "explosion"},
                                         apply_damage_to_trees = true,
-                                    },
-                                    {
-                                        type = "create-entity",
-                                        entity_name = "explosion"
                                     }
                                 }
                             }
@@ -318,7 +468,7 @@ data:extend({
                     },
                     {
                         type = "destroy-decoratives",
-                        from_render_layer = "decorative",
+                        from_render_layer = "decals",
                         to_render_layer = "object",
                         include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
                         include_decals = false,
@@ -329,15 +479,225 @@ data:extend({
                 }
             }
         },
-        animation =
-        {
-            filename = "__base__/graphics/entity/bullet/bullet.png",
-            draw_as_glow = true,
-            frame_count = 1,
-            width = 3,
-            height = 50,
-        }
+        animation = AnimationDB.get_layered_animations('projectiles', 'siege_tank_cannon', 'projectile')
     },
+    {
+        type="projectile",
+        name=MOD_NAME.."/vulture_grenade_projectile",
+        acceleration = 0,
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action =
+        {
+            type = "direct",
+            action_delivery =
+            {
+                type = "instant",
+                target_effects =
+                {
+                    {
+                        type = "create-entity",
+                        entity_name = MOD_NAME.."/small_tri_explosion"
+                    },
+                    {
+                        type = "nested-result",
+                        action =
+                        {
+                            type = "area",
+                            force = "not-same",
+                            radius = 2,
+                            ignore_collision_condition = true,
+                            action_delivery =
+                            {
+                                type = "instant",
+                                target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = {amount = 100, type = "explosion"},
+                                        apply_damage_to_trees = true,
+                                    }
+                                }
+                            }
+                        }
+                    },
+                }
+            }
+        },
+
+        animation = AnimationDB.get_layered_animations('projectiles', 'vulture', 'projectile')
+    },
+    {
+        type = "projectile",
+        name = MOD_NAME.."/ghost_lockdown_projectile",
+        flags = { "not-on-map" },
+        acceleration = 0.003,
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        final_action = {
+            type = "direct",
+            action_delivery = {
+                type = "instant",
+                target_effects = {
+                    {
+                        type = "play-sound",
+                        sound = TerranSound.ghost_lockdown(0.5)
+                    },
+                    {
+                        type = "create-entity",
+                        entity_name = MOD_NAME.."/ghost_lockdown-explosion",
+
+                    },
+                    {
+                        type = "nested-result",
+                        action = {
+                            type = "area",
+                            force = "not-friend",
+                            radius = 3,
+                            ignore_collision_condition = true,
+                            action_delivery = {
+                                type = "instant",
+                                target_effects = {
+                                    {
+                                        type = "create-sticker",
+                                        sticker = "10-025-slowdown-sticker",
+                                        show_in_tooltip = true,
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        animation = AnimationDB.get_layered_animations('projectiles', 'ghost_lockdown', 'projectile'),
+    },
+})
+
+
+----- Explosions
+data:extend({
+    {
+        type = "explosion",
+        name = MOD_NAME.."/small_tri_explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/small_tri_explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'small_tri', 'explosion', 'glow'),
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/spidermine-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/spidermine-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'spidermine', 'explosion', 'glow'),
+        light = {intensity = 1, size = 12, color = {r=1.0, g=0.66, b=0.0}}
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/shockbomb-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/shockbomb-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'shockbomb', 'explosion', 'glow', 1),
+        light = {intensity = 1, size = 24, color = {r=1.0, g=0.66, b=0.0}}
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/tank-shell-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/tank-shell-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'shockbomb', 'explosion', 'glow', 0.5),
+        light = {intensity = 1, size = 12, color = {r=1.0, g=0.66, b=0.0}}
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/marine_attack_hit-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/marine_attack_hit-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'marine_attack_hit', 'explosion', 'glow'),
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/irradiate-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/irradiate-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'science_vessel_irradiate', 'explosion', 'glow'),
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/science_vessel_irradiate-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/science_vessel_irradiate-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'science_vessel_irradiate', 'explosion', 'glow'),
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/nuke-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/nuke-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'nuke', 'explosion', 'glow'),
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/psi_disruption-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/psi_disruption-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'psi_disruption', 'explosion', 'glow'),
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/battlecruiser_yamato-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/battlecruiser_yamato-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'battlecruiser_yamato', 'explosion', 'glow'),
+        light = {intensity = 1, size = 12, color = {r=1.0, g=0.66, b=0.0}}
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/battlecruiser_laser-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/battlecruiser_laser-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'battlecruiser_laser', 'explosion', 'glow')
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/battlecruiser_yamato-charging",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/battlecruiser_yamato-charging",
+        animations = AnimationDB.get_single_animation('projectiles', 'battlecruiser_yamato', 'charging', 'glow')
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/ghost_lockdown-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/ghost_lockdown-explosion",
+        animations = AnimationDB.get_layered_animations('projectiles', 'ghost_lockdown', 'explosion', 0.5)
+    },
+
+
+    ---- Death explosions ----
     {
         type = "explosion",
         name = MOD_NAME.."/firebat-explosion",
@@ -348,65 +708,54 @@ data:extend({
     },
     {
         type = "explosion",
-        name = "erm-terran-large-explosion",
+        name = MOD_NAME.."/marine_death-explosion",
         flags = { "not-on-map" },
         subgroup = 'explosions',
-        order = "erm-terran-large-explosion",
-        animations = {
-            filename = "__erm_terran__/graphics/entity/explosion/large-explosion.png",
-            width = 200,
-            height = 200,
-            frame_count = 10,
-            animation_speed = 0.25,
-            direction_count = 1,
-            scale = 1.25,
-            draw_as_glow = true,
-        },
-        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+        order = MOD_NAME.."/marine_death-explosion",
+        animations = AnimationDB.get_layered_animations('death', 'marine_death', 'explosion'),
     },
     {
         type = "explosion",
-        name = "erm-terran-building-large-explosion",
+        name = MOD_NAME.."/ghost_death-explosion",
         flags = { "not-on-map" },
         subgroup = 'explosions',
-        order = "erm-terran-large-explosion",
-        animations = {
-            filename = "__erm_terran__/graphics/entity/explosion/large-explosion.png",
-            width = 200,
-            height = 200,
-            frame_count = 10,
-            animation_speed = 0.25,
-            direction_count = 1,
-            scale = 1.25,
-            draw_as_glow = true,
-            shift = {0, 1}
-        },
-        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+        order = MOD_NAME.."/ghost_death-explosion",
+        animations = AnimationDB.get_layered_animations('death', 'ghost_death', 'explosion'),
     },
     {
         type = "explosion",
-        name = "erm-terran-building-xlarge-explosion",
+        name = MOD_NAME.."/large-explosion",
         flags = { "not-on-map" },
         subgroup = 'explosions',
-        order = "erm-terran-xlarge-explosion",
-        animations = {
-            filename = "__erm_terran__/graphics/entity/explosion/xlarge-explosion.png",
-            width = 252,
-            height = 200,
-            frame_count = 10,
-            animation_speed = 0.25,
-            direction_count = 1,
-            scale = 1.25,
-            draw_as_glow = true,
-            shift = {0, 1}
-        },
-        --light = {intensity = 1, size = 50, color = {r=1.0, g=1.0, b=1.0}},
+        order = MOD_NAME.."/large-explosion",
+        animations = AnimationDB.get_layered_animations('death', 'small_building_death', 'explosion')
     },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/building-large-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/large-explosion",
+        animations = AnimationDB.get_layered_animations('death', 'small_building_death', 'explosion')
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/building-xlarge-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/xlarge-explosion",
+        animations = AnimationDB.get_layered_animations('death', 'large_building_death', 'explosion')
+    },
+})
+
+
+---- Corpse
+data:extend({
     {
         type = "corpse",
-        name = "terran-large-base-corpse",
+        name = MOD_NAME.."/large-base-corpse",
         flags = { "placeable-neutral",  "not-on-map" },
-        icon = "__erm_terran__/graphics/entity/icons/advisor.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
         icon_size = 64,
         collision_box = { { -2, -2 }, { 2, 2 } },
         selection_box = { { -2, -2 }, { 2, 2 } },
@@ -428,4 +777,80 @@ data:extend({
             }
         }
     },
+})
+
+----- LueRenderer Animation
+local nuclearTargeter = AnimationDB.get_layered_animations('projectiles', 'nuclear_launch', 'targeter')
+nuclearTargeter.type = 'animation'
+nuclearTargeter.name = MOD_NAME .. '/nuclear_targeter'
+data:extend({
+    nuclearTargeter,
+})
+
+--- Original 400 damage explosion projectile from 1 - 35?
+local nukeWave = util.table.deepcopy(data.raw['projectile']['atomic-bomb-wave'])
+nukeWave.name = MOD_NAME.."/atomic-bomb-wave"
+nukeWave.action[1].action_delivery.target_effects.low_distance_modifier = 16
+nukeWave.action[1].action_delivery.target_effects.upper_damage_modifier = 0.33
+nukeWave.action[1].action_delivery.target_effects.damage.amount = 1000 * ERMPlayerDataHelper.get_damage_multiplier()
+nukeWave.piercing_damage = 50000
+
+
+--- Original 100 damage explosion projectile (ground zero) from 1 - 16
+local nukeGroundZero = util.table.deepcopy(data.raw['projectile']['atomic-bomb-ground-zero-projectile'])
+nukeGroundZero.name = MOD_NAME.."/atomic-bomb-ground-zero-projectile"
+nukeGroundZero.action[1].action_delivery.target_effects.upper_damage_modifier = 0.45
+nukeGroundZero.action[1].action_delivery.target_effects.damage.amount = 1600 * ERMPlayerDataHelper.get_damage_multiplier()
+nukeGroundZero.piercing_damage = 10000
+
+data:extend({
+    nukeWave,
+    nukeGroundZero
+})
+
+--- Nuke Projectile Changes
+local nukeProjectile = util.table.deepcopy(data.raw['projectile']['atomic-rocket'])
+nukeProjectile.name = MOD_NAME.."/atomic-bomb"
+nukeProjectile.turn_speed = 0
+nukeProjectile.turning_speed_increases_exponentially_with_projectile_speed = false;
+nukeProjectile.animation = AnimationDB.get_single_animation('projectiles','nuclear_missile','projectile', nil, 0.375)
+nukeProjectile.shadow = AnimationDB.get_single_animation('projectiles','nuclear_missile','projectile', nil, 0.375)
+nukeProjectile.shadow['draw_as_shadow'] = true
+
+local target_effect_num_12 = nukeProjectile.action.action_delivery.target_effects[12]
+if target_effect_num_12 and
+    target_effect_num_12.type == "nested-result" and
+    target_effect_num_12.action.action_delivery.type == "projectile" and
+target_effect_num_12.action.action_delivery.projectile == "atomic-bomb-ground-zero-projectile"
+then
+    nukeProjectile.action.action_delivery.target_effects[12].action.radius = 16
+    nukeProjectile.action.action_delivery.target_effects[12]
+        .action.action_delivery.projectile =
+            MOD_NAME.."/atomic-bomb-ground-zero-projectile"
+end
+
+local target_effect_num_13 = nukeProjectile.action.action_delivery.target_effects[13]
+if target_effect_num_13 and
+        target_effect_num_13.type == "nested-result" and
+        target_effect_num_13.action.action_delivery.type == "projectile" and
+        target_effect_num_13.action.action_delivery.projectile == "atomic-bomb-wave"
+then
+    nukeProjectile.action.action_delivery.target_effects[12].action.radius = 36
+    nukeProjectile.action.action_delivery.target_effects[13]
+                  .action.action_delivery.projectile =
+    MOD_NAME.."/atomic-bomb-wave"
+end
+
+local target_effect_num_7 = nukeProjectile.action.action_delivery.target_effects[7]
+if target_effect_num_7 and
+        target_effect_num_7.type == "damage"
+then
+    table.remove(nukeProjectile.action.action_delivery.target_effects,7)
+    --nukeProjectile.action.action_delivery.target_effects[7]
+    --              .damage.amount = 500
+end
+
+
+data:extend({
+    nukeProjectile
 })

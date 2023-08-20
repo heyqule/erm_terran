@@ -19,6 +19,7 @@ local name = 'battlecruiser'
 
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.2, 8)
+local laser_attack_range = ERMPlayerUnitHelper.get_attack_range(1.2, 4)
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
@@ -26,14 +27,13 @@ local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 
 -- Animation Settings
-local unit_scale = 1.75
 
 local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 
 local battlecruiser_animation = function()
-    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser', 'run', 1)
+    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser', 'run')
 
     runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
@@ -73,31 +73,31 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/yamato' },
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_Y.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
+            --{
+            --    icon = "__base__/graphics/icons/signal/signal_Y.png",
+            --    icon_size = 64,
+            --    scale = 0.25,
+            --    shift = {-9,-9}
+            --},
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
-            { type = "acid", percent = 90 },
+            { type = "acid", percent = 85 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 90 },
-            { type = "fire", percent = 90 },
-            { type = "explosion", percent = 90 },
-            { type = "laser", percent = 90 },
-            { type = "electric", percent = 90 },
-            { type = "cold", percent = 90 }
+            { type = "physical", percent = 85 },
+            { type = "fire", percent = 85 },
+            { type = "explosion", percent = 85 },
+            { type = "laser", percent = 85 },
+            { type = "electric", percent = 85 },
+            { type = "cold", percent = 85 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),
@@ -110,7 +110,7 @@ data:extend({
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
-        radar_range = 2,
+        radar_range = 3,
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
@@ -118,24 +118,25 @@ data:extend({
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 360,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
             ammo_type = {
                 category = "laser",
-                target_type = "direction",
+                target_type = "entity",
                 action = {
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = name .. "-yamato-projectile",
-                        starting_speed = 0.25,
-                        max_range = ERM_Config.get_max_projectile_range(2),
+                        projectile = MOD_NAME..'/battlecruiser-yamato-projectile',
+                        starting_speed = 0.35,
+                        max_range = attack_range * 1.5
                     }
                 }
             },
             animation = battlecruiser_animation(),
             sound = TerranSound.battlecruiser_yamato(0.66, 0.66),
+            projectile_creation_distance = 3,
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
@@ -153,20 +154,20 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/laser' },
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_L.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
+            --{
+            --    icon = "__base__/graphics/icons/signal/signal_L.png",
+            --    icon_size = 64,
+            --    scale = 0.25,
+            --    shift = {-9,-9}
+            --},
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation","not-flammable" },
         has_belt_immunity = true,
         max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. name,
+        order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
@@ -195,22 +196,23 @@ data:extend({
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
             ammo_category = 'laser',
-            range = attack_range,
+            projectile_center = {0, 3},
+            range = laser_attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 60,
-            cooldown_deviation = 0.1,
+            cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
             ammo_type = {
                 category = "laser",
-                target_type = "direction",
+                target_type = "entity",
                 action = {
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = name .. "-laser-projectile",
-                        starting_speed = 0.5,
-                        max_range = ERM_Config.get_max_projectile_range(2),
+                        projectile = MOD_NAME..'/battlecruiser-laser-projectile',
+                        starting_speed = 1,
+                        max_range = attack_range * 1.5
                     }
                 }
             },
@@ -230,8 +232,8 @@ data:extend({
     {
         type = "corpse",
         name = name .. '-corpse',
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
-        icon_size = 64,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+        icon_size = 256,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
         selection_box = selection_box,
         selectable_in_game = false,
