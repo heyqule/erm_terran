@@ -592,6 +592,96 @@ data:extend({
             time = 60,
             count = 500
         },
-    }
-
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/missile-turret',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/missile-turret'
+            },
+        },
+        prerequisites = {
+            "military-4", "low-density-structure",
+            "rocket-control-unit",
+            "rocketry", "electric-energy-accumulators"
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 100
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/siege-tank-turret',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/siege-tank-turret'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/shockbomb-ammo'
+            }
+        },
+        prerequisites = {
+            "military-4", "low-density-structure",
+            "rocket-control-unit",
+            "tank", "electric-energy-accumulators"
+        },
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            time = 60,
+            count = 200
+        },
+    },
+    {
+        type = "technology",
+        name = MOD_NAME .. '/bunker-turret',
+        icon_size = 256,
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/bunker-turret/mk1'
+            },
+        },
+        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack'},
+        unit =
+        {
+            ingredients =
+            {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"military-science-pack", 1},
+            },
+            time = 30,
+            count = 150
+        },
+    },
 })

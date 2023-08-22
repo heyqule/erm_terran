@@ -744,12 +744,6 @@ data:extend({
                 icon_size = 256,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_Y.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
                 icon_size = 64,
                 scale = 0.25,
@@ -771,14 +765,8 @@ data:extend({
         result = MOD_NAME .. '/battlecruiser/laser',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_L.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -913,6 +901,141 @@ data:extend({
         order = "a-erm-building-starport",
         result = MOD_NAME .. '/starport'
     },
-
-
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/missile-turret',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"gun-turret", 1},
+            {"rocket-launcher", 6},
+            {"low-density-structure", 10},
+            {"rocket-control-unit", 4},
+            {"accumulator", 4},
+        },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
+        icon_size = 256,
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-missile",
+        result = MOD_NAME .. '/missile-turret'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/siege-tank-turret',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"tank", 1},
+            {"low-density-structure", 10},
+            {"rocket-control-unit", 4},
+            {"accumulator", 4},
+            {'steel-plate',20}
+        },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
+        icon_size = 256,
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-siege-tank",
+        result = MOD_NAME .. '/siege-tank-turret'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/shockbomb-ammo',
+        enabled = false,
+        energy_required = 4,
+        ingredients =
+        {
+            {"explosive-uranium-cannon-shell", 1},
+            {"explosives", 2},
+            {"plastic-bar", 1},
+        },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/shockbomb.png",
+        icon_size = 64,
+        subgroup = "ammo",
+        order = "d[explosive-cannon-shell]-c[uranium-shockbomb]",
+        result = MOD_NAME .. '/shockbomb-ammo'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/bunker-turret/mk1',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"erm_terran/marine/mk1", 4},
+            {"steel-plate", 10},
+            {"concrete",20}
+        },
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-bunker-mk1",
+        result = MOD_NAME .. '/bunker-turret/mk1'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/bunker-turret/mk2',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"erm_terran/marine/mk2", 4},
+            {"steel-plate", 25},
+            {"concrete",30},
+            {"refined-concrete",10}
+        },
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-bunker-mk2",
+        result = MOD_NAME .. '/bunker-turret/mk2'
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. '/bunker-turret/mk3',
+        enabled = false,
+        energy_required = 60,
+        ingredients =
+        {
+            {"erm_terran/marine/mk1", 4},
+            {"steel-plate", 50},
+            {"refined-concrete",50}
+        },
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_3.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-bunker-mk3",
+        result = MOD_NAME .. '/bunker-turret/mk3'
+    },
 })

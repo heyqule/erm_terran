@@ -130,8 +130,12 @@ local attack_functions = {
     end,
     [CANCEL_GHOST_ATOMIC_SEQUENCE] = function(args)
         CustomAttacks.cancel_nuke_from_queue(args)
+    end,
+    [BUNCKER_SPAWN_MARINE] = function(args)
+        CustomAttacks.spawn_marine(args)
     end
 }
+
 Event.register(defines.events.on_script_trigger_effect, function(event)
     if  attack_functions[event.effect_id] and
             CustomAttacks.valid(event, MOD_NAME)

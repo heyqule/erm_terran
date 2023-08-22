@@ -102,7 +102,7 @@ data:extend({
             cooldown_deviation = 0.2,
             warmup = 6,
             damage_modifier = 2 + ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.goliath_attack(0.66),
+            sound = TerranSound.goliath_attack(0.5),
             ammo_type =
             {
                 category = "bullet",

@@ -15,6 +15,7 @@ TIME_TO_LIVE_CREATED = 'emtrn-ttlc'
 
 GHOST_ATOMIC_SEQUENCE = 'emtrn-ghnk'
 CANCEL_GHOST_ATOMIC_SEQUENCE = 'emtrn-cgnk'
+BUNCKER_SPAWN_MARINE = 'emtrn-smrn'
 
 NUKE_WAIT_TIME = 420
 

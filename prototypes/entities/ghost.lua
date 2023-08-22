@@ -72,7 +72,7 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
-        max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
@@ -182,7 +182,7 @@ ghost_nuke['icons'][2] = {
     shift = {-9,-9}
 }
 ghost_nuke.movement_speed = 0.225
-ghost_nuke.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
+ghost_nuke.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 ghost_nuke.resistances = DataHelper.getResistance(75)
 ghost_nuke.run_animation = ghost_mk2_run_animation
 ghost_nuke.repair_speed_modifier = 0.25
@@ -192,8 +192,7 @@ ghost_nuke.attack_parameters = {
     ammo_category = 'landmine',
     range = 9,
     warmup = 6,
-    cooldown = NUKE_WAIT_TIME + 90,
-    cooldown_deviation = 0.1,
+    cooldown = NUKE_WAIT_TIME + 75,
     sound = TerranSound.nuke_alert(0.66, 1),
     animation = ghost_mk2_attack_animation,
     ammo_type =

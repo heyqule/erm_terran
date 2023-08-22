@@ -143,6 +143,7 @@ scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
 scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
 scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/laser-turret.png"
 scout_wraith.movement_speed = 0.6 * ERMPlayerUnitHelper.get_speed_multiplier()
+scout_wraith.attack_range = ERMPlayerUnitHelper.get_attack_range(1)
 scout_wraith.attack_parameters = {
     type = "projectile",
     range_mode = "bounding-box-to-bounding-box",

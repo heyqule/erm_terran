@@ -40,6 +40,14 @@ local battlecruiser_animation = function()
     return runAnimation
 end
 
+local battlecruiser_mkii_animation = function()
+    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser_mkii', 'run')
+
+    runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
+
+    return runAnimation
+end
+
 local battlecruiser_light = function()
     local light
     if settings.startup['erm_terran-add-light'].value then
@@ -154,7 +162,7 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/laser' },
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
                 icon_size = 256,
             },
             --{
@@ -217,11 +225,11 @@ data:extend({
                 }
             },
             sound = TerranSound.battlecruiser_laser(0.6, 0.6),
-            animation = battlecruiser_animation(),
+            animation = battlecruiser_mkii_animation(),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
-        run_animation = battlecruiser_animation(),
+        run_animation = battlecruiser_mkii_animation(),
         dying_explosion = 'erm-fire-explosion-air_large-1',
         dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. '-corpse',

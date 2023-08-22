@@ -61,8 +61,8 @@ data:extend({
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_1.png",
@@ -148,11 +148,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = {amount = 200 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
+                                damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = {amount = 300 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
+                                damage = {amount = 700 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
                             }
                         }
                     }
@@ -202,7 +202,7 @@ data:extend({
         duration_in_ticks = 10 * 60,
         damage_interval = 10,
         target_movement_modifier = 0.8,
-        damage_per_tick = { amount = 10 * 25 / 60, type = "fire" },
+        damage_per_tick = { amount = 10, type = "fire" },
         spread_fire_entity = "fire-flame-on-tree",
         fire_spread_cooldown = 30,
         fire_spread_radius = 1
@@ -212,18 +212,35 @@ data:extend({
 -- Firebat MK2 --
 local firebat_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
 
+local mk2attackAnimation = AnimationDB.get_layered_animations('units', 'firebat_mkii', 'attack')
+
+mk2attackAnimation = AnimationDB.apply_runtime_tint(mk2attackAnimation, true)
+
+local mk2runningAnimation = AnimationDB.get_layered_animations('units', 'firebat_mkii', 'run')
+
+mk2runningAnimation = AnimationDB.apply_runtime_tint(mk2runningAnimation, true)
+
 firebat_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 firebat_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
-firebat_mk2['icons'][2] = {
-    icon = "__base__/graphics/icons/signal/signal_2.png",
-    icon_size = 64,
-    scale = 0.25,
-    shift = {-9,-9}
+firebat_mk2['icons'] = {
+    {
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."_mkII256.png",
+        icon_size = 256,
+    },
+    {
+        icon = "__base__/graphics/icons/signal/signal_2.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = {-9,-9}
+    },
 }
 firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
+firebat_mk2['run_animation'] = mk2runningAnimation
 firebat_mk2['attack_parameters']['damage_modifier'] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
+firebat_mk2['attack_parameters']['animation'] = mk2attackAnimation
+
 
 firebat_mk2['dying_trigger_effect'] = {
     {
@@ -240,11 +257,11 @@ firebat_mk2['dying_trigger_effect'] = {
                 {
                     {
                         type = "damage",
-                        damage = {amount = 400 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
+                        damage = {amount = 1400 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
                     },
                     {
                         type = "damage",
-                        damage = {amount = 600 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
+                        damage = {amount = 1600 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
                     }
                 }
             }

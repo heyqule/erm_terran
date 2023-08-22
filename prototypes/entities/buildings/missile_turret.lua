@@ -3,3 +3,82 @@
 --- Created by heyqule.
 --- DateTime: 8/20/2023 12:56 AM
 ---
+require ("util")
+local sounds = require("__base__.prototypes.entity.sounds")
+local hit_effects = require ("__base__.prototypes.entity.hit-effects")
+
+local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+local TerranSound = require('__erm_terran_hd_assets__/sound')
+local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
+
+local collision_box = { { -1.1, -2 }, { 1.1, 1.25 } }
+local selection_box = { { -1.1, -2 }, { 1.1, 1.25 } }
+
+local min_range = 8
+local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1.2, 4 + min_range))
+local prepare_range = attack_range + 4
+
+
+local animation = AnimationDB.get_layered_animations('buildings', 'missile_turret', 'folded')
+animation = AnimationDB.apply_runtime_tint(animation, true)
+
+data:extend({
+    {
+        type = "ammo-turret",
+        name = MOD_NAME.."/missile-turret",
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
+                icon_size = 256,
+            },
+        },
+        resistances =
+        {
+            { type = "poison", percent = 50 },
+            { type = "physical", percent = 50 },
+            { type = "fire", percent = 50 },
+            { type = "explosion", percent = 50},
+            { type = "laser", percent = 50 },
+            { type = "electric", percent = 50 },
+            { type = "cold", percent = 50},
+            { type = "impact", percent = 90, decrease = 50 },
+        },
+        flags = {"placeable-player", "player-creation"},
+        minable = {mining_time = 2, result = MOD_NAME .. '/missile-turret'},
+        max_health = 1500,
+        repair_speed_modifier = 0.33,
+        dying_explosion = MOD_NAME.."/building-large-explosion",
+        collision_box = collision_box,
+        selection_box = selection_box,
+        damaged_trigger_effect = hit_effects.entity(),
+        rotation_speed = 0.015,
+        preparing_speed = 0.08,
+        folding_speed = 0.08,
+        inventory_size = 1,
+        automated_ammo_count = 10,
+        attacking_speed = 0.5,
+        alert_when_attacking = false,
+        open_sound = sounds.machine_open,
+        close_sound = sounds.machine_close,
+        base_picture = Sprites.empty_pictures(),
+        vehicle_impact_sound = sounds.generic_impact,
+        folded_animation = animation,
+        prepare_range = prepare_range,
+        attack_parameters =
+        {
+            type = "projectile",
+            ammo_category = "rocket",
+            cooldown = 180,
+            cooldown_deviation = 0.2,
+            projectile_creation_distance = 1.39375,
+            projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+            range = attack_range,
+            min_range = min_range,
+            health_penalty = 15,
+            sound = TerranSound.missile_turret_missile(0.5, 0.75),
+        },
+
+        call_for_help_radius = 0,
+    },
+})

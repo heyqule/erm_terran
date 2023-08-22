@@ -482,6 +482,136 @@ data:extend({
         animation = AnimationDB.get_layered_animations('projectiles', 'siege_tank_cannon', 'projectile')
     },
     {
+        type = "projectile",
+        name = MOD_NAME.."/shockbomb-projectile",
+        flags = {"not-on-map"},
+        acceleration = 0,
+
+        direction_only = true,
+        collision_box = {{-0.5,-0.5},{0.5,0.5}},
+        force_condition = "not-same",
+        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+        hit_at_collision_position = true,
+
+        action =
+        {
+            type = "direct",
+            action_delivery =
+            {
+                type = "instant",
+                target_effects =
+                {
+                    {
+                        type = "damage",
+                        damage = {amount = 150, type = "physical"}
+                    },
+                }
+            }
+        },
+        final_action =
+        {
+            type = "direct",
+            action_delivery =
+            {
+                type = "instant",
+                target_effects =
+                {
+                    {
+                        type = "create-entity",
+                        entity_name = MOD_NAME.."/shockbomb-explosion"
+                    },
+                    --- Friendly fire damage
+                    {
+                        type = "nested-result",
+                        action =
+                        {
+                            type = "area",
+                            force = "all",
+                            radius = 8,
+                            action_delivery =
+                            {
+                                type = "instant",
+                                target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = {amount = 10, type = "explosion"},
+                                        apply_damage_to_trees = true,
+                                    },
+                                }
+                            }
+                        }
+                    },
+                    --- Heavy ground AOE damage
+                    {
+                        type = "nested-result",
+                        action =
+                        {
+                            type = "area",
+                            force = "not-same",
+                            radius = 8,
+                            action_delivery =
+                            {
+                                type = "instant",
+                                target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = {amount = 150, type = "explosion"},
+                                        apply_damage_to_trees = true,
+                                    },
+                                }
+                            }
+                        }
+                    },
+                    --- Minor Air unit damage
+                    {
+                        type = "nested-result",
+                        action =
+                        {
+                            type = "area",
+                            force = "not-same",
+                            radius = 4,
+                            ignore_collision_condition = true,
+                            action_delivery =
+                            {
+                                type = "instant",
+                                target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = {amount = 400, type = "explosion"},
+                                        apply_damage_to_trees = true,
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        type = "create-entity",
+                        entity_name = "big-scorchmark-tintable",
+                        check_buildability = true
+                    },
+                    {
+                        type = "invoke-tile-trigger",
+                        repeat_count = 1
+                    },
+                    {
+                        type = "destroy-decoratives",
+                        from_render_layer = "decals",
+                        to_render_layer = "object",
+                        include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
+                        include_decals = false,
+                        invoke_decorative_trigger = true,
+                        decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
+                        radius = 10 -- large radius for demostrative purposes
+                    }
+                }
+            }
+        },
+        animation = AnimationDB.get_layered_animations('projectiles', 'siege_tank_cannon', 'projectile')
+    },
+    {
         type="projectile",
         name=MOD_NAME.."/vulture_grenade_projectile",
         acceleration = 0,
@@ -621,6 +751,15 @@ data:extend({
         order = MOD_NAME.."/tank-shell-explosion",
         animations = AnimationDB.get_single_animation('projectiles', 'shockbomb', 'explosion', 'glow', 0.5),
         light = {intensity = 1, size = 12, color = {r=1.0, g=0.66, b=0.0}}
+    },
+    {
+        type = "explosion",
+        name = MOD_NAME.."/shockbomb-explosion",
+        flags = { "not-on-map" },
+        subgroup = 'explosions',
+        order = MOD_NAME.."/shockbomb-explosion",
+        animations = AnimationDB.get_single_animation('projectiles', 'shockbomb', 'explosion', 'glow', 0.8),
+        light = {intensity = 1, size = 20, color = {r=1.0, g=0.66, b=0.0}}
     },
     {
         type = "explosion",
@@ -790,17 +929,17 @@ data:extend({
 --- Original 400 damage explosion projectile from 1 - 35?
 local nukeWave = util.table.deepcopy(data.raw['projectile']['atomic-bomb-wave'])
 nukeWave.name = MOD_NAME.."/atomic-bomb-wave"
-nukeWave.action[1].action_delivery.target_effects.low_distance_modifier = 16
 nukeWave.action[1].action_delivery.target_effects.upper_damage_modifier = 0.33
-nukeWave.action[1].action_delivery.target_effects.damage.amount = 1000 * ERMPlayerDataHelper.get_damage_multiplier()
+nukeWave.action[1].action_delivery.target_effects.damage.type = 'radioactive'
+nukeWave.action[1].action_delivery.target_effects.damage.amount = 1200 * ERMPlayerDataHelper.get_damage_multiplier()
 nukeWave.piercing_damage = 50000
 
 
 --- Original 100 damage explosion projectile (ground zero) from 1 - 16
 local nukeGroundZero = util.table.deepcopy(data.raw['projectile']['atomic-bomb-ground-zero-projectile'])
 nukeGroundZero.name = MOD_NAME.."/atomic-bomb-ground-zero-projectile"
-nukeGroundZero.action[1].action_delivery.target_effects.upper_damage_modifier = 0.45
-nukeGroundZero.action[1].action_delivery.target_effects.damage.amount = 1600 * ERMPlayerDataHelper.get_damage_multiplier()
+nukeGroundZero.action[1].action_delivery.target_effects.upper_damage_modifier = 0.33
+nukeGroundZero.action[1].action_delivery.target_effects.damage.amount = 800 * ERMPlayerDataHelper.get_damage_multiplier()
 nukeGroundZero.piercing_damage = 10000
 
 data:extend({
@@ -816,6 +955,14 @@ nukeProjectile.turning_speed_increases_exponentially_with_projectile_speed = fal
 nukeProjectile.animation = AnimationDB.get_single_animation('projectiles','nuclear_missile','projectile', nil, 0.375)
 nukeProjectile.shadow = AnimationDB.get_single_animation('projectiles','nuclear_missile','projectile', nil, 0.375)
 nukeProjectile.shadow['draw_as_shadow'] = true
+
+table.insert(
+    nukeProjectile.action.action_delivery.target_effects,
+    {
+        type = "script",
+        effect_id = 'emptk-sw',
+    }
+)
 
 local target_effect_num_12 = nukeProjectile.action.action_delivery.target_effects[12]
 if target_effect_num_12 and
@@ -845,9 +992,8 @@ local target_effect_num_7 = nukeProjectile.action.action_delivery.target_effects
 if target_effect_num_7 and
         target_effect_num_7.type == "damage"
 then
-    table.remove(nukeProjectile.action.action_delivery.target_effects,7)
-    --nukeProjectile.action.action_delivery.target_effects[7]
-    --              .damage.amount = 500
+    nukeProjectile.action.action_delivery.target_effects[7]
+                  .damage.type = "radioactive"
 end
 
 

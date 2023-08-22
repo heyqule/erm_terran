@@ -186,7 +186,7 @@ data:extend({
         name = MOD_NAME .. '/battlecruiser/laser',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
                 icon_size = 256,
             },
             {
@@ -376,5 +376,120 @@ data:extend({
         order = "a-erm-building-starport",
         place_result = MOD_NAME .. '/starport',
         stack_size = 5
-    }
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/missile-turret',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
+                icon_size = 256,
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-missile",
+        place_result = MOD_NAME .. '/missile-turret',
+        stack_size = 50
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/siege-tank-turret',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
+                icon_size = 256,
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-siege-tank",
+        place_result = MOD_NAME .. '/siege-tank-turret',
+        stack_size = 50
+    },
+    {
+        type = "ammo",
+        name = MOD_NAME .. "/shockbomb-ammo",
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/shockbomb.png",
+                icon_size = 64,
+            },
+        },
+        ammo_type =
+        {
+            category = "cannon-shell",
+            action =
+            {
+                type = "direct",
+                action_delivery =
+                {
+                    type = "projectile",
+                    projectile = MOD_NAME.."/shockbomb-projectile",
+                    starting_speed = 1.5,
+                }
+            }
+        },
+        subgroup = "ammo",
+        order = "d[cannon-shell]-c[uranium]-[shockbomb]",
+        stack_size = 200
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/bunker-turret/mk1',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_1.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-bunker-mk1",
+        place_result = MOD_NAME .. '/bunker-turret/mk1',
+        stack_size = 50
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/bunker-turret/mk2',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-bunker-mk2",
+        place_result = MOD_NAME .. '/bunker-turret/mk2',
+        stack_size = 50
+    },
+    {
+        type = "item",
+        name = MOD_NAME .. '/bunker-turret/mk3',
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_3.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {-9,-9}
+            }
+        },
+        subgroup = "erm_controllable_buildings",
+        order = "a-erm-building-turret-bunker-mk3",
+        place_result = MOD_NAME .. '/bunker-turret/mk3',
+        stack_size = 50
+    },
 })

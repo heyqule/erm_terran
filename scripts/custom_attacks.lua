@@ -7,12 +7,12 @@
 local CustomAttackHelper = require('__enemyracemanager__/lib/helper/custom_attack_helper')
 local ERMConfig = require('__enemyracemanager__/lib/global_config')
 require('__erm_terran__/global')
+local String = require('__stdlib__/stdlib/utils/string')
 
 local CustomAttacks = CustomAttackHelper
 
 CustomAttacks.add_nuke_to_queue = function(event)
     if event.source_entity and event.source_entity.valid and (event.target_entity or event.target_position) then
-        log('Nuke Queue Added @ '..event.tick)
         local target_position = event.target_position
         if event.target_entity then
             target_position = event.target_entity.position
@@ -21,7 +21,7 @@ CustomAttacks.add_nuke_to_queue = function(event)
         local targeter_id = rendering.draw_animation({
             animation = MOD_NAME .. '/nuclear_targeter',
             target = target_position,
-            time_to_live = NUKE_WAIT_TIME,
+            time_to_live = NUKE_WAIT_TIME + 75,
             surface = event.source_entity.surface.index,
             render_layer = 'radius-visualization'
         })
@@ -37,7 +37,6 @@ end
 
 CustomAttacks.cancel_nuke_from_queue = function(event)
     if event.source_entity.valid and global.nuke_tracker[event.source_entity.unit_number] then
-        log('Nuke Queue Cancelled @ '..event.tick)
         local nuke_data = global.nuke_tracker[event.source_entity.unit_number]
         rendering.destroy(nuke_data.targeter_id)
         global.nuke_tracker[event.source_entity.unit_number] = nil
@@ -77,6 +76,29 @@ CustomAttacks.spawn_nuke = function(event)
             rendering.destroy(nuke_data.targeter_id)
             global.nuke_tracker[index] = nil
             global.nuke_tracker_total = global.nuke_tracker_total - 1
+        end
+    end
+end
+
+local spawn_marines = function(event, make_string)
+    local count = 1;
+
+    if CustomAttacks.can_spawn(50) then
+        count = count + 1
+
+        if CustomAttacks.can_spawn(20) then
+            count = count + 1
+        end
+    end
+
+    CustomAttacks.drop_player_unit(event, MOD_NAME, 'marine/'..make_string, count)
+end
+
+CustomAttacks.spawn_marine = function(event)
+    if event.source_entity.valid then
+        local nameToken = String.split(event.source_entity.name, '/')
+        if nameToken[3] then
+            spawn_marines(event, nameToken[3])
         end
     end
 end
