@@ -904,17 +904,23 @@ data:extend({
         subgroup = "corpses",
         order = "c[corpse]-c[large-terran-base-corpse]",
         final_render_layer = "remnants",
-        animation = {
-            {
-                filename = "__erm_terran__/graphics/entity/buildings/large-rubble.png",
-                width = 128,
-                height = 128,
-                variation_count = 1,
-                frame_count = 1,
-                direction_count = 1,
-                scale = 1.5,
-            }
-        }
+        animation = AnimationDB.get_layered_animations('death', 'large_rubble', 'corpse')
+    },
+    {
+        type = "corpse",
+        name = MOD_NAME.."/small-base-corpse",
+        flags = { "placeable-neutral",  "not-on-map" },
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
+        icon_size = 64,
+        collision_box = { { -2, -2 }, { 2, 2 } },
+        selection_box = { { -2, -2 }, { 2, 2 } },
+        selectable_in_game = false,
+        dying_speed = 0.04,
+        time_before_removed = defines.time.minute * settings.startup["enemyracemanager-enemy-corpse-time"].value,
+        subgroup = "corpses",
+        order = "c[corpse]-c[small-terran-base-corpse]",
+        final_render_layer = "remnants",
+        animation = AnimationDB.get_layered_animations('death', 'small_rubble', 'corpse')
     },
 })
 

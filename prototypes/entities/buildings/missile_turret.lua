@@ -49,6 +49,7 @@ data:extend({
         max_health = 1500,
         repair_speed_modifier = 0.33,
         dying_explosion = MOD_NAME.."/building-large-explosion",
+        corpse = MOD_NAME.."/small-base-corpse",
         collision_box = collision_box,
         selection_box = selection_box,
         damaged_trigger_effect = hit_effects.entity(),

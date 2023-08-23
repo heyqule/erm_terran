@@ -277,7 +277,7 @@ data:extend({
         result = MOD_NAME .. '/firebat/mk2',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
                 icon_size = 256,
             },
             {
@@ -678,7 +678,7 @@ data:extend({
         result = MOD_NAME .. '/wraith/scout',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith_mkII256.png",
                 icon_size = 64,
             },
             {

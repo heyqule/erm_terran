@@ -40,6 +40,14 @@ function wraith_animation()
     return attackAnimation
 end
 
+function wraith_mkii_animation()
+    local attackAnimation = AnimationDB.get_layered_animations('units', 'wraith_mkii', 'run')
+
+    attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
+
+    return attackAnimation
+end
+
 
 data:extend({
     {
@@ -48,7 +56,7 @@ data:extend({
         localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name },
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
                 icon_size = 64,
             },
             {
@@ -64,6 +72,7 @@ data:extend({
         order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
+        can_open_gates = true,
         radar_range = 2,
         resistances = {
             { type = "acid", percent = 75 },
@@ -141,9 +150,20 @@ data:extend({
 local scout_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
 scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
-scout_wraith['icons'][2]['icon'] = "__base__/graphics/icons/laser-turret.png"
 scout_wraith.movement_speed = 0.6 * ERMPlayerUnitHelper.get_speed_multiplier()
 scout_wraith.attack_range = ERMPlayerUnitHelper.get_attack_range(1)
+scout_wraith.icons = {
+    {
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."_mkII256.png",
+        icon_size = 64,
+    },
+    {
+        icon = "__base__/graphics/icons/laser-turret.png",
+        icon_size = 64,
+        scale = 0.2,
+        shift = {-9,-9}
+    },
+}
 scout_wraith.attack_parameters = {
     type = "projectile",
     range_mode = "bounding-box-to-bounding-box",
@@ -168,9 +188,9 @@ scout_wraith.attack_parameters = {
         }
     },
     sound = TerranSound.wraith_attack_laser(0.6),
-    animation = wraith_animation()
+    animation = wraith_mkii_animation()
 }
 
-scout_wraith['run_animation'] = wraith_animation()
+scout_wraith['run_animation'] = wraith_mkii_animation()
 
 data:extend({scout_wraith})

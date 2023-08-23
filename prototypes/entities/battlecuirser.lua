@@ -97,6 +97,7 @@ data:extend({
         order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
+        can_open_gates = true,
         resistances = {
             { type = "acid", percent = 85 },
             { type = "poison", percent = 100 },

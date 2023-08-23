@@ -52,6 +52,7 @@ data:extend({
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
         repair_speed_modifier = 0.33,
         dying_explosion = MOD_NAME.."/building-large-explosion",
+        corpse = MOD_NAME.."/small-base-corpse",
         collision_box = collision_box,
         selection_box = selection_box,
         damaged_trigger_effect = hit_effects.entity(),
@@ -86,7 +87,7 @@ data:extend({
                 action = {
                     {
                         type = "direct",
-                        repeat_count = 4,
+                        repeat_count = 4 * 3,
                         action_delivery =
                         {
                             type = "instant",
@@ -143,7 +144,7 @@ bunker_mk2['icons'][2] = {
 bunker_mk2.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk2', count=3}
 bunker_mk2.max_health = 320 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk2.resistances = DataHelper.getResistance(33)
-bunker_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 5
+bunker_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 5 * 3
 bunker_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
@@ -166,7 +167,7 @@ bunker_mk3['icons'][2] = {
 bunker_mk3.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk3', count=3}
 bunker_mk3.max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk3.resistances = DataHelper.getResistance(50)
-bunker_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 6
+bunker_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 6 * 3
 bunker_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
