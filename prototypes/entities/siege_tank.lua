@@ -49,6 +49,14 @@ end
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
+
+local runAnimation2 = AnimationDB.get_layered_animations('units', 'siege_tank_mkii', 'run')
+local attackAnimation2 = AnimationDB.get_layered_animations('units', 'siege_tank_mkii', 'attack')
+
+runAnimation2 = AnimationDB.apply_runtime_tint(runAnimation2, true)
+attackAnimation2 = AnimationDB.apply_runtime_tint(attackAnimation2, true)
+
+
 data:extend({
     {
         type = "unit",
@@ -172,6 +180,8 @@ tank_mk2.resistances = {
     { type = "laser", percent = 80 },
     { type = "electric", percent = 80 },
     { type = "cold", percent = 80 }
-},
+}
+tank_mk2.run_animation = runAnimation2
+tank_mk2['attack_parameters']['animation'] = attackAnimation2
 
 data:extend({tank_mk2})

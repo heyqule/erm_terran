@@ -16,8 +16,8 @@ Date: 2023-??-??
     - Added Siege Tank turret, accepts cannon-shells, default: 36 range, min-range: 10, HP 2000, repair speed 33%
     - Added Shockbomb cannon-shell, 8 AOE explosion damage with small friendly fire damage. Builds on top of uranium explosive shell.
     - Added Bunker Turret, no-ammo-required, required 4 marines to build, default:20 range, HP 2400 - 5000, repair speed 33%.
-    - When Bunker Turret destroyed, it returns 1 (100%), 2 (50%) or 3 (20%) marines of same tier.
-    - Mining a bunker will return 3 marines of same tier.
+    - When Bunker Turret destroyed, it returns 1 (100%), 2 (50%) or 3 (20%) marines of same tier.  Nothing spawn if population is full.
+    - Mining a bunker will return 3 marines of same tier.  Nothing spawn if population is full.
 
   Changes:
     - Siege Tank and Yamato Battlecruiser are 3 radar range.
@@ -31,10 +31,6 @@ Date: 2023-??-??
     - Significantly lowered command center build cost.
     - Increase command center HP to 10000.
     - Significantly increased firebat damage and their death explosion damage.
-
-
-  Optimizations:
-    - Units mostly use terran explosion without particles.  This improves performance on large battle.
 
 
 ---------------------------------------------------------------------------------------------------

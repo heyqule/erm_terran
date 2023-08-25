@@ -72,11 +72,24 @@ local addRaceSettings = function()
     CustomAttacks.get_race_settings(MOD_NAME, true)
 end
 
+local adjust_color = function(player_index)
+    local color = game.players[player_index].color
+    local max_strength = 0.5
+    if color.r > max_strength or color.g > max_strength or color.b > max_strength then
+        color.r = color.r * max_strength
+        color.g = color.g * max_strength
+        color.b = color.b * max_strength
+    end
+
+    local force = game.players[player_index].force
+    force.custom_color = color
+end
+
 Event.on_init(function(event)
     refresh_data()
     addRaceSettings()
 
-
+    global.new_color_change = false
     --- Used for ghost's nuke launch tracking, data structure
     --- global.nuke_tracker[unit.unit_number] = {
     ---     entity = entity
@@ -84,13 +97,15 @@ Event.on_init(function(event)
     ---     drawing = target_drawing
     --- }
     global.nuke_tracker = global.nuke_tracker or {}
-
     global.nuke_tracker_total = global.nuke_tracker_total or 0
 end)
 
 Event.on_configuration_changed(function(event)
     refresh_data()
     addRaceSettings()
+    global.nuke_tracker = global.nuke_tracker or {}
+    global.nuke_tracker_total = global.nuke_tracker_total or 0
+
     for _, player in pairs(game.connected_players) do
         gui.update_overhead_button(player.index)
     end
@@ -99,21 +114,17 @@ end)
 --- Cap max color to belong 66% to avoid opaque color mask.
 ---
 Event.register(defines.events.on_console_command, function(event)
-    if event.command == 'color' then
-        local color = game.players[event.player_index].color
-        local tint_alpha_options_as_dec = {0.1, 0.25, 0.5, 0.66, 0.75, 0.9}
-        local max_strength = tint_alpha_options_as_dec[settings.startup[MOD_NAME..'-team_blend_mode'].value]
-        if color.r > max_strength or color.g > max_strength or color.b > max_strength then
-            color.r = color.r * max_strength
-            color.g = color.g * max_strength
-            color.b = color.b * max_strength
-        end
-
-        local force = game.players[event.player_index].force
-        force.custom_color = color
+    if event.command == 'color' and game.players[event.player_index].admin then
+        adjust_color(event.player_index)
     end
 end)
 
+Event.register(defines.events.on_player_created, function(event)
+    if global.new_color_change ~= false and game.players[event.player_index].admin then
+        adjust_color(event.player_index)
+        global.new_color_change = true
+    end
+end)
 
 local attack_functions = {
     [SELF_DESTRUCT_ATTACK] = function(args)

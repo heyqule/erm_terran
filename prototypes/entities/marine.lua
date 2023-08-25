@@ -37,6 +37,22 @@ local runningAnimation = AnimationDB.get_layered_animations('units', 'marine', '
 
 runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 
+local attackAnimation2 = AnimationDB.get_layered_animations('units', 'marine_mkii', 'attack')
+
+attackAnimation2 = AnimationDB.apply_runtime_tint(attackAnimation2, true)
+
+local runningAnimation2 = AnimationDB.get_layered_animations('units', 'marine_mkii', 'run')
+
+runningAnimation2 = AnimationDB.apply_runtime_tint(runningAnimation2, true)
+
+local attackAnimation3 = AnimationDB.get_layered_animations('units', 'marine_mkiii', 'attack')
+
+attackAnimation3 = AnimationDB.apply_runtime_tint(attackAnimation3, true)
+
+local runningAnimation3 = AnimationDB.get_layered_animations('units', 'marine_mkiii', 'run')
+
+runningAnimation3 = AnimationDB.apply_runtime_tint(runningAnimation3, true)
+
 local corpseAnimation = AnimationDB.get_single_animation('death', 'marine_death', 'explosion')
 
 -- Marine MK 1 --
@@ -165,12 +181,14 @@ marine_mk2['icons'][2] = {
 marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = DataHelper.getResistance(55)
+marine_mk2.run_animation = runningAnimation2
 marine_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 5
 marine_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
     damage = { amount = 15, type = "physical"}
 }
+marine_mk2['attack_parameters']['animation'] = attackAnimation2
 
 data:extend({marine_mk2})
 
@@ -188,11 +206,12 @@ marine_mk3['icons'][2] = {
 marine_mk3.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = DataHelper.getResistance(75)
+marine_mk3.run_animation = runningAnimation3
 marine_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 6
 marine_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
     damage = { amount = 42, type = "physical"}
 }
-
+marine_mk3['attack_parameters']['animation'] = attackAnimation3
 data:extend({marine_mk3})

@@ -945,6 +945,7 @@ nukeWave.piercing_damage = 50000
 local nukeGroundZero = util.table.deepcopy(data.raw['projectile']['atomic-bomb-ground-zero-projectile'])
 nukeGroundZero.name = MOD_NAME.."/atomic-bomb-ground-zero-projectile"
 nukeGroundZero.action[1].action_delivery.target_effects.upper_damage_modifier = 0.33
+nukeGroundZero.action[1].action_delivery.target_effects.upper_distance_threshold = 16
 nukeGroundZero.action[1].action_delivery.target_effects.damage.amount = 800 * ERMPlayerDataHelper.get_damage_multiplier()
 nukeGroundZero.piercing_damage = 10000
 
@@ -1006,3 +1007,4 @@ end
 data:extend({
     nukeProjectile
 })
+
