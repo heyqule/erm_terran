@@ -157,12 +157,6 @@ data:extend({
                 icon_size = 256,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
                 icon_size = 64,
                 scale = 0.25,
@@ -184,14 +178,8 @@ data:extend({
         result = MOD_NAME .. '/marine/mk2',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -215,14 +203,8 @@ data:extend({
         result = MOD_NAME .. '/marine/mk3',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_3.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -250,12 +232,6 @@ data:extend({
                 icon_size = 256,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
                 icon_size = 64,
                 scale = 0.25,
@@ -279,12 +255,6 @@ data:extend({
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -333,7 +303,7 @@ data:extend({
         result = MOD_NAME .. '/ghost/nuke',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost_mkII256.png",
                 icon_size = 256,
             },
             {
@@ -497,12 +467,6 @@ data:extend({
                 icon_size = 256,
             },
             {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
-            {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
                 icon_size = 64,
                 scale = 0.25,
@@ -524,14 +488,8 @@ data:extend({
         result = MOD_NAME .. '/siege_tank/mk2',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
             {
                 icon = "__base__/graphics/icons/signal/signal_D.png",
@@ -679,7 +637,7 @@ data:extend({
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith_mkII256.png",
-                icon_size = 64,
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/laser-turret.png",

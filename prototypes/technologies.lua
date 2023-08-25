@@ -36,7 +36,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/marine/mk-2',
         icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
         effects =
         {
             {
@@ -62,7 +62,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/marine/mk-3',
         icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
         effects =
         {
             {
@@ -172,7 +172,7 @@ data:extend({
         name = MOD_NAME .. '/ghost/nuke',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost_mkII256.png",
                 icon_size = 256,
             },
             {
@@ -270,7 +270,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/siege_tank/mk-2',
         icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
         effects =
         {
             {

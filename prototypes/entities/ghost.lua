@@ -56,8 +56,8 @@ data:extend({
     {
         type = "unit",
         name = MOD_NAME .. '/' .. name .. '/regular',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'Regular'},
-        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
+        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/regular', },
+        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name  .. '/regular'},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
@@ -174,7 +174,8 @@ ghost_mk2_attack_animation = AnimationDB.apply_runtime_tint(ghost_mk2_attack_ani
 
 
 ghost_nuke.name = MOD_NAME .. '/' .. name .. '/nuke'
-ghost_nuke.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'Mass Destruction'}
+ghost_nuke.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name..'/nuke'}
+ghost_nuke.localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name..'/nuke'}
 ghost_nuke['icons'][2] = {
     icon = "__base__/graphics/icons/atomic-bomb.png",
     icon_size = 64,

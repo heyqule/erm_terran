@@ -15,12 +15,6 @@ data:extend({
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
                 icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk1",
@@ -32,14 +26,8 @@ data:extend({
         name = MOD_NAME .. '/marine/mk2',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
         },
         subgroup = "erm_controllable_units",
@@ -52,14 +40,8 @@ data:extend({
         name = MOD_NAME .. '/marine/mk3',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_3.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
         },
         subgroup = "erm_controllable_units",
@@ -75,12 +57,6 @@ data:extend({
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
                 icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-firebat-mk1",
@@ -94,12 +70,6 @@ data:extend({
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
         },
         subgroup = "erm_controllable_units",
@@ -115,12 +85,7 @@ data:extend({
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
                 icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
+
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-siege_tank",
@@ -132,14 +97,8 @@ data:extend({
         name = MOD_NAME .. '/siege_tank/mk2',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_2.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
         },
         subgroup = "erm_controllable_units",
@@ -169,12 +128,6 @@ data:extend({
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
                 icon_size = 256,
             },
-            {
-                icon = "__base__/graphics/icons/signal/signal_Y.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
-            },
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-battlecruiser",
@@ -188,12 +141,6 @@ data:extend({
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
                 icon_size = 256,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_L.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
             },
         },
         subgroup = "erm_controllable_units",
@@ -302,7 +249,7 @@ data:extend({
         name = MOD_NAME .. '/ghost/nuke',
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost_mkII256.png",
                 icon_size = 256,
             },
             {

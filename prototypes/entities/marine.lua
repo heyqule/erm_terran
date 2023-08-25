@@ -67,12 +67,6 @@ data:extend({
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
                 icon_size = 256,
             },
-            --{
-            --    icon = "__base__/graphics/icons/signal/signal_1.png",
-            --    icon_size = 64,
-            --    scale = 0.25,
-            --    shift = {-9,-9}
-            --},
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
@@ -139,7 +133,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.marine_attack(0.5),
+            sound = TerranSound.marine_attack(0.5, 0.66),
             animation = attackAnimation
         },
         distance_per_frame = 0.16,
@@ -172,11 +166,11 @@ local marine_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name 
 
 marine_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 marine_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
-marine_mk2['icons'][2] = {
-    icon = "__base__/graphics/icons/signal/signal_2.png",
-    icon_size = 64,
-    scale = 0.25,
-    shift = {-9,-9}
+marine_mk2['icons'] = {
+    {
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
+        icon_size = 256,
+    },
 }
 marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
@@ -189,6 +183,7 @@ marine_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['ta
     damage = { amount = 15, type = "physical"}
 }
 marine_mk2['attack_parameters']['animation'] = attackAnimation2
+-- marine_mk2['attack_parameters']['sound'] = TerranSound.marine_mk2_attack(0.5, 0.5)
 
 data:extend({marine_mk2})
 
@@ -197,11 +192,11 @@ local marine_mk3 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name 
 
 marine_mk3.name = MOD_NAME .. '/' .. name .. '/mk3'
 marine_mk3.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 3'}
-marine_mk3['icons'][2] = {
-    icon = "__base__/graphics/icons/signal/signal_3.png",
-    icon_size = 64,
-    scale = 0.25,
-    shift = {-9,-9}
+marine_mk3['icons'] = {
+    {
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
+        icon_size = 256,
+    },
 }
 marine_mk3.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
@@ -214,4 +209,5 @@ marine_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['ta
     damage = { amount = 42, type = "physical"}
 }
 marine_mk3['attack_parameters']['animation'] = attackAnimation3
+-- marine_mk3['attack_parameters']['sound'] = TerranSound.marine_mk3_attack(0.5, 0.5)
 data:extend({marine_mk3})
