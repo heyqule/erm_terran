@@ -33,7 +33,7 @@ attack_animation = AnimationDB.apply_runtime_tint(attack_animation, true)
 data:extend({
     {
         type = "turret",
-        name = MOD_NAME .. '/bunker-turret/mk1',
+        name = MOD_NAME .. "/bunker-turret/mk1",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
@@ -70,6 +70,8 @@ data:extend({
         folded_animation = folded_animation,
         prepare_range = prepare_range,
         attacking_animation = attack_animation,
+        fast_replaceable_group = 'turret',
+        next_upgrade = MOD_NAME .. "/bunker-turret/mk2",
         attack_parameters =
         {
             type = "projectile",
@@ -144,6 +146,8 @@ bunker_mk2['icons'][2] = {
 bunker_mk2.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk2', count=3}
 bunker_mk2.max_health = 320 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk2.resistances = DataHelper.getResistance(50)
+bunker_mk2.fast_replaceable_group = 'turret'
+bunker_mk2.next_upgrade = MOD_NAME .. "/bunker-turret/mk3"
 bunker_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 8
 bunker_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
