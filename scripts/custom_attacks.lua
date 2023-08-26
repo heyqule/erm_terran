@@ -83,10 +83,10 @@ end
 local spawn_marines = function(event, make_string)
     local count = 1;
 
-    if CustomAttacks.can_spawn(50) then
+    if CustomAttacks.can_spawn(66) then
         count = count + 1
 
-        if CustomAttacks.can_spawn(20) then
+        if CustomAttacks.can_spawn(33) then
             count = count + 1
         end
     end
