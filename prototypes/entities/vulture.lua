@@ -43,8 +43,8 @@ data:extend({
         name = MOD_NAME .. '/' .. name,
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
-                icon_size = 64,
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
+                icon_size = 256,
             }
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },

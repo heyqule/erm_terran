@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
-Date: 2023-??-??
+Date: 2023-08-26
 
   Features:
     - This mod now requires HD Terran asset pack. (https://mods.factorio.com/mod/erm_terran_hd_assets)

@@ -155,7 +155,7 @@ scout_wraith.attack_range = ERMPlayerUnitHelper.get_attack_range(1)
 scout_wraith.icons = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."_mkII256.png",
-        icon_size = 64,
+        icon_size = 256,
     },
     {
         icon = "__base__/graphics/icons/laser-turret.png",

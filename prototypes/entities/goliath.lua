@@ -55,13 +55,7 @@ data:extend({
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
+                icon_size = 256,
             },
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },

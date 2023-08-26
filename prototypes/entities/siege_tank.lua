@@ -65,14 +65,8 @@ data:extend({
         localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_1.png",
-                icon_size = 64,
-                scale = 0.25,
-                shift = {-9,-9}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+                icon_size = 256,
             },
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
@@ -167,7 +161,12 @@ data:extend({tank_projectile_mk2})
 local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
 tank_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
 tank_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK2' }
-tank_mk2['icons'][2]['icon'] = "__base__/graphics/icons/signal/signal_2.png"
+tank_mk2['icons'] = {
+    {
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
+        icon_size = 256,
+    },
+}
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
 tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = MOD_NAME.."/tank-cannon-projectile-mk2"
