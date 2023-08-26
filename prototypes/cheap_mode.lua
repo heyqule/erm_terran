@@ -4,6 +4,8 @@ if settings.startup['erm_terran-cheap-mode'].value == false then
 end
 
 local health_reduction = 0.7
+
+---- Barracks ---
 local recipe = data.raw['recipe'][MOD_NAME .. '/marine/mk1']
 recipe['ingredients'] = {
     {"light-armor", 1},
@@ -51,6 +53,33 @@ recipe['ingredients'] = {
 local unit = data.raw['unit'][MOD_NAME .. '/firebat/mk2']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
+
+local recipe = data.raw['recipe'][MOD_NAME .. '/ghost/regular']
+recipe['ingredients'] = {
+    {"submachine-gun", 1},
+    {"uranium-rounds-magazine", 20},
+    {"discharge-defense-equipment", 1},
+    {"modular-armor", 1},
+    {"night-vision-equipment", 1},
+    {"battery-equipment", 4}
+}
+local unit = data.raw['unit'][MOD_NAME .. '/ghost/regular']
+unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+
+local recipe = data.raw['recipe'][MOD_NAME .. '/ghost/nuke']
+recipe['ingredients'] = {
+    {"rocket-launcher", 1},
+    {"atomic-bomb", 1},
+    {"modular-armor", 1},
+    {"night-vision-equipment", 1},
+    {"battery-equipment", 2}
+}
+local unit = data.raw['unit'][MOD_NAME .. '/ghost/nuke']
+unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+---- Factory ---
+
 local recipe = data.raw['recipe'][MOD_NAME .. '/goliath']
 recipe['ingredients'] = {
     {"exoskeleton-equipment", 1},
@@ -59,6 +88,7 @@ recipe['ingredients'] = {
     {"uranium-rounds-magazine", 20},
     {"rocket", 10},
 }
+
 local unit = data.raw['unit'][MOD_NAME .. '/goliath']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
@@ -82,6 +112,20 @@ recipe['ingredients'] = {
 }
 local unit = data.raw['unit'][MOD_NAME .. '/siege_tank/mk2']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+local recipe = data.raw['recipe'][MOD_NAME .. '/vulture']
+recipe['ingredients'] = {
+    {"iron-gear-wheel", 50},
+    {"steel-plate", 25},
+    {"petroleum-gas-barrel", 5},
+    {"engine-unit", 6},
+    {"land-mine", 10},
+    {"grenade", 10},
+}
+local unit = data.raw['unit'][MOD_NAME .. '/vulture']
+unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+---- Starport ---
 
 local tech = data.raw['technology'][MOD_NAME .. '/battlecruiser']
 tech['prerequisites'] = {
@@ -134,4 +178,29 @@ recipe['ingredients'] = {
     {"flying-robot-frame", 10},
 }
 local unit = data.raw['unit'][MOD_NAME .. '/wraith/scout']
+unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+
+local recipe = data.raw['recipe'][MOD_NAME .. '/valkyrie']
+recipe['ingredients'] = {
+    {"rocket-launcher", 2},
+    {"low-density-structure", 8},
+    {"flying-robot-frame", 8},
+    {"rocket-fuel", 10},
+    {"slowdown-capsule", 12},
+    {"rocket-control-unit", 5},
+}
+local unit = data.raw['unit'][MOD_NAME .. '/valkyrie']
+unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+local recipe = data.raw['recipe'][MOD_NAME .. '/science_vessel']
+recipe['ingredients'] = {
+    {"rocket-launcher", 2},
+    {"low-density-structure", 8},
+    {"flying-robot-frame", 8},
+    {"rocket-fuel", 10},
+    {"poison-capsule", 12},
+    {"rocket-control-unit", 6},
+}
+local unit = data.raw['unit'][MOD_NAME .. '/science_vessel']
 unit.max_health = math.ceil(unit.max_health * health_reduction)
