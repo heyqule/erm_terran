@@ -6,31 +6,6 @@
 
 local DataHelper = {}
 
-function DataHelper.getLight()
-    local light
-    if settings.startup['erm_terran-add-light'].value then
-        light = {
-            {
-                type = "oriented",
-                minimum_darkness = 0.3,
-                picture =
-                {
-                    filename = "__core__/graphics/light-cone.png",
-                    flags = { "light"},
-                    scale = 2,
-                    width = 200,
-                    height = 200
-                },
-                shift = {0, -6},
-                size = 1,
-                intensity = 0.4,
-                color = {r = 0.92, g = 0.77, b = 0.3}
-            }
-        }
-    end
-    return light
-end
-
 function DataHelper.getResistance(value)
     return {
         { type = "acid", percent = value },
@@ -43,5 +18,6 @@ function DataHelper.getResistance(value)
         { type = "cold", percent = value }
     }
 end
+
 
 return DataHelper

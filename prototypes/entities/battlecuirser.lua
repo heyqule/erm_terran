@@ -49,28 +49,24 @@ local battlecruiser_mkii_animation = function()
 end
 
 local battlecruiser_light = function()
-    local light
-    if settings.startup['erm_terran-add-light'].value then
-        light = {
+    return {
+        {
+            type = "oriented",
+            minimum_darkness = 0.3,
+            picture =
             {
-                type = "oriented",
-                minimum_darkness = 0.3,
-                picture =
-                {
-                    filename = "__core__/graphics/light-cone.png",
-                    flags = { "light"},
-                    scale = 2,
-                    width = 200,
-                    height = 200
-                },
-                shift = {0, -18},
-                size = 3,
-                intensity = 0.6,
-                color = {r = 0.92, g = 0.77, b = 0.3}
-            }
+                filename = "__core__/graphics/light-cone.png",
+                flags = { "light"},
+                scale = 2,
+                width = 200,
+                height = 200
+            },
+            shift = {0, -18},
+            size = 3,
+            intensity = 0.6,
+            color = {r = 0.92, g = 0.77, b = 0.3}
         }
-    end
-    return light
+    }
 end
 
 

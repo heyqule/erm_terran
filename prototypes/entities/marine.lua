@@ -142,7 +142,24 @@ data:extend({
         corpse = name .. '-corpse',
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
-        light = DataHelper.getLight()
+        light = {
+            {
+                type = "oriented",
+                minimum_darkness = 0.3,
+                picture =
+                {
+                    filename = "__core__/graphics/light-cone.png",
+                    flags = { "light"},
+                    scale = 2,
+                    width = 200,
+                    height = 200
+                },
+                shift = {0, -6},
+                size = 1,
+                intensity = 0.4,
+                color = {r = 0.92, g = 0.77, b = 0.3}
+            }
+        }
     },
     {
         type = "corpse",
