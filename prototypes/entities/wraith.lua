@@ -57,7 +57,7 @@ data:extend({
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
-                icon_size = 64,
+                icon_size = 256,
             },
             {
                 icon = "__base__/graphics/icons/rocket.png",

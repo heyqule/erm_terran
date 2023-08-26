@@ -98,7 +98,7 @@ data:extend({
             cooldown = 60,
             cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.firebat_attack(0.66, 0.33),
+            sound = TerranSound.firebat_attack(0.66),
             ammo_type =
             {
                 category = "flamethrower",

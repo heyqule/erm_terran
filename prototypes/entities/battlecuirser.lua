@@ -144,7 +144,7 @@ data:extend({
                 }
             },
             animation = battlecruiser_animation(),
-            sound = TerranSound.battlecruiser_yamato(0.66, 0.66),
+            sound = TerranSound.battlecruiser_yamato(0.66, 0.75),
             projectile_creation_distance = 3,
         },
         render_layer = "wires-above",
