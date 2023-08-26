@@ -57,7 +57,7 @@ data:extend({
         preparing_speed = 0.08,
         folding_speed = 0.08,
         inventory_size = 1,
-        automated_ammo_count = 10,
+        automated_ammo_count = 12,
         attacking_speed = 0.5,
         alert_when_attacking = false,
         open_sound = sounds.machine_open,
