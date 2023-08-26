@@ -21,14 +21,16 @@ However, Starcraft graphic and sound assets are properties of Blizzard Entertain
 # Using "Unit Control"
 You can select the unit using shortcut or Alt + left mouse click to enable selector, or Shift + Alt + left mouse click to select ALL units.
 
-![Terran](https://assets-mod.factorio.com/assets/36ca20cc5473a570a347d508be0f8fd69070464b.png "Terran")
+![Terran](https://assets-mod.factorio.com/assets/adae686b9e65618b953a830e0ff9ad5d08180c41.png "Terran")
 
 
 # Features
 Weapon researches enhanced these units' damage as well.  Units must build in its assigned
 
-##### Cheap mode 
+
+##### Cheap mode
 Unit costs are 30 - 50% off. Some recipes required cheaper material. Unit health reduced by 30%
+
 
 ##### Unit Buildings
 - Barrack, build ground bio units
@@ -38,9 +40,11 @@ Unit costs are 30 - 50% off. Some recipes required cheaper material. Unit health
 - Bunker, gun turret which does not consume ammo.  It requires marine to build and does not return all materials when mined/deconstruct.
 - Missile Turret, accept rockets ammo
 - Sieged siege tank turret, accept cannon-shell ammo,
-    - Added shockbomb cannon-shell ammo to deal wide AOE damage. 
+  - Added shockbomb cannon-shell ammo to deal wide AOE damage.
+
 
 ### Barrack Units
+
 
 ##### Marine MK1
 Build from Barrack, deal physical damage in medium range
@@ -60,7 +64,9 @@ Build from Barrack, deal fire damage in close range, deal explosion damage on de
 ##### Ghost lockdown
 Build from Barrack, deal heavy physical damage in long range, occasional case lockdown to slow enemy.
 
+
 ### Factory Units
+
 
 ##### Vulture
 deal AOE damage and deploy controllable spidermines.
@@ -74,7 +80,9 @@ deal AOE damage in long range
 ##### Goliath
 deal damage to single target in long range, occasionally fire a rocket to deal AOE damage
 
+
 ### Starport Units
+
 
 ##### Wraith
 aerial unit, deal AOE explosive damage in long range.
