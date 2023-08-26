@@ -210,7 +210,7 @@ data:extend({
     ----- Factory Units ----
     {
         type = "technology",
-        name = MOD_NAME .. '/vulture/mk-1',
+        name = MOD_NAME .. '/vulture',
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
         effects =
@@ -669,6 +669,14 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/bunker-turret/mk1'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/bunker-turret/mk2'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/bunker-turret/mk3'
             },
         },
         prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack'},

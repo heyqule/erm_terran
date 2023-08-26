@@ -1,6 +1,6 @@
 {
   "name": "erm_terran",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "date": "2021-07-10",
   "title": "ERM - Terran Units for Players",
   "author": "heyqule",
@@ -10,6 +10,6 @@
     "base >= 1.1.0",
     "enemyracemanager >= 1.20.0",
     "Unit_Control >= 0.3.11",
-    "erm_terran_hd_assets >= 1.0.0"
+    "erm_terran_hd_assets >= 1.1.0"
   ]
 }

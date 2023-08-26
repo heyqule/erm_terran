@@ -35,6 +35,7 @@ data:extend({
     {
         type = "turret",
         name = MOD_NAME .. "/bunker-turret/mk1",
+        localised_name = { 'entity-name.' .. MOD_NAME .. '/bunker-turret', 'MK 1'},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",

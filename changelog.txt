@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2023-08-26
+
+  Bugfixes:
+    - Fixed bunker MK2 and MK3 not unlocked when Bunker tech researched
+    - Fixed vulture locale.
+    - Fixed bunker MK1 locale.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2023-08-26
 
