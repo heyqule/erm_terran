@@ -14,6 +14,7 @@ local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
 local ERM_WeaponRig = require('__enemyracemanager__/lib/rig/weapon')
 local DataHelper = require('__erm_terran__/prototypes/data_helper')
+local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local collision_box = { { -3, -2 }, { 3, 2 } }
 local selection_box = { { -3, -2 }, { 3, 2 } }
@@ -128,6 +129,7 @@ data:extend({
             }
         },
         call_for_help_radius = 0,
+        map_color = ERM_UnitTint.tint_army_color(),
     },
 })
 

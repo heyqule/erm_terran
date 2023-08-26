@@ -11,6 +11,7 @@ local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
 local TerranSound = require('__erm_terran_hd_assets__/sound')
 local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
 local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
+local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 
 local collision_box = { { -1.1, -2 }, { 1.1, 1.25 } }
 local selection_box = { { -1.1, -2 }, { 1.1, 1.25 } }
@@ -79,7 +80,7 @@ data:extend({
             health_penalty = 15,
             sound = TerranSound.missile_turret_missile(0.5, 0.75),
         },
-
+        map_color = ERM_UnitTint.tint_army_color(),
         call_for_help_radius = 0,
     },
 })
