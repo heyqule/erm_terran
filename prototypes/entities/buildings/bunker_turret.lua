@@ -78,7 +78,7 @@ data:extend({
         {
             type = "projectile",
             ammo_category = "bullet",
-            cooldown = 24,
+            cooldown = 40,
             cooldown_deviation = 0.2,
             projectile_creation_distance = 1.39375,
             projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
@@ -152,6 +152,7 @@ bunker_mk2.resistances = DataHelper.getResistance(50)
 bunker_mk2.fast_replaceable_group = 'turret'
 bunker_mk2.next_upgrade = MOD_NAME .. "/bunker-turret/mk3"
 bunker_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 8
+bunker_mk2['attack_parameters']['cooldown'] = 30
 bunker_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
     type = "damage",
@@ -174,6 +175,7 @@ bunker_mk3['icons'][2] = {
 bunker_mk3.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk3', count=3}
 bunker_mk3.max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk3.resistances = DataHelper.getResistance(75)
+bunker_mk3['attack_parameters']['cooldown'] = 24
 bunker_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 10
 bunker_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
 {
