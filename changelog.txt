@@ -4,7 +4,8 @@ Date: 2023-08-26
 
   Bugfixes:
     - Fixed Siege tank locale in tech tree
-    - Fixed
+    - Fixed Firebat icons.
+    - Fixed some locales.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
