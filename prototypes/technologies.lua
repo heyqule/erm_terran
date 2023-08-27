@@ -115,7 +115,7 @@ data:extend({
         type = "technology",
         name = MOD_NAME .. '/firebat/mk-2',
         icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
+        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
         effects =
         {
             {
