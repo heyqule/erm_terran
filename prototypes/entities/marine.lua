@@ -74,7 +74,7 @@ data:extend({
         order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
-        resistances = DataHelper.getResistance(40),
+        resistances = DataHelper.getResistance(30),
         healing_per_tick = 0,
         collision_box = collision_box,
         selection_box = selection_box,
@@ -191,7 +191,7 @@ marine_mk2['icons'] = {
 }
 marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
-marine_mk2.resistances = DataHelper.getResistance(55)
+marine_mk2.resistances = DataHelper.getResistance(50)
 marine_mk2.run_animation = runningAnimation2
 marine_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 5
 marine_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
