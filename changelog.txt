@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: 2023-09-22
+
+  Changes:
+    - Lowered Marine MK1 resist from 30 -> 25.
+    - Lowered Bunker MK1 resist from 30 -> 25.
+    - Lowered Bunker MK1 Health from 2000 -> 1200.
+    - Lowered Bunker MK2 Health from 3200 -> 1800.
+    - Lowered Bunker MK3 Health from 5000 -> 3000.
+
+  Bugfixes:
+    - When K2 enabled, Marine and Goliath use rifle magazine.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.0.5
 Date: 2023-08-28
 

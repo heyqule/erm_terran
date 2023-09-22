@@ -74,7 +74,7 @@ data:extend({
         order = MOD_NAME .. "/" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
-        resistances = DataHelper.getResistance(30),
+        resistances = DataHelper.getResistance(25),
         healing_per_tick = 0,
         collision_box = collision_box,
         selection_box = selection_box,

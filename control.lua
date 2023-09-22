@@ -142,7 +142,7 @@ local attack_functions = {
     [CANCEL_GHOST_ATOMIC_SEQUENCE] = function(args)
         CustomAttacks.cancel_nuke_from_queue(args)
     end,
-    [BUNCKER_SPAWN_MARINE] = function(args)
+    [BUNKER_SPAWN_MARINE] = function(args)
         CustomAttacks.spawn_marine(args)
     end
 }

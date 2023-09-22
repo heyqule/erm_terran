@@ -48,10 +48,10 @@ data:extend({
                 shift = {-9,-9}
             }
         },
-        resistances = DataHelper.getResistance(30),
+        resistances = DataHelper.getResistance(25),
         flags = {"placeable-player", "player-creation"},
         minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk1', count=3},
-        max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 120 * ERMPlayerUnitHelper.get_health_multiplier(),
         repair_speed_modifier = 0.33,
         dying_explosion = MOD_NAME.."/building-large-explosion",
         corpse = MOD_NAME.."/small-base-corpse",
@@ -126,7 +126,7 @@ data:extend({
         dying_trigger_effect = {
             {
                 type = "script",
-                effect_id = BUNCKER_SPAWN_MARINE,
+                effect_id = BUNKER_SPAWN_MARINE,
             }
         },
         call_for_help_radius = 0,
@@ -147,7 +147,7 @@ bunker_mk2['icons'][2] = {
     shift = {-9,-9}
 }
 bunker_mk2.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk2', count=3}
-bunker_mk2.max_health = 320 * ERMPlayerUnitHelper.get_health_multiplier()
+bunker_mk2.max_health = 180 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk2.resistances = DataHelper.getResistance(50)
 bunker_mk2.fast_replaceable_group = 'turret'
 bunker_mk2.next_upgrade = MOD_NAME .. "/bunker-turret/mk3"
@@ -173,7 +173,7 @@ bunker_mk3['icons'][2] = {
     shift = {-9,-9}
 }
 bunker_mk3.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk3', count=3}
-bunker_mk3.max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier()
+bunker_mk3.max_health = 300 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk3.resistances = DataHelper.getResistance(75)
 bunker_mk3['attack_parameters']['cooldown'] = 24
 bunker_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 10
