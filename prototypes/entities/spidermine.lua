@@ -52,6 +52,8 @@ data:extend({
         subgroup = "enemies",
         shooting_cursor_size = 2,
         can_open_gates = true,
+        alert_when_damaged = false,
+        alert_when_attacking = false,
         resistances = {
             { type = "acid", percent = 66 },
             { type = "poison", percent = 100 },
