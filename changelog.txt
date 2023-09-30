@@ -3,7 +3,7 @@ Version: 2.0.7
 Date: 2023-09-30
 
   Changes:
-    - Spidermines no longer alerts when damaged / attacking.
+    - Spidermines no longer alerts when damaged / killed.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.6
