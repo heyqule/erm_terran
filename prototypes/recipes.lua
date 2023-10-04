@@ -976,7 +976,7 @@ data:extend({
         energy_required = 60,
         ingredients =
         {
-            {"erm_terran/marine/mk1", 4},
+            {"erm_terran/marine/mk3", 4},
             {"steel-plate", 50},
             {"refined-concrete",50}
         },

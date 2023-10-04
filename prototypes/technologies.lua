@@ -677,7 +677,7 @@ data:extend({
                 recipe = MOD_NAME .. '/bunker-turret/mk3'
             },
         },
-        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack'},
+        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack', "concrete"},
         unit =
         {
             ingredients =
