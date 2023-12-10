@@ -43,7 +43,7 @@ data:extend({
                 recipe = MOD_NAME .. '/marine/mk2'
             },
         },
-        prerequisites = {"military-2","heavy-armor", MOD_NAME .. '/marine/mk-1', MOD_NAME .. '/barrack'},
+        prerequisites = {"military-3","heavy-armor", MOD_NAME .. '/marine/mk-1', MOD_NAME .. '/barrack'},
         unit =
         {
             ingredients =
@@ -96,7 +96,7 @@ data:extend({
                 recipe = MOD_NAME .. '/firebat/mk1'
             },
         },
-        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack','flamethrower'},
+        prerequisites = {"military-2", MOD_NAME .. '/barrack','flamethrower'},
         unit =
         {
             ingredients =
@@ -220,8 +220,8 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-2", "engine", MOD_NAME .. '/factory', MOD_NAME .. '/marine/mk-2',
-            'land-mine'
+            "military-2", "engine", MOD_NAME .. '/factory',
+            'land-mine', MOD_NAME .. '/marine/mk-1'
         },
         unit =
         {
@@ -229,7 +229,6 @@ data:extend({
             {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
-                {"chemical-science-pack", 1},
                 {"military-science-pack", 1},
             },
             time = 45,
@@ -542,7 +541,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-2", "chemical-science-pack", "engine"
+            "military-2", "engine"
         },
         unit =
         {
@@ -551,7 +550,6 @@ data:extend({
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
                 {"military-science-pack", 1},
-                { "chemical-science-pack", 1 },
             },
             time = 45,
             count = 200
@@ -619,7 +617,7 @@ data:extend({
                 {"utility-science-pack", 1}
             },
             time = 45,
-            count = 100
+            count = 150
         },
     },
     {
@@ -684,9 +682,10 @@ data:extend({
             {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
+                {"military-science-pack", 1}
             },
             time = 30,
-            count = 150
+            count = 100
         },
     },
 })

@@ -736,7 +736,7 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/valkyrie',
+        name = MOD_NAME .. '/valkyrie/autodeploy',
         energy_required = 16,
         ingredients =
         {

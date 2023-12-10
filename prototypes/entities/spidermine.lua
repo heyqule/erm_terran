@@ -47,30 +47,20 @@ data:extend({
         },
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
-        max_health = 80 * ERMPlayerUnitHelper.get_health_multiplier(),
+        max_health = 300 * ERMPlayerUnitHelper.get_health_multiplier(),
         order = MOD_NAME .. "/" .. name,
         subgroup = "enemies",
         shooting_cursor_size = 2,
         can_open_gates = true,
         alert_when_damaged = false,
         alert_when_attacking = false,
-        resistances = {
-            { type = "acid", percent = 66 },
-            { type = "poison", percent = 100 },
-            { type = "physical", percent = 66 },
-            { type = "fire", percent = 66 },
-            { type = "explosion", percent = 66 },
-            { type = "laser", percent = 66 },
-            { type = "electric", percent = 66 },
-            { type = "cold", percent = 66 }
-        },
         healing_per_tick = 0,
         collision_box = collision_box,
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 1,
+        repair_speed_modifier = nil,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         min_pursue_time = 60 * defines.time.second,
@@ -121,7 +111,7 @@ data:extend({
                                         target_effects = {
                                             {
                                                 type = "damage",
-                                                damage = { amount = 500, type = "explosion" },
+                                                damage = { amount = 100, type = "explosion" },
                                                 apply_damage_to_trees = true
                                             },
                                         }

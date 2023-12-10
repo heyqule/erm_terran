@@ -92,7 +92,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 1,
+        repair_speed_modifier = 0.33,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -161,7 +161,6 @@ data:extend({
     {
         type = "fire",
         name = MOD_NAME..'/science-vessel-irradiate-cloud',
-        localised_name = {'entity-name.science-vessel-irradiate'},
         flags = {"placeable-off-grid", "not-on-map"},
         damage_per_tick  = { amount = 0 / 60, type= 'acid' },
         on_damage_tick_effect  =                         {
@@ -211,7 +210,6 @@ data:extend({
     }
     --{
     --    name = MOD_NAME..'/science-vessel-irradiate-cloud',
-    --    localised_name = {'entity-name.science-vessel-irradiate'},
     --    type = "smoke-with-trigger",
     --    flags = { "not-on-map" },
     --    show_when_smoke_off = true,
