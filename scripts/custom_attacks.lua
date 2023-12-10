@@ -81,14 +81,14 @@ CustomAttacks.spawn_nuke = function(event)
 end
 
 local spawn_marines = function(event, make_string)
-    local count = 1;
+    local count = 2;
 
-    if CustomAttacks.can_spawn(66) then
+    if CustomAttacks.can_spawn(33) then
         count = count + 1
+    end
 
-        if CustomAttacks.can_spawn(33) then
-            count = count + 1
-        end
+    if CustomAttacks.can_spawn(15) then
+        count = count + 1
     end
 
     CustomAttacks.drop_player_unit(event, MOD_NAME, 'marine/'..make_string, count)

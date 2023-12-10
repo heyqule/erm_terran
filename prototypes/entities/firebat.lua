@@ -78,7 +78,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 1,
+        repair_speed_modifier = 0.5,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
@@ -225,6 +225,7 @@ firebat_mk2['icons'] = {
 firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
+firebat_mk2.repair_speed_modifier = 0.66
 firebat_mk2['run_animation'] = mk2runningAnimation
 firebat_mk2['attack_parameters']['damage_modifier'] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
 firebat_mk2['attack_parameters']['animation'] = mk2attackAnimation

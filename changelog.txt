@@ -1,4 +1,40 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.9
+Date: 2023-12-10
+
+  Changes:
+    - Repair speed changes:
+    - Marines Mk1: 1 -> 0.5, Mk2: 1 -> 0.58, Mk3: 0.66
+    - Firebats Mk1: 1 -> 0.5, MK2: 0.66
+    - Regular Ghost: 1 -> 0.66
+    - Ground vehicles: 1 -> 0.5
+    - Air vehicles: 1 -> 0.33
+    - Battlecruisers: 1 -> 0.25
+    - Bunker HP change:
+    - MK1: 1200 -> 1000
+    - MK2: 2400 -> 1600
+    - MK3: 3000 -> 2500
+    - Bunker Damage Change (shot repeat count):
+    - MK1: 6 -> 4
+    - Mk2: 8 -> 6
+    - MK3: 10 -> 8
+    - Changed Bunker to return 2-4 marines when it killed. (from 1-3)
+    - Lower bunker research from 150 pots to 100 pots.
+    - Bunker research now requires military science pack
+    - remove chemical science from Vulture research
+    - remove chemical science from Factory research
+    - Marine MK2 is now based on military research 3.
+    - Changed spidermine base damage from 500 to 150.
+    - Changed spidermine spawn rate from 33% to 45%.
+    - Changed spidermine base health from 800 to 300.
+    - Removed resistance from spidermine.  They take full damage.
+
+
+  Bugfixes:
+    - Fixed valkyrie recipe not showing up.
+    - Fixed missing locale for shock bomb.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.0.8
 Date: 2023-10-04
 

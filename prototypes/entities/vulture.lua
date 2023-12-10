@@ -70,7 +70,7 @@ data:extend({
         sticker_box = selection_box,
         vision_distance = vision_distance,
         movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
-        repair_speed_modifier = 1,
+        repair_speed_modifier = 0.5,
         pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -102,7 +102,7 @@ data:extend({
                     },
                     {
                         type = "direct",
-                        probability = 0.33,
+                        probability = 0.45,
                         action_delivery = {
                             type = "instant",
                             source_effects = {
