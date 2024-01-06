@@ -11,9 +11,9 @@ Date: 2023-12-10
     - Air vehicles: 1 -> 0.33
     - Battlecruisers: 1 -> 0.25
     - Bunker HP change:
-    - MK1: 1200 -> 1000
-    - MK2: 2400 -> 1600
-    - MK3: 3000 -> 2500
+    - MK1: 1200 -> 800
+    - MK2: 2400 -> 1200
+    - MK3: 3000 -> 2000
     - Bunker Damage Change (shot repeat count):
     - MK1: 6 -> 4
     - Mk2: 8 -> 6
