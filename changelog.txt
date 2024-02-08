@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10
-Date: 2024-02-07
+Date: 2024-02-08
 
   Changes:
     - Barrack now requires fast-inserter tech.  It needs fast-inserter in recipe.
