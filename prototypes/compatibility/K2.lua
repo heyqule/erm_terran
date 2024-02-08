@@ -6,7 +6,7 @@
 local version = require('__stdlib__/stdlib/vendor/version')
 require('__erm_terran__/global')
 
-if mods['Krastorio2'] and version(mods['Krastorio2']) >= version("1.2.0") then
+if mods['Krastorio2'] and version(mods['Krastorio2']) >= version("1.2.0") and settings.startup['kr-more-realistic-weapon'].value then
 
     local marine_mk1 = data.raw['recipe'][MOD_NAME .. '/marine/mk1']
     local marine_mk2 = data.raw['recipe'][MOD_NAME .. '/marine/mk2']

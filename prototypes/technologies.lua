@@ -511,7 +511,8 @@ data:extend({
         },
         prerequisites = {
             "military-2",
-            "automation-2"
+            "automation-2",
+            "fast-inserter"
         },
         unit =
         {
@@ -541,7 +542,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-2", "engine"
+            "military-2", "engine", "advanced-electronics"
         },
         unit =
         {

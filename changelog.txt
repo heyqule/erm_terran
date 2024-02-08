@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 2024-02-07
+
+  Changes:
+    - Barrack now requires fast-inserter tech.  It needs fast-inserter in recipe.
+    - Factory now requires advanced-electronics tech.  It needs rec-circuit in recipe.
+
+  Bugfixes:
+    - Fixed a crash when K2 "more realistic weapon" is off.
+
+
+---------------------------------------------------------------------------------------------------
 Version: 2.0.9
 Date: 2023-12-10
 
