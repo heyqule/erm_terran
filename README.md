@@ -1,5 +1,5 @@
 # ERM_Terran
-Add Terran units as controllable unit for players.  They take friendly fire from players. MOVE THEM AWAY from explosives and fire turrets. Some units are expensive. :)
+Add Terran units as controllable unit for players.
 
 This mod is created as a player controllable combat units demo for  [Enemy Race Manager](https://mods.factorio.com/mod/enemyracemanager)
 
@@ -10,8 +10,9 @@ ERM - Features Reel: [https://www.youtube.com/watch?v=phLRReAjxHA](https://www.y
 ERM - Terran Tutorial: [https://www.youtube.com/watch?v=MzDwGJ3OOGY](https://www.youtube.com/watch?v=MzDwGJ3OOGY)
 
 ##### Changes in 2.0
-- ERM 1.18 related changes
-- Cheap mode, Unit costs are 30 - 50% off. Some recipes required cheaper material. Unit health reduced by 30%
+- New units
+- New defense turrets
+- Upgrade graphics.
 
 ##### Licenses
 Lua code files are licensed under GNU LGPLv3
@@ -46,23 +47,26 @@ Unit costs are 30 - 50% off. Some recipes required cheaper material. Unit health
 ### Barrack Units
 
 
-##### Marine MK1
+##### Marine MK1 (Supply:1)
 Build from Barrack, deal physical damage in medium range
 
-##### Marine MK2
+##### Marine MK2 (Supply:1)
 Build from Barrack, deal physical damage in medium range
 
-##### Marine MK3
+##### Marine MK3 (Supply:1)
 Build from Barrack, deal physical damage in medium range
 
-##### Firebat MK1
+##### Firebat MK1 (Supply:1)
 Build from Barrack, deal fire damage in close range, deal explosion damage on death.
 
-##### Firebat MK2
+##### Firebat MK2 (Supply:1)
 Build from Barrack, deal fire damage in close range, deal explosion damage on death.
 
-##### Ghost lockdown
+##### Ghost lockdown (Supply:1)
 Build from Barrack, deal heavy physical damage in long range, occasional case lockdown to slow enemy.
+
+##### Ghost nuclear (Supply:1)
+Build from Barrack, fires nuke, likely die from its attack. 
 
 
 ### Factory Units
