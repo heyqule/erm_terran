@@ -95,7 +95,7 @@ data:extend({
         inventory_size = 1,
         automated_ammo_count = 6,
         attacking_speed = 0.5,
-        alert_when_attacking = false,
+        alert_when_attacking = true,
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
         base_picture = {

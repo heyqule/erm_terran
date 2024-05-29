@@ -19,7 +19,7 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 local collision_box = { { -3, -2 }, { 3, 2 } }
 local selection_box = { { -3, -2 }, { 3, 2 } }
 
-local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1, 6))
+local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1, 8))
 local prepare_range = attack_range + 4
 
 
@@ -64,7 +64,7 @@ data:extend({
         inventory_size = 1,
         automated_ammo_count = 10,
         attacking_speed = 0.5,
-        alert_when_attacking = false,
+        alert_when_attacking = true,
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
         base_picture = Sprites.empty_pictures(),

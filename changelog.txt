@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
 Date: ????
+
   Changes:
-    - Add Unit costs to description
+    - Added Unit costs to recipe description
+    - Changed bunker range from 20 -> 22
+    - Changed alert_when_attacking to true for bunker/missile/seige-tank turrets
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10
