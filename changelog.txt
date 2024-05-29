@@ -5,7 +5,8 @@ Date: ????
   Changes:
     - Added Unit costs to recipe description
     - Changed bunker range from 20 -> 22
-    - Changed alert_when_attacking to true for bunker/missile/seige-tank turrets
+    - Changed alert_when_attacking to true for bunker/missile/siege-tank turrets
+    - Added missing technologies to milestones_preset_addons
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10
@@ -262,7 +263,7 @@ Date: 2022-06-22
   Changes:
     - Added light to battlecruiser
     - Added light to marines
-    - Light can be turn off in startup settings.
+    - Light can be turned off in startup settings.
 
   Bugfixes:
     - Fix that the animation is a shared variables for battlecruiser and wraith variants.
@@ -468,7 +469,7 @@ Version: 1.3.0
 Date: 07. 03. 2021
 
   Changes:
-    - Air unit now use "flying-layer", instead of hardcoded layer-33.  This enhance collision layer compatibility with Space Exploration
+    - Air unit now use "flying-layer", instead of hardcoded layer-33.  This enhances collision layer compatibility with Space Exploration
     - ** ERM base mods also need to update
 
 ---------------------------------------------------------------------------------------------------
@@ -505,5 +506,5 @@ Date: 02. 13. 2021
 
   Features:
     - Added Battlecruiser, Wraith, Marine and tank as player controllable units.
-    - They can be repair by construction robot
+    - They can be repaired by construction robot
     - The repair rate is at 1/4 efficiency
