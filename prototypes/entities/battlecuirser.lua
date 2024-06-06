@@ -28,7 +28,7 @@ local distraction_cooldown = 30
 
 -- Animation Settings
 
-local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
+local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 

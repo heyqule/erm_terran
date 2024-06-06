@@ -1,12 +1,16 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
-Date: ????
+Date: 2024-06-07
 
   Changes:
     - Added Unit costs to recipe description
     - Changed bunker range from 20 -> 22
     - Changed alert_when_attacking to true for bunker/missile/siege-tank turrets
     - Added missing technologies to milestones_preset_addons
+    - Marine MK1 unlocks with barrack research, cost changed from 100 to 150.
+    - Vulture unlocks with factory research, cost changed from 200 to 275.
+    - Wraith rocket and laser unlock with starport research, cost changed from 500 to 600.
+    - Shrink collision_box on bio units
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.10

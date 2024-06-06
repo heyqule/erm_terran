@@ -9,30 +9,6 @@ require('__erm_terran__/global')
 data:extend({
     {
         type = "technology",
-        name = MOD_NAME .. '/marine/mk-1',
-        icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
-        effects =
-        {
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/marine/mk1'
-            },
-        },
-        prerequisites = {"military-2","military-science-pack", MOD_NAME .. '/barrack'},
-        unit =
-        {
-            ingredients =
-            {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-            },
-            time = 30,
-            count = 100
-        },
-    },
-    {
-        type = "technology",
         name = MOD_NAME .. '/marine/mk-2',
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
@@ -43,7 +19,7 @@ data:extend({
                 recipe = MOD_NAME .. '/marine/mk2'
             },
         },
-        prerequisites = {"military-3","heavy-armor", MOD_NAME .. '/marine/mk-1', MOD_NAME .. '/barrack'},
+        prerequisites = {"military-3","heavy-armor", MOD_NAME .. '/barrack'},
         unit =
         {
             ingredients =
@@ -209,34 +185,6 @@ data:extend({
     ----- Factory Units ----
     {
         type = "technology",
-        name = MOD_NAME .. '/vulture',
-        icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
-        effects =
-        {
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/vulture'
-            },
-        },
-        prerequisites = {
-            "military-2", "engine", MOD_NAME .. '/factory',
-            'land-mine', MOD_NAME .. '/marine/mk-1'
-        },
-        unit =
-        {
-            ingredients =
-            {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-                {"military-science-pack", 1},
-            },
-            time = 45,
-            count = 150
-        },
-    },
-    {
-        type = "technology",
         name = MOD_NAME .. '/siege_tank/mk-1',
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -326,41 +274,6 @@ data:extend({
     },
 
     ----- Starport Units ----
-    {
-        type = "technology",
-        name = MOD_NAME .. '/wraith',
-        icon_size = 256,
-        icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
-        effects =
-        {
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/wraith'
-            },
-            {
-                type = "unlock-recipe",
-                recipe = MOD_NAME .. '/wraith/scout'
-            },
-        },
-        prerequisites = {
-            "military-4", "low-density-structure",
-            "rocket-control-unit",  MOD_NAME .. '/marine/mk-2',
-            "rocketry", "rocket-fuel", MOD_NAME .. '/starport'
-        },
-        unit =
-        {
-            ingredients =
-            {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-                {"chemical-science-pack", 1},
-                {"military-science-pack", 1},
-                {"utility-science-pack", 1}
-            },
-            time = 60,
-            count = 150
-        },
-    },
     {
         type = "technology",
         name = MOD_NAME .. '/valkyrie',
@@ -508,6 +421,10 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/barrack'
             },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/marine/mk1'
+            },
         },
         prerequisites = {
             "military-2",
@@ -522,7 +439,7 @@ data:extend({
                 {"logistic-science-pack", 1},
             },
             time = 30,
-            count = 100
+            count = 150
         },
     },
     {
@@ -540,6 +457,10 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/factory'
             },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/vulture'
+            },
         },
         prerequisites = {
             "military-2", "engine", "advanced-electronics"
@@ -553,7 +474,7 @@ data:extend({
                 {"military-science-pack", 1},
             },
             time = 45,
-            count = 200
+            count = 275
         },
     },
     {
@@ -571,6 +492,14 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. '/starport'
             },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/wraith'
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. '/wraith/scout'
+            },
         },
         prerequisites = {
             "military-3",
@@ -587,7 +516,7 @@ data:extend({
                 { "utility-science-pack", 1 }
             },
             time = 60,
-            count = 500
+            count = 600
         },
     },
     {

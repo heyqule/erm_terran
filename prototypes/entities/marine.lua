@@ -26,7 +26,7 @@ local pollution_to_join_attack = 250
 local distraction_cooldown = 30
 
 
-local collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
+local collision_box = { { -0.35, -0.35 }, { 0.35, 0.35 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
 local attackAnimation = AnimationDB.get_layered_animations('units', 'marine', 'attack')
