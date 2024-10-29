@@ -3,21 +3,21 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMDataHelper = require("__enemyracemanager__/lib/rig/data_helper")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local name = 'wraith'
+local name = "wraith"
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1, 2)
 
@@ -33,7 +33,7 @@ local collision_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 local selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } }
 
 function wraith_animation()
-    local attackAnimation = AnimationDB.get_layered_animations('units', 'wraith', 'run')
+    local attackAnimation = AnimationDB.get_layered_animations("units", "wraith", "run")
 
     attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
@@ -41,7 +41,7 @@ function wraith_animation()
 end
 
 function wraith_mkii_animation()
-    local attackAnimation = AnimationDB.get_layered_animations('units', 'wraith_mkii', 'run')
+    local attackAnimation = AnimationDB.get_layered_animations("units", "wraith_mkii", "run")
 
     attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
@@ -52,8 +52,8 @@ end
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name,
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name },
+        name = MOD_NAME .. "--" .. name,
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name },
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -98,7 +98,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'rocket',
+            ammo_category = "rocket",
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 120,
@@ -126,13 +126,13 @@ data:extend({
         run_animation = wraith_animation(),
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
-        dying_explosion = 'erm-fire-explosion-air_normal-1',
+        dying_explosion = "erm-fire-explosion-air_normal-1",
         dying_sound = TerranSound.enemy_death(name, 1),
-        corpse = name .. '-corpse'
+        corpse = name .. "-corpse"
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -147,9 +147,9 @@ data:extend({
 })
 
 -- Scout Wraith --
-local scout_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
-scout_wraith.name = MOD_NAME .. '/' .. name .. '/scout'
-scout_wraith.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/scout'}
+local scout_wraith = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name])
+scout_wraith.name = MOD_NAME .. "--" .. name .. "/scout"
+scout_wraith.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/scout"}
 scout_wraith.movement_speed = 0.6 * ERMPlayerUnitHelper.get_speed_multiplier()
 scout_wraith.attack_range = ERMPlayerUnitHelper.get_attack_range(1)
 scout_wraith.icons = {
@@ -167,7 +167,7 @@ scout_wraith.icons = {
 scout_wraith.attack_parameters = {
     type = "projectile",
     range_mode = "bounding-box-to-bounding-box",
-    ammo_category = 'laser',
+    ammo_category = "laser",
     range = attack_range,
     min_attack_distance = attack_range - 4,
     cooldown = 60,
@@ -191,6 +191,6 @@ scout_wraith.attack_parameters = {
     animation = wraith_mkii_animation()
 }
 
-scout_wraith['run_animation'] = wraith_mkii_animation()
+scout_wraith["run_animation"] = wraith_mkii_animation()
 
 data:extend({scout_wraith})

@@ -4,20 +4,20 @@
 --- DateTime: 8/13/2023 3:27 PM
 ---
 
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'valkyrie'
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMDataHelper = require("__enemyracemanager__/lib/rig/data_helper")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local name = "valkyrie"
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1)
 
@@ -33,14 +33,14 @@ local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
 
-local runAnimation = AnimationDB.get_layered_animations('units', 'valkyrie', 'run')
+local runAnimation = AnimationDB.get_layered_animations("units", "valkyrie", "run")
 
 runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name,
+        name = MOD_NAME .. "--" .. name,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
@@ -79,7 +79,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'shotgun-shell',
+            ammo_category = "shotgun-shell",
             range = attack_range,
             min_attack_distance = attack_range - 2,
             cooldown = 90,
@@ -108,15 +108,15 @@ data:extend({
         distance_per_frame = 0.2,
         render_layer = "wires-above",
         run_animation = runAnimation,
-        dying_explosion = 'erm-fire-explosion-air_normal-1',
+        dying_explosion = "erm-fire-explosion-air_normal-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },

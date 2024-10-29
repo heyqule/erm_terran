@@ -3,20 +3,20 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local name = 'siege_tank'
+local name = "siege_tank"
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.3, 6)
 
@@ -31,27 +31,27 @@ local unit_scale = 1.5
 local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
-local runAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_body', 'run')
-local runTurretAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_turret', 'run')
+local runAnimation = AnimationDB.get_layered_animations("units", "siege_tank_body", "run")
+local runTurretAnimation = AnimationDB.get_layered_animations("units", "siege_tank_turret", "run")
 
-for _, ani_data in pairs(runTurretAnimation['layers']) do
-    table.insert(runAnimation['layers'],ani_data)
+for _, ani_data in pairs(runTurretAnimation["layers"]) do
+    table.insert(runAnimation["layers"],ani_data)
 end
 
 runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
-local attackAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_body', 'attack')
-local attackTurretAnimation = AnimationDB.get_layered_animations('units', 'siege_tank_turret', 'attack')
+local attackAnimation = AnimationDB.get_layered_animations("units", "siege_tank_body", "attack")
+local attackTurretAnimation = AnimationDB.get_layered_animations("units", "siege_tank_turret", "attack")
 
-for _, ani_data in pairs(attackTurretAnimation['layers']) do
-    table.insert(attackAnimation['layers'],ani_data)
+for _, ani_data in pairs(attackTurretAnimation["layers"]) do
+    table.insert(attackAnimation["layers"],ani_data)
 end
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
 
-local runAnimation2 = AnimationDB.get_layered_animations('units', 'siege_tank_mkii', 'run')
-local attackAnimation2 = AnimationDB.get_layered_animations('units', 'siege_tank_mkii', 'attack')
+local runAnimation2 = AnimationDB.get_layered_animations("units", "siege_tank_mkii", "run")
+local attackAnimation2 = AnimationDB.get_layered_animations("units", "siege_tank_mkii", "attack")
 
 runAnimation2 = AnimationDB.apply_runtime_tint(runAnimation2, true)
 attackAnimation2 = AnimationDB.apply_runtime_tint(attackAnimation2, true)
@@ -60,9 +60,9 @@ attackAnimation2 = AnimationDB.apply_runtime_tint(attackAnimation2, true)
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name,
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK1' },
-        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
+        name = MOD_NAME .. "--" .. name,
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name,  "MK1" },
+        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -100,7 +100,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'cannon-shell',
+            ammo_category = "cannon-shell",
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 360,
@@ -126,15 +126,15 @@ data:extend({
         },
         distance_per_frame = 0.2,
         run_animation = runAnimation,
-        dying_explosion = 'erm-fire-explosion-ground_normal-1',
+        dying_explosion = "erm-fire-explosion-ground_normal-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -149,19 +149,19 @@ data:extend({
 })
 
 local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][MOD_NAME.."/tank-cannon-projectile"])
-tank_projectile_mk2['name'] = MOD_NAME.."/tank-cannon-projectile-mk2"
-tank_projectile_mk2['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 200, type = "physical"}
+tank_projectile_mk2["name"] = MOD_NAME.."/tank-cannon-projectile-mk2"
+tank_projectile_mk2["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "physical"}
 -- Ground AOE --
-tank_projectile_mk2['final_action']['action_delivery']['target_effects'][2]['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 200, type = "explosion"}
+tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][2]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "explosion"}
 -- Air AOE --
-tank_projectile_mk2['final_action']['action_delivery']['target_effects'][3]['action']['action_delivery']['target_effects'][1]['damage'] = {amount = 100, type = "explosion"}
+tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][3]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 100, type = "explosion"}
 
 data:extend({tank_projectile_mk2})
 
-local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name])
-tank_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
-tank_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name,  'MK2' }
-tank_mk2['icons'] = {
+local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name])
+tank_mk2.name = MOD_NAME .. "--" .. name .. "/mk2"
+tank_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name,  "MK2" }
+tank_mk2["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
         icon_size = 256,
@@ -169,7 +169,7 @@ tank_mk2['icons'] = {
 }
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
 tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
-tank_mk2['attack_parameters']['ammo_type']['action']['action_delivery']['projectile'] = MOD_NAME.."/tank-cannon-projectile-mk2"
+tank_mk2["attack_parameters"]["ammo_type"]["action"]["action_delivery"]["projectile"] = MOD_NAME.."/tank-cannon-projectile-mk2"
 tank_mk2.resistances = {
     { type = "acid", percent = 80 },
     { type = "poison", percent = 100 },
@@ -181,6 +181,6 @@ tank_mk2.resistances = {
     { type = "cold", percent = 80 }
 }
 tank_mk2.run_animation = runAnimation2
-tank_mk2['attack_parameters']['animation'] = attackAnimation2
+tank_mk2["attack_parameters"]["animation"] = attackAnimation2
 
 data:extend({tank_mk2})

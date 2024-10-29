@@ -1,4 +1,4 @@
-require 'global'
+require "global"
 
 data:extend {
     --- Startup Tab

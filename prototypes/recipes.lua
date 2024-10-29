@@ -3,13 +3,13 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 7:35 PM
 ---
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
 data:extend({
     ---- Barrack ----
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk1',
+        name = MOD_NAME .. "/marine/mk1",
         enabled = false,
         energy_required = 24,
         ingredients =
@@ -22,12 +22,12 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/marine/mk1',
-        order = MOD_NAME .. '/marine/mk1'
+        result = MOD_NAME .. "/marine/mk1",
+        order = MOD_NAME .. "/marine/mk1"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk2',
+        name = MOD_NAME .. "/marine/mk2",
         enabled = false,
         energy_required = 24,
         ingredients =
@@ -40,12 +40,12 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/marine/mk2',
-        order = MOD_NAME .. '/marine/mk2'
+        result = MOD_NAME .. "/marine/mk2",
+        order = MOD_NAME .. "/marine/mk2"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk3',
+        name = MOD_NAME .. "/marine/mk3",
         enabled = false,
         energy_required = 24,
         ingredients =
@@ -58,12 +58,12 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/marine/mk3',
-        order = MOD_NAME .. '/marine/mk3'
+        result = MOD_NAME .. "/marine/mk3",
+        order = MOD_NAME .. "/marine/mk3"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/firebat/mk1',
+        name = MOD_NAME .. "/firebat/mk1",
         enabled = false,
         energy_required = 24,
         ingredients =
@@ -77,12 +77,12 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/firebat/mk1',
-        order = MOD_NAME .. '/firebat/mk1'
+        result = MOD_NAME .. "/firebat/mk1",
+        order = MOD_NAME .. "/firebat/mk1"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/firebat/mk2',
+        name = MOD_NAME .. "/firebat/mk2",
         enabled = false,
         energy_required = 24,
         ingredients =
@@ -96,12 +96,12 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/firebat/mk2',
-        order = MOD_NAME .. '/firebat/mk2'
+        result = MOD_NAME .. "/firebat/mk2",
+        order = MOD_NAME .. "/firebat/mk2"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/ghost/regular',
+        name = MOD_NAME .. "/ghost/regular",
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -116,12 +116,12 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/ghost/regular',
-        order = MOD_NAME .. '/ghost/regular',
+        result = MOD_NAME .. "/ghost/regular",
+        order = MOD_NAME .. "/ghost/regular",
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/ghost/nuke',
+        name = MOD_NAME .. "/ghost/nuke",
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -135,22 +135,22 @@ data:extend({
         category = "erm_controllable_infantry",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/ghost/nuke',
-        order = MOD_NAME .. '/ghost/nuke',
+        result = MOD_NAME .. "/ghost/nuke",
+        order = MOD_NAME .. "/ghost/nuke",
     },
     --- Barrack Autodeploy ---
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk1/autodeploy',
+        name = MOD_NAME .. "/marine/mk1/autodeploy",
         energy_required = 8,
         ingredients =
         {
-            {MOD_NAME .. '/marine/mk1', 1}
+            {MOD_NAME .. "/marine/mk1", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/marine/mk1',
-        result = MOD_NAME .. '/marine/mk1',
+        order = "zzz"..MOD_NAME .. "/marine/mk1",
+        result = MOD_NAME .. "/marine/mk1",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
@@ -166,16 +166,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk2/autodeploy',
+        name = MOD_NAME .. "/marine/mk2/autodeploy",
         energy_required = 8,
         ingredients =
         {
-            {MOD_NAME .. '/marine/mk2', 1}
+            {MOD_NAME .. "/marine/mk2", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/marine/mk2',
-        result = MOD_NAME .. '/marine/mk2',
+        order = "zzz"..MOD_NAME .. "/marine/mk2",
+        result = MOD_NAME .. "/marine/mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
@@ -191,16 +191,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/marine/mk3/autodeploy',
+        name = MOD_NAME .. "/marine/mk3/autodeploy",
         energy_required = 8,
         ingredients =
         {
-            {MOD_NAME .. '/marine/mk3', 1}
+            {MOD_NAME .. "/marine/mk3", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/marine/mk3',
-        result = MOD_NAME .. '/marine/mk3',
+        order = "zzz"..MOD_NAME .. "/marine/mk3",
+        result = MOD_NAME .. "/marine/mk3",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
@@ -216,16 +216,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/firebat/mk1/autodeploy',
+        name = MOD_NAME .. "/firebat/mk1/autodeploy",
         energy_required = 8,
         ingredients =
         {
-            {MOD_NAME .. '/firebat/mk1', 1}
+            {MOD_NAME .. "/firebat/mk1", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/firebat/mk1',
-        result = MOD_NAME .. '/firebat/mk1',
+        order = "zzz"..MOD_NAME .. "/firebat/mk1",
+        result = MOD_NAME .. "/firebat/mk1",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
@@ -241,16 +241,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/firebat/mk2/autodeploy',
+        name = MOD_NAME .. "/firebat/mk2/autodeploy",
         energy_required = 8,
         ingredients =
         {
-            {MOD_NAME .. '/firebat/mk2', 1}
+            {MOD_NAME .. "/firebat/mk2", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/firebat/mk2',
-        result = MOD_NAME .. '/firebat/mk2',
+        order = "zzz"..MOD_NAME .. "/firebat/mk2",
+        result = MOD_NAME .. "/firebat/mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
@@ -266,16 +266,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/ghost/regular/autodeploy',
+        name = MOD_NAME .. "/ghost/regular/autodeploy",
         energy_required = 15,
         ingredients =
         {
-            {MOD_NAME .. '/ghost/regular', 1}
+            {MOD_NAME .. "/ghost/regular", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/ghost/regular',
-        result = MOD_NAME .. '/ghost/regular',
+        order = "zzz"..MOD_NAME .. "/ghost/regular",
+        result = MOD_NAME .. "/ghost/regular",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
@@ -291,16 +291,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/ghost/nuke/autodeploy',
+        name = MOD_NAME .. "/ghost/nuke/autodeploy",
         energy_required = 15,
         ingredients =
         {
-            {MOD_NAME .. '/ghost/nuke', 1}
+            {MOD_NAME .. "/ghost/nuke", 1}
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/ghost/nuke',
-        result = MOD_NAME .. '/ghost/nuke',
+        order = "zzz"..MOD_NAME .. "/ghost/nuke",
+        result = MOD_NAME .. "/ghost/nuke",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost_mkII256.png",
@@ -324,7 +324,7 @@ data:extend({
     --- Factory ---
     {
         type = "recipe",
-        name = MOD_NAME .. '/goliath',
+        name = MOD_NAME .. "/goliath",
         enabled = false,
         energy_required = 40,
         ingredients =
@@ -338,12 +338,12 @@ data:extend({
         category = "erm_controllable_factory",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/goliath',
-        order = MOD_NAME .. '/goliath',
+        result = MOD_NAME .. "/goliath",
+        order = MOD_NAME .. "/goliath",
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/siege_tank',
+        name = MOD_NAME .. "/siege_tank",
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -356,12 +356,12 @@ data:extend({
         category = "erm_controllable_factory",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/siege_tank',
-        order = MOD_NAME .. '/siege_tank',
+        result = MOD_NAME .. "/siege_tank",
+        order = MOD_NAME .. "/siege_tank",
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/siege_tank/mk2',
+        name = MOD_NAME .. "/siege_tank/mk2",
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -375,12 +375,12 @@ data:extend({
         category = "erm_controllable_factory",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/siege_tank/mk2',
-        order = MOD_NAME .. '/siege_tank/mk2',
+        result = MOD_NAME .. "/siege_tank/mk2",
+        order = MOD_NAME .. "/siege_tank/mk2",
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/vulture',
+        name = MOD_NAME .. "/vulture",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -395,22 +395,22 @@ data:extend({
         category = "erm_controllable_factory",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/vulture',
-        order = MOD_NAME .. '/vulture',
+        result = MOD_NAME .. "/vulture",
+        order = MOD_NAME .. "/vulture",
     },
     --- Factory Autodeploy ---
     {
         type = "recipe",
-        name = MOD_NAME .. '/vulture/autodeploy',
+        name = MOD_NAME .. "/vulture/autodeploy",
         energy_required = 12,
         ingredients =
         {
-            {MOD_NAME .. '/vulture', 1}
+            {MOD_NAME .. "/vulture", 1}
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
-        order = 'zzz' ..  MOD_NAME .. '/vulture',
-        result = MOD_NAME .. '/vulture',
+        order = "zzz" ..  MOD_NAME .. "/vulture",
+        result = MOD_NAME .. "/vulture",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
@@ -426,16 +426,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/goliath/autodeploy',
+        name = MOD_NAME .. "/goliath/autodeploy",
         energy_required = 12,
         ingredients =
         {
-            {MOD_NAME .. '/goliath', 1}
+            {MOD_NAME .. "/goliath", 1}
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/goliath',
-        result = MOD_NAME .. '/goliath',
+        order = "zzz"..MOD_NAME .. "/goliath",
+        result = MOD_NAME .. "/goliath",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath256.png",
@@ -451,16 +451,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/siege_tank/autodeploy',
+        name = MOD_NAME .. "/siege_tank/autodeploy",
         energy_required = 16,
         ingredients =
         {
-            {MOD_NAME .. '/siege_tank', 1}
+            {MOD_NAME .. "/siege_tank", 1}
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/siege_tank',
-        result = MOD_NAME .. '/siege_tank',
+        order = "zzz"..MOD_NAME .. "/siege_tank",
+        result = MOD_NAME .. "/siege_tank",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -476,16 +476,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/siege_tank/mk2/autodeploy',
+        name = MOD_NAME .. "/siege_tank/mk2/autodeploy",
         energy_required = 16,
         ingredients =
         {
-            {MOD_NAME .. '/siege_tank/mk2', 1}
+            {MOD_NAME .. "/siege_tank/mk2", 1}
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/siege_tank/mk2',
-        result = MOD_NAME .. '/siege_tank/mk2',
+        order = "zzz"..MOD_NAME .. "/siege_tank/mk2",
+        result = MOD_NAME .. "/siege_tank/mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
@@ -503,7 +503,7 @@ data:extend({
     --- Starport ---
     {
         type = "recipe",
-        name = MOD_NAME .. '/battlecruiser/yamato',
+        name = MOD_NAME .. "/battlecruiser/yamato",
         enabled = false,
         energy_required = 133,
         ingredients =
@@ -518,12 +518,12 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/battlecruiser/yamato',
-        order = MOD_NAME .. '/battlecruiser/yamato'
+        result = MOD_NAME .. "/battlecruiser/yamato",
+        order = MOD_NAME .. "/battlecruiser/yamato"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/battlecruiser/laser',
+        name = MOD_NAME .. "/battlecruiser/laser",
         enabled = false,
         energy_required = 133,
         ingredients =
@@ -538,12 +538,12 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/battlecruiser/laser',
-        order = MOD_NAME .. '/battlecruiser/laser'
+        result = MOD_NAME .. "/battlecruiser/laser",
+        order = MOD_NAME .. "/battlecruiser/laser"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/wraith',
+        name = MOD_NAME .. "/wraith",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -558,12 +558,12 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/wraith',
-        order = MOD_NAME .. '/wraith',
+        result = MOD_NAME .. "/wraith",
+        order = MOD_NAME .. "/wraith",
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/wraith/scout',
+        name = MOD_NAME .. "/wraith/scout",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -578,12 +578,12 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/wraith/scout',
-        order = MOD_NAME .. '/wraith/scout'
+        result = MOD_NAME .. "/wraith/scout",
+        order = MOD_NAME .. "/wraith/scout"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/valkyrie',
+        name = MOD_NAME .. "/valkyrie",
         enabled = false,
         energy_required = 50,
         ingredients =
@@ -598,12 +598,12 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/valkyrie',
-        order = MOD_NAME .. '/valkyrie',
+        result = MOD_NAME .. "/valkyrie",
+        order = MOD_NAME .. "/valkyrie",
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/science_vessel',
+        name = MOD_NAME .. "/science_vessel",
         enabled = false,
         energy_required = 80,
         ingredients =
@@ -618,22 +618,22 @@ data:extend({
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
         always_show_made_in = true,
-        result = MOD_NAME .. '/science_vessel',
-        order = MOD_NAME .. '/science_vessel',
+        result = MOD_NAME .. "/science_vessel",
+        order = MOD_NAME .. "/science_vessel",
     },
     --- Starport Autodeploy ---
     {
         type = "recipe",
-        name = MOD_NAME .. '/wraith/scout/autodeploy',
+        name = MOD_NAME .. "/wraith/scout/autodeploy",
         energy_required = 20,
         ingredients =
         {
-            {MOD_NAME .. '/wraith/scout', 1}
+            {MOD_NAME .. "/wraith/scout", 1}
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/wraith/scout',
-        result = MOD_NAME .. '/wraith/scout',
+        order = "zzz"..MOD_NAME .. "/wraith/scout",
+        result = MOD_NAME .. "/wraith/scout",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith_mkII256.png",
@@ -655,16 +655,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/wraith/autodeploy',
+        name = MOD_NAME .. "/wraith/autodeploy",
         energy_required = 20,
         ingredients =
         {
-            {MOD_NAME .. '/wraith', 1}
+            {MOD_NAME .. "/wraith", 1}
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/wraith',
-        result = MOD_NAME .. '/wraith',
+        order = "zzz"..MOD_NAME .. "/wraith",
+        result = MOD_NAME .. "/wraith",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
@@ -686,16 +686,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/battlecruiser/yamato/autodeploy',
+        name = MOD_NAME .. "/battlecruiser/yamato/autodeploy",
         energy_required = 45,
         ingredients =
         {
-            {MOD_NAME .. '/battlecruiser/yamato', 1}
+            {MOD_NAME .. "/battlecruiser/yamato", 1}
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/battlecruiser/yamato',
-        result = MOD_NAME .. '/battlecruiser/yamato',
+        order = "zzz"..MOD_NAME .. "/battlecruiser/yamato",
+        result = MOD_NAME .. "/battlecruiser/yamato",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
@@ -711,16 +711,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/battlecruiser/laser/autodeploy',
+        name = MOD_NAME .. "/battlecruiser/laser/autodeploy",
         energy_required = 45,
         ingredients =
         {
-            {MOD_NAME .. '/battlecruiser/laser', 1}
+            {MOD_NAME .. "/battlecruiser/laser", 1}
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/battlecruiser/laser',
-        result = MOD_NAME .. '/battlecruiser/laser',
+        order = "zzz"..MOD_NAME .. "/battlecruiser/laser",
+        result = MOD_NAME .. "/battlecruiser/laser",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
@@ -736,16 +736,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/valkyrie/autodeploy',
+        name = MOD_NAME .. "/valkyrie/autodeploy",
         energy_required = 16,
         ingredients =
         {
-            {MOD_NAME .. '/valkyrie', 1}
+            {MOD_NAME .. "/valkyrie", 1}
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/valkyrie',
-        result = MOD_NAME .. '/valkyrie',
+        order = "zzz"..MOD_NAME .. "/valkyrie",
+        result = MOD_NAME .. "/valkyrie",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie256.png",
@@ -761,16 +761,16 @@ data:extend({
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/science_vessel/autodeploy',
+        name = MOD_NAME .. "/science_vessel/autodeploy",
         energy_required = 26,
         ingredients =
         {
-            {MOD_NAME .. '/science_vessel', 1}
+            {MOD_NAME .. "/science_vessel", 1}
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
-        order = 'zzz'..MOD_NAME .. '/science_vessel',
-        result = MOD_NAME .. '/science_vessel',
+        order = "zzz"..MOD_NAME .. "/science_vessel",
+        result = MOD_NAME .. "/science_vessel",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel256.png",
@@ -788,7 +788,7 @@ data:extend({
     --- Building
     {
         type = "recipe",
-        name = MOD_NAME .. '/command-center',
+        name = MOD_NAME .. "/command-center",
         enabled = false,
         energy_required = 120,
         ingredients =
@@ -803,11 +803,11 @@ data:extend({
         icon_size = 256,
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-commandcenter",
-        result = MOD_NAME .. '/command-center'
+        result = MOD_NAME .. "/command-center"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/barrack',
+        name = MOD_NAME .. "/barrack",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -821,11 +821,11 @@ data:extend({
         icon_size = 256,
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-barrack",
-        result = MOD_NAME .. '/barrack'
+        result = MOD_NAME .. "/barrack"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/factory',
+        name = MOD_NAME .. "/factory",
         enabled = false,
         energy_required = 60,
         ingredients = {
@@ -838,11 +838,11 @@ data:extend({
         icon_size = 256,
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-commandcenter",
-        result = MOD_NAME .. '/factory'
+        result = MOD_NAME .. "/factory"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/starport',
+        name = MOD_NAME .. "/starport",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -857,11 +857,11 @@ data:extend({
         icon_size = 256,
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-starport",
-        result = MOD_NAME .. '/starport'
+        result = MOD_NAME .. "/starport"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/missile-turret',
+        name = MOD_NAME .. "/missile-turret",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -876,11 +876,11 @@ data:extend({
         icon_size = 256,
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-missile",
-        result = MOD_NAME .. '/missile-turret'
+        result = MOD_NAME .. "/missile-turret"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/siege-tank-turret',
+        name = MOD_NAME .. "/siege-tank-turret",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -889,17 +889,17 @@ data:extend({
             {"low-density-structure", 10},
             {"rocket-control-unit", 4},
             {"accumulator", 4},
-            {'steel-plate',20}
+            {"steel-plate",20}
         },
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
         icon_size = 256,
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-siege-tank",
-        result = MOD_NAME .. '/siege-tank-turret'
+        result = MOD_NAME .. "/siege-tank-turret"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/shockbomb-ammo',
+        name = MOD_NAME .. "/shockbomb-ammo",
         enabled = false,
         energy_required = 4,
         ingredients =
@@ -912,11 +912,11 @@ data:extend({
         icon_size = 64,
         subgroup = "ammo",
         order = "d[explosive-cannon-shell]-c[uranium-shockbomb]",
-        result = MOD_NAME .. '/shockbomb-ammo'
+        result = MOD_NAME .. "/shockbomb-ammo"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/bunker-turret/mk1',
+        name = MOD_NAME .. "/bunker-turret/mk1",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -939,11 +939,11 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk1",
-        result = MOD_NAME .. '/bunker-turret/mk1'
+        result = MOD_NAME .. "/bunker-turret/mk1"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/bunker-turret/mk2',
+        name = MOD_NAME .. "/bunker-turret/mk2",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -967,11 +967,11 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk2",
-        result = MOD_NAME .. '/bunker-turret/mk2'
+        result = MOD_NAME .. "/bunker-turret/mk2"
     },
     {
         type = "recipe",
-        name = MOD_NAME .. '/bunker-turret/mk3',
+        name = MOD_NAME .. "/bunker-turret/mk3",
         enabled = false,
         energy_required = 60,
         ingredients =
@@ -994,6 +994,6 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk3",
-        result = MOD_NAME .. '/bunker-turret/mk3'
+        result = MOD_NAME .. "/bunker-turret/mk3"
     },
 })

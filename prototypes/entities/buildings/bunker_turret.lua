@@ -8,13 +8,13 @@ require ("util")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local ERM_WeaponRig = require('__enemyracemanager__/lib/rig/weapon')
-local DataHelper = require('__erm_terran__/prototypes/data_helper')
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local ERM_WeaponRig = require("__enemyracemanager__/lib/rig/weapon")
+local DataHelper = require("__erm_terran__/prototypes/data_helper")
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
 local collision_box = { { -3, -2 }, { 3, 2 } }
 local selection_box = { { -3, -2 }, { 3, 2 } }
@@ -23,10 +23,10 @@ local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1, 8))
 local prepare_range = attack_range + 4
 
 
-local folded_animation = AnimationDB.get_layered_animations('buildings', 'bunker', 'folded')
+local folded_animation = AnimationDB.get_layered_animations("buildings", "bunker", "folded")
 folded_animation = AnimationDB.apply_runtime_tint(folded_animation, true)
 
-local attack_animation = AnimationDB.get_layered_animations('buildings', 'bunker', 'attack')
+local attack_animation = AnimationDB.get_layered_animations("buildings", "bunker", "attack")
 attack_animation = AnimationDB.apply_runtime_tint(attack_animation, true)
 
 
@@ -35,7 +35,7 @@ data:extend({
     {
         type = "turret",
         name = MOD_NAME .. "/bunker-turret/mk1",
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/bunker-turret', 'MK 1'},
+        localised_name = { "entity-name." .. MOD_NAME .. "/bunker-turret", "MK 1"},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
@@ -50,7 +50,7 @@ data:extend({
         },
         resistances = DataHelper.getResistance(25),
         flags = {"placeable-player", "player-creation"},
-        minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk1', count=3},
+        minable = {mining_time = 2, result = MOD_NAME .. "/marine/mk1", count=3},
         max_health = 80 * ERMPlayerUnitHelper.get_health_multiplier(),
         repair_speed_modifier = 0.33,
         dying_explosion = MOD_NAME.."/building-large-explosion",
@@ -72,7 +72,7 @@ data:extend({
         folded_animation = folded_animation,
         prepare_range = prepare_range,
         attacking_animation = attack_animation,
-        fast_replaceable_group = 'turret',
+        fast_replaceable_group = "turret",
         next_upgrade = MOD_NAME .. "/bunker-turret/mk2",
         attack_parameters =
         {
@@ -136,24 +136,24 @@ data:extend({
 
 
 -- Bunker MK2 --
-local bunker_mk2 = util.table.deepcopy(data.raw["turret"][MOD_NAME .. '/bunker-turret/mk1'])
+local bunker_mk2 = util.table.deepcopy(data.raw["turret"][MOD_NAME .. "/bunker-turret/mk1"])
 
-bunker_mk2.name = MOD_NAME .. '/bunker-turret/mk2'
-bunker_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/bunker-turret', 'MK 2'}
-bunker_mk2['icons'][2] = {
+bunker_mk2.name = MOD_NAME .. "/bunker-turret/mk2"
+bunker_mk2.localised_name = { "entity-name." .. MOD_NAME .. "/bunker-turret", "MK 2"}
+bunker_mk2["icons"][2] = {
     icon = "__base__/graphics/icons/signal/signal_2.png",
     icon_size = 64,
     scale = 0.25,
     shift = {-9,-9}
 }
-bunker_mk2.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk2', count=3}
+bunker_mk2.minable = {mining_time = 2, result = MOD_NAME .. "/marine/mk2", count=3}
 bunker_mk2.max_health = 120 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk2.resistances = DataHelper.getResistance(50)
-bunker_mk2.fast_replaceable_group = 'turret'
+bunker_mk2.fast_replaceable_group = "turret"
 bunker_mk2.next_upgrade = MOD_NAME .. "/bunker-turret/mk3"
-bunker_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 6
-bunker_mk2['attack_parameters']['cooldown'] = 30
-bunker_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
+bunker_mk2["attack_parameters"]["ammo_type"]["action"][1]["repeat_count"] = 6
+bunker_mk2["attack_parameters"]["cooldown"] = 30
+bunker_mk2["attack_parameters"]["ammo_type"]["action"][1]["action_delivery"]["target_effects"][1] =
 {
     type = "damage",
     damage = { amount = 15, type = "physical"}
@@ -162,22 +162,22 @@ bunker_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['ta
 data:extend({bunker_mk2})
 
 
-local bunker_mk3 = util.table.deepcopy(data.raw["turret"][MOD_NAME .. '/bunker-turret/mk1'])
+local bunker_mk3 = util.table.deepcopy(data.raw["turret"][MOD_NAME .. "/bunker-turret/mk1"])
 
-bunker_mk3.name = MOD_NAME .. '/bunker-turret/mk3'
-bunker_mk3.localised_name = { 'entity-name.' .. MOD_NAME .. '/bunker-turret', 'MK 3'}
-bunker_mk3['icons'][2] = {
+bunker_mk3.name = MOD_NAME .. "/bunker-turret/mk3"
+bunker_mk3.localised_name = { "entity-name." .. MOD_NAME .. "/bunker-turret", "MK 3"}
+bunker_mk3["icons"][2] = {
     icon = "__base__/graphics/icons/signal/signal_3.png",
     icon_size = 64,
     scale = 0.25,
     shift = {-9,-9}
 }
-bunker_mk3.minable = {mining_time = 2, result = MOD_NAME .. '/marine/mk3', count=3}
+bunker_mk3.minable = {mining_time = 2, result = MOD_NAME .. "/marine/mk3", count=3}
 bunker_mk3.max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier()
 bunker_mk3.resistances = DataHelper.getResistance(75)
-bunker_mk3['attack_parameters']['cooldown'] = 24
-bunker_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 8
-bunker_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
+bunker_mk3["attack_parameters"]["cooldown"] = 24
+bunker_mk3["attack_parameters"]["ammo_type"]["action"][1]["repeat_count"] = 8
+bunker_mk3["attack_parameters"]["ammo_type"]["action"][1]["action_delivery"]["target_effects"][1] =
 {
     type = "damage",
     damage = { amount = 42, type = "physical"}

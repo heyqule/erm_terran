@@ -7,11 +7,11 @@ require ("util")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
 local collision_box = { { -1.1, -2 }, { 1.1, 1.25 } }
 local selection_box = { { -1.1, -2 }, { 1.1, 1.25 } }
@@ -21,7 +21,7 @@ local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1.2, 4 + min
 local prepare_range = attack_range + 4
 
 
-local animation = AnimationDB.get_layered_animations('buildings', 'missile_turret', 'folded')
+local animation = AnimationDB.get_layered_animations("buildings", "missile_turret", "folded")
 animation = AnimationDB.apply_runtime_tint(animation, true)
 
 data:extend({
@@ -46,7 +46,7 @@ data:extend({
             { type = "impact", percent = 90, decrease = 50 },
         },
         flags = {"placeable-player", "player-creation"},
-        minable = {mining_time = 2, result = MOD_NAME .. '/missile-turret'},
+        minable = {mining_time = 2, result = MOD_NAME .. "/missile-turret"},
         max_health = 1500,
         repair_speed_modifier = 0.33,
         dying_explosion = MOD_NAME.."/building-large-explosion",

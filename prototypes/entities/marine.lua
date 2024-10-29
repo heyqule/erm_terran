@@ -3,20 +3,20 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local DataHelper = require('__erm_terran__/prototypes/data_helper')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'marine'
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local DataHelper = require("__erm_terran__/prototypes/data_helper")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local name = "marine"
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(0.86, 0)
 
@@ -29,39 +29,39 @@ local distraction_cooldown = 30
 local collision_box = { { -0.35, -0.35 }, { 0.35, 0.35 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
-local attackAnimation = AnimationDB.get_layered_animations('units', 'marine', 'attack')
+local attackAnimation = AnimationDB.get_layered_animations("units", "marine", "attack")
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
-local runningAnimation = AnimationDB.get_layered_animations('units', 'marine', 'run')
+local runningAnimation = AnimationDB.get_layered_animations("units", "marine", "run")
 
 runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 
-local attackAnimation2 = AnimationDB.get_layered_animations('units', 'marine_mkii', 'attack')
+local attackAnimation2 = AnimationDB.get_layered_animations("units", "marine_mkii", "attack")
 
 attackAnimation2 = AnimationDB.apply_runtime_tint(attackAnimation2, true)
 
-local runningAnimation2 = AnimationDB.get_layered_animations('units', 'marine_mkii', 'run')
+local runningAnimation2 = AnimationDB.get_layered_animations("units", "marine_mkii", "run")
 
 runningAnimation2 = AnimationDB.apply_runtime_tint(runningAnimation2, true)
 
-local attackAnimation3 = AnimationDB.get_layered_animations('units', 'marine_mkiii', 'attack')
+local attackAnimation3 = AnimationDB.get_layered_animations("units", "marine_mkiii", "attack")
 
 attackAnimation3 = AnimationDB.apply_runtime_tint(attackAnimation3, true)
 
-local runningAnimation3 = AnimationDB.get_layered_animations('units', 'marine_mkiii', 'run')
+local runningAnimation3 = AnimationDB.get_layered_animations("units", "marine_mkiii", "run")
 
 runningAnimation3 = AnimationDB.apply_runtime_tint(runningAnimation3, true)
 
-local corpseAnimation = AnimationDB.get_single_animation('death', 'marine_death', 'explosion')
+local corpseAnimation = AnimationDB.get_single_animation("death", "marine_death", "explosion")
 
 -- Marine MK 1 --
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name .. '/mk1',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 1'},
-        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
+        name = MOD_NAME .. "--" .. name .. "/mk1",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 1"},
+        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
@@ -90,7 +90,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'bullet',
+            ammo_category = "bullet",
             range = attack_range,
             min_attack_distance = attack_range - 2,
             cooldown = 75,
@@ -139,7 +139,7 @@ data:extend({
         distance_per_frame = 0.16,
         run_animation = runningAnimation,
         dying_sound = TerranSound.marine_death(1),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
         light = {
@@ -163,7 +163,7 @@ data:extend({
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -179,11 +179,11 @@ data:extend({
 })
 
 -- Marine MK2 --
-local marine_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
+local marine_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "/mk1"])
 
-marine_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
-marine_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
-marine_mk2['icons'] = {
+marine_mk2.name = MOD_NAME .. "--" .. name .. "/mk2"
+marine_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 2"}
+marine_mk2["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
         icon_size = 256,
@@ -194,23 +194,23 @@ marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = DataHelper.getResistance(50)
 marine_mk2.run_animation = runningAnimation2
 marine_mk2.repair_speed_modifier = 0.58
-marine_mk2['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 5
-marine_mk2['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
+marine_mk2["attack_parameters"]["ammo_type"]["action"][1]["repeat_count"] = 5
+marine_mk2["attack_parameters"]["ammo_type"]["action"][1]["action_delivery"]["target_effects"][1] =
 {
     type = "damage",
     damage = { amount = 15, type = "physical"}
 }
-marine_mk2['attack_parameters']['animation'] = attackAnimation2
--- marine_mk2['attack_parameters']['sound'] = TerranSound.marine_mk2_attack(0.5, 0.5)
+marine_mk2["attack_parameters"]["animation"] = attackAnimation2
+-- marine_mk2["attack_parameters"]["sound"] = TerranSound.marine_mk2_attack(0.5, 0.5)
 
 data:extend({marine_mk2})
 
 -- Marine MK3 --
-local marine_mk3 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
+local marine_mk3 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "/mk1"])
 
-marine_mk3.name = MOD_NAME .. '/' .. name .. '/mk3'
-marine_mk3.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 3'}
-marine_mk3['icons'] = {
+marine_mk3.name = MOD_NAME .. "--" .. name .. "/mk3"
+marine_mk3.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 3"}
+marine_mk3["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
         icon_size = 256,
@@ -221,12 +221,12 @@ marine_mk3.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = DataHelper.getResistance(75)
 marine_mk3.run_animation = runningAnimation3
-marine_mk3['attack_parameters']['ammo_type']['action'][1]['repeat_count'] = 6
-marine_mk3['attack_parameters']['ammo_type']['action'][1]['action_delivery']['target_effects'][1] =
+marine_mk3["attack_parameters"]["ammo_type"]["action"][1]["repeat_count"] = 6
+marine_mk3["attack_parameters"]["ammo_type"]["action"][1]["action_delivery"]["target_effects"][1] =
 {
     type = "damage",
     damage = { amount = 42, type = "physical"}
 }
-marine_mk3['attack_parameters']['animation'] = attackAnimation3
--- marine_mk3['attack_parameters']['sound'] = TerranSound.marine_mk3_attack(0.5, 0.5)
+marine_mk3["attack_parameters"]["animation"] = attackAnimation3
+-- marine_mk3["attack_parameters"]["sound"] = TerranSound.marine_mk3_attack(0.5, 0.5)
 data:extend({marine_mk3})

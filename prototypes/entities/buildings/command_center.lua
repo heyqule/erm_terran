@@ -3,14 +3,14 @@
 --- Created by heyqule.
 --- DateTime: 11/17/2022 7:59 PM
 ---
-local util = require('util')
+local util = require("util")
 local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local idle = AnimationDB.get_layered_animations('buildings', 'command_centre', 'run')
+local idle = AnimationDB.get_layered_animations("buildings", "command_centre", "run")
 
 idle = AnimationDB.change_frame_count(idle, 1)
 
@@ -19,7 +19,7 @@ idle = AnimationDB.alter_team_color(idle, nil, true)
 data:extend({
     {
         type = "radar",
-        name = MOD_NAME .. '/command-center',
+        name = MOD_NAME .. "/command-center",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
@@ -27,7 +27,7 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. '/command-center'},
+        minable = {mining_time = 1, result = MOD_NAME .. "/command-center"},
         max_health = 10000,
         corpse = MOD_NAME.."/large-base-corpse",
         dying_explosion = MOD_NAME.."/building-xlarge-explosion",

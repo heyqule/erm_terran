@@ -9,24 +9,24 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
 local math3d = require "math3d"
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
 
-local DataHelper = require('__erm_terran__/prototypes/data_helper')
+local DataHelper = require("__erm_terran__/prototypes/data_helper")
 
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local name = 'ghost'
+local name = "ghost"
 
 -- Misc Settings
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.1, 9)
@@ -41,23 +41,23 @@ local collision_box = { { -0.35, -0.35 }, { 0.35, 0.35 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
 
-local attackAnimation = AnimationDB.get_layered_animations('units', 'ghost', 'attack')
+local attackAnimation = AnimationDB.get_layered_animations("units", "ghost", "attack")
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
-local runningAnimation = AnimationDB.get_layered_animations('units', 'ghost', 'run')
+local runningAnimation = AnimationDB.get_layered_animations("units", "ghost", "run")
 
 runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 
-local corpseAnimation = AnimationDB.get_layered_animations('death', 'ghost_death', 'explosion')
+local corpseAnimation = AnimationDB.get_layered_animations("death", "ghost_death", "explosion")
 
 -- Firebat MK 1 --
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name .. '/regular',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/regular', },
-        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name  .. '/regular'},
+        name = MOD_NAME .. "--" .. name .. "/regular",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/regular", },
+        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name  .. "/regular"},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -86,7 +86,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'bullet',
+            ammo_category = "bullet",
             range = attack_range,
             min_attack_distance = attack_range - 3,
             cooldown = 240,
@@ -127,7 +127,7 @@ data:extend({
                         probability = 0.2,
                         action_delivery = {
                             type = "projectile",
-                            projectile = MOD_NAME..'/ghost_lockdown_projectile',
+                            projectile = MOD_NAME.."/ghost_lockdown_projectile",
                             starting_speed = 1,
                             max_range = attack_range * 1.5
                         }
@@ -138,13 +138,13 @@ data:extend({
         distance_per_frame = 0.16,
         run_animation = runningAnimation,
         dying_sound = TerranSound.marine_death(1),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -159,18 +159,18 @@ data:extend({
 })
 
 -- Ghost Mass Destruction --
-local ghost_nuke = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/regular'])
+local ghost_nuke = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "/regular"])
 
-local ghost_mk2_run_animation = AnimationDB.get_layered_animations('units', 'ghost_mkii', 'run')
+local ghost_mk2_run_animation = AnimationDB.get_layered_animations("units", "ghost_mkii", "run")
 ghost_mk2_run_animation = AnimationDB.apply_runtime_tint(ghost_mk2_run_animation, true)
-local ghost_mk2_attack_animation = AnimationDB.get_layered_animations('units', 'ghost_mkii', 'attack')
+local ghost_mk2_attack_animation = AnimationDB.get_layered_animations("units", "ghost_mkii", "attack")
 ghost_mk2_attack_animation = AnimationDB.apply_runtime_tint(ghost_mk2_attack_animation, true)
 
 
-ghost_nuke.name = MOD_NAME .. '/' .. name .. '/nuke'
-ghost_nuke.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name..'/nuke'}
-ghost_nuke.localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name..'/nuke'}
-ghost_nuke['icons'][2] = {
+ghost_nuke.name = MOD_NAME .. "--" .. name .. "/nuke"
+ghost_nuke.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name.."/nuke"}
+ghost_nuke.localised_description = { "entity-description." .. MOD_NAME .. "--" .. name.."/nuke"}
+ghost_nuke["icons"][2] = {
     icon = "__base__/graphics/icons/atomic-bomb.png",
     icon_size = 64,
     scale = 0.25,
@@ -184,7 +184,7 @@ ghost_nuke.repair_speed_modifier = 0.25
 ghost_nuke.attack_parameters = {
     type = "projectile",
     range_mode = "bounding-box-to-bounding-box",
-    ammo_category = 'landmine',
+    ammo_category = "landmine",
     range = 9,
     warmup = 6,
     cooldown = NUKE_WAIT_TIME + 75,

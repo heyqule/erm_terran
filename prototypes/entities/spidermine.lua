@@ -4,20 +4,20 @@
 --- DateTime: 8/13/2023 3:27 PM
 ---
 
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'spidermine'
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMDataHelper = require("__enemyracemanager__/lib/rig/data_helper")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local name = "spidermine"
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(ERMPlayerUnitHelper.get_attack_range(1))
@@ -31,14 +31,14 @@ local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
 
-local runAnimation = AnimationDB.get_layered_animations('units', 'spidermine', 'run')
+local runAnimation = AnimationDB.get_layered_animations("units", "spidermine", "run")
 
 runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name,
+        name = MOD_NAME .. "--" .. name,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name..".png",
@@ -103,7 +103,7 @@ data:extend({
                                 type = "nested-result",
                                 action = {
                                     type = "area",
-                                    force = 'not-same',
+                                    force = "not-same",
                                     radius = 4,
                                     ignore_collision_condition = true,
                                     action_delivery = {
@@ -147,13 +147,13 @@ data:extend({
         },
         dying_explosion = MOD_NAME.."/spidermine-explosion",
         dying_sound = TerranSound.spidermine_attack(0.5),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },

@@ -9,24 +9,24 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
 local math3d = require "math3d"
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
 
-local DataHelper = require('__erm_terran__/prototypes/data_helper')
+local DataHelper = require("__erm_terran__/prototypes/data_helper")
 
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local name = 'firebat'
+local name = "firebat"
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(2)
@@ -40,15 +40,15 @@ local collision_box = { { -0.35, -0.35 }, { 0.35, 0.35 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
 local mk1_resist = DataHelper.getResistance(55)
-table.insert(mk1_resist,{type='fire', percent=100})
+table.insert(mk1_resist,{type="fire", percent=100})
 local mk2_resist = DataHelper.getResistance(75)
-table.insert(mk2_resist,{type='fire', percent=100})
+table.insert(mk2_resist,{type="fire", percent=100})
 
-local attackAnimation = AnimationDB.get_layered_animations('units', 'firebat', 'attack')
+local attackAnimation = AnimationDB.get_layered_animations("units", "firebat", "attack")
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 
-local runningAnimation = AnimationDB.get_layered_animations('units', 'firebat', 'run')
+local runningAnimation = AnimationDB.get_layered_animations("units", "firebat", "run")
 
 runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 
@@ -56,9 +56,9 @@ runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name .. '/mk1',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 1'},
-        localised_description = { 'entity-description.' .. MOD_NAME .. '/' .. name},
+        name = MOD_NAME .. "--" .. name .. "/mk1",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 1"},
+        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -87,7 +87,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'flamethrower',
+            ammo_category = "flamethrower",
             range = 2,
             cooldown = 60,
             cooldown_deviation = 0.2,
@@ -98,7 +98,7 @@ data:extend({
                 category = "flamethrower",
                 action = {
                     type = "line",
-                    force = 'not-same',
+                    force = "not-same",
                     range = 3,
                     width = 2,
                     ignore_collision_condition = true,
@@ -134,7 +134,7 @@ data:extend({
                 {
                     type = "area",
                     radius = 4,
-                    force = 'not-same',
+                    force = "not-same",
                     action_delivery =
                     {
                         type = "instant",
@@ -155,13 +155,13 @@ data:extend({
         },
         dying_sound = TerranSound.firebat_death(1),
         dying_explosion = MOD_NAME.."/firebat-explosion",
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -204,19 +204,19 @@ data:extend({
 })
 
 -- Firebat MK2 --
-local firebat_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. '/' .. name .. '/mk1'])
+local firebat_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "/mk1"])
 
-local mk2attackAnimation = AnimationDB.get_layered_animations('units', 'firebat_mkii', 'attack')
+local mk2attackAnimation = AnimationDB.get_layered_animations("units", "firebat_mkii", "attack")
 
 mk2attackAnimation = AnimationDB.apply_runtime_tint(mk2attackAnimation, true)
 
-local mk2runningAnimation = AnimationDB.get_layered_animations('units', 'firebat_mkii', 'run')
+local mk2runningAnimation = AnimationDB.get_layered_animations("units", "firebat_mkii", "run")
 
 mk2runningAnimation = AnimationDB.apply_runtime_tint(mk2runningAnimation, true)
 
-firebat_mk2.name = MOD_NAME .. '/' .. name .. '/mk2'
-firebat_mk2.localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name, 'MK 2'}
-firebat_mk2['icons'] = {
+firebat_mk2.name = MOD_NAME .. "--" .. name .. "/mk2"
+firebat_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 2"}
+firebat_mk2["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."_mkII256.png",
         icon_size = 256,
@@ -226,19 +226,19 @@ firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
 firebat_mk2.repair_speed_modifier = 0.66
-firebat_mk2['run_animation'] = mk2runningAnimation
-firebat_mk2['attack_parameters']['damage_modifier'] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
-firebat_mk2['attack_parameters']['animation'] = mk2attackAnimation
+firebat_mk2["run_animation"] = mk2runningAnimation
+firebat_mk2["attack_parameters"]["damage_modifier"] = 1 + ERMPlayerUnitHelper.get_damage_multiplier()
+firebat_mk2["attack_parameters"]["animation"] = mk2attackAnimation
 
 
-firebat_mk2['dying_trigger_effect'] = {
+firebat_mk2["dying_trigger_effect"] = {
     {
         type = "nested-result",
         action =
         {
             type = "area",
             radius = 4,
-            force = 'not-same',
+            force = "not-same",
             action_delivery =
             {
                 type = "instant",

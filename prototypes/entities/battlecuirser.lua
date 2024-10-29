@@ -3,19 +3,19 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'battlecruiser'
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMDataHelper = require("__enemyracemanager__/lib/rig/data_helper")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local name = "battlecruiser"
 
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.2, 8)
@@ -33,7 +33,7 @@ local selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 
 local battlecruiser_animation = function()
-    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser', 'run')
+    local runAnimation = AnimationDB.get_layered_animations("units", "battlecruiser", "run")
 
     runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
@@ -41,7 +41,7 @@ local battlecruiser_animation = function()
 end
 
 local battlecruiser_mkii_animation = function()
-    local runAnimation = AnimationDB.get_layered_animations('units', 'battlecruiser_mkii', 'run')
+    local runAnimation = AnimationDB.get_layered_animations("units", "battlecruiser_mkii", "run")
 
     runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
@@ -73,8 +73,8 @@ end
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name .. '/yamato',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/yamato' },
+        name = MOD_NAME .. "--" .. name .. "/yamato",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/yamato" },
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
@@ -119,7 +119,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'laser',
+            ammo_category = "laser",
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 360,
@@ -133,7 +133,7 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = MOD_NAME..'/battlecruiser-yamato-projectile',
+                        projectile = MOD_NAME.."/battlecruiser-yamato-projectile",
                         starting_speed = 0.35,
                         max_range = attack_range * 1.5
                     }
@@ -146,17 +146,17 @@ data:extend({
         render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = battlecruiser_animation(),
-        dying_explosion = 'erm-fire-explosion-air_large-1',
+        dying_explosion = "erm-fire-explosion-air_large-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
         light = battlecruiser_light()
     },
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name .. '/laser',
-        localised_name = { 'entity-name.' .. MOD_NAME .. '/' .. name .. '/laser' },
+        name = MOD_NAME .. "--" .. name .. "/laser",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/laser" },
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
@@ -200,7 +200,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'laser',
+            ammo_category = "laser",
             projectile_center = {0, 3},
             range = laser_attack_range,
             min_attack_distance = attack_range - 4,
@@ -215,7 +215,7 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = MOD_NAME..'/battlecruiser-laser-projectile',
+                        projectile = MOD_NAME.."/battlecruiser-laser-projectile",
                         starting_speed = 1,
                         max_range = attack_range * 1.5
                     }
@@ -227,16 +227,16 @@ data:extend({
         render_layer = "wires-above",
         distance_per_frame = 0.5,
         run_animation = battlecruiser_mkii_animation(),
-        dying_explosion = 'erm-fire-explosion-air_large-1',
+        dying_explosion = "erm-fire-explosion-air_large-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
         light = battlecruiser_light()
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
         icon_size = 256,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },

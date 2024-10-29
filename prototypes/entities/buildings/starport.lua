@@ -3,27 +3,27 @@
 --- Created by heyqule.
 --- DateTime: 11/17/2022 7:59 PM
 ---
-local util = require('util')
+local util = require("util")
 local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local idle = AnimationDB.get_layered_animations('buildings', 'starport', 'run')
+local idle = AnimationDB.get_layered_animations("buildings", "starport", "run")
 
 idle = AnimationDB.change_frame_count(idle, 1)
 
 idle = AnimationDB.alter_team_color(idle, nil, true)
 
-local working = AnimationDB.get_layered_animations('buildings', 'starport', 'run')
+local working = AnimationDB.get_layered_animations("buildings", "starport", "run")
 
 working = AnimationDB.alter_team_color(working, nil, true)
 
 data:extend({
     {
         type = "assembling-machine",
-        name = MOD_NAME .. '/starport',
+        name = MOD_NAME .. "/starport",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
@@ -31,7 +31,7 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. '/starport'},
+        minable = {mining_time = 1, result = MOD_NAME .. "/starport"},
         max_health = 5000,
         corpse = MOD_NAME.."/large-base-corpse",
         dying_explosion = MOD_NAME.."/building-large-explosion",
@@ -59,7 +59,7 @@ data:extend({
             emissions_per_minute = 5
         },
         energy_usage = "4MW",
-        crafting_categories = {'erm_controllable_starport'},
+        crafting_categories = {"erm_controllable_starport"},
         crafting_speed = 1,
         animation = working,
         idle_animation = idle,

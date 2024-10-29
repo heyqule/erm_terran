@@ -5,17 +5,17 @@
 ---
 
 -- Globals within the mod
-MOD_NAME = 'erm_terran'
+MOD_NAME = "erm_terran"
 
 DEBUG_MODE = false
 
-SELF_DESTRUCT_ATTACK = 'emtrn-slfd'
-TIME_TO_LIVE_DIED = 'emtrn-ttld'
-TIME_TO_LIVE_CREATED = 'emtrn-ttlc'
+SELF_DESTRUCT_ATTACK = "emtrn-slfd"
+TIME_TO_LIVE_DIED = "emtrn-ttld"
+TIME_TO_LIVE_CREATED = "emtrn-ttlc"
 
-GHOST_ATOMIC_SEQUENCE = 'emtrn-ghnk'
-CANCEL_GHOST_ATOMIC_SEQUENCE = 'emtrn-cgnk'
-BUNKER_SPAWN_MARINE = 'emtrn-smrn'
+GHOST_ATOMIC_SEQUENCE = "emtrn-ghnk"
+CANCEL_GHOST_ATOMIC_SEQUENCE = "emtrn-cgnk"
+BUNKER_SPAWN_MARINE = "emtrn-smrn"
 
 NUKE_WAIT_TIME = 300
 

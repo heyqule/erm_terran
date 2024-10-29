@@ -4,10 +4,10 @@
 --- DateTime: 12/23/2020 8:27 PM
 ---
 
-local CustomAttackHelper = require('__enemyracemanager__/lib/helper/custom_attack_helper')
-local ERMConfig = require('__enemyracemanager__/lib/global_config')
-require('__erm_terran__/global')
-local String = require('__stdlib__/stdlib/utils/string')
+local CustomAttackHelper = require("__enemyracemanager__/lib/helper/custom_attack_helper")
+local ERMConfig = require("__enemyracemanager__/lib/global_config")
+require("__erm_terran__/global")
+local String = require("__stdlib__/stdlib/utils/string")
 
 local CustomAttacks = CustomAttackHelper
 
@@ -19,11 +19,11 @@ CustomAttacks.add_nuke_to_queue = function(event)
         end
 
         local targeter_id = rendering.draw_animation({
-            animation = MOD_NAME .. '/nuclear_targeter',
+            animation = MOD_NAME .. "/nuclear_targeter",
             target = target_position,
             time_to_live = NUKE_WAIT_TIME + 75,
             surface = event.source_entity.surface.index,
-            render_layer = 'radius-visualization'
+            render_layer = "radius-visualization"
         })
         global.nuke_tracker[event.source_entity.unit_number] = {
             entity = event.source_entity,
@@ -91,12 +91,12 @@ local spawn_marines = function(event, make_string)
         count = count + 1
     end
 
-    CustomAttacks.drop_player_unit(event, MOD_NAME, 'marine/'..make_string, count)
+    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine/"..make_string, count)
 end
 
 CustomAttacks.spawn_marine = function(event)
     if event.source_entity.valid then
-        local nameToken = String.split(event.source_entity.name, '/')
+        local nameToken = String.split(event.source_entity.name, "--")
         if nameToken[3] then
             spawn_marines(event, nameToken[3])
         end

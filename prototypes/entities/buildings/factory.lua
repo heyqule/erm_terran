@@ -3,20 +3,20 @@
 --- Created by heyqule.
 --- DateTime: 11/17/2022 7:59 PM
 ---
-local util = require('util')
+local util = require("util")
 local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local idle = AnimationDB.get_layered_animations('buildings', 'factory', 'run')
+local idle = AnimationDB.get_layered_animations("buildings", "factory", "run")
 
 idle = AnimationDB.change_frame_count(idle, 1)
 
 idle = AnimationDB.alter_team_color(idle, nil, true)
 
-local working = AnimationDB.get_layered_animations('buildings', 'factory', 'run')
+local working = AnimationDB.get_layered_animations("buildings", "factory", "run")
 
 working = AnimationDB.alter_team_color(working, nil, true)
 
@@ -24,7 +24,7 @@ working = AnimationDB.alter_team_color(working, nil, true)
 data:extend({
     {
         type = "assembling-machine",
-        name = MOD_NAME .. '/factory',
+        name = MOD_NAME .. "/factory",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
@@ -32,7 +32,7 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. '/factory'},
+        minable = {mining_time = 1, result = MOD_NAME .. "/factory"},
         max_health = 3000,
         corpse = MOD_NAME.."/large-base-corpse",
         dying_explosion = MOD_NAME.."/building-large-explosion",
@@ -60,7 +60,7 @@ data:extend({
             emissions_per_minute = 5
         },
         energy_usage = "2MW",
-        crafting_categories = {'erm_controllable_factory'},
+        crafting_categories = {"erm_controllable_factory"},
         crafting_speed = 1,
         animation = working,
         idle_animation = idle,

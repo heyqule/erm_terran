@@ -3,19 +3,19 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'goliath'
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local name = "goliath"
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1, 4)
 
@@ -30,20 +30,20 @@ local unit_scale = 1.5
 local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
-local goliathAnimation = AnimationDB.get_layered_animations('units', 'goliath_body', 'run')
-local goliathTurret = AnimationDB.get_layered_animations('units', 'goliath_turret', 'run')
+local goliathAnimation = AnimationDB.get_layered_animations("units", "goliath_body", "run")
+local goliathTurret = AnimationDB.get_layered_animations("units", "goliath_turret", "run")
 
-for _, ani_data in pairs(goliathTurret['layers']) do
-    table.insert(goliathAnimation['layers'],ani_data)
+for _, ani_data in pairs(goliathTurret["layers"]) do
+    table.insert(goliathAnimation["layers"],ani_data)
 end
 
 goliathAnimation = AnimationDB.apply_runtime_tint(goliathAnimation, true)
 
-local goliathAttackAnimation = AnimationDB.get_layered_animations('units', 'goliath_body', 'attack')
-local goliathAttackTurret = AnimationDB.get_layered_animations('units', 'goliath_turret', 'attack')
+local goliathAttackAnimation = AnimationDB.get_layered_animations("units", "goliath_body", "attack")
+local goliathAttackTurret = AnimationDB.get_layered_animations("units", "goliath_turret", "attack")
 
-for _, ani_data in pairs(goliathAttackTurret['layers']) do
-    table.insert(goliathAttackAnimation['layers'],ani_data)
+for _, ani_data in pairs(goliathAttackTurret["layers"]) do
+    table.insert(goliathAttackAnimation["layers"],ani_data)
 end
 
 goliathAttackAnimation = AnimationDB.apply_runtime_tint(goliathAttackAnimation, true)
@@ -51,7 +51,7 @@ goliathAttackAnimation = AnimationDB.apply_runtime_tint(goliathAttackAnimation, 
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name,
+        name = MOD_NAME .. "--" .. name,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -89,7 +89,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'bullet',
+            ammo_category = "bullet",
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 150,
@@ -161,13 +161,13 @@ data:extend({
         run_animation = goliathAnimation,
         dying_explosion = MOD_NAME.."/large-explosion",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. '-corpse',
+        corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. '-corpse',
+        name = name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },

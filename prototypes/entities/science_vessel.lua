@@ -10,20 +10,20 @@
 --- DateTime: 8/13/2023 3:27 PM
 ---
 
-require('__stdlib__/stdlib/utils/defines/time')
-require('util')
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
+require("__stdlib__/stdlib/utils/defines/time")
+require("util")
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
 
-require('__erm_terran__/global')
+require("__erm_terran__/global")
 
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local ERM_Config = require('__enemyracemanager__/lib/global_config')
-local ERMDataHelper = require('__enemyracemanager__/lib/rig/data_helper')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local name = 'science_vessel'
+local ERM_Config = require("__enemyracemanager__/lib/global_config")
+local ERMDataHelper = require("__enemyracemanager__/lib/rig/data_helper")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local name = "science_vessel"
 
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1,4)
 
@@ -38,20 +38,20 @@ local unit_scale = 1.5
 local collision_box = { { -1, -1 }, { 1, 1 } }
 local selection_box = { { -1, -1 }, { 1, 1 } }
 
-local runAnimation = AnimationDB.get_layered_animations('units', 'science_vessel_body', 'run')
-local runTurretAnimation = AnimationDB.get_layered_animations('units', 'science_vessel_turret', 'run')
+local runAnimation = AnimationDB.get_layered_animations("units", "science_vessel_body", "run")
+local runTurretAnimation = AnimationDB.get_layered_animations("units", "science_vessel_turret", "run")
 
-for _, ani_data in pairs(runTurretAnimation['layers']) do
-    table.insert(runAnimation['layers'],ani_data)
+for _, ani_data in pairs(runTurretAnimation["layers"]) do
+    table.insert(runAnimation["layers"],ani_data)
 end
 
 runAnimation = AnimationDB.apply_runtime_tint(runAnimation, true)
 
-local attackAnimation = AnimationDB.get_layered_animations('units', 'science_vessel_body', 'attack')
-local attackTurretAnimation = AnimationDB.get_layered_animations('units', 'science_vessel_turret', 'attack')
+local attackAnimation = AnimationDB.get_layered_animations("units", "science_vessel_body", "attack")
+local attackTurretAnimation = AnimationDB.get_layered_animations("units", "science_vessel_turret", "attack")
 
-for _, ani_data in pairs(attackTurretAnimation['layers']) do
-    table.insert(attackAnimation['layers'],ani_data)
+for _, ani_data in pairs(attackTurretAnimation["layers"]) do
+    table.insert(attackAnimation["layers"],ani_data)
 end
 
 attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
@@ -61,7 +61,7 @@ attackAnimation = AnimationDB.apply_runtime_tint(attackAnimation, true)
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. '/' .. name,
+        name = MOD_NAME .. "--" .. name,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -100,7 +100,7 @@ data:extend({
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
-            ammo_category = 'shotgun-shell',
+            ammo_category = "shotgun-shell",
             range = attack_range,
             min_attack_distance = attack_range - 4,
             cooldown = 300,
@@ -126,7 +126,7 @@ data:extend({
                                 {
                                     type = "create-fire",
                                     show_in_tooltip = true,
-                                    entity_name = MOD_NAME..'/science-vessel-irradiate-cloud',
+                                    entity_name = MOD_NAME.."/science-vessel-irradiate-cloud",
                                 },
                             }
                         }
@@ -140,13 +140,13 @@ data:extend({
         run_animation = runAnimation,
         dying_explosion = "erm-fire-explosion-air_large-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = MOD_NAME..'/'..name .. '-corpse',
+        corpse = MOD_NAME.."--"..name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = MOD_NAME..'/'..name .. '-corpse',
+        name = MOD_NAME.."--"..name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -160,9 +160,9 @@ data:extend({
     },
     {
         type = "fire",
-        name = MOD_NAME..'/science-vessel-irradiate-cloud',
+        name = MOD_NAME.."/science-vessel-irradiate-cloud",
         flags = {"placeable-off-grid", "not-on-map"},
-        damage_per_tick  = { amount = 0 / 60, type= 'acid' },
+        damage_per_tick  = { amount = 0 / 60, type= "acid" },
         on_damage_tick_effect  =                         {
             type = "area",
             radius = 3.0,
@@ -186,9 +186,9 @@ data:extend({
             }
         },
 
-        pictures = AnimationDB.get_single_animation('projectiles', 'science_vessel_irradiate', 'explosion', 'glow'),
+        pictures = AnimationDB.get_single_animation("projectiles", "science_vessel_irradiate", "explosion", "glow"),
 
-        spawn_entity = MOD_NAME..'/science-vessel-irradiate-cloud',
+        spawn_entity = MOD_NAME.."/science-vessel-irradiate-cloud",
 
         maximum_damage_multiplier = 3,
         damage_multiplier_increase_per_added_fuel = 1,
@@ -209,7 +209,7 @@ data:extend({
 
     }
     --{
-    --    name = MOD_NAME..'/science-vessel-irradiate-cloud',
+    --    name = MOD_NAME.."/science-vessel-irradiate-cloud",
     --    type = "smoke-with-trigger",
     --    flags = { "not-on-map" },
     --    show_when_smoke_off = true,
@@ -228,7 +228,7 @@ data:extend({
     --    cyclic = true,
     --    --spread_duration = 20,
     --
-    --    animation = AnimationDB.get_single_animation('projectiles', 'science_vessel_irradiate', 'explosion', 'glow'),
+    --    animation = AnimationDB.get_single_animation("projectiles", "science_vessel_irradiate", "explosion", "glow"),
     --    action = {
     --        type = "direct",
     --        action_delivery = {
@@ -237,7 +237,7 @@ data:extend({
     --                type = "nested-result",
     --                action = {
     --                    type = "area",
-    --                    force = 'not-same',
+    --                    force = "not-same",
     --                    radius = 3,
     --                    ignore_collision_condition = true,
     --                    action_delivery = {

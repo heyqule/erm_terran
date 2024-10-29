@@ -7,11 +7,11 @@ require ("util")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
-local Sprites = require('__stdlib__/stdlib/data/modules/sprites')
-local TerranSound = require('__erm_terran_hd_assets__/sound')
-local AnimationDB = require('__erm_terran_hd_assets__/animation_db')
-local ERMPlayerUnitHelper = require('__enemyracemanager__/lib/rig/player_unit_helper')
-local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
+local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+local TerranSound = require("__erm_terran_hd_assets__/sound")
+local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
+local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
+local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
 local collision_box = { { -2, -1.5 }, { 2, 1.5 } }
 local selection_box = { { -2, -1.5 }, { 2, 1.5 } }
@@ -20,43 +20,43 @@ local min_range = 16
 local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1.35, min_range))
 local prepare_range = attack_range + 4
 
-local east_animation_folding = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_east', 'folding')
+local east_animation_folding = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_east", "folding")
 east_animation_folding = AnimationDB.apply_runtime_tint(east_animation_folding, true)
 east_animation_folding = AnimationDB.shift(east_animation_folding, {-0.25, -1.4})
 
-local east_animation_folded = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_east', 'folded')
+local east_animation_folded = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_east", "folded")
 east_animation_folded = AnimationDB.apply_runtime_tint(east_animation_folded, true)
 east_animation_folded = AnimationDB.shift(east_animation_folded, {-0.25, -1.4})
 
-local east_animation_preparing = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_east', 'preparing')
+local east_animation_preparing = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_east", "preparing")
 east_animation_preparing = AnimationDB.apply_runtime_tint(east_animation_preparing, true)
 east_animation_preparing = AnimationDB.shift(east_animation_preparing, {-0.25, -1.4})
 
-local east_animation_prepared = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_east', 'prepared')
+local east_animation_prepared = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_east", "prepared")
 east_animation_prepared = AnimationDB.apply_runtime_tint(east_animation_prepared, true)
 east_animation_prepared = AnimationDB.shift(east_animation_prepared, {-0.25, -1.4})
 
-local east_animation_attack = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_east', 'attack')
+local east_animation_attack = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_east", "attack")
 east_animation_attack = AnimationDB.apply_runtime_tint(east_animation_attack, true)
 east_animation_attack = AnimationDB.shift(east_animation_attack, {-0.25, -1.4})
 
-local west_animation_folding = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_west', 'folding')
+local west_animation_folding = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_west", "folding")
 west_animation_folding = AnimationDB.apply_runtime_tint(west_animation_folding, true)
 west_animation_folding = AnimationDB.shift(west_animation_folding, {0.25, -1.4})
 
-local west_animation_folded = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_west', 'folded')
+local west_animation_folded = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_west", "folded")
 west_animation_folded = AnimationDB.apply_runtime_tint(west_animation_folded, true)
 west_animation_folded = AnimationDB.shift(west_animation_folded, {0.25, -1.4})
 
-local west_animation_preparing = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_west', 'preparing')
+local west_animation_preparing = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_west", "preparing")
 west_animation_preparing = AnimationDB.apply_runtime_tint(west_animation_preparing, true)
 west_animation_preparing = AnimationDB.shift(west_animation_preparing, {0.25, -1.4})
 
-local west_animation_prepared = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_west', 'prepared')
+local west_animation_prepared = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_west", "prepared")
 west_animation_prepared = AnimationDB.apply_runtime_tint(west_animation_prepared, true)
 west_animation_prepared = AnimationDB.shift(west_animation_prepared, {0.25, -1.4})
 
-local west_animation_attack = AnimationDB.get_layered_animations('buildings', 'siege_tank_siege_mode_west', 'attack')
+local west_animation_attack = AnimationDB.get_layered_animations("buildings", "siege_tank_siege_mode_west", "attack")
 west_animation_attack = AnimationDB.apply_runtime_tint(west_animation_attack, true)
 west_animation_attack = AnimationDB.shift(west_animation_attack, {0.25, -1.4})
 
@@ -84,7 +84,7 @@ data:extend({
         flags = {"placeable-player", "player-creation"},
         max_health = 2400,
         dying_explosion = MOD_NAME.."/building-large-explosion",
-        minable = {mining_time = 2, result = MOD_NAME .. '/siege-tank-turret'},
+        minable = {mining_time = 2, result = MOD_NAME .. "/siege-tank-turret"},
         repair_speed_modifier = 0.33,
         collision_box = collision_box,
         selection_box = selection_box,

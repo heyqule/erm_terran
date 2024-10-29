@@ -5,54 +5,54 @@
 -- Time: 5:04 PM
 -- To change this template use File | Settings | File Templates.
 --
-require('global')
-local Event = require('__stdlib__/stdlib/event/event')
-local String = require('__stdlib__/stdlib/utils/string')
+require("global")
+local Event = require("__stdlib__/stdlib/event/event")
+local String = require("__stdlib__/stdlib/utils/string")
 local gui = require("__enemyracemanager__/gui/army_control_window")
-local CustomAttacks = require('__erm_terran__/scripts/custom_attacks')
-local ErmRaceSettingsHelper = require('__enemyracemanager__/lib/helper/race_settings_helper')
+local CustomAttacks = require("__erm_terran__/scripts/custom_attacks")
+local ErmRaceSettingsHelper = require("__enemyracemanager__/lib/helper/race_settings_helper")
 
 local populations = {
-    ['battlecruiser'] = 5,
-    ['marine'] = 1,
-    ['firebat'] = 1,
-    ['ghost'] = 1,
-    ['siege_tank'] = 3,
-    ['wraith'] = 2,
-    ['goliath'] = 2,
-    ['valkyrie'] = 2,
-    ['science_vessel'] = 2,
-    ['vulture'] = 2,
+    ["battlecruiser"] = 5,
+    ["marine"] = 1,
+    ["firebat"] = 1,
+    ["ghost"] = 1,
+    ["siege_tank"] = 3,
+    ["wraith"] = 2,
+    ["goliath"] = 2,
+    ["valkyrie"] = 2,
+    ["science_vessel"] = 2,
+    ["vulture"] = 2,
 }
 
 local refresh_data = function()
     -- Register Army Units
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "unit"}})) do
-        local nameToken = String.split(prototype.name, '/')
+        local nameToken = String.split(prototype.name, "--")
         if nameToken[1] == MOD_NAME and populations[nameToken[2]] then
-            remote.call('enemyracemanager','army_units_register', prototype.name, populations[nameToken[2]]);
+            remote.call("enemyracemanager","army_units_register", prototype.name, populations[nameToken[2]]);
         end
     end
 
     -- Register Command Center
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "radar"}})) do
-        local nameToken = String.split(prototype.name, '/')
+        local nameToken = String.split(prototype.name, "--")
         if nameToken[1] == MOD_NAME then
-            remote.call('enemyracemanager','army_command_center_register', prototype.name);
+            remote.call("enemyracemanager","army_command_center_register", prototype.name);
         end
     end
 
     -- Register Auto Deployers
     for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "assembling-machine"}})) do
-        local nameToken = String.split(prototype.name, '/')
+        local nameToken = String.split(prototype.name, "--")
         if nameToken[1] == MOD_NAME then
-            remote.call('enemyracemanager','army_deployer_register', prototype.name);
+            remote.call("enemyracemanager","army_deployer_register", prototype.name);
         end
     end
 end
 
 local addRaceSettings = function()
-    local race_settings = remote.call('enemyracemanager', 'get_race', MOD_NAME)
+    local race_settings = remote.call("enemyracemanager", "get_race", MOD_NAME)
     if race_settings == nil then
         race_settings = {}
     end
@@ -66,7 +66,7 @@ local addRaceSettings = function()
 
     ErmRaceSettingsHelper.process_unit_spawn_rate_cache(race_settings)
 
-    remote.call('enemyracemanager', 'register_race', race_settings)
+    remote.call("enemyracemanager", "register_race", race_settings)
 
     -- reload local cache
     CustomAttacks.get_race_settings(MOD_NAME, true)
@@ -90,7 +90,7 @@ Event.on_init(function(event)
     addRaceSettings()
 
     global.new_color_change = false
-    --- Used for ghost's nuke launch tracking, data structure
+    --- Used for ghost"s nuke launch tracking, data structure
     --- global.nuke_tracker[unit.unit_number] = {
     ---     entity = entity
     ---     launched_tick = event.tick
@@ -114,7 +114,7 @@ end)
 --- Cap max color to belong 66% to avoid opaque color mask.
 ---
 Event.register(defines.events.on_console_command, function(event)
-    if event.command == 'color' and game.players[event.player_index].admin then
+    if event.command == "color" and game.players[event.player_index].admin then
         adjust_color(event.player_index)
     end
 end)
@@ -167,5 +167,5 @@ Event.register(defines.events.on_player_created, function(event)
     gui.update_overhead_button(event.player_index)
 end)
 
-local RemoteApi = require('scripts/remote')
+local RemoteApi = require("scripts/remote")
 remote.add_interface("erm_terran", RemoteApi)
