@@ -105,10 +105,6 @@ Event.on_configuration_changed(function(event)
     addRaceSettings()
     global.nuke_tracker = global.nuke_tracker or {}
     global.nuke_tracker_total = global.nuke_tracker_total or 0
-
-    for _, player in pairs(game.connected_players) do
-        gui.update_overhead_button(player.index)
-    end
 end)
 ---
 --- Cap max color to belong 66% to avoid opaque color mask.
@@ -161,10 +157,6 @@ end)
 
 Event.on_nth_tick(93, function(event)
     CustomAttacks.spawn_nuke(event)
-end)
-
-Event.register(defines.events.on_player_created, function(event)
-    gui.update_overhead_button(event.player_index)
 end)
 
 local RemoteApi = require("scripts/remote")
