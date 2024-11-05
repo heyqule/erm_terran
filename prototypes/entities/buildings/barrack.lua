@@ -67,8 +67,10 @@ data:extend({
         energy_usage = "1MW",
         crafting_categories = {"erm_controllable_infantry"},
         crafting_speed = 1,
-        animation = working,
-        idle_animation = idle,
+        graphics_set = {
+            animation = working,
+            idle_animation = idle,
+        },
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
         vehicle_impact_sound = sounds.generic_impact,

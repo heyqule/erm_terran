@@ -18,7 +18,7 @@ CustomAttacks.add_nuke_to_queue = function(event)
             target_position = event.target_entity.position
         end
 
-        local targeter_id = rendering.draw_animation({
+        local targeter_render_obj = rendering.draw_animation({
             animation = MOD_NAME .. "--nuclear_targeter",
             target = target_position,
             time_to_live = NUKE_WAIT_TIME + 75,
@@ -29,7 +29,7 @@ CustomAttacks.add_nuke_to_queue = function(event)
             entity = event.source_entity,
             target_position = target_position,
             launch_tick = event.tick + NUKE_WAIT_TIME,
-            targeter_id = targeter_id
+            targeter_render_obj = targeter_render_obj
         }
         storage.nuke_tracker_total = storage.nuke_tracker_total + 1
     end
@@ -38,7 +38,7 @@ end
 CustomAttacks.cancel_nuke_from_queue = function(event)
     if event.source_entity.valid and storage.nuke_tracker[event.source_entity.unit_number] then
         local nuke_data = storage.nuke_tracker[event.source_entity.unit_number]
-        rendering.destroy(nuke_data.targeter_id)
+        nuke_data.targeter_render_obj.destroy()
         storage.nuke_tracker[event.source_entity.unit_number] = nil
         storage.nuke_tracker_total = storage.nuke_tracker_total - 1
     end
@@ -54,7 +54,7 @@ CustomAttacks.spawn_nuke = function(event)
             local surface = nuke_data.entity.surface
             local spawn_position = nuke_data.entity.position
             spawn_position.y = spawn_position.y - 32;
-            rendering.destroy(nuke_data.targeter_id)
+            nuke_data.targeter_render_obj.destroy()
             storage.nuke_tracker[index] = nil
             storage.nuke_tracker_total = storage.nuke_tracker_total - 1
 
@@ -73,7 +73,7 @@ CustomAttacks.spawn_nuke = function(event)
             }
 
         elseif nuke_data.entity.valid == false and event.tick > nuke_data.launch_tick then
-            rendering.destroy(nuke_data.targeter_id)
+            nuke_data.targeter_render_obj.destroy()
             storage.nuke_tracker[index] = nil
             storage.nuke_tracker_total = storage.nuke_tracker_total - 1
         end
