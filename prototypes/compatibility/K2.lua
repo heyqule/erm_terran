@@ -3,7 +3,7 @@
 --- Created by heyqule.
 --- DateTime: 9/21/2023 9:08 PM
 ---
-local version = require("__stdlib__/stdlib/vendor/version")
+local version = require("__erm_libs__/stdlib/version")
 require("__erm_terran__/global")
 
 if mods["Krastorio2"] and version(mods["Krastorio2"]) >= version("1.2.0") and settings.startup["kr-more-realistic-weapon"].value then

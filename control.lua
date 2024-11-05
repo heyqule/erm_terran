@@ -6,11 +6,10 @@
 -- To change this template use File | Settings | File Templates.
 --
 require("global")
-local Event = require("__stdlib__/stdlib/event/event")
-local String = require("__stdlib__/stdlib/utils/string")
+local String = require("__erm_libs__/stdlib/string")
 local gui = require("__enemyracemanager__/gui/army_control_window")
 local CustomAttacks = require("__erm_terran__/scripts/custom_attacks")
-local ErmRaceSettingsHelper = require("__enemyracemanager__/lib/helper/race_settings_helper")
+local RaceSettingsHelper = require("__enemyracemanager__/lib/helper/race_settings_helper")
 
 local populations = {
     ["battlecruiser"] = 5,
@@ -27,7 +26,7 @@ local populations = {
 
 local refresh_data = function()
     -- Register Army Units
-    for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "unit"}})) do
+    for _, prototype in pairs(prototypes.get_entity_filtered({{filter = "type", type = "unit"}})) do
         local nameToken = String.split(prototype.name, "--")
         if nameToken[1] == MOD_NAME and populations[nameToken[2]] then
             remote.call("enemyracemanager","army_units_register", prototype.name, populations[nameToken[2]]);
@@ -35,7 +34,7 @@ local refresh_data = function()
     end
 
     -- Register Command Center
-    for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "radar"}})) do
+    for _, prototype in pairs(prototypes.get_entity_filtered({{filter = "type", type = "radar"}})) do
         local nameToken = String.split(prototype.name, "--")
         if nameToken[1] == MOD_NAME then
             remote.call("enemyracemanager","army_command_center_register", prototype.name);
@@ -43,7 +42,7 @@ local refresh_data = function()
     end
 
     -- Register Auto Deployers
-    for _, prototype in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = "assembling-machine"}})) do
+    for _, prototype in pairs(prototypes.get_entity_filtered({{filter = "type", type = "assembling-machine"}})) do
         local nameToken = String.split(prototype.name, "--")
         if nameToken[1] == MOD_NAME then
             remote.call("enemyracemanager","army_deployer_register", prototype.name);
@@ -64,7 +63,7 @@ local addRaceSettings = function()
     }
 
 
-    ErmRaceSettingsHelper.process_unit_spawn_rate_cache(race_settings)
+    RaceSettingsHelper.process_unit_spawn_rate_cache(race_settings)
 
     remote.call("enemyracemanager", "register_race", race_settings)
 
@@ -85,40 +84,40 @@ local adjust_color = function(player_index)
     force.custom_color = color
 end
 
-Event.on_init(function(event)
+script.on_init(function(event)
     refresh_data()
     addRaceSettings()
 
-    global.new_color_change = false
+    storage.new_color_change = false
     --- Used for ghost"s nuke launch tracking, data structure
-    --- global.nuke_tracker[unit.unit_number] = {
+    --- storage.nuke_tracker[unit.unit_number] = {
     ---     entity = entity
     ---     launched_tick = event.tick
     ---     drawing = target_drawing
     --- }
-    global.nuke_tracker = global.nuke_tracker or {}
-    global.nuke_tracker_total = global.nuke_tracker_total or 0
+    storage.nuke_tracker = storage.nuke_tracker or {}
+    storage.nuke_tracker_total = storage.nuke_tracker_total or 0
 end)
 
-Event.on_configuration_changed(function(event)
+script.on_configuration_changed(function(event)
     refresh_data()
     addRaceSettings()
-    global.nuke_tracker = global.nuke_tracker or {}
-    global.nuke_tracker_total = global.nuke_tracker_total or 0
+    storage.nuke_tracker = storage.nuke_tracker or {}
+    storage.nuke_tracker_total = storage.nuke_tracker_total or 0
 end)
 ---
 --- Cap max color to belong 66% to avoid opaque color mask.
 ---
-Event.register(defines.events.on_console_command, function(event)
+script.on_event(defines.events.on_console_command, function(event)
     if event.command == "color" and game.players[event.player_index].admin then
         adjust_color(event.player_index)
     end
 end)
 
-Event.register(defines.events.on_player_created, function(event)
-    if global.new_color_change ~= false and game.players[event.player_index].admin then
+script.on_event(defines.events.on_player_created, function(event)
+    if storage.new_color_change ~= false and game.players[event.player_index].admin then
         adjust_color(event.player_index)
-        global.new_color_change = true
+        storage.new_color_change = true
     end
 end)
 
@@ -143,7 +142,7 @@ local attack_functions = {
     end
 }
 
-Event.register(defines.events.on_script_trigger_effect, function(event)
+script.on_event(defines.events.on_script_trigger_effect, function(event)
     if  attack_functions[event.effect_id] and
             CustomAttacks.valid(event, MOD_NAME)
     then
@@ -151,11 +150,11 @@ Event.register(defines.events.on_script_trigger_effect, function(event)
     end
 end)
 
-Event.on_nth_tick(903, function(event)
+script.on_nth_tick(903, function(event)
     CustomAttacks.clear_time_to_live_units(event)
 end)
 
-Event.on_nth_tick(93, function(event)
+script.on_nth_tick(93, function(event)
     CustomAttacks.spawn_nuke(event)
 end)
 

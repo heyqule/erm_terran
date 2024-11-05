@@ -7,7 +7,7 @@
 local CustomAttackHelper = require("__enemyracemanager__/lib/helper/custom_attack_helper")
 local ERMConfig = require("__enemyracemanager__/lib/global_config")
 require("__erm_terran__/global")
-local String = require("__stdlib__/stdlib/utils/string")
+local String = require("__erm_libs__/stdlib/string")
 
 local CustomAttacks = CustomAttackHelper
 
@@ -25,38 +25,38 @@ CustomAttacks.add_nuke_to_queue = function(event)
             surface = event.source_entity.surface.index,
             render_layer = "radius-visualization"
         })
-        global.nuke_tracker[event.source_entity.unit_number] = {
+        storage.nuke_tracker[event.source_entity.unit_number] = {
             entity = event.source_entity,
             target_position = target_position,
             launch_tick = event.tick + NUKE_WAIT_TIME,
             targeter_id = targeter_id
         }
-        global.nuke_tracker_total = global.nuke_tracker_total + 1
+        storage.nuke_tracker_total = storage.nuke_tracker_total + 1
     end
 end
 
 CustomAttacks.cancel_nuke_from_queue = function(event)
-    if event.source_entity.valid and global.nuke_tracker[event.source_entity.unit_number] then
-        local nuke_data = global.nuke_tracker[event.source_entity.unit_number]
+    if event.source_entity.valid and storage.nuke_tracker[event.source_entity.unit_number] then
+        local nuke_data = storage.nuke_tracker[event.source_entity.unit_number]
         rendering.destroy(nuke_data.targeter_id)
-        global.nuke_tracker[event.source_entity.unit_number] = nil
-        global.nuke_tracker_total = global.nuke_tracker_total - 1
+        storage.nuke_tracker[event.source_entity.unit_number] = nil
+        storage.nuke_tracker_total = storage.nuke_tracker_total - 1
     end
 end
 
 CustomAttacks.spawn_nuke = function(event)
-    if global.nuke_tracker_total == 0 then
+    if storage.nuke_tracker_total == 0 then
         return
     end
 
-    for index, nuke_data in pairs(global.nuke_tracker) do
+    for index, nuke_data in pairs(storage.nuke_tracker) do
         if nuke_data.entity.valid and event.tick >= nuke_data.launch_tick then
             local surface = nuke_data.entity.surface
             local spawn_position = nuke_data.entity.position
             spawn_position.y = spawn_position.y - 32;
             rendering.destroy(nuke_data.targeter_id)
-            global.nuke_tracker[index] = nil
-            global.nuke_tracker_total = global.nuke_tracker_total - 1
+            storage.nuke_tracker[index] = nil
+            storage.nuke_tracker_total = storage.nuke_tracker_total - 1
 
             surface.create_entity {
                 name = MOD_NAME .. "--atomic-bomb",
@@ -74,8 +74,8 @@ CustomAttacks.spawn_nuke = function(event)
 
         elseif nuke_data.entity.valid == false and event.tick > nuke_data.launch_tick then
             rendering.destroy(nuke_data.targeter_id)
-            global.nuke_tracker[index] = nil
-            global.nuke_tracker_total = global.nuke_tracker_total - 1
+            storage.nuke_tracker[index] = nil
+            storage.nuke_tracker_total = storage.nuke_tracker_total - 1
         end
     end
 end
