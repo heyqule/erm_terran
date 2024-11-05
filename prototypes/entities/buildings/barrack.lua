@@ -23,7 +23,7 @@ working = AnimationDB.alter_team_color(working, nil, true)
 data:extend({
     {
         type = "assembling-machine",
-        name = MOD_NAME .. "/barrack",
+        name = MOD_NAME .. "--barrack",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
@@ -37,10 +37,10 @@ data:extend({
             },
         },
         flags = {"placeable-neutral","placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. "/barrack"},
+        minable = {mining_time = 1, result = MOD_NAME .. "--barrack"},
         max_health = 2000,
-        corpse = MOD_NAME.."/large-base-corpse",
-        dying_explosion = MOD_NAME.."/building-large-explosion",
+        corpse = MOD_NAME.."--large-base-corpse",
+        dying_explosion = MOD_NAME.."--building-large-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =
@@ -62,7 +62,7 @@ data:extend({
         {
             type = "electric",
             usage_priority = "secondary-input",
-            emissions_per_minute = 2
+            emissions_per_minute = { pollution = 2 }
         },
         energy_usage = "1MW",
         crafting_categories = {"erm_controllable_infantry"},

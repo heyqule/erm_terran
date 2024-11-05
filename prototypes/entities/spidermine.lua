@@ -4,9 +4,9 @@
 --- DateTime: 8/13/2023 3:27 PM
 ---
 
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 
 require("__erm_terran__/global")
 
@@ -21,7 +21,7 @@ local name = "spidermine"
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(ERMPlayerUnitHelper.get_attack_range(1))
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -48,7 +48,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 300 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "enemies",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -61,9 +61,9 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = nil,
-        pollution_to_join_attack = pollution_to_join_attack,
+
         distraction_cooldown = distraction_cooldown,
-        min_pursue_time = 60 * defines.time.second,
+        min_pursue_time = 60 * second,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
         attack_parameters = {
@@ -91,7 +91,7 @@ data:extend({
                             },
                             {
                                 type = "create-entity",
-                                entity_name =  MOD_NAME.."/spidermine-explosion"
+                                entity_name =  MOD_NAME.."--spidermine-explosion"
                             }
                         },
                         target_effects = {
@@ -145,7 +145,7 @@ data:extend({
                 effect_id = TIME_TO_LIVE_DIED,
             }
         },
-        dying_explosion = MOD_NAME.."/spidermine-explosion",
+        dying_explosion = MOD_NAME.."--spidermine-explosion",
         dying_sound = TerranSound.spidermine_attack(0.5),
         corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
@@ -160,9 +160,9 @@ data:extend({
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     }
 })

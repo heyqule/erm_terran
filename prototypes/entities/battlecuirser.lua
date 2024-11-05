@@ -3,8 +3,8 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require("__stdlib__/stdlib/utils/defines/time")
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+
+require("util")
 
 require("__erm_terran__/global")
 
@@ -23,7 +23,7 @@ local laser_attack_range = ERMPlayerUnitHelper.get_attack_range(1.2, 4)
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -73,8 +73,8 @@ end
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name .. "/yamato",
-        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/yamato" },
+        name = MOD_NAME .. "--" .. name .. "--yamato",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "--yamato" },
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
@@ -90,7 +90,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 500 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -112,7 +112,6 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.275 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.25,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         radar_range = 3,
@@ -126,6 +125,7 @@ data:extend({
             cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
+            ammo_category = "laser",
             ammo_type = {
                 category = "laser",
                 target_type = "entity",
@@ -133,7 +133,7 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = MOD_NAME.."/battlecruiser-yamato-projectile",
+                        projectile = MOD_NAME.."--battlecruiser-yamato-projectile",
                         starting_speed = 0.35,
                         max_range = attack_range * 1.5
                     }
@@ -155,8 +155,8 @@ data:extend({
     },
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name .. "/laser",
-        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/laser" },
+        name = MOD_NAME .. "--" .. name .. "--laser",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "--laser" },
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
@@ -172,7 +172,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation","not-flammable" },
         has_belt_immunity = true,
         max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
@@ -193,7 +193,6 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.325 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.25,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         radar_range = 2,
@@ -208,6 +207,7 @@ data:extend({
             cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             warmup = 6,
+            ammo_category = "laser",
             ammo_type = {
                 category = "laser",
                 target_type = "entity",
@@ -215,7 +215,7 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = MOD_NAME.."/battlecruiser-laser-projectile",
+                        projectile = MOD_NAME.."--battlecruiser-laser-projectile",
                         starting_speed = 1,
                         max_range = attack_range * 1.5
                     }
@@ -243,9 +243,9 @@ data:extend({
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     }
 })

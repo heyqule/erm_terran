@@ -10,9 +10,9 @@
 --- DateTime: 8/13/2023 3:27 PM
 ---
 
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 
 require("__erm_terran__/global")
 
@@ -29,7 +29,7 @@ local attack_range = ERMPlayerUnitHelper.get_attack_range(1,4)
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -71,7 +71,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 200 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -93,7 +93,6 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.33,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         radar_range = 2,
@@ -126,7 +125,7 @@ data:extend({
                                 {
                                     type = "create-fire",
                                     show_in_tooltip = true,
-                                    entity_name = MOD_NAME.."/science-vessel-irradiate-cloud",
+                                    entity_name = MOD_NAME.."--science-vessel-irradiate-cloud",
                                 },
                             }
                         }
@@ -153,14 +152,14 @@ data:extend({
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     },
     {
         type = "fire",
-        name = MOD_NAME.."/science-vessel-irradiate-cloud",
+        name = MOD_NAME.."--science-vessel-irradiate-cloud",
         flags = {"placeable-off-grid", "not-on-map"},
         damage_per_tick  = { amount = 0 / 60, type= "acid" },
         on_damage_tick_effect  =                         {
@@ -188,7 +187,7 @@ data:extend({
 
         pictures = AnimationDB.get_single_animation("projectiles", "science_vessel_irradiate", "explosion", "glow"),
 
-        spawn_entity = MOD_NAME.."/science-vessel-irradiate-cloud",
+        spawn_entity = MOD_NAME.."--science-vessel-irradiate-cloud",
 
         maximum_damage_multiplier = 3,
         damage_multiplier_increase_per_added_fuel = 1,
@@ -198,7 +197,7 @@ data:extend({
         spread_delay_deviation = 15,
         maximum_spread_count = 5,
 
-        emissions_per_second = 0.01,
+        emissions_per_second = { pollution = 0.01 },
 
         initial_lifetime = 180,
         lifetime_increase_by = 180,
@@ -209,7 +208,7 @@ data:extend({
 
     }
     --{
-    --    name = MOD_NAME.."/science-vessel-irradiate-cloud",
+    --    name = MOD_NAME.."--science-vessel-irradiate-cloud",
     --    type = "smoke-with-trigger",
     --    flags = { "not-on-map" },
     --    show_when_smoke_off = true,

@@ -19,7 +19,7 @@ CustomAttacks.add_nuke_to_queue = function(event)
         end
 
         local targeter_id = rendering.draw_animation({
-            animation = MOD_NAME .. "/nuclear_targeter",
+            animation = MOD_NAME .. "--nuclear_targeter",
             target = target_position,
             time_to_live = NUKE_WAIT_TIME + 75,
             surface = event.source_entity.surface.index,
@@ -59,7 +59,7 @@ CustomAttacks.spawn_nuke = function(event)
             global.nuke_tracker_total = global.nuke_tracker_total - 1
 
             surface.create_entity {
-                name = MOD_NAME .. "/atomic-bomb",
+                name = MOD_NAME .. "--atomic-bomb",
                 --target = nuke_data.target_position,
                 target = {
                     x = nuke_data.target_position.x + math.random(-4,4),
@@ -91,7 +91,7 @@ local spawn_marines = function(event, make_string)
         count = count + 1
     end
 
-    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine/"..make_string, count)
+    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine--"..make_string, count)
 end
 
 CustomAttacks.spawn_marine = function(event)

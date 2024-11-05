@@ -8,10 +8,10 @@ require("__erm_terran__/global")
 
 if mods["Krastorio2"] and version(mods["Krastorio2"]) >= version("1.2.0") and settings.startup["kr-more-realistic-weapon"].value then
 
-    local marine_mk1 = data.raw["recipe"][MOD_NAME .. "/marine/mk1"]
-    local marine_mk2 = data.raw["recipe"][MOD_NAME .. "/marine/mk2"]
-    local marine_mk3 = data.raw["recipe"][MOD_NAME .. "/marine/mk3"]
-    local goliath = data.raw["recipe"][MOD_NAME .. "/goliath"]
+    local marine_mk1 = data.raw["recipe"][MOD_NAME .. "--marine--mk1"]
+    local marine_mk2 = data.raw["recipe"][MOD_NAME .. "--marine--mk2"]
+    local marine_mk3 = data.raw["recipe"][MOD_NAME .. "--marine--mk3"]
+    local goliath = data.raw["recipe"][MOD_NAME .. "--goliath"]
 
 
     if settings.startup["erm_terran-cheap-mode"].value then

@@ -24,7 +24,7 @@ working = AnimationDB.alter_team_color(working, nil, true)
 data:extend({
     {
         type = "assembling-machine",
-        name = MOD_NAME .. "/factory",
+        name = MOD_NAME .. "--factory",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
@@ -32,10 +32,10 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. "/factory"},
+        minable = {mining_time = 1, result = MOD_NAME .. "--factory"},
         max_health = 3000,
-        corpse = MOD_NAME.."/large-base-corpse",
-        dying_explosion = MOD_NAME.."/building-large-explosion",
+        corpse = MOD_NAME.."--large-base-corpse",
+        dying_explosion = MOD_NAME.."--building-large-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =
@@ -57,7 +57,7 @@ data:extend({
         {
             type = "electric",
             usage_priority = "secondary-input",
-            emissions_per_minute = 5
+            emissions_per_minute = { pollution = 5 }
         },
         energy_usage = "2MW",
         crafting_categories = {"erm_controllable_factory"},

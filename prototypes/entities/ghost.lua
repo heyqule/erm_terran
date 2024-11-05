@@ -9,10 +9,10 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
 local math3d = require "math3d"
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 
 require("__erm_terran__/global")
 
@@ -31,7 +31,7 @@ local name = "ghost"
 -- Misc Settings
 local attack_range = ERMPlayerUnitHelper.get_attack_range(1.1, 9)
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -55,9 +55,9 @@ local corpseAnimation = AnimationDB.get_layered_animations("death", "ghost_death
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name .. "/regular",
-        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "/regular", },
-        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name  .. "/regular"},
+        name = MOD_NAME .. "--" .. name .. "--regular",
+        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name .. "--regular", },
+        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name  .. "--regular"},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -67,7 +67,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
         max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = DataHelper.getResistance(75),
@@ -78,7 +78,6 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.66,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
         --ai_settings = biter_ai_settings,
@@ -115,7 +114,7 @@ data:extend({
                                 },
                                 {
                                     type = "create-entity",
-                                    entity_name = MOD_NAME.."/small_tri_explosion",
+                                    entity_name = MOD_NAME.."--small_tri_explosion",
                                     offsets = {{0, 1}},
                                     offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
                                 },
@@ -127,7 +126,7 @@ data:extend({
                         probability = 0.2,
                         action_delivery = {
                             type = "projectile",
-                            projectile = MOD_NAME.."/ghost_lockdown_projectile",
+                            projectile = MOD_NAME.."--ghost_lockdown_projectile",
                             starting_speed = 1,
                             max_range = attack_range * 1.5
                         }
@@ -151,7 +150,7 @@ data:extend({
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.minute * settings.startup["enemyracemanager-enemy-corpse-time"].value,
+        time_before_removed = minute * settings.startup["enemyracemanager-enemy-corpse-time"].value,
         subgroup = "corpses",
         order = "x" .. name,
         animation = corpseAnimation,
@@ -159,7 +158,7 @@ data:extend({
 })
 
 -- Ghost Mass Destruction --
-local ghost_nuke = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "/regular"])
+local ghost_nuke = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "--regular"])
 
 local ghost_mk2_run_animation = AnimationDB.get_layered_animations("units", "ghost_mkii", "run")
 ghost_mk2_run_animation = AnimationDB.apply_runtime_tint(ghost_mk2_run_animation, true)
@@ -167,9 +166,9 @@ local ghost_mk2_attack_animation = AnimationDB.get_layered_animations("units", "
 ghost_mk2_attack_animation = AnimationDB.apply_runtime_tint(ghost_mk2_attack_animation, true)
 
 
-ghost_nuke.name = MOD_NAME .. "--" .. name .. "/nuke"
-ghost_nuke.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name.."/nuke"}
-ghost_nuke.localised_description = { "entity-description." .. MOD_NAME .. "--" .. name.."/nuke"}
+ghost_nuke.name = MOD_NAME .. "--" .. name .. "--nuke"
+ghost_nuke.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name.."--nuke"}
+ghost_nuke.localised_description = { "entity-description." .. MOD_NAME .. "--" .. name.."--nuke"}
 ghost_nuke["icons"][2] = {
     icon = "__base__/graphics/icons/atomic-bomb.png",
     icon_size = 64,

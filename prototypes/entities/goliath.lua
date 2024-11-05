@@ -3,9 +3,9 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 
 require("__erm_terran__/global")
 
@@ -21,7 +21,7 @@ local attack_range = ERMPlayerUnitHelper.get_attack_range(1, 4)
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -61,7 +61,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 250 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -82,7 +82,6 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
@@ -111,7 +110,7 @@ data:extend({
                             {
                                 {
                                     type = "create-entity",
-                                    entity_name = MOD_NAME.."/marine_attack_hit-explosion",
+                                    entity_name = MOD_NAME.."--marine_attack_hit-explosion",
                                     offsets = {{0, 1}},
                                     offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
                                 },
@@ -142,7 +141,7 @@ data:extend({
                         probability = 0.25,
                         action_delivery = {
                             type = "projectile",
-                            projectile = MOD_NAME.."/goliath_rocket_projectile",
+                            projectile = MOD_NAME.."--goliath_rocket_projectile",
                             starting_speed = 0.3,
                             max_range = attack_range * 1.5,
                             source_effects = {
@@ -159,7 +158,7 @@ data:extend({
         },
         distance_per_frame = 0.2,
         run_animation = goliathAnimation,
-        dying_explosion = MOD_NAME.."/large-explosion",
+        dying_explosion = MOD_NAME.."--large-explosion",
         dying_sound = TerranSound.enemy_death(name, 0.75),
         corpse = name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
@@ -174,9 +173,9 @@ data:extend({
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     }
 })

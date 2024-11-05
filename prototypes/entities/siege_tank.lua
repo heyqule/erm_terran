@@ -3,9 +3,9 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 
 require("__erm_terran__/global")
 
@@ -22,7 +22,7 @@ local attack_range = ERMPlayerUnitHelper.get_attack_range(1.3, 6)
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -72,7 +72,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 150 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -93,7 +93,6 @@ data:extend({
         vision_distance = vision_distance,
         movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         radar_range = 3,
@@ -114,7 +113,7 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = MOD_NAME.."/tank-cannon-projectile",
+                        projectile = MOD_NAME.."--tank-cannon-projectile",
                         starting_speed = 1.5,
                         max_range = attack_range * 1.5,
                         min_range = 6,
@@ -141,15 +140,15 @@ data:extend({
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     }
 })
 
-local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][MOD_NAME.."/tank-cannon-projectile"])
-tank_projectile_mk2["name"] = MOD_NAME.."/tank-cannon-projectile-mk2"
+local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][MOD_NAME.."--tank-cannon-projectile"])
+tank_projectile_mk2["name"] = MOD_NAME.."--tank-cannon-projectile-mk2"
 tank_projectile_mk2["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "physical"}
 -- Ground AOE --
 tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][2]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "explosion"}
@@ -159,7 +158,7 @@ tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][3]["act
 data:extend({tank_projectile_mk2})
 
 local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name])
-tank_mk2.name = MOD_NAME .. "--" .. name .. "/mk2"
+tank_mk2.name = MOD_NAME .. "--" .. name .. "--mk2"
 tank_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name,  "MK2" }
 tank_mk2["icons"] = {
     {
@@ -169,7 +168,7 @@ tank_mk2["icons"] = {
 }
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
 tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
-tank_mk2["attack_parameters"]["ammo_type"]["action"]["action_delivery"]["projectile"] = MOD_NAME.."/tank-cannon-projectile-mk2"
+tank_mk2["attack_parameters"]["ammo_type"]["action"]["action_delivery"]["projectile"] = MOD_NAME.."--tank-cannon-projectile-mk2"
 tank_mk2.resistances = {
     { type = "acid", percent = 80 },
     { type = "poison", percent = 100 },
