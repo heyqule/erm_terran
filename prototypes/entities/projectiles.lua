@@ -45,7 +45,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action = {
@@ -119,7 +119,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action = {
@@ -144,7 +144,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action = {
@@ -217,7 +217,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action = {
@@ -292,7 +292,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         action = {
@@ -318,7 +318,7 @@ data:extend({
         direction_only = true,
         collision_box = {{0, -2},{2, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action = {
@@ -382,7 +382,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         action =
@@ -490,7 +490,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         action =
@@ -619,7 +619,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action =
@@ -670,7 +670,7 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-        hit_collision_mask = {"player-layer", "train-layer", ERMDataHelper.getFlyingLayerName()},
+hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
         hit_at_collision_position = true,
 
         final_action = {

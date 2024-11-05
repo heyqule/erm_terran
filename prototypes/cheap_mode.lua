@@ -105,7 +105,7 @@ unit.max_health = math.ceil(unit.max_health * health_reduction)
 local recipe = data.raw["recipe"][MOD_NAME .. "--siege_tank--mk2"]
 recipe["ingredients"] = {
     {"tank", 1},
-    {"rocket-control-unit", 5},
+    {"processing-unit", 5},
     {"uranium-cannon-shell", 20},
     {"low-density-structure", 10},
     {"rocket-fuel", 10},
@@ -131,13 +131,13 @@ local tech = data.raw["technology"][MOD_NAME .. "--battlecruiser"]
 tech["prerequisites"] = {
     "military-4", "uranium-processing",
     "low-density-structure",  MOD_NAME .. "--marine--mk-3",
-    "rocket-control-unit", "laser-turret", MOD_NAME .. "--starport"
+    "processing-unit", "laser-turret", MOD_NAME .. "--starport"
 }
 
 local recipe = data.raw["recipe"][MOD_NAME .. "--battlecruiser--yamato"]
 recipe["ingredients"] = {
     {"uranium-fuel-cell", 200},
-    {"rocket-control-unit", 30},
+    {"processing-unit", 30},
     {"low-density-structure", 30},
     {"laser-turret", 20},
     {"flying-robot-frame", 30},
@@ -148,7 +148,7 @@ unit.max_health = math.ceil(unit.max_health * health_reduction)
 local recipe = data.raw["recipe"][MOD_NAME .. "--battlecruiser--laser"]
 recipe["ingredients"] =         {
     {"uranium-fuel-cell", 100},
-    {"rocket-control-unit", 15},
+    {"processing-unit", 15},
     {"low-density-structure", 15},
     {"laser-turret", 10},
     {"flying-robot-frame", 15},
@@ -159,7 +159,7 @@ unit.max_health = math.ceil(unit.max_health * health_reduction)
 local recipe = data.raw["recipe"][MOD_NAME .. "--wraith"]
 recipe["ingredients"] =         {
     {"rocket-launcher", 2},
-    {"rocket-control-unit", 5},
+    {"processing-unit", 5},
     {"rocket", 50},
     {"rocket-fuel", 10},
     {"low-density-structure", 5},
@@ -171,7 +171,7 @@ unit.max_health = math.ceil(unit.max_health * health_reduction)
 local recipe = data.raw["recipe"][MOD_NAME .. "--wraith--scout"]
 recipe["ingredients"] = {
     {"laser-turret", 5},
-    {"rocket-control-unit", 10},
+    {"processing-unit", 10},
     {"battery", 25},
     {"rocket-fuel", 20},
     {"low-density-structure", 10},
@@ -188,7 +188,7 @@ recipe["ingredients"] = {
     {"flying-robot-frame", 8},
     {"rocket-fuel", 10},
     {"slowdown-capsule", 12},
-    {"rocket-control-unit", 5},
+    {"processing-unit", 5},
 }
 local unit = data.raw["unit"][MOD_NAME .. "--valkyrie"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)
@@ -200,7 +200,7 @@ recipe["ingredients"] = {
     {"flying-robot-frame", 8},
     {"rocket-fuel", 10},
     {"poison-capsule", 12},
-    {"rocket-control-unit", 6},
+    {"processing-unit", 6},
 }
 local unit = data.raw["unit"][MOD_NAME .. "--science_vessel"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)

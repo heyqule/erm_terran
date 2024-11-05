@@ -79,6 +79,3 @@ data:extend({
         enemy_map_color = { r=1, b=0, g=0 },
     },
 })
-
-print('--- graphic debug ---')
-print(serpent.block(idle))

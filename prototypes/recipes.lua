@@ -432,7 +432,7 @@ data:extend({
         ingredients =
         {
             {type="item", name="tank", amount=1},
-            {type="item", name="rocket-control-unit", amount=10},
+            {type="item", name="processing-unit", amount=10},
             {type="item", name="uranium-cannon-shell", amount=100},
             {type="item", name="low-density-structure", amount=40},
             {type="item", name="rocket-fuel", amount=20},
@@ -599,7 +599,7 @@ data:extend({
         {
             {type="item", name="nuclear-reactor", amount=2},
             {type="item", name="nuclear-fuel", amount=40},
-            {type="item", name="rocket-control-unit", amount=50},
+            {type="item", name="processing-unit", amount=50},
             {type="item", name="low-density-structure", amount=50},
             {type="item", name="laser-turret", amount=40},
             {type="item", name="flying-robot-frame", amount=50},
@@ -623,7 +623,7 @@ data:extend({
         {
             {type="item", name="nuclear-reactor", amount=1},
             {type="item", name="nuclear-fuel", amount=10},
-            {type="item", name="rocket-control-unit", amount=30},
+            {type="item", name="processing-unit", amount=30},
             {type="item", name="low-density-structure", amount=30},
             {type="item", name="laser-turret", amount=10},
             {type="item", name="flying-robot-frame", amount=30},
@@ -646,7 +646,7 @@ data:extend({
         ingredients =
         {
             {type="item", name="rocket-launcher", amount=2},
-            {type="item", name="rocket-control-unit", amount=10},
+            {type="item", name="processing-unit", amount=10},
             {type="item", name="rocket", amount=100},
             {type="item", name="rocket-fuel", amount=20},
             {type="item", name="low-density-structure", amount=10},
@@ -670,7 +670,7 @@ data:extend({
         ingredients =
         {
             {type="item", name="laser-turret", amount=5},
-            {type="item", name="rocket-control-unit", amount=10},
+            {type="item", name="processing-unit", amount=10},
             {type="item", name="battery", amount=50},
             {type="item", name="rocket-fuel", amount=40},
             {type="item", name="low-density-structure", amount=15},
@@ -698,7 +698,7 @@ data:extend({
             {type="item", name="flying-robot-frame", amount=15},
             {type="item", name="rocket-fuel", amount=20},
             {type="item", name="slowdown-capsule", amount=25},
-            {type="item", name="rocket-control-unit", amount=10},
+            {type="item", name="processing-unit", amount=10},
         },
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
@@ -722,7 +722,7 @@ data:extend({
             {type="item", name="flying-robot-frame", amount=15},
             {type="item", name="rocket-fuel", amount=20},
             {type="item", name="poison-capsule", amount=25},
-            {type="item", name="rocket-control-unit", amount=12},
+            {type="item", name="processing-unit", amount=12},
         },
         category = "erm_controllable_starport",
         allow_as_intermediate = false,
@@ -741,7 +741,7 @@ data:extend({
         energy_required = 20,
         ingredients =
         {
-            {type="item", name=MOD_NAME .. "wraith--scout", amount=1},
+            {type="item", name=MOD_NAME .. "--wraith--scout", amount=1},
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
@@ -765,7 +765,7 @@ data:extend({
             },
         },
         results = {
-            {type="item", name=MOD_NAME .. "wraith--scout", amount=1},
+            {type="item", name=MOD_NAME .. "--wraith--scout", amount=1},
         },
         allow_quality = false,
         auto_recycle = false,
@@ -776,7 +776,7 @@ data:extend({
         energy_required = 20,
         ingredients =
         {
-            {type="item", name=MOD_NAME .. "wraith", amount=1},
+            {type="item", name=MOD_NAME .. "--wraith", amount=1},
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
@@ -936,7 +936,7 @@ data:extend({
             {type="item", name="radar", amount=50},
             {type="item", name="steel-plate", amount=200},
             {type="item", name="low-density-structure", amount=50},
-            {type="item", name="rocket-control-unit", amount=20},
+            {type="item", name="processing-unit", amount=20},
         },
         energy_required = 120,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
@@ -1004,7 +1004,7 @@ data:extend({
             {type="item", name="steel-plate", amount=200},
             {type="item", name="fast-inserter", amount=50},
             {type="item", name="low-density-structure", amount=50},
-            {type="item", name="rocket-control-unit", amount=20},
+            {type="item", name="processing-unit", amount=20},
         },
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
         icon_size = 256,
@@ -1026,7 +1026,7 @@ data:extend({
             {type="item", name="gun-turret", amount=1},
             {type="item", name="rocket-launcher", amount=6},
             {type="item", name="low-density-structure", amount=10},
-            {type="item", name="rocket-control-unit", amount=4},
+            {type="item", name="processing-unit", amount=4},
             {type="item", name="accumulator", amount=4},
         },
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
@@ -1048,7 +1048,7 @@ data:extend({
         {
             {type="item", name="tank", amount=1},
             {type="item", name="low-density-structure", amount=10},
-            {type="item", name="rocket-control-unit", amount=4},
+            {type="item", name="processing-unit", amount=4},
             {type="item", name="accumulator", amount=4},
             {type="item", name="steel-plate", amount=20}
         },

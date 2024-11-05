@@ -225,7 +225,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-4", "tank", "rocket-control-unit", MOD_NAME .. "--siege_tank--mk-1",
+            "military-4", "tank", "processing-unit", MOD_NAME .. "--siege_tank--mk-1",
             "rocket-fuel", "low-density-structure", MOD_NAME .. "--factory",
         },
         unit =
@@ -255,7 +255,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-4", "rocket-control-unit", "exoskeleton-equipment", "electric-energy-accumulators",
+            "military-4", "processing-unit", "exoskeleton-equipment", "electric-energy-accumulators",
             "rocketry","uranium-ammo", "low-density-structure", MOD_NAME .. "--factory",
         },
         unit =
@@ -288,7 +288,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "rocket-control-unit",  MOD_NAME .. "--marine--mk-2",
+            "processing-unit",  MOD_NAME .. "--marine--mk-2",
             "rocket-fuel", MOD_NAME .. "--starport"
         },
         unit =
@@ -319,7 +319,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "rocket-control-unit",  MOD_NAME .. "--marine--mk-2",
+            "processing-unit",  MOD_NAME .. "--marine--mk-2",
             "rocket-fuel", MOD_NAME .. "--starport"
         },
         unit =
@@ -355,7 +355,7 @@ data:extend({
         prerequisites = {
             "military-4", "nuclear-power", "kovarex-enrichment-process",
             "low-density-structure",  MOD_NAME .. "--marine--mk-3",
-            "rocket-control-unit", "laser-turret", MOD_NAME .. "--starport"
+            "processing-unit", "laser-turret", MOD_NAME .. "--starport"
         },
         unit =
         {
@@ -392,7 +392,7 @@ data:extend({
         prerequisites = {
             "military-4",
             "low-density-structure",
-            "rocket-control-unit"
+            "processing-unit"
         },
         unit = {
             ingredients = {
@@ -463,7 +463,7 @@ data:extend({
             },
         },
         prerequisites = {
-            "military-2", "engine", "advanced-electronics"
+            "military-2", "engine", "advanced-circuit"
         },
         unit =
         {
@@ -533,7 +533,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "rocket-control-unit",
+            "processing-unit",
             "rocketry", "electric-energy-accumulators"
         },
         unit =
@@ -568,7 +568,7 @@ data:extend({
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "rocket-control-unit",
+            "processing-unit",
             "tank", "electric-energy-accumulators"
         },
         unit =
