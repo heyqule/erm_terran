@@ -19,7 +19,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk1",
         place_result = MOD_NAME .. "--marine--mk1",
-        stack_size = 20
+        stack_size = 20,
+        weight = 50*kg,
     },
     {
         type = "item",
@@ -33,7 +34,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk2",
         place_result = MOD_NAME .. "--marine--mk2",
-        stack_size = 20
+        stack_size = 20,
+        weight = 50*kg,
     },
     {
         type = "item",
@@ -47,7 +49,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk3",
         place_result = MOD_NAME .. "--marine--mk3",
-        stack_size = 20
+        stack_size = 20,
+        weight = 50*kg,
     },
     {
         type = "item",
@@ -61,7 +64,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-firebat-mk1",
         place_result = MOD_NAME .. "--firebat--mk1",
-        stack_size = 20
+        stack_size = 20,
+        weight = 50*kg,
     },
     {
         type = "item",
@@ -75,7 +79,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-firebat-mk2",
         place_result = MOD_NAME .. "--firebat--mk2",
-        stack_size = 20
+        stack_size = 20,
+        weight = 50*kg,
     },
     {
         type = "item",
@@ -90,7 +95,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-siege_tank",
         place_result = MOD_NAME .. "--siege_tank" ,
-        stack_size = 5
+        stack_size = 5,
+        weight = 200*kg,
     },
     {
         type = "item",
@@ -104,7 +110,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-siege_tank",
         place_result = MOD_NAME .. "--siege_tank--mk2" ,
-        stack_size = 5
+        stack_size = 5,
+        weight = 200*kg,
     },
     {
         type = "item",
@@ -118,7 +125,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-goliath2",
         place_result = MOD_NAME .. "--goliath",
-        stack_size = 10
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
@@ -132,7 +140,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-battlecruiser",
         place_result = MOD_NAME .. "--battlecruiser--yamato",
-        stack_size = 5
+        stack_size = 5,
+        weight = 500*kg,
     },
     {
         type = "item",
@@ -146,7 +155,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-battlecruiser",
         place_result = MOD_NAME .. "--battlecruiser--laser",
-        stack_size = 5
+        stack_size = 5,
+        weight = 500*kg,
     },
     {
         type = "item",
@@ -166,7 +176,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-wraith",
         place_result = MOD_NAME .. "--wraith",
-        stack_size = 10
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
@@ -186,7 +197,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-wraith",
         place_result = MOD_NAME .. "--wraith--scout",
-        stack_size = 10
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
@@ -200,7 +212,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-valkyrie",
         place_result = MOD_NAME .. "--valkyrie",
-        stack_size = 10
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
@@ -214,7 +227,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-science_vessel",
         place_result = MOD_NAME .. "--science_vessel",
-        stack_size = 10
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
@@ -228,7 +242,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-vulture",
         place_result = MOD_NAME .. "--vulture",
-        stack_size = 10
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
@@ -242,7 +257,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-ghost",
         place_result = MOD_NAME .. "--ghost--regular",
-        stack_size = 10
+        stack_size = 10,
+        weight = 50*kg,
     },
     {
         type = "item",
@@ -262,7 +278,8 @@ data:extend({
         subgroup = "erm_controllable_units",
         order = "a-erm-ghost-nuke",
         place_result = MOD_NAME .. "--ghost--nuke",
-        stack_size = 5
+        stack_size = 5,
+        weight = 200*kg,
     },
 
 
@@ -280,7 +297,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-commandcenter",
         place_result = MOD_NAME .. "--command-center",
-        stack_size = 4
+        stack_size = 4,
+        weight = 250*kg,
     },
     {
         type = "item",
@@ -294,7 +312,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-barrack",
         place_result = MOD_NAME .. "--barrack",
-        stack_size = 5
+        stack_size = 5,
+        weight = 200*kg,
     },
     {
         type = "item",
@@ -308,7 +327,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-factory",
         place_result = MOD_NAME .. "--factory",
-        stack_size = 5
+        stack_size = 5,
+        weight = 200*kg,
     },
     {
         type = "item",
@@ -322,7 +342,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-starport",
         place_result = MOD_NAME .. "--starport",
-        stack_size = 5
+        stack_size = 5,
+        weight = 200*kg,
     },
     {
         type = "item",
@@ -336,7 +357,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-missile",
         place_result = MOD_NAME .. "--missile-turret",
-        stack_size = 50
+        stack_size = 50,
+        weight = 20*kg,
     },
     {
         type = "item",
@@ -350,7 +372,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-siege-tank",
         place_result = MOD_NAME .. "--siege-tank-turret",
-        stack_size = 50
+        stack_size = 50,
+        weight = 20*kg,
     },
     {
         type = "ammo",
@@ -378,7 +401,8 @@ data:extend({
         },
         subgroup = "ammo",
         order = "d[cannon-shell]-c[uranium]-[shockbomb]",
-        stack_size = 200
+        stack_size = 100,
+        weight = 10*kg,
     },
     {
         type = "item",
@@ -398,7 +422,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk1",
         place_result = MOD_NAME .. "--bunker-turret--mk1",
-        stack_size = 50
+        stack_size = 50,
+        weight = 40*kg,
     },
     {
         type = "item",
@@ -418,7 +443,8 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk2",
         place_result = MOD_NAME .. "--bunker-turret--mk2",
-        stack_size = 50
+        stack_size = 50,
+        weight = 40*kg,
     },
     {
         type = "item",
@@ -438,6 +464,7 @@ data:extend({
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk3",
         place_result = MOD_NAME .. "--bunker-turret--mk3",
-        stack_size = 50
+        stack_size = 50,
+        weight = 40*kg,
     },
 })
