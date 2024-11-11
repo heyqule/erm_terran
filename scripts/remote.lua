@@ -41,7 +41,7 @@ end
 --- Print global for debug purpose when you run remote.call("enemyracemanager_debug", "print_global")"
 ---
 function RemoteAPI.print_global()
-    helpers.write_file("erm_terran/erm-storage.json",helpers.table_to_json(util.copy(global)))
+    helpers.write_file("erm_terran/erm-storage.json",helpers.table_to_json(util.copy(storage)))
 end
 
 return RemoteAPI
