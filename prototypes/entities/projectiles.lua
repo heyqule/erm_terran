@@ -45,8 +45,8 @@ data:extend({
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         final_action = {
             type = "direct",
@@ -119,8 +119,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+        hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         final_action = {
             type = "direct",
@@ -144,10 +144,10 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
-
-        final_action = {
+        hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
+        piercing_damage = 1,
+        action = {
             type = "direct",
             action_delivery = {
                 type = "instant",
@@ -217,8 +217,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+        hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         final_action = {
             type = "direct",
@@ -292,8 +292,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+        hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         action = {
             type = "direct",
@@ -318,8 +318,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{0, -2},{2, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         final_action = {
             type = "direct",
@@ -382,8 +382,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         action =
         {
@@ -490,8 +490,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         action =
         {
@@ -619,8 +619,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         final_action =
         {
@@ -670,8 +670,8 @@ hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.g
         direction_only = true,
         collision_box = {{-0.5, -1},{0.5, 0}},
         force_condition = "not-same",
-hit_collision_mask =  { layers = {player = true, train = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
-        hit_at_collision_position = true,
+hit_collision_mask =  { layers = {player = true, train = true, trigger_target=true, object = true,  [ERMDataHelper.getFlyingLayerName()] = true}},
+        hit_at_collision_position = false,
 
         final_action = {
             type = "direct",
