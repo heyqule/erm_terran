@@ -177,6 +177,8 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
+
         order = "zzz"..MOD_NAME .. "--marine--mk1",
         icons = {
             {
@@ -206,6 +208,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--marine--mk2",
         icons = {
             {
@@ -235,6 +238,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--marine--mk3",
         icons = {
             {
@@ -264,6 +268,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--firebat--mk1",
         icons = {
             {
@@ -293,6 +298,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--firebat--mk2",
         icons = {
             {
@@ -322,6 +328,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--ghost--regular",
         icons = {
             {
@@ -351,6 +358,7 @@ data:extend({
         },
         category = "erm_controllable_infantry",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--ghost--nuke",
         icons = {
             {
@@ -482,6 +490,7 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
@@ -511,6 +520,7 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath256.png",
@@ -540,6 +550,7 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -569,6 +580,7 @@ data:extend({
         },
         category = "erm_controllable_factory",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
@@ -745,6 +757,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--wraith--scout",
         icons = {
             {
@@ -780,6 +793,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--wraith",
         icons = {
             {
@@ -816,6 +830,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
 
         icons = {
             {
@@ -846,6 +861,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
@@ -875,6 +891,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         order = "zzz"..MOD_NAME .. "--valkyrie",
         icons = {
             {
@@ -905,6 +922,7 @@ data:extend({
         },
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
+hidden_in_factoriopedia = true,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel256.png",

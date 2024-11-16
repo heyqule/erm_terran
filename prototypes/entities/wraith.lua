@@ -128,11 +128,11 @@ data:extend({
         enemy_map_color = { r=1, b=0, g=0 },
         dying_explosion = "erm-fire-explosion-air_normal-1",
         dying_sound = TerranSound.enemy_death(name, 1),
-        corpse = name .. "-corpse"
+        corpse = MOD_NAME .. '-' .. name .. "-corpse"
     },
     {
         type = "corpse",
-        name = name .. "-corpse",
+        name = MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },

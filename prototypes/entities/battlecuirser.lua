@@ -148,7 +148,7 @@ data:extend({
         run_animation = battlecruiser_animation(),
         dying_explosion = "erm-fire-explosion-air_large-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. "-corpse",
+        corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
         light = battlecruiser_light()
@@ -229,14 +229,14 @@ data:extend({
         run_animation = battlecruiser_mkii_animation(),
         dying_explosion = "erm-fire-explosion-air_large-1",
         dying_sound = TerranSound.enemy_death(name, 0.75),
-        corpse = name .. "-corpse",
+        corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
         light = battlecruiser_light()
     },
     {
         type = "corpse",
-        name = name .. "-corpse",
+        name = MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
         icon_size = 256,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
