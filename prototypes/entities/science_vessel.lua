@@ -106,7 +106,7 @@ data:extend({
             cooldown_deviation = 0.2,
             warmup = 6,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.science_vessel_irradiate(0.5),
+            sound = TerranSound.science_vessel_irradiate(0.9),
             ammo_type =
             {
                 category = "shotgun-shell",
@@ -138,7 +138,7 @@ data:extend({
         render_layer = "wires-above",
         run_animation = runAnimation,
         dying_explosion = "erm-fire-explosion-air_large-1",
-        dying_sound = TerranSound.enemy_death(name, 0.75),
+        dying_sound = TerranSound.enemy_death(name, 1),
         corpse = MOD_NAME.."--"..name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },

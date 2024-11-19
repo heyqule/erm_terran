@@ -91,7 +91,7 @@ data:extend({
             cooldown = 240,
             cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.ghost_attack(0.5),
+            sound = TerranSound.ghost_attack(0.9),
             animation = attackAnimation,
             ammo_type =
             {
@@ -187,7 +187,7 @@ ghost_nuke.attack_parameters = {
     range = 9,
     warmup = 6,
     cooldown = NUKE_WAIT_TIME + 75,
-    sound = TerranSound.nuke_alert(0.66, 1),
+    sound = TerranSound.nuke_alert(1),
     animation = ghost_mk2_attack_animation,
     ammo_type =
     {

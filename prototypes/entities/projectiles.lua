@@ -154,7 +154,7 @@ hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=t
                 target_effects = {
                     {
                         type = "play-sound",
-                        sound = TerranSound.valkyrie_rocket_hit(0.5)
+                        sound = TerranSound.valkyrie_rocket_hit(0.9)
                     },
                     {
                         type = "create-entity",
@@ -680,7 +680,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                 target_effects = {
                     {
                         type = "play-sound",
-                        sound = TerranSound.ghost_lockdown(0.5)
+                        sound = TerranSound.ghost_lockdown(0.9)
                     },
                     {
                         type = "create-entity",

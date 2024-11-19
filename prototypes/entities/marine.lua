@@ -132,7 +132,7 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.marine_attack(0.5, 0.66),
+            sound = TerranSound.marine_attack(0.9),
             animation = attackAnimation
         },
         distance_per_frame = 0.16,

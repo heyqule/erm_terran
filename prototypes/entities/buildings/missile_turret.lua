@@ -79,7 +79,7 @@ data:extend({
             range = attack_range,
             min_range = min_range,
             health_penalty = 15,
-            sound = TerranSound.missile_turret_missile(0.5, 0.75),
+            sound = TerranSound.missile_turret_missile(0.9),
         },
         map_color = ERM_UnitTint.tint_army_color(),
         call_for_help_radius = 0,

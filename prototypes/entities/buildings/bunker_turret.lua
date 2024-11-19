@@ -84,7 +84,7 @@ data:extend({
             projectile_creation_distance = 1.39375,
             projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
             range = attack_range,
-            sound = TerranSound.goliath_attack(0.5),
+            sound = TerranSound.goliath_attack(0.9),
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
             ammo_category = "bullet",
             ammo_type =

@@ -120,13 +120,13 @@ data:extend({
                     }
                 }
             },
-            sound = TerranSound.siege_tank_attack(0.66, 0.66),
+            sound = TerranSound.siege_tank_attack(0.9),
             animation = attackAnimation
         },
         distance_per_frame = 0.2,
         run_animation = runAnimation,
         dying_explosion = "erm-fire-explosion-ground_normal-1",
-        dying_sound = TerranSound.enemy_death(name, 0.75),
+        dying_sound = TerranSound.enemy_death(name, 1),
         corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },

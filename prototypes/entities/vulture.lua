@@ -85,7 +85,7 @@ data:extend({
             cooldown_deviation = 0.2,
             warmup = 6,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.vulture_attack(0.5),
+            sound = TerranSound.vulture_attack(0.9),
             ammo_type =
             {
                 category = "shotgun-shell",
@@ -108,7 +108,7 @@ data:extend({
                             source_effects = {
                                 {
                                     type = "play-sound",
-                                    sound = TerranSound.goliath_attack_rockets(0.66)
+                                    sound = TerranSound.goliath_attack_rockets(0.9)
                                 },
                                 {
                                     type = "create-entity",
@@ -125,7 +125,7 @@ data:extend({
         render_layer = "wires-above",
         run_animation = runAnimation,
         dying_explosion = MOD_NAME.."--large-explosion",
-        dying_sound = TerranSound.enemy_death(name, 0.75),
+        dying_sound = TerranSound.enemy_death(name, 1),
         corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },

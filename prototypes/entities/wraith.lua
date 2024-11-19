@@ -119,7 +119,7 @@ data:extend({
                 }
             },
             animation = wraith_animation(),
-            sound = TerranSound.wraith_attack_laser(0.6),
+            sound = TerranSound.wraith_attack_laser(0.9),
         },
         render_layer = "wires-above",
         distance_per_frame = 0.5,
@@ -187,7 +187,7 @@ scout_wraith.attack_parameters = {
             }
         }
     },
-    sound = TerranSound.wraith_attack_laser(0.6),
+    sound = TerranSound.wraith_attack_laser(0.9),
     animation = wraith_mkii_animation()
 }
 

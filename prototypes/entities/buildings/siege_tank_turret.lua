@@ -149,7 +149,7 @@ data:extend({
             min_range = min_range,
             health_penalty = 15,
             rotate_penalty = 15,
-            sound = TerranSound.shockbomb(0.75, 1),
+            sound = TerranSound.shockbomb(0.9, 1.25),
         },
         call_for_help_radius = 0,
         map_color = ERM_UnitTint.tint_army_color(),
