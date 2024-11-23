@@ -4,7 +4,7 @@ Date: ????-??-??
 
   Features:
     - Updated to support Factorio 2.0
-    -
+    - Sound adjustments with 2.0 specs. Firing from hundreds of units should no longer nuke your speakers.
 
 
 ---------------------------------------------------------------------------------------------------
