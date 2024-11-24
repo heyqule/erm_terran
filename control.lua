@@ -22,6 +22,7 @@ local populations = {
     ["valkyrie"] = 2,
     ["science_vessel"] = 2,
     ["vulture"] = 2,
+    ['spidermine'] = 0,
 }
 
 local refresh_data = function()
