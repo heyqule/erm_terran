@@ -9,10 +9,10 @@ ERM - Features Reel: [https://www.youtube.com/watch?v=phLRReAjxHA](https://www.y
 
 ERM - Terran Tutorial: [https://www.youtube.com/watch?v=MzDwGJ3OOGY](https://www.youtube.com/watch?v=MzDwGJ3OOGY)
 
-##### Changes in 2.0
-- New units
-- New defense turrets
-- Upgrade graphics.
+##### Changes in 2.1
+- Updated for Factorio 2.0
+- Adjust damage for ERM 2.0 changes.
+- Adjust recipe for Space age game.
 
 ##### Licenses
 Lua code files are licensed under GNU LGPLv3
