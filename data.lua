@@ -24,3 +24,9 @@ require "prototypes.entities.buildings.bunker_turret"
 require "prototypes.items"
 require "prototypes.recipes"
 require "prototypes.technologies"
+
+
+--- Temporary Unit Control Implementation
+names = require("UnitControl/shared")
+require "UnitControl/data/unit_control/unit_control"
+require("UnitControl/data/hotkeys")

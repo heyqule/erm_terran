@@ -9,7 +9,6 @@
   "dependencies": [
     "base >= 2.0.0",
     "enemyracemanager >= 2.0.0",
-    "Comrades_Extended_Unit_Control >= 0.1.0",
     "erm_terran_hd_assets >= 2.0.0"
   ]
 }

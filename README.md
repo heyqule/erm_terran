@@ -11,8 +11,8 @@ ERM - Terran Tutorial: [https://www.youtube.com/watch?v=MzDwGJ3OOGY](https://www
 
 ##### Changes in 2.1
 - Updated for Factorio 2.0
-- Adjust damage for ERM 2.0 changes.
-- Adjust recipe for Space age game.
+- Adjusted damage for Factorio and ERM 2.0 changes.
+- Using a fork of Unit Control, until Klonan's 2.0 update.
 
 ##### Licenses
 Lua code files are licensed under GNU LGPLv3
