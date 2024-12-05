@@ -183,7 +183,7 @@ ghost_nuke.repair_speed_modifier = 0.25
 ghost_nuke.attack_parameters = {
     type = "projectile",
     range_mode = "bounding-box-to-bounding-box",
-    ammo_category = "landmine",
+    ammo_category = "rocket",
     range = 9,
     warmup = 6,
     cooldown = NUKE_WAIT_TIME + 75,
@@ -191,7 +191,7 @@ ghost_nuke.attack_parameters = {
     animation = ghost_mk2_attack_animation,
     ammo_type =
     {
-        category = "landmine",
+        category = "rocket",
         action =
         {
             type = "direct",
