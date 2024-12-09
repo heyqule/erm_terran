@@ -4,9 +4,9 @@
 --- DateTime: 8/13/2023 3:27 PM
 ---
 
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 
 require("__erm_terran__/global")
 
@@ -21,7 +21,7 @@ local name = "spidermine"
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(ERMPlayerUnitHelper.get_attack_range(1))
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -48,8 +48,8 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 300 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
-        subgroup = "enemies",
+        order = MOD_NAME .. "--" .. name,
+        subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
         alert_when_damaged = false,
@@ -59,11 +59,11 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.325 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = nil,
-        pollution_to_join_attack = pollution_to_join_attack,
+        alert_when_damaged = false,
         distraction_cooldown = distraction_cooldown,
-        min_pursue_time = 60 * defines.time.second,
+        min_pursue_time = 60 * second,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
         attack_parameters = {
@@ -75,7 +75,7 @@ data:extend({
             cooldown_deviation = 0.2,
             warmup = 15,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.spidermine_burrow(0.5),
+            sound = TerranSound.spidermine_burrow(0.9),
             ammo_type = {
                 category = "landmine",
                 target_type = "direction",
@@ -91,13 +91,13 @@ data:extend({
                             },
                             {
                                 type = "create-entity",
-                                entity_name =  MOD_NAME.."/spidermine-explosion"
+                                entity_name =  MOD_NAME.."--spidermine-explosion"
                             }
                         },
                         target_effects = {
                             {
                                 type = "play-sound",
-                                sound = TerranSound.spidermine_attack(0.5)
+                                sound = TerranSound.spidermine_attack(0.9)
                             },
                             {
                                 type = "nested-result",
@@ -145,24 +145,24 @@ data:extend({
                 effect_id = TIME_TO_LIVE_DIED,
             }
         },
-        dying_explosion = MOD_NAME.."/spidermine-explosion",
-        dying_sound = TerranSound.spidermine_attack(0.5),
-        corpse = name .. "-corpse",
+        dying_explosion = MOD_NAME.."--spidermine-explosion",
+        dying_sound = TerranSound.spidermine_attack(0.9),
+        corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. "-corpse",
+        name = MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     }
 })

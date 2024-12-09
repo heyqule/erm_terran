@@ -19,7 +19,7 @@ idle = AnimationDB.alter_team_color(idle, nil, true)
 data:extend({
     {
         type = "radar",
-        name = MOD_NAME .. "/command-center",
+        name = MOD_NAME .. "--command-center",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
@@ -27,10 +27,10 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. "/command-center"},
+        minable = {mining_time = 1, result = MOD_NAME .. "--command-center"},
         max_health = 10000,
-        corpse = MOD_NAME.."/large-base-corpse",
-        dying_explosion = MOD_NAME.."/building-xlarge-explosion",
+        corpse = MOD_NAME.."--large-base-corpse",
+        dying_explosion = MOD_NAME.."--building-xlarge-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
         resistances =

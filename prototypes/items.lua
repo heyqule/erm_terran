@@ -9,7 +9,7 @@ require("__erm_terran__/global")
 data:extend({
     {
         type = "item",
-        name = MOD_NAME .. "/marine/mk1",
+        name = MOD_NAME .. "--marine--mk1",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
@@ -18,12 +18,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk1",
-        place_result = MOD_NAME .. "/marine/mk1",
-        stack_size = 20
+        place_result = MOD_NAME .. "--marine--mk1",
+        stack_size = 20,
+        weight = 100*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/marine/mk2",
+        name = MOD_NAME .. "--marine--mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
@@ -32,12 +33,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk2",
-        place_result = MOD_NAME .. "/marine/mk2",
-        stack_size = 20
+        place_result = MOD_NAME .. "--marine--mk2",
+        stack_size = 20,
+        weight = 100*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/marine/mk3",
+        name = MOD_NAME .. "--marine--mk3",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
@@ -46,12 +48,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-marine-mk3",
-        place_result = MOD_NAME .. "/marine/mk3",
-        stack_size = 20
+        place_result = MOD_NAME .. "--marine--mk3",
+        stack_size = 20,
+        weight = 100*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/firebat/mk1",
+        name = MOD_NAME .. "--firebat--mk1",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
@@ -60,12 +63,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-firebat-mk1",
-        place_result = MOD_NAME .. "/firebat/mk1",
-        stack_size = 20
+        place_result = MOD_NAME .. "--firebat--mk1",
+        stack_size = 20,
+        weight = 100*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/firebat/mk2",
+        name = MOD_NAME .. "--firebat--mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
@@ -74,12 +78,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-firebat-mk2",
-        place_result = MOD_NAME .. "/firebat/mk2",
-        stack_size = 20
+        place_result = MOD_NAME .. "--firebat--mk2",
+        stack_size = 20,
+        weight = 100*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/siege_tank",
+        name = MOD_NAME .. "--siege_tank",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -89,12 +94,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-siege_tank",
-        place_result = MOD_NAME .. "/siege_tank" ,
-        stack_size = 5
+        place_result = MOD_NAME .. "--siege_tank" ,
+        stack_size = 5,
+        weight = 500*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/siege_tank/mk2",
+        name = MOD_NAME .. "--siege_tank--mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
@@ -103,12 +109,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-siege_tank",
-        place_result = MOD_NAME .. "/siege_tank/mk2" ,
-        stack_size = 5
+        place_result = MOD_NAME .. "--siege_tank--mk2" ,
+        stack_size = 5,
+        weight = 500*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/goliath",
+        name = MOD_NAME .. "--goliath",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath256.png",
@@ -117,12 +124,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-goliath2",
-        place_result = MOD_NAME .. "/goliath",
-        stack_size = 10
+        place_result = MOD_NAME .. "--goliath",
+        stack_size = 10,
+        weight = 250*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/battlecruiser/yamato",
+        name = MOD_NAME .. "--battlecruiser--yamato",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
@@ -131,12 +139,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-battlecruiser",
-        place_result = MOD_NAME .. "/battlecruiser/yamato",
-        stack_size = 5
+        place_result = MOD_NAME .. "--battlecruiser--yamato",
+        stack_size = 5,
+        weight = 1000000*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/battlecruiser/laser",
+        name = MOD_NAME .. "--battlecruiser--laser",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser_mkII256.png",
@@ -145,12 +154,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-battlecruiser",
-        place_result = MOD_NAME .. "/battlecruiser/laser",
-        stack_size = 5
+        place_result = MOD_NAME .. "--battlecruiser--laser",
+        stack_size = 5,
+        weight = 1000000*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/wraith",
+        name = MOD_NAME .. "--wraith",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith256.png",
@@ -165,12 +175,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-wraith",
-        place_result = MOD_NAME .. "/wraith",
-        stack_size = 10
+        place_result = MOD_NAME .. "--wraith",
+        stack_size = 10,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/wraith/scout",
+        name = MOD_NAME .. "--wraith--scout",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/wraith_mkII256.png",
@@ -185,12 +196,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-wraith",
-        place_result = MOD_NAME .. "/wraith/scout",
-        stack_size = 10
+        place_result = MOD_NAME .. "--wraith--scout",
+        stack_size = 10,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/valkyrie",
+        name = MOD_NAME .. "--valkyrie",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie256.png",
@@ -199,12 +211,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-valkyrie",
-        place_result = MOD_NAME .. "/valkyrie",
-        stack_size = 10
+        place_result = MOD_NAME .. "--valkyrie",
+        stack_size = 10,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/science_vessel",
+        name = MOD_NAME .. "--science_vessel",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel256.png",
@@ -213,12 +226,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-science_vessel",
-        place_result = MOD_NAME .. "/science_vessel",
-        stack_size = 10
+        place_result = MOD_NAME .. "--science_vessel",
+        stack_size = 10,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/vulture",
+        name = MOD_NAME .. "--vulture",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/vulture256.png",
@@ -227,12 +241,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-vulture",
-        place_result = MOD_NAME .. "/vulture",
-        stack_size = 10
+        place_result = MOD_NAME .. "--vulture",
+        stack_size = 10,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/ghost/regular",
+        name = MOD_NAME .. "--ghost--regular",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
@@ -241,12 +256,13 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-ghost",
-        place_result = MOD_NAME .. "/ghost/regular",
-        stack_size = 10
+        place_result = MOD_NAME .. "--ghost--regular",
+        stack_size = 10,
+        weight = 100*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/ghost/nuke",
+        name = MOD_NAME .. "--ghost--nuke",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost_mkII256.png",
@@ -261,8 +277,9 @@ data:extend({
         },
         subgroup = "erm_controllable_units",
         order = "a-erm-ghost-nuke",
-        place_result = MOD_NAME .. "/ghost/nuke",
-        stack_size = 5
+        place_result = MOD_NAME .. "--ghost--nuke",
+        stack_size = 5,
+        weight = 200*kg,
     },
 
 
@@ -270,7 +287,7 @@ data:extend({
     --- Building
     {
         type = "item",
-        name = MOD_NAME .. "/command-center",
+        name = MOD_NAME .. "--command-center",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
@@ -279,12 +296,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-commandcenter",
-        place_result = MOD_NAME .. "/command-center",
-        stack_size = 4
+        place_result = MOD_NAME .. "--command-center",
+        stack_size = 4,
+        weight = 1000*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/barrack",
+        name = MOD_NAME .. "--barrack",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/barracks256.png",
@@ -293,12 +311,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-barrack",
-        place_result = MOD_NAME .. "/barrack",
-        stack_size = 5
+        place_result = MOD_NAME .. "--barrack",
+        stack_size = 5,
+        weight = 1000*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/factory",
+        name = MOD_NAME .. "--factory",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
@@ -307,12 +326,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-factory",
-        place_result = MOD_NAME .. "/factory",
-        stack_size = 5
+        place_result = MOD_NAME .. "--factory",
+        stack_size = 5,
+        weight = 1000*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/starport",
+        name = MOD_NAME .. "--starport",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
@@ -321,12 +341,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-starport",
-        place_result = MOD_NAME .. "/starport",
-        stack_size = 5
+        place_result = MOD_NAME .. "--starport",
+        stack_size = 5,
+        weight = 1000*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/missile-turret",
+        name = MOD_NAME .. "--missile-turret",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
@@ -335,12 +356,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-missile",
-        place_result = MOD_NAME .. "/missile-turret",
-        stack_size = 50
+        place_result = MOD_NAME .. "--missile-turret",
+        stack_size = 50,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/siege-tank-turret",
+        name = MOD_NAME .. "--siege-tank-turret",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
@@ -349,18 +371,20 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-siege-tank",
-        place_result = MOD_NAME .. "/siege-tank-turret",
-        stack_size = 50
+        place_result = MOD_NAME .. "--siege-tank-turret",
+        stack_size = 50,
+        weight = 250*kg,
     },
     {
         type = "ammo",
-        name = MOD_NAME .. "/shockbomb-ammo",
+        name = MOD_NAME .. "--shockbomb-ammo",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/shockbomb.png",
                 icon_size = 64,
             },
         },
+        ammo_category = "cannon-shell",
         ammo_type =
         {
             category = "cannon-shell",
@@ -370,18 +394,19 @@ data:extend({
                 action_delivery =
                 {
                     type = "projectile",
-                    projectile = MOD_NAME.."/shockbomb-projectile",
+                    projectile = MOD_NAME.."--shockbomb-projectile",
                     starting_speed = 1.5,
                 }
             }
         },
         subgroup = "ammo",
         order = "d[cannon-shell]-c[uranium]-[shockbomb]",
-        stack_size = 200
+        stack_size = 100,
+        weight = 20*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/bunker-turret/mk1",
+        name = MOD_NAME .. "--bunker-turret--mk1",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
@@ -396,12 +421,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk1",
-        place_result = MOD_NAME .. "/bunker-turret/mk1",
-        stack_size = 50
+        place_result = MOD_NAME .. "--bunker-turret--mk1",
+        stack_size = 50,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/bunker-turret/mk2",
+        name = MOD_NAME .. "--bunker-turret--mk2",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
@@ -416,12 +442,13 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk2",
-        place_result = MOD_NAME .. "/bunker-turret/mk2",
-        stack_size = 50
+        place_result = MOD_NAME .. "--bunker-turret--mk2",
+        stack_size = 50,
+        weight = 200*kg,
     },
     {
         type = "item",
-        name = MOD_NAME .. "/bunker-turret/mk3",
+        name = MOD_NAME .. "--bunker-turret--mk3",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
@@ -436,7 +463,8 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = "a-erm-building-turret-bunker-mk3",
-        place_result = MOD_NAME .. "/bunker-turret/mk3",
-        stack_size = 50
+        place_result = MOD_NAME .. "--bunker-turret--mk3",
+        stack_size = 50,
+        weight = 200*kg,
     },
 })

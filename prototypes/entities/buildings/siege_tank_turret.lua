@@ -7,7 +7,7 @@ require ("util")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 local TerranSound = require("__erm_terran_hd_assets__/sound")
 local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
@@ -63,7 +63,7 @@ west_animation_attack = AnimationDB.shift(west_animation_attack, {0.25, -1.4})
 data:extend({
     {
         type = "ammo-turret",
-        name = MOD_NAME.."/siege-tank-turret",
+        name = MOD_NAME.."--siege-tank-turret",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
@@ -72,19 +72,12 @@ data:extend({
         },
         resistances =
         {
-            { type = "poison", percent = 50 },
-            { type = "physical", percent = 50 },
-            { type = "fire", percent = 50 },
-            { type = "explosion", percent = 50},
-            { type = "laser", percent = 50 },
-            { type = "electric", percent = 50 },
-            { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
         flags = {"placeable-player", "player-creation"},
         max_health = 2400,
-        dying_explosion = MOD_NAME.."/building-large-explosion",
-        minable = {mining_time = 2, result = MOD_NAME .. "/siege-tank-turret"},
+        dying_explosion = MOD_NAME.."--building-large-explosion",
+        minable = {mining_time = 2, result = MOD_NAME .. "--siege-tank-turret"},
         repair_speed_modifier = 0.33,
         collision_box = collision_box,
         selection_box = selection_box,
@@ -149,9 +142,10 @@ data:extend({
             min_range = min_range,
             health_penalty = 15,
             rotate_penalty = 15,
-            sound = TerranSound.shockbomb(0.75, 1),
+            sound = TerranSound.shockbomb(0.9, 1.25),
         },
         call_for_help_radius = 0,
         map_color = ERM_UnitTint.tint_army_color(),
+        graphics_set = {},
     },
 })

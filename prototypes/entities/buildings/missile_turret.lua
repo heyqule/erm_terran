@@ -7,7 +7,7 @@ require ("util")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+require("util")
 local TerranSound = require("__erm_terran_hd_assets__/sound")
 local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 local ERMPlayerUnitHelper = require("__enemyracemanager__/lib/rig/player_unit_helper")
@@ -27,7 +27,7 @@ animation = AnimationDB.apply_runtime_tint(animation, true)
 data:extend({
     {
         type = "ammo-turret",
-        name = MOD_NAME.."/missile-turret",
+        name = MOD_NAME.."--missile-turret",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
@@ -36,21 +36,14 @@ data:extend({
         },
         resistances =
         {
-            { type = "poison", percent = 50 },
-            { type = "physical", percent = 50 },
-            { type = "fire", percent = 50 },
-            { type = "explosion", percent = 50},
-            { type = "laser", percent = 50 },
-            { type = "electric", percent = 50 },
-            { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
         flags = {"placeable-player", "player-creation"},
-        minable = {mining_time = 2, result = MOD_NAME .. "/missile-turret"},
-        max_health = 1500,
+        minable = {mining_time = 2, result = MOD_NAME .. "--missile-turret"},
+        max_health = 750,
         repair_speed_modifier = 0.33,
-        dying_explosion = MOD_NAME.."/building-large-explosion",
-        corpse = MOD_NAME.."/small-base-corpse",
+        dying_explosion = MOD_NAME.."--building-large-explosion",
+        corpse = MOD_NAME.."--small-base-corpse",
         collision_box = collision_box,
         selection_box = selection_box,
         damaged_trigger_effect = hit_effects.entity(),
@@ -63,7 +56,8 @@ data:extend({
         alert_when_attacking = true,
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
-        base_picture = Sprites.empty_pictures(),
+        base_picture = util.empty_sprite(),
+        graphics_set = {},
         vehicle_impact_sound = sounds.generic_impact,
         folded_animation = animation,
         prepare_range = prepare_range,
@@ -78,7 +72,7 @@ data:extend({
             range = attack_range,
             min_range = min_range,
             health_penalty = 15,
-            sound = TerranSound.missile_turret_missile(0.5, 0.75),
+            sound = TerranSound.missile_turret_missile(0.9),
         },
         map_color = ERM_UnitTint.tint_army_color(),
         call_for_help_radius = 0,

@@ -16,6 +16,7 @@ TIME_TO_LIVE_CREATED = "emtrn-ttlc"
 GHOST_ATOMIC_SEQUENCE = "emtrn-ghnk"
 CANCEL_GHOST_ATOMIC_SEQUENCE = "emtrn-cgnk"
 BUNKER_SPAWN_MARINE = "emtrn-smrn"
+ASTEROID_KILL = "emtrn-asae"
 
 NUKE_WAIT_TIME = 300
 

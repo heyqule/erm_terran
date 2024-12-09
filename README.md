@@ -9,10 +9,11 @@ ERM - Features Reel: [https://www.youtube.com/watch?v=phLRReAjxHA](https://www.y
 
 ERM - Terran Tutorial: [https://www.youtube.com/watch?v=MzDwGJ3OOGY](https://www.youtube.com/watch?v=MzDwGJ3OOGY)
 
-##### Changes in 2.0
-- New units
-- New defense turrets
-- Upgrade graphics.
+##### Changes in 2.1
+- Updated for Factorio 2.0
+- Adjusted damage for Factorio and ERM 2.0 changes.
+- Using a fork of Unit Control, until Klonan's 2.0 update.
+- This is an experimental release.  2.2 will be the first stable release.
 
 ##### Licenses
 Lua code files are licensed under GNU LGPLv3

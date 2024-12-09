@@ -9,10 +9,10 @@
 --- Created by heyqule.
 --- DateTime: 2/9/2021 6:53 PM
 ---
-require("__stdlib__/stdlib/utils/defines/time")
+
 require("util")
 local math3d = require "math3d"
-local Sprites = require("__stdlib__/stdlib/data/modules/sprites")
+local fireutil = require('__base__/prototypes/fire-util')
 
 require("__erm_terran__/global")
 
@@ -30,7 +30,7 @@ local name = "firebat"
 
 -- Misc Settings
 local vision_distance = ERMPlayerUnitHelper.get_vision_distance(2)
-local pollution_to_join_attack = 250
+
 local distraction_cooldown = 30
 
 -- Animation Settings
@@ -56,7 +56,7 @@ runningAnimation = AnimationDB.apply_runtime_tint(runningAnimation, true)
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name .. "/mk1",
+        name = MOD_NAME .. "--" .. name .. "--mk1",
         localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 1"},
         localised_description = { "entity-description." .. MOD_NAME .. "--" .. name},
         icons = {
@@ -68,7 +68,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
         max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "/" .. name,
+        order = MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = mk1_resist,
@@ -77,9 +77,8 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
-        pollution_to_join_attack = pollution_to_join_attack,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
         --ai_settings = biter_ai_settings,
@@ -92,7 +91,8 @@ data:extend({
             cooldown = 60,
             cooldown_deviation = 0.2,
             damage_modifier = ERMPlayerUnitHelper.get_damage_multiplier(),
-            sound = TerranSound.firebat_attack(0.66),
+            sound = TerranSound.firebat_attack(0.9),
+            ammo_category = "flamethrower",
             ammo_type =
             {
                 category = "flamethrower",
@@ -108,11 +108,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = { amount = 75, type = "fire"}
+                                damage = { amount = 50, type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = { amount = 75, type = "explosion"}
+                                damage = { amount = 50, type = "explosion"}
                             },
                             {
                                 type = "create-sticker",
@@ -142,11 +142,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
+                                damage = {amount = 350 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = {amount = 700 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
+                                damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
                             }
                         }
                     }
@@ -154,44 +154,31 @@ data:extend({
             }
         },
         dying_sound = TerranSound.firebat_death(1),
-        dying_explosion = MOD_NAME.."/firebat-explosion",
-        corpse = name .. "-corpse",
+        dying_explosion = MOD_NAME.."--firebat-explosion",
+        corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = name .. "-corpse",
+        name = MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
         selection_box = selection_box,
         selectable_in_game = false,
         dying_speed = 0.04,
-        time_before_removed = defines.time.second,
+        time_before_removed = second,
         subgroup = "corpses",
         order = "x" .. name,
-        animation = Sprites.empty_pictures(),
+        animation = util.empty_sprite(),
     },
     {
         type = "sticker",
         name = "firebat-sticker",
         flags = {"not-on-map"},
 
-        animation =
-        {
-            filename = "__base__/graphics/entity/fire-flame/fire-flame-13.png",
-            line_length = 8,
-            width = 60,
-            height = 118,
-            frame_count = 25,
-            blend_mode = "normal",
-            animation_speed = 1,
-            scale = 0.2,
-            tint = { r = 0.5, g = 0.5, b = 0.5, a = 0.18 }, --{ r = 1, g = 1, b = 1, a = 0.35 },
-            shift = math3d.vector2.mul({-0.078125, -1.8125}, 0.1),
-            draw_as_glow = true
-        },
+        animation = fireutil.create_fire_pictures({})[1],
 
         duration_in_ticks = 10 * 60,
         damage_interval = 10,
@@ -204,7 +191,7 @@ data:extend({
 })
 
 -- Firebat MK2 --
-local firebat_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "/mk1"])
+local firebat_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "--mk1"])
 
 local mk2attackAnimation = AnimationDB.get_layered_animations("units", "firebat_mkii", "attack")
 
@@ -214,7 +201,7 @@ local mk2runningAnimation = AnimationDB.get_layered_animations("units", "firebat
 
 mk2runningAnimation = AnimationDB.apply_runtime_tint(mk2runningAnimation, true)
 
-firebat_mk2.name = MOD_NAME .. "--" .. name .. "/mk2"
+firebat_mk2.name = MOD_NAME .. "--" .. name .. "--mk2"
 firebat_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 2"}
 firebat_mk2["icons"] = {
     {
@@ -222,7 +209,7 @@ firebat_mk2["icons"] = {
         icon_size = 256,
     }
 }
-firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
+firebat_mk2.movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier()
 firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
 firebat_mk2.repair_speed_modifier = 0.66
@@ -246,11 +233,11 @@ firebat_mk2["dying_trigger_effect"] = {
                 {
                     {
                         type = "damage",
-                        damage = {amount = 1400 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
+                        damage = {amount = 800 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
                     },
                     {
                         type = "damage",
-                        damage = {amount = 1600 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
+                        damage = {amount = 1200 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
                     }
                 }
             }

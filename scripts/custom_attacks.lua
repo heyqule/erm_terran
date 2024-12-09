@@ -7,7 +7,7 @@
 local CustomAttackHelper = require("__enemyracemanager__/lib/helper/custom_attack_helper")
 local ERMConfig = require("__enemyracemanager__/lib/global_config")
 require("__erm_terran__/global")
-local String = require("__stdlib__/stdlib/utils/string")
+local String = require("__erm_libs__/stdlib/string")
 
 local CustomAttacks = CustomAttackHelper
 
@@ -18,48 +18,48 @@ CustomAttacks.add_nuke_to_queue = function(event)
             target_position = event.target_entity.position
         end
 
-        local targeter_id = rendering.draw_animation({
-            animation = MOD_NAME .. "/nuclear_targeter",
+        local targeter_render_obj = rendering.draw_animation({
+            animation = MOD_NAME .. "--nuclear_targeter",
             target = target_position,
             time_to_live = NUKE_WAIT_TIME + 75,
             surface = event.source_entity.surface.index,
             render_layer = "radius-visualization"
         })
-        global.nuke_tracker[event.source_entity.unit_number] = {
+        storage.nuke_tracker[event.source_entity.unit_number] = {
             entity = event.source_entity,
             target_position = target_position,
             launch_tick = event.tick + NUKE_WAIT_TIME,
-            targeter_id = targeter_id
+            targeter_render_obj = targeter_render_obj
         }
-        global.nuke_tracker_total = global.nuke_tracker_total + 1
+        storage.nuke_tracker_total = storage.nuke_tracker_total + 1
     end
 end
 
 CustomAttacks.cancel_nuke_from_queue = function(event)
-    if event.source_entity.valid and global.nuke_tracker[event.source_entity.unit_number] then
-        local nuke_data = global.nuke_tracker[event.source_entity.unit_number]
-        rendering.destroy(nuke_data.targeter_id)
-        global.nuke_tracker[event.source_entity.unit_number] = nil
-        global.nuke_tracker_total = global.nuke_tracker_total - 1
+    if event.source_entity.valid and storage.nuke_tracker[event.source_entity.unit_number] then
+        local nuke_data = storage.nuke_tracker[event.source_entity.unit_number]
+        nuke_data.targeter_render_obj.destroy()
+        storage.nuke_tracker[event.source_entity.unit_number] = nil
+        storage.nuke_tracker_total = storage.nuke_tracker_total - 1
     end
 end
 
 CustomAttacks.spawn_nuke = function(event)
-    if global.nuke_tracker_total == 0 then
+    if storage.nuke_tracker_total == 0 then
         return
     end
 
-    for index, nuke_data in pairs(global.nuke_tracker) do
+    for index, nuke_data in pairs(storage.nuke_tracker) do
         if nuke_data.entity.valid and event.tick >= nuke_data.launch_tick then
             local surface = nuke_data.entity.surface
             local spawn_position = nuke_data.entity.position
             spawn_position.y = spawn_position.y - 32;
-            rendering.destroy(nuke_data.targeter_id)
-            global.nuke_tracker[index] = nil
-            global.nuke_tracker_total = global.nuke_tracker_total - 1
+            nuke_data.targeter_render_obj.destroy()
+            storage.nuke_tracker[index] = nil
+            storage.nuke_tracker_total = storage.nuke_tracker_total - 1
 
             surface.create_entity {
-                name = MOD_NAME .. "/atomic-bomb",
+                name = MOD_NAME .. "--atomic-bomb",
                 --target = nuke_data.target_position,
                 target = {
                     x = nuke_data.target_position.x + math.random(-4,4),
@@ -73,9 +73,9 @@ CustomAttacks.spawn_nuke = function(event)
             }
 
         elseif nuke_data.entity.valid == false and event.tick > nuke_data.launch_tick then
-            rendering.destroy(nuke_data.targeter_id)
-            global.nuke_tracker[index] = nil
-            global.nuke_tracker_total = global.nuke_tracker_total - 1
+            nuke_data.targeter_render_obj.destroy()
+            storage.nuke_tracker[index] = nil
+            storage.nuke_tracker_total = storage.nuke_tracker_total - 1
         end
     end
 end
@@ -91,7 +91,7 @@ local spawn_marines = function(event, make_string)
         count = count + 1
     end
 
-    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine/"..make_string, count)
+    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine--"..make_string, count)
 end
 
 CustomAttacks.spawn_marine = function(event)
@@ -99,6 +99,41 @@ CustomAttacks.spawn_marine = function(event)
         local nameToken = String.split(event.source_entity.name, "--")
         if nameToken[3] then
             spawn_marines(event, nameToken[3])
+        end
+    end
+end
+
+local time_out = 3 * second + 1
+local unit_limit = 6
+local scan_radius = 10 + settings.startup['enemyracemanager-max-attack-range'].value
+local health_ratio = 2
+CustomAttacks.asteroid_aoe = function(event)
+    local source_entity = event.source_entity
+    if source_entity.valid then
+        local surface = source_entity.surface
+        if surface.valid and surface.platform then
+            local surface_index = surface.index
+            local next_unit_check = storage.asteroid_next_unit_check
+            if next_unit_check[surface_index] and 
+                next_unit_check[surface_index] > event.tick 
+            then
+                return
+            end
+
+            
+            local units = surface.find_enemy_units(source_entity.position, scan_radius, source_entity.force)
+            if next(units) then
+                local i = 0
+                for _, unit in pairs(units) do
+                    if i < unit_limit then
+                        unit.damage(source_entity.max_health / health_ratio, source_entity.force)
+                        i = i + 1
+                    else
+                        break
+                    end
+                end
+            end
+            next_unit_check[surface_index] = event.tick + time_out
         end
     end
 end
