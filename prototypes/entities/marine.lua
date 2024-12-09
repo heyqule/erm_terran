@@ -80,7 +80,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.15 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.2 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
@@ -188,7 +188,7 @@ marine_mk2["icons"] = {
         icon_size = 256,
     },
 }
-marine_mk2.movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier()
+marine_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk2.max_health = 60 * ERMPlayerUnitHelper.get_health_multiplier()
 marine_mk2.resistances = DataHelper.getResistance(50)
 marine_mk2.run_animation = runningAnimation2
@@ -197,7 +197,7 @@ marine_mk2["attack_parameters"]["ammo_type"]["action"][1]["repeat_count"] = 5
 marine_mk2["attack_parameters"]["ammo_type"]["action"][1]["action_delivery"]["target_effects"][1] =
 {
     type = "damage",
-    damage = { amount = 15, type = "physical"}
+    damage = { amount = 16, type = "physical"}
 }
 marine_mk2["attack_parameters"]["animation"] = attackAnimation2
 -- marine_mk2["attack_parameters"]["sound"] = TerranSound.marine_mk2_attack(0.5, 0.5)
@@ -217,14 +217,14 @@ marine_mk3["icons"] = {
 }
 marine_mk3.repair_speed_modifier = 0.66
 marine_mk3.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
-marine_mk3.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
+marine_mk3.movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier()
 marine_mk3.resistances = DataHelper.getResistance(75)
 marine_mk3.run_animation = runningAnimation3
 marine_mk3["attack_parameters"]["ammo_type"]["action"][1]["repeat_count"] = 6
 marine_mk3["attack_parameters"]["ammo_type"]["action"][1]["action_delivery"]["target_effects"][1] =
 {
     type = "damage",
-    damage = { amount = 42, type = "physical"}
+    damage = { amount = 32, type = "physical"}
 }
 marine_mk3["attack_parameters"]["animation"] = attackAnimation3
 -- marine_mk3["attack_parameters"]["sound"] = TerranSound.marine_mk3_attack(0.5, 0.5)

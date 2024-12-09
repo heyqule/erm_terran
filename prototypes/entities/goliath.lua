@@ -80,7 +80,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.28 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,

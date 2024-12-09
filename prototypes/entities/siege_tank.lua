@@ -91,7 +91,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
@@ -151,9 +151,9 @@ local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][MOD_NAME.
 tank_projectile_mk2["name"] = MOD_NAME.."--tank-cannon-projectile-mk2"
 tank_projectile_mk2["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "physical"}
 -- Ground AOE --
-tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][2]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "explosion"}
+tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][2]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 160, type = "explosion"}
 -- Air AOE --
-tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][3]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 100, type = "explosion"}
+tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][3]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 80, type = "explosion"}
 
 data:extend({tank_projectile_mk2})
 
@@ -167,7 +167,7 @@ tank_mk2["icons"] = {
     },
 }
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
-tank_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
+tank_mk2.movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier()
 tank_mk2["attack_parameters"]["ammo_type"]["action"]["action_delivery"]["projectile"] = MOD_NAME.."--tank-cannon-projectile-mk2"
 tank_mk2.resistances = {
     { type = "acid", percent = 80 },

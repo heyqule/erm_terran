@@ -103,4 +103,39 @@ CustomAttacks.spawn_marine = function(event)
     end
 end
 
+local time_out = 3 * second + 1
+local unit_limit = 6
+local scan_radius = 10 + settings.startup['enemyracemanager-max-attack-range'].value
+local health_ratio = 2
+CustomAttacks.asteroid_aoe = function(event)
+    local source_entity = event.source_entity
+    if source_entity.valid then
+        local surface = source_entity.surface
+        if surface.valid and surface.platform then
+            local surface_index = surface.index
+            local next_unit_check = storage.asteroid_next_unit_check
+            if next_unit_check[surface_index] and 
+                next_unit_check[surface_index] > event.tick 
+            then
+                return
+            end
+
+            
+            local units = surface.find_enemy_units(source_entity.position, scan_radius, source_entity.force)
+            if next(units) then
+                local i = 0
+                for _, unit in pairs(units) do
+                    if i < unit_limit then
+                        unit.damage(source_entity.max_health / health_ratio, source_entity.force)
+                        i = i + 1
+                    else
+                        break
+                    end
+                end
+            end
+            next_unit_check[surface_index] = event.tick + time_out
+        end
+    end
+end
+
 return CustomAttacks

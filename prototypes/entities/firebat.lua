@@ -77,7 +77,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.175 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.5,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
@@ -108,11 +108,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = { amount = 75, type = "fire"}
+                                damage = { amount = 50, type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = { amount = 75, type = "explosion"}
+                                damage = { amount = 50, type = "explosion"}
                             },
                             {
                                 type = "create-sticker",
@@ -142,11 +142,11 @@ data:extend({
                         {
                             {
                                 type = "damage",
-                                damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
+                                damage = {amount = 350 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "fire"}
                             },
                             {
                                 type = "damage",
-                                damage = {amount = 700 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
+                                damage = {amount = 500 * ERMPlayerUnitHelper.get_damage_multiplier() , type = "explosion"}
                             }
                         }
                     }
@@ -209,7 +209,7 @@ firebat_mk2["icons"] = {
         icon_size = 256,
     }
 }
-firebat_mk2.movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier()
+firebat_mk2.movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier()
 firebat_mk2.max_health = 125 * ERMPlayerUnitHelper.get_health_multiplier()
 firebat_mk2.resistances = mk2_resist
 firebat_mk2.repair_speed_modifier = 0.66
@@ -233,11 +233,11 @@ firebat_mk2["dying_trigger_effect"] = {
                 {
                     {
                         type = "damage",
-                        damage = {amount = 1400 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
+                        damage = {amount = 800 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "fire"}
                     },
                     {
                         type = "damage",
-                        damage = {amount = 1600 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
+                        damage = {amount = 1200 * ERMPlayerUnitHelper.get_damage_multiplier(), type = "explosion"}
                     }
                 }
             }

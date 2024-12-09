@@ -84,7 +84,7 @@ hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=t
                                 target_effects = {
                                     {
                                         type = "damage",
-                                        damage = { amount = 175, type = "explosion" },
+                                        damage = { amount = 150, type = "explosion" },
                                         apply_damage_to_trees = true,
                                     },
                                 }
@@ -129,7 +129,7 @@ hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=t
                 target_effects = {
                     {
                         type = "damage",
-                        damage = { amount = 150, type = "laser" }
+                        damage = { amount = 120, type = "laser" }
                     },
                 }
             }
@@ -177,7 +177,7 @@ hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=t
                                 target_effects = {
                                     {
                                         type = "damage",
-                                        damage = { amount = 175, type = "cold" },
+                                        damage = { amount = 150, type = "cold" },
                                         apply_damage_to_trees = true,
                                     },
                                     {
@@ -257,7 +257,7 @@ hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=t
                                 target_effects = {
                                     {
                                         type = "damage",
-                                        damage = { amount = 175, type = "explosion" },
+                                        damage = { amount = 150, type = "explosion" },
                                         apply_damage_to_trees = true,
                                     },
                                 }
@@ -302,7 +302,7 @@ hit_collision_mask =  { layers = {player = true, train = true,  trigger_target=t
                 target_effects = {
                     {
                         type = "damage",
-                        damage = { amount = 300, type = "laser" }
+                        damage = { amount = 250, type = "laser" }
                     },
                 }
             }
@@ -332,7 +332,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                     },
                     {
                         type = "damage",
-                        damage = { amount = 750, type = "laser" }
+                        damage = { amount = 500, type = "laser" }
                     },
                     {
                         type = "nested-result",
@@ -346,12 +346,12 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                                 target_effects = {
                                     {
                                         type = "damage",
-                                        damage = { amount = 125, type = "explosion" },
+                                        damage = { amount = 100, type = "explosion" },
                                         apply_damage_to_trees = true,
                                     },
                                     {
                                         type = "damage",
-                                        damage = { amount = 125, type = "electric" },
+                                        damage = { amount = 100, type = "electric" },
                                         apply_damage_to_trees = true,
                                     },
                                     {
@@ -419,7 +419,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                         {
                             type = "area",
                             force = "not-same",
-                            radius = 5,
+                            radius = 6,
                             action_delivery =
                             {
                                 type = "instant",
@@ -427,7 +427,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                                 {
                                     {
                                         type = "damage",
-                                        damage = {amount = 100, type = "explosion"},
+                                        damage = {amount = 80, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     },
                                 }
@@ -441,7 +441,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                         {
                             type = "area",
                             force = "not-same",
-                            radius = 2,
+                            radius = 3,
                             ignore_collision_condition = true,
                             action_delivery =
                             {
@@ -450,7 +450,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                                 {
                                     {
                                         type = "damage",
-                                        damage = {amount = 50, type = "explosion"},
+                                        damage = {amount = 40, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     }
                                 }
@@ -557,7 +557,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                                 {
                                     {
                                         type = "damage",
-                                        damage = {amount = 150, type = "explosion"},
+                                        damage = {amount = 120, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     },
                                 }
@@ -571,7 +571,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                         {
                             type = "area",
                             force = "not-same",
-                            radius = 4,
+                            radius = 6,
                             ignore_collision_condition = true,
                             action_delivery =
                             {
@@ -580,7 +580,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                                 {
                                     {
                                         type = "damage",
-                                        damage = {amount = 400, type = "explosion"},
+                                        damage = {amount = 80, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     }
                                 }
@@ -640,7 +640,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                         {
                             type = "area",
                             force = "not-same",
-                            radius = 2,
+                            radius = 3,
                             ignore_collision_condition = true,
                             action_delivery =
                             {
@@ -649,7 +649,7 @@ hit_collision_mask =  { layers = {player = true, train = true, trigger_target=tr
                                 {
                                     {
                                         type = "damage",
-                                        damage = {amount = 100, type = "explosion"},
+                                        damage = {amount = 80, type = "explosion"},
                                         apply_damage_to_trees = true,
                                     }
                                 }
@@ -937,7 +937,7 @@ local nukeWave = util.table.deepcopy(data.raw["projectile"]["atomic-bomb-wave"])
 nukeWave.name = MOD_NAME.."--atomic-bomb-wave"
 nukeWave.action[1].action_delivery.target_effects.upper_damage_modifier = 0.33
 nukeWave.action[1].action_delivery.target_effects.damage.type = "radioactive"
-nukeWave.action[1].action_delivery.target_effects.damage.amount = 1200 * ERMPlayerDataHelper.get_damage_multiplier()
+nukeWave.action[1].action_delivery.target_effects.damage.amount = 1000 * ERMPlayerDataHelper.get_damage_multiplier()
 nukeWave.piercing_damage = 50000
 
 
@@ -946,7 +946,7 @@ local nukeGroundZero = util.table.deepcopy(data.raw["projectile"]["atomic-bomb-g
 nukeGroundZero.name = MOD_NAME.."--atomic-bomb-ground-zero-projectile"
 nukeGroundZero.action[1].action_delivery.target_effects.upper_damage_modifier = 0.33
 nukeGroundZero.action[1].action_delivery.target_effects.upper_distance_threshold = 16
-nukeGroundZero.action[1].action_delivery.target_effects.damage.amount = 800 * ERMPlayerDataHelper.get_damage_multiplier()
+nukeGroundZero.action[1].action_delivery.target_effects.damage.amount = 750 * ERMPlayerDataHelper.get_damage_multiplier()
 nukeGroundZero.piercing_damage = 10000
 
 data:extend({

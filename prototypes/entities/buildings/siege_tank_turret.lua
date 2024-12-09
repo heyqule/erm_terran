@@ -72,13 +72,6 @@ data:extend({
         },
         resistances =
         {
-            { type = "poison", percent = 50 },
-            { type = "physical", percent = 50 },
-            { type = "fire", percent = 50 },
-            { type = "explosion", percent = 50},
-            { type = "laser", percent = 50 },
-            { type = "electric", percent = 50 },
-            { type = "cold", percent = 50},
             { type = "impact", percent = 90, decrease = 50 },
         },
         flags = {"placeable-player", "player-creation"},

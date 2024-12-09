@@ -59,9 +59,9 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.3 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.325 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = nil,
-
+        alert_when_damaged = false,
         distraction_cooldown = distraction_cooldown,
         min_pursue_time = 60 * second,
         --ai_settings = biter_ai_settings,

@@ -114,15 +114,37 @@ local attack_functions = {
     end,
     [BUNKER_SPAWN_MARINE] = function(args)
         CustomAttacks.spawn_marine(args)
+    end,
+    [BUNKER_SPAWN_MARINE] = function(args)
+        CustomAttacks.spawn_marine(args)
+    end,
+    [ASTEROID_KILL] = function(args)
+        CustomAttacks.asteroid_aoe(args)
     end
 }
 
 local on_script_trigger_effect = function(event)
     if  attack_functions[event.effect_id] and
+        (ASTEROID_KILL == event.effect_id or   
             CustomAttacks.valid(event, MOD_NAME)
+        )
     then
         attack_functions[event.effect_id](event)
     end
+end
+
+local init_globals = function()
+    --- Used for ghost"s nuke launch tracking, data structure
+    --- storage.nuke_tracker[unit.unit_number] = {
+    ---     entity = entity
+    ---     launched_tick = event.tick
+    ---     drawing = target_drawing
+    --- }
+    storage.nuke_tracker = storage.nuke_tracker or {}
+    storage.nuke_tracker_total = storage.nuke_tracker_total or 0
+
+    --- use for CustomAttack.asteroid_aoe
+    storage.asteroid_next_unit_check = storage.asteroid_next_unit_check or {}
 end
 
 local TerranControl = {}
@@ -132,21 +154,13 @@ TerranControl.on_init = function(event)
     addRaceSettings()
 
     storage.new_color_change = false
-    --- Used for ghost"s nuke launch tracking, data structure
-    --- storage.nuke_tracker[unit.unit_number] = {
-    ---     entity = entity
-    ---     launched_tick = event.tick
-    ---     drawing = target_drawing
-    --- }
-    storage.nuke_tracker = storage.nuke_tracker or {}
-    storage.nuke_tracker_total = storage.nuke_tracker_total or 0
+    init_globals()
 end
 
 TerranControl.on_configuration_changed = function(event)
     refresh_data()
     addRaceSettings()
-    storage.nuke_tracker = storage.nuke_tracker or {}
-    storage.nuke_tracker_total = storage.nuke_tracker_total or 0
+    init_globals()
 end
 
 TerranControl.events = {
@@ -158,7 +172,7 @@ TerranControl.events = {
     [defines.events.on_script_trigger_effect] = on_script_trigger_effect
 }
 
-TerranControl.on_tick = {
+TerranControl.on_nth_tick = {
     [903] = CustomAttacks.clear_time_to_live_units,
     [93] = CustomAttacks.spawn_nuke
 }

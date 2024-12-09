@@ -607,7 +607,7 @@ add_unit_indicators = function(unit_data)
 end
 
 local reset_rendering = function()
-  rendering.clear("Comrades_Extended_Unit_Control")
+  rendering.clear("erm_terran")
   for k, unit_data in pairs (script_data.units) do
     local unit = unit_data.entity
     if unit and unit.valid then
@@ -891,11 +891,11 @@ local make_unit_gui = function(player)
   label.drag_target = frame
   local pusher = header_flow.add{type = "empty-widget", direction = "horizontal", style = "draggable_space_header"}
   pusher.style.horizontally_stretchable = true
-  pusher.style.height = 24 * player.display_scale
+  pusher.style.height = 16 * player.display_scale
   pusher.drag_target = frame
-  local exit_button = header_flow.add{type = "sprite-button"--[[, style = "frame_action_button", sprite = "utility/close_white"]]}
-  --exit_button.style.height = 16
-  --exit_button.style.width = 16
+  local exit_button = header_flow.add{type = "sprite-button", style = "frame_action_button", sprite = "utility/close"}
+  exit_button.style.height = 16
+  exit_button.style.width = 16
 
   util.register_gui(script_data.button_actions, exit_button, {type = "exit_button"})
 
@@ -2075,7 +2075,7 @@ local select_all_units_hotkey = function(event)
 
 end
 
-remote.add_interface("comrades_extended_unit_control", {
+remote.add_interface("__erm_terran__", {
   register_unit_unselectable = function(entity_name)
     script_data.unit_unselectable[entity_name] = true
   end,

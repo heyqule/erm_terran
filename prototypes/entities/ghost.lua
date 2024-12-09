@@ -76,7 +76,7 @@ data:extend({
         selection_box = selection_box,
         sticker_box = selection_box,
         vision_distance = vision_distance,
-        movement_speed = 0.225 * ERMPlayerUnitHelper.get_speed_multiplier(),
+        movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier(),
         repair_speed_modifier = 0.66,
         distraction_cooldown = distraction_cooldown,
         can_open_gates = true,
@@ -175,7 +175,7 @@ ghost_nuke["icons"][2] = {
     scale = 0.25,
     shift = {-9,-9}
 }
-ghost_nuke.movement_speed = 0.225
+ghost_nuke.movement_speed = 0.25
 ghost_nuke.max_health = 100 * ERMPlayerUnitHelper.get_health_multiplier()
 ghost_nuke.resistances = DataHelper.getResistance(75)
 ghost_nuke.run_animation = ghost_mk2_run_animation
@@ -183,7 +183,7 @@ ghost_nuke.repair_speed_modifier = 0.25
 ghost_nuke.attack_parameters = {
     type = "projectile",
     range_mode = "bounding-box-to-bounding-box",
-    ammo_category = "rocket",
+    ammo_category = "landmine",
     range = 9,
     warmup = 6,
     cooldown = NUKE_WAIT_TIME + 75,
@@ -191,7 +191,7 @@ ghost_nuke.attack_parameters = {
     animation = ghost_mk2_attack_animation,
     ammo_type =
     {
-        category = "rocket",
+        category = "landmine",
         action =
         {
             type = "direct",

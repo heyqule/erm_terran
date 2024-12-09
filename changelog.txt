@@ -1,11 +1,17 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.0
-Date: ????-??-??
+Date: 2024-12-10
 
   Features:
-    - Updated to support Factorio 2.0
+    - Updated to support Factorio 2.0.
     - Sound adjustments with 2.0 specs. Firing from hundreds of units should no longer nuke your speakers.
-
+    
+  Changes:
+    - Lowered overall damage to compensate lower resistances.
+    - Increased overall movement speed.
+    - Increased most AOE projectile's damage radius by 1-2 tiles.
+    - Adjusted item weight.
+    - Explosion of medium or bigger size asteroids have 20% chance to apply 50% of its health as impact damage to near by units (24 radius by default (max-attack-range + 10), up to 6 units, 3 seconds cooldown).  Small operating cost of using them in space.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
