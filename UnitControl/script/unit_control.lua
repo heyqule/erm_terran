@@ -894,8 +894,8 @@ local make_unit_gui = function(player)
   pusher.style.height = 16 * player.display_scale
   pusher.drag_target = frame
   local exit_button = header_flow.add{type = "sprite-button", style = "frame_action_button", sprite = "utility/close"}
-  exit_button.style.height = 16
-  exit_button.style.width = 16
+  exit_button.style.height = 24
+  exit_button.style.width = 24
 
   util.register_gui(script_data.button_actions, exit_button, {type = "exit_button"})
 
