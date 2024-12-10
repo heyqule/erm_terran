@@ -4,6 +4,10 @@
 --- DateTime: 12/7/2024 1:54 PM
 ---
 
+if not feature_flags.space_travel then
+    return
+end
+
 local aoe_damage = {
     type = "script",
     effect_id = ASTEROID_KILL,
