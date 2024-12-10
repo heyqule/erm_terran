@@ -7,7 +7,7 @@ Date: 2024-12-10
     - Sound adjustments with 2.0 specs. Firing from hundreds of units should no longer nuke your speakers.
     
   Changes:
-    - Lowered overall damage to compensate lower resistances.
+    - Lowered overall damage to compensate lowered enemy resistances.
     - Increased overall movement speed.
     - Increased most AOE projectile's damage radius by 1-2 tiles.
     - Adjusted item weight.
