@@ -503,7 +503,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--vulture",
+        order = "zzz".. MOD_NAME .. "--vulture",
         results = {
             {type="item", name=MOD_NAME .. "--vulture", amount=1},
         },
@@ -533,7 +533,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--goliath",
+        order = "zzz"..MOD_NAME .. "--goliath",
         results = {
             {type="item", name=MOD_NAME .. "--goliath", amount=1},
         },
@@ -563,7 +563,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--siege_tank",
+        order = "zzz"..MOD_NAME .. "--siege_tank",
         results = {
             {type="item", name=MOD_NAME .. "--siege_tank", amount=1},
         },
@@ -593,7 +593,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--siege_tank--mk2",
+        order = "zzz"..MOD_NAME .. "--siege_tank--mk2",
         results = {
             {type="item", name=MOD_NAME .. "--siege_tank--mk2", amount=1},
         },
@@ -813,7 +813,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--wraith",
+        order = "zzz"..MOD_NAME .. "--wraith",
         results = {
             {type="item", name=MOD_NAME .. "--wraith", amount=1},
         },
@@ -844,7 +844,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--attlecruiser--yamato",
+        order = "zzz"..MOD_NAME .. "--battlecruiser--yamato",
         results = {
             {type="item", name=MOD_NAME .. "--battlecruiser--yamato", amount=1},
         },
@@ -874,7 +874,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--attlecruiser--laser",
+        order = "zzz"..MOD_NAME .. "--battlecruiser--laser",
         results = {
             {type="item", name=MOD_NAME .. "--battlecruiser--laser", amount=1},
         },
@@ -892,7 +892,6 @@ hidden_in_factoriopedia = true,
         category = "erm_controllable_starport",
         hide_from_player_crafting = true,
 hidden_in_factoriopedia = true,
-        order = "zzz"..MOD_NAME .. "--valkyrie",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie256.png",
@@ -905,7 +904,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--valkyrie",
+        order = "zzz"..MOD_NAME .. "--valkyrie",
         results = {
             {type="item", name=MOD_NAME .. "--valkyrie", amount=1},
         },
@@ -935,7 +934,7 @@ hidden_in_factoriopedia = true,
                 shift = {9,9}
             },
         },
-        order = MOD_NAME .. "--science_vessel",
+        order = "zzz"..MOD_NAME .. "--science_vessel",
         results = {
             {type="item", name=MOD_NAME .. "--science_vessel", amount=1},
         },

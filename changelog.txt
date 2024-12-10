@@ -11,7 +11,8 @@ Date: 2024-12-10
     - Increased overall movement speed.
     - Increased most AOE projectile's damage radius by 1-2 tiles.
     - Adjusted item weight.
-    - Explosion of medium or bigger size asteroids have 20% chance to apply 50% of its health as impact damage to near by units (24 radius by default (max-attack-range + 10), up to 6 units, 3 seconds cooldown).  Small operating cost of using them in space.
+    - Explosion of medium or bigger size asteroids have 20% chance to apply 50% of its health as impact damage to near by units (24 radius by default (max-attack-range + 10), affect up to 6 units, 3 seconds cooldown).  Small operating cost of using them in space.
+    - Fixed autodeploy recipe orders
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.11
