@@ -13,7 +13,6 @@ Date: 2024-12-10
   Bugfixes:
     - Fixed startup crash when including asteroid on a not space-age game.
 
-
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 2024-12-10
@@ -21,7 +20,7 @@ Date: 2024-12-10
   Features:
     - Updated to support Factorio 2.0. 2.1.x are experimental releases until 2.2.
     - Sound adjustments with 2.0 specs. Firing from hundreds of units should no longer nuke your speakers.
-    
+
   Changes:
     - Lowered overall damage to compensate lowered enemy resistances.
     - Increased overall movement speed.
