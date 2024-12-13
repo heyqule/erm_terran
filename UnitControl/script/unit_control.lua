@@ -776,6 +776,14 @@ local gui_actions =
       group[unit_number] = nil
     end
     script_data.selected_units[event.player_index] = nil
+
+    -- @note heyqule custom change
+    -- Force unit control window to destroy, prevent window not destroy in MP.
+    local frame = get_frame(event.player_index)
+    if not (frame and frame.valid) then return end
+    util.deregister_gui(frame, script_data.button_actions)
+    frame.destroy()
+    
     --The GUI should be destroyed in the on_tick anyway.
   end,
   selected_units_button = function(event, action)

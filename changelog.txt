@@ -4,6 +4,7 @@ Date: 2024-12-12
 
   Bugfixes:
     - Fixed startup crash which caused by cheap mode recipes were not using new format.
+    - Attempt to fix unit control window can't close in multiplayer.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.1
