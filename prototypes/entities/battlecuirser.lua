@@ -95,14 +95,14 @@ data:extend({
         shooting_cursor_size = 2,
         can_open_gates = true,
         resistances = {
-            { type = "acid", percent = 85 },
+            { type = "acid", percent = 80 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 85 },
-            { type = "fire", percent = 85 },
-            { type = "explosion", percent = 85 },
-            { type = "laser", percent = 85 },
-            { type = "electric", percent = 85 },
-            { type = "cold", percent = 85 }
+            { type = "physical", percent = 80 },
+            { type = "fire", percent = 80 },
+            { type = "explosion", percent = 80 },
+            { type = "laser", percent = 80 },
+            { type = "electric", percent = 80 },
+            { type = "cold", percent = 80 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),
@@ -176,14 +176,14 @@ data:extend({
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = {
-            { type = "acid", percent = 80 },
+            { type = "acid", percent = 77 },
             { type = "poison", percent = 100 },
-            { type = "physical", percent = 80 },
-            { type = "fire", percent = 80 },
-            { type = "explosion", percent = 80 },
-            { type = "laser", percent = 80 },
-            { type = "electric", percent = 80 },
-            { type = "cold", percent = 80 }
+            { type = "physical", percent = 77 },
+            { type = "fire", percent = 77 },
+            { type = "explosion", percent = 77 },
+            { type = "laser", percent = 77 },
+            { type = "electric", percent = 77 },
+            { type = "cold", percent = 77 }
         },
         healing_per_tick = 0,
         collision_mask = ERMDataHelper.getFlyingCollisionMask(),
