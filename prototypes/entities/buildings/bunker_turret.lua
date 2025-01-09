@@ -65,6 +65,7 @@ data:extend({
         automated_ammo_count = 10,
         attacking_speed = 0.5,
         alert_when_attacking = true,
+        radar_range = 2,
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
         base_picture = util.empty_sprite(),
