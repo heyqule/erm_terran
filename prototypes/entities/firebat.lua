@@ -33,8 +33,6 @@ local vision_distance = ERMPlayerUnitHelper.get_vision_distance(2)
 
 local distraction_cooldown = 30
 
--- Animation Settings
-local unit_scale = 1.5
 
 local collision_box = { { -0.35, -0.35 }, { 0.35, 0.35 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
