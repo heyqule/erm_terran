@@ -3,7 +3,10 @@ Version: 2.1.4
 Date: 2025-02-??
 
   Changes:
-    - Add tip and tricks
+    - Added tip and tricks
+    - Added support for advanced target priorities
+    - Change Valkyrie icon to match others.
+    - Added advanced_target_priorities mod support.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.3

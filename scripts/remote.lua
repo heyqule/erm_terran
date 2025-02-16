@@ -44,4 +44,37 @@ function RemoteAPI.print_global()
     helpers.write_file("erm_terran/erm-storage.json",helpers.table_to_json(util.copy(storage)))
 end
 
+function RemoteAPI.advanced_target_priorities_register_section_data()
+    local data =  {
+        {
+            delimiter = '--',
+            name = "erm_terran",
+            prefix = 'erm_terran',
+            suffix = nil,
+            --- 4 type of options 'size', 'unit_type', 'tier','variant'
+            options = {
+                { 
+                  "marine--mk1", "marine--mk2",
+                  "marine--mk3", "vulture", 
+                  "firebat--mk1", "firebat--mk2",
+                  "ghost--regular", "ghost--nuke",
+                  "siege_tank", "siege_tank--mk2",
+                  "goliath", "wraith",
+                  "valkyrie", "science_vessel",
+                  "battlecruiser--laser", "battlecruiser--yamato",
+                },
+            },
+            unit_type_columns = 2,
+            --- controls order of text concatenation
+            option_titles = {
+                'unit_type'
+            },
+            option_delimiters = {
+            }
+        }
+    }
+
+    return data
+end
+
 return RemoteAPI
