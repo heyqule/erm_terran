@@ -1,12 +1,16 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.4
-Date: 2025-02-??
+Date: 2025-02-21
 
   Changes:
     - Added tip and tricks
-    - Added support for advanced target priorities
     - Change Valkyrie icon to match others.
     - Added advanced_target_priorities mod support.
+    - MK1 and MK2 bunker recipe changes:
+    - bunker MK1 cost changed from 20 concrete to 50 bricks. Other ingredients unchanged.
+    - bunker MK2 cost changed from 10 refined-concrete to 50 concrete and 25 steel to 30 steel.
+    - Lowered the amount of items for vulture recipe.
+    - Barrack, Factory and Starport can now connect to circuit network.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.3

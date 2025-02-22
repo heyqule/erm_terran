@@ -462,10 +462,10 @@ hidden_in_factoriopedia = true,
         energy_required = 60,
         ingredients =
         {
-            {type="item", name="iron-gear-wheel", amount=100},
-            {type="item", name="steel-plate", amount=50},
+            {type="item", name="iron-gear-wheel", amount=50},
+            {type="item", name="steel-plate", amount=20},
             {type="item", name="petroleum-gas-barrel", amount=10},
-            {type="item", name="engine-unit", amount=12},
+            {type="item", name="engine-unit", amount=10},
             {type="item", name="land-mine", amount=20},
             {type="item", name="grenade", amount=20},
         },
@@ -1110,7 +1110,7 @@ hidden_in_factoriopedia = true,
         {
             {type="item", name="erm_terran--marine--mk1", amount=4},
             {type="item", name="steel-plate", amount=10},
-            {type="item", name="concrete", amount=20}
+            {type="item", name="stone-brick", amount=50}
         },
         icons = {
             {
@@ -1140,9 +1140,8 @@ hidden_in_factoriopedia = true,
         ingredients =
         {
             {type="item", name="erm_terran--marine--mk2", amount=4},
-            {type="item", name="steel-plate", amount=25},
-            {type="item", name="concrete", amount=30},
-            {type="item", name="refined-concrete", amount=10}
+            {type="item", name="steel-plate", amount=30},
+            {type="item", name="concrete", amount=50},
         },
         icons = {
             {

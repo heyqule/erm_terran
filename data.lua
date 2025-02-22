@@ -24,6 +24,7 @@ require "prototypes.entities.buildings.bunker_turret"
 require "prototypes.items"
 require "prototypes.recipes"
 require "prototypes.technologies"
+require "prototypes.tips_and_tricks.prototypes"
 
 
 --- Temporary Unit Control Implementation

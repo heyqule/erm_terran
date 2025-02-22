@@ -115,10 +115,10 @@ unit.max_health = math.ceil(unit.max_health * health_reduction)
 
 local recipe = data.raw["recipe"][MOD_NAME .. "--vulture"]
 recipe["ingredients"] = {
-    {type="item", name="iron-gear-wheel", amount=50},
-    {type="item", name="steel-plate", amount=25},
+    {type="item", name="iron-gear-wheel", amount=25},
+    {type="item", name="steel-plate", amount=10},
     {type="item", name="petroleum-gas-barrel", amount=5},
-    {type="item", name="engine-unit", amount=6},
+    {type="item", name="engine-unit", amount=5},
     {type="item", name="land-mine", amount=10},
     {type="item", name="grenade", amount=10},
 }

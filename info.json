@@ -7,8 +7,8 @@
   "description": "Add terran units as player controllable units",
   "factorio_version": "2.0",
   "dependencies": [
-    "base >= 2.0.0",
-    "enemyracemanager >= 2.0.13",
+    "base >= 2.0.34",
+    "enemyracemanager >= 2.0.22",
     "erm_terran_hd_assets >= 2.0.0"
   ]
 }

@@ -3,6 +3,7 @@
 --- Created by heyqule.
 --- DateTime: 11/17/2022 7:59 PM
 ---
+require ("__erm_terran__/prototypes/entities/buildings/circuit_connector_definitions")
 local util = require("util")
 local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
@@ -26,14 +27,8 @@ data:extend({
         name = MOD_NAME .. "--barrack",
         icons = {
             {
-                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
-                icon_size = 64,
-            },
-            {
-                icon = "__base__/graphics/icons/signal/signal_B.png",
-                icon_size = 64,
-                scale = 0.2,
-                shift = {-9,-9}
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/barracks256.png",
+                icon_size = 256,
             },
         },
         flags = {"placeable-neutral","placeable-player", "player-creation"},
@@ -43,6 +38,8 @@ data:extend({
         dying_explosion = MOD_NAME.."--building-large-explosion",
         allow_run_time_change_of_is_military_target = false,
         is_military_target = true,
+        circuit_wire_max_distance = erm_terran_circuit_wire_max_distance,
+        circuit_connector = erm_terran_circuit_connector['barrack'],
         resistances =
         {
             { type = "poison", percent = 50 },
