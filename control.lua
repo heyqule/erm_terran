@@ -7,11 +7,8 @@
 --
 require("global")
 
------ Temporary Unit Control
-handler = require("event_handler")
 
-names = require("UnitControl/shared")
-handler.add_lib(require("UnitControl/script/unit_control"))
+handler = require("event_handler")
 
 handler.add_lib(require("terran_controls"))
 

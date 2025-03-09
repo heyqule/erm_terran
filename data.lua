@@ -1,5 +1,13 @@
 require("__erm_terran__/global")
 
+-- Recipe Category
+data:extend({
+    { type = "recipe-category", name = "erm_controllable_infantry" },
+    { type = "recipe-category", name = "erm_controllable_factory" },
+    { type = "recipe-category", name = "erm_controllable_starport" },
+    { type = "recipe-category", name = "erm_controllable_buildings" },
+})
+
 require "prototypes.entities.projectiles"
 require "prototypes.entities.battlecuirser"
 require "prototypes.entities.wraith"
@@ -25,9 +33,3 @@ require "prototypes.items"
 require "prototypes.recipes"
 require "prototypes.technologies"
 require "prototypes.tips_and_tricks.prototypes"
-
-
---- Temporary Unit Control Implementation
-names = require("UnitControl/shared")
-require "UnitControl/data/unit_control/unit_control"
-require("UnitControl/data/hotkeys")

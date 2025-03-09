@@ -4,7 +4,7 @@
 --- DateTime: 12/7/2024 1:54 PM
 ---
 
-if not feature_flags.space_travel then
+if not mods['space-age'] then
     return
 end
 

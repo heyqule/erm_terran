@@ -80,6 +80,26 @@ CustomAttacks.spawn_nuke = function(event)
     end
 end
 
+local drop_on_enemy_position = function(entity)
+    local surface = entity.surface
+    local position = entity.position
+    local found_entity = surface.find_nearest_enemy({position=position, max_distance=32, force=entity.force})
+    local found_position = found_entity.position
+    local x_offset = 4
+    local y_offset = 4
+    if found_position.x < 0 then
+        x_offset = -4
+    end
+
+    if found_position.y < 0 then
+        y_offset = -4
+    end
+
+    found_position.x = found_position.x + x_offset
+    found_position.y = found_position.y + y_offset
+    return found_position
+end
+
 local spawn_marines = function(event, make_string)
     local count = 2;
 
@@ -91,12 +111,13 @@ local spawn_marines = function(event, make_string)
         count = count + 1
     end
 
-    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine--"..make_string, count)
+    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine--"..make_string, count, drop_on_enemy_position(event.source_entity))
 end
 
 CustomAttacks.spawn_marine = function(event)
-    if event.source_entity.valid then
-        local nameToken = String.split(event.source_entity.name, "--")
+    local entity = event.source_entity
+    if entity.valid then
+        local nameToken = String.split(entity.name, "--")
         if nameToken[3] then
             spawn_marines(event, nameToken[3])
         end

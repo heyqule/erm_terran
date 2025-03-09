@@ -115,9 +115,6 @@ local attack_functions = {
     [BUNKER_SPAWN_MARINE] = function(args)
         CustomAttacks.spawn_marine(args)
     end,
-    [BUNKER_SPAWN_MARINE] = function(args)
-        CustomAttacks.spawn_marine(args)
-    end,
     [ASTEROID_KILL] = function(args)
         CustomAttacks.asteroid_aoe(args)
     end
