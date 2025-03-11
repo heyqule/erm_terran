@@ -7,7 +7,10 @@ Date: 2025-03-??
     - Added erm_unit_control as dependency.
     - Moved recipe categories from ERM core.
     - Changed all autodeploy recipes build time to 5 seconds. 
-    - Bucker spawn marine will now drop beside a nearest enemy.  This should prevent them blocking bunker from being rebuild.
+    - Bunker spawn marine will now drop beside a nearest enemy.  This should prevent them blocking bunker from being rebuild.
+  
+  Bugfixes:
+    - Fixed a start up crash from tip and trick linking a erm_toss file.    
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.4
