@@ -4,7 +4,7 @@
 --- DateTime: 11/2/2024 7:01 PM
 ---
 
-local simulations = require("__erm_toss__/prototypes/tips_and_tricks/simulations")
+local simulations = require("__erm_terran__/prototypes/tips_and_tricks/simulations")
 
 data:extend(
         {
