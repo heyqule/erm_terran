@@ -122,7 +122,7 @@ data:extend({
         distance_per_frame = 0.2,
         render_layer = "wires-above",
         run_animation = runAnimation,
-        dying_explosion = MOD_NAME.."--large-explosion",
+        dying_explosion = "terran--large-explosion",
         dying_sound = TerranSound.enemy_death(name, 1),
         corpse = MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),

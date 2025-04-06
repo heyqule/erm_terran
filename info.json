@@ -1,6 +1,6 @@
 {
   "name": "erm_terran",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "date": "2021-07-10",
   "title": "ERM - Terran Units for Players",
   "author": "heyqule",
@@ -8,8 +8,8 @@
   "factorio_version": "2.0",
   "dependencies": [
     "base >= 2.0.34",
-    "enemyracemanager >= 2.0.22",
-    "erm_terran_hd_assets >= 2.0.0",
+    "enemyracemanager >= 2.0.25",
+    "erm_terran_hd_assets >= 2.0.1",
     "erm_unit_control >= 1.0.0"
   ]
 }

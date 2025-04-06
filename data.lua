@@ -5,7 +5,6 @@ data:extend({
     { type = "recipe-category", name = "erm_controllable_infantry" },
     { type = "recipe-category", name = "erm_controllable_factory" },
     { type = "recipe-category", name = "erm_controllable_starport" },
-    { type = "recipe-category", name = "erm_controllable_buildings" },
 })
 
 require "prototypes.entities.projectiles"

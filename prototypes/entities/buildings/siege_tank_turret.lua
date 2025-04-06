@@ -76,7 +76,7 @@ data:extend({
         },
         flags = {"placeable-player", "player-creation"},
         max_health = 2400,
-        dying_explosion = MOD_NAME.."--building-large-explosion",
+        dying_explosion = "terran--building-large-explosion",
         minable = {mining_time = 2, result = MOD_NAME .. "--siege-tank-turret"},
         repair_speed_modifier = 0.33,
         collision_box = collision_box,

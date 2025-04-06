@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.6
+Date: 2025-04-??
+
+  Changes:
+    - Moved "{type = "recipe-category", name = "erm_controllable_buildings" }" back to ERM core.
+    - generalize death explosions.
+
+  Bugfixes:
+    - Fixed a crash when the bunker destroyed and no enemy found nearby. Also increase search radius from 32 to 64.          
+
+---------------------------------------------------------------------------------------------------
 Version: 2.1.5
 Date: 2025-03-11
 
@@ -8,7 +19,7 @@ Date: 2025-03-11
     - Moved recipe categories from ERM core.
     - Changed all autodeploy recipes build time to 5 seconds. 
     - Bunker spawn marine will now drop beside a nearest enemy.  This should prevent them blocking bunker from being rebuild.
-  
+
   Bugfixes:
     - Fixed a start up crash from tip and trick linking a erm_toss file.    
 

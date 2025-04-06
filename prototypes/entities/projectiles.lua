@@ -863,26 +863,26 @@ data:extend({
     },
     {
         type = "explosion",
-        name = MOD_NAME.."--large-explosion",
+        name = "terran--large-explosion",
         flags = { "not-on-map" },
         subgroup = "explosions",
-        order = MOD_NAME.."--large-explosion",
+        order = "terran--large-explosion",
         animations = AnimationDB.get_layered_animations("death", "small_building_death", "explosion")
     },
     {
         type = "explosion",
-        name = MOD_NAME.."--building-large-explosion",
+        name = "terran--building-large-explosion",
         flags = { "not-on-map" },
         subgroup = "explosions",
-        order = MOD_NAME.."--large-explosion",
+        order = "terran--large-explosion",
         animations = AnimationDB.get_layered_animations("death", "small_building_death", "explosion")
     },
     {
         type = "explosion",
-        name = MOD_NAME.."--building-xlarge-explosion",
+        name = "terran--building-xlarge-explosion",
         flags = { "not-on-map" },
         subgroup = "explosions",
-        order = MOD_NAME.."--xlarge-explosion",
+        order = "terran--building-xlarge-explosion",
         animations = AnimationDB.get_layered_animations("death", "large_building_death", "explosion")
     },
 })
@@ -892,7 +892,7 @@ data:extend({
 data:extend({
     {
         type = "corpse",
-        name = MOD_NAME.."--large-base-corpse",
+        name = "terran--large-base-corpse",
         flags = { "placeable-neutral",  "not-on-map" },
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
         icon_size = 64,
@@ -908,7 +908,7 @@ data:extend({
     },
     {
         type = "corpse",
-        name = MOD_NAME.."--small-base-corpse",
+        name = "terran--small-base-corpse",
         flags = { "placeable-neutral",  "not-on-map" },
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/advisor.png",
         icon_size = 64,
