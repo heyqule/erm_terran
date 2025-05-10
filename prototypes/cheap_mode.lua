@@ -19,7 +19,7 @@ local recipe = data.raw["recipe"][MOD_NAME .. "--marine--mk2"]
 recipe["ingredients"] = {
     {type="item", name="heavy-armor", amount=1},
     {type="item", name="submachine-gun", amount=1},
-    {type="item", name="piercing-rounds-magazine", amount=15},
+    {type="item", name="piercing-rounds-magazine", amount=20},
 }
 local unit = data.raw["unit"][MOD_NAME .. "--marine--mk2"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)

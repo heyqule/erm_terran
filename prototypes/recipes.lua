@@ -36,7 +36,7 @@ data:extend({
         ingredients = {
             { type = "item", name = "heavy-armor", amount = 1 },
             { type = "item", name = "submachine-gun", amount = 1 },
-            { type = "item", name = "piercing-rounds-magazine", amount = 25 },
+            { type = "item", name = "piercing-rounds-magazine", amount = 40 },
             { type = "item", name = "radar", amount = 1 },
         },
         category = "erm_controllable_infantry",
@@ -57,7 +57,7 @@ data:extend({
         ingredients = {
             { type = "item", name = "modular-armor", amount = 1 },
             { type = "item", name = "submachine-gun", amount = 1 },
-            { type = "item", name = "uranium-rounds-magazine", amount = 25 },
+            { type = "item", name = "uranium-rounds-magazine", amount = 30 },
             { type = "item", name = "radar", amount = 1 },
         },
         category = "erm_controllable_infantry",
