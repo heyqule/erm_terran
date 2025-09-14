@@ -7,8 +7,6 @@
 -- Globals within the mod
 MOD_NAME = "erm_terran"
 
-DEBUG_MODE = false
-
 SELF_DESTRUCT_ATTACK = "emtrn-slfd"
 TIME_TO_LIVE_DIED = "emtrn-ttld"
 TIME_TO_LIVE_CREATED = "emtrn-ttlc"

@@ -144,7 +144,7 @@ data:extend({
         energy_required = 50,
         ingredients = {
             { type = "item", name = "rocket-launcher", amount = 1 },
-            { type = "item", name = "atomic-bomb", amount = 2 },
+            { type = "item", name = "atomic-bomb", amount = 1 },
             { type = "item", name = "modular-armor", amount = 1 },
             { type = "item", name = "night-vision-equipment", amount = 1 },
             { type = "item", name = "battery-equipment", amount = 4 }

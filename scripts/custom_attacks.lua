@@ -21,7 +21,7 @@ CustomAttacks.add_nuke_to_queue = function(event)
         local targeter_render_obj = rendering.draw_animation({
             animation = MOD_NAME .. "--nuclear_targeter",
             target = target_position,
-            time_to_live = NUKE_WAIT_TIME + 75,
+            time_to_live = NUKE_WAIT_TIME + 60,
             surface = event.source_entity.surface.index,
             render_layer = "radius-visualization"
         })

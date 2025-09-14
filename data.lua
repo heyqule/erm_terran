@@ -8,7 +8,7 @@ data:extend({
 })
 
 require "prototypes.entities.projectiles"
-require "prototypes.entities.battlecuirser"
+require "prototypes.entities.battlecruiser"
 require "prototypes.entities.wraith"
 require "prototypes.entities.siege_tank"
 require "prototypes.entities.marine"

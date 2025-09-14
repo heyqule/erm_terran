@@ -740,7 +740,7 @@ data:extend({
         flags = { "not-on-map" },
         subgroup = "explosions",
         order = MOD_NAME.."--shockbomb-explosion",
-        animations = AnimationDB.get_single_animation("projectiles", "shockbomb", "explosion", "glow", 1),
+        animations = AnimationDB.get_single_animation("projectiles", "shockbomb", "explosion", "glow", nil, 1),
         light = {intensity = 1, size = 24, color = {r=1.0, g=0.66, b=0.0}}
     },
     {
@@ -749,7 +749,7 @@ data:extend({
         flags = { "not-on-map" },
         subgroup = "explosions",
         order = MOD_NAME.."--tank-shell-explosion",
-        animations = AnimationDB.get_single_animation("projectiles", "shockbomb", "explosion", "glow", 0.5),
+        animations = AnimationDB.get_single_animation("projectiles", "shockbomb", "explosion", "glow", nil, 0.5),
         light = {intensity = 1, size = 12, color = {r=1.0, g=0.66, b=0.0}}
     },
     {
@@ -758,7 +758,7 @@ data:extend({
         flags = { "not-on-map" },
         subgroup = "explosions",
         order = MOD_NAME.."--shockbomb-explosion",
-        animations = AnimationDB.get_single_animation("projectiles", "shockbomb", "explosion", "glow", 0.8),
+        animations = AnimationDB.get_single_animation("projectiles", "shockbomb", "explosion", "glow", nil, 0.8),
         light = {intensity = 1, size = 20, color = {r=1.0, g=0.66, b=0.0}}
     },
     {
