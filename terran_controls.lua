@@ -5,7 +5,6 @@
 ---
 
 local String = require("__erm_libs__/stdlib/string")
-local gui = require("__enemyracemanager__/gui/army_control_window")
 local CustomAttacks = require("__erm_terran__/scripts/custom_attacks")
 local RaceSettingsHelper = require("__enemyracemanager__/lib/helper/race_settings_helper")
 
@@ -121,7 +120,7 @@ local attack_functions = {
 }
 
 local on_script_trigger_effect = function(event)
-    if  attack_functions[event.effect_id] and
+    if attack_functions[event.effect_id] and
         (ASTEROID_KILL == event.effect_id or   
             CustomAttacks.valid(event, MOD_NAME)
         )

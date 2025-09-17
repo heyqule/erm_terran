@@ -5,8 +5,9 @@ Date: 2025-??-??
   Changes:
     - Fixed typo in filename,
     - Fixed animation scale for some projectiles.
-    - Decrease atomic bomb from 2 to 1 for atomic bomb ghost.
+    - Decrease atomic bomb in recipe from 2 to 1 for atomic bomb ghost.
     - Decrease atomic ghost cooldown from 75 ticks to 60 ticks after deployment.
+    - Moved "unit control" tip and trick to ERM core.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.7

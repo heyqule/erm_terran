@@ -35,16 +35,6 @@ data:extend(
             },
             {
                 type = "tips-and-tricks-item",
-                name = MOD_NAME.."-unit-control",
-                tag = "[entity="..MOD_NAME.."--starport]",
-                category = MOD_NAME,
-                order = "c",
-                indent = 1,
-                starting_status = "suggested",
-                --simulation = simulations.general
-            },
-            {
-                type = "tips-and-tricks-item",
                 name = MOD_NAME.."-teleport",
                 tag = "[entity="..MOD_NAME.."--command-center]",
                 category = MOD_NAME,
