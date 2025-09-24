@@ -13,7 +13,7 @@ Date: 2025-09-24
 Version: 2.1.7
 Date: 2025-05-10
 
-  Changes: 
+  Changes:
     - Increased piercing ammo in Marine MK2 recipe from 25 to 40 to balance cost change in 2.0.46. Cheap mode changed from 15 to 20.    
     - Increased uranium piercing ammo in Marine MK3 recipe from 25 to 30.  Cheap mode stays the same.
     - Reason: Piercing ammo became a lot cheaper in 2.0.47.
