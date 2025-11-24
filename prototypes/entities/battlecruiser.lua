@@ -135,7 +135,7 @@ data:extend({
                         type = "projectile",
                         projectile = MOD_NAME.."--battlecruiser-yamato-projectile",
                         starting_speed = 0.35,
-                        max_range = attack_range * 1.5
+                        max_range = attack_range * 2.5
                     }
                 }
             },

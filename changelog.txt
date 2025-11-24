@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.9
+Date: 2025-11-24
+
+  Changes:
+    - Removed radar from marine and firebat recipes.
+    - Fixed typo in tips and tricks
+    - Reduced science vessel irradiate cloud maximum_lifetime from 9s to 5s and initial from 3s to 2s.
+    - Increased Battlecruiser's yamato projectile range.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.1.8
 Date: 2025-09-24
 

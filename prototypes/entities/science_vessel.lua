@@ -199,8 +199,8 @@ data:extend({
 
         initial_lifetime = 180,
         lifetime_increase_by = 180,
-        lifetime_increase_cooldown = 60,
-        maximum_lifetime = 540,
+        lifetime_increase_cooldown = 30,
+        maximum_lifetime = 300,
         --delay_between_initial_flames = 10,
         --initial_flame_count = 1,
 
