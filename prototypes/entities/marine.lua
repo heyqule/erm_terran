@@ -26,7 +26,7 @@ local vision_distance = ERMPlayerUnitHelper.get_vision_distance(attack_range)
 local distraction_cooldown = 30
 
 
-local collision_box = { { -0.35, -0.35 }, { 0.35, 0.35 } }
+local collision_box = { { -0.2, -0.2 }, { 0.2, 0.2 } }
 local selection_box = { { -0.75, -0.75 }, { 0.75, 0.75 } }
 
 local attackAnimation = AnimationDB.get_layered_animations("units", "marine", "attack")
