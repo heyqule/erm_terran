@@ -80,17 +80,21 @@ CustomAttacks.spawn_nuke = function(event)
     end
 end
 
-local calculate_drop_position = function(position)
+local calculate_drop_position = function(position, closer_to_zero)
+    local spawn_distance = -32
+    if closer_to_zero then
+        spawn_distance = 32
+    end
     if position.x < 0 then
-        position.x = position.x + 32 
+        position.x = position.x + spawn_distance
     else
-        position.x = position.x - 32
+        position.x = position.x - spawn_distance
     end
 
     if position.y < 0 then
-        position.y = position.y + 32
+        position.y = position.y + spawn_distance
     else
-        position.y = position.y - 32
+        position.y = position.y - spawn_distance
     end
     
     return position
@@ -99,22 +103,22 @@ end
 local drop_on_enemy_position = function(entity)
     local surface = entity.surface
     local position = entity.position
-    local found_entity = surface.find_nearest_enemy({position=position, max_distance=64, force=entity.force})
+    local found_entity = surface.find_nearest_enemy({position=calculate_drop_position(position), max_distance=32, force=entity.force})
     local found_position
     if found_entity then
         found_position = found_entity.position
     else
-        found_position = calculate_drop_position(position)
+        found_position = calculate_drop_position(position, true)
     end
     
-    local x_offset = 4
-    local y_offset = 4
+    local x_offset = 8
+    local y_offset = 8
     if found_position.x < 0 then
-        x_offset = -4
+        x_offset = -8
     end
 
     if found_position.y < 0 then
-        y_offset = -4
+        y_offset = -8
     end
 
     found_position.x = found_position.x + x_offset
