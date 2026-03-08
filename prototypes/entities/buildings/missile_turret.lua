@@ -40,7 +40,7 @@ data:extend({
         },
         flags = {"placeable-player", "player-creation"},
         minable = {mining_time = 2, result = MOD_NAME .. "--missile-turret"},
-        max_health = 750,
+        max_health = 1200,
         repair_speed_modifier = 0.33,
         dying_explosion = "terran--building-large-explosion",
         corpse = "terran--small-base-corpse",

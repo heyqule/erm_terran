@@ -67,7 +67,7 @@ Build from Barrack, deal fire damage in close range, deal explosion damage on de
 Build from Barrack, deal heavy physical damage in long range, occasional case lockdown to slow enemy.
 
 ##### Ghost nuclear (Supply:1)
-Build from Barrack, fires nuke, likely die from its attack. 
+Build from Barrack, fires nuke, likely die from their attack. 
 
 
 ### Factory Units

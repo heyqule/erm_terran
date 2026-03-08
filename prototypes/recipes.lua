@@ -49,6 +49,37 @@ data:extend({
     },
     {
         type = "recipe",
+        name = MOD_NAME .. "--marine--mk2--upgrade",
+        enabled = false,
+        energy_required = 24,
+        ingredients = {
+            { type = "item", name = MOD_NAME .. "--marine--mk1", amount = 2},
+            { type = "item", name = "piercing-rounds-magazine", amount = 40 },
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        order = MOD_NAME .. "--marine--mk2",
+        results = {
+            { type = "item", name = MOD_NAME .. "--marine--mk2", amount = 1 },
+        },
+        allow_quality = false,
+        auto_recycle = false,
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_U.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { 9, 9 }
+            },
+        },
+    },
+    {
+        type = "recipe",
         name = MOD_NAME .. "--marine--mk3",
         enabled = false,
         energy_required = 24,
@@ -66,6 +97,37 @@ data:extend({
         },
         allow_quality = false,
         auto_recycle = false,
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. "--marine--mk3--upgrade",
+        enabled = false,
+        energy_required = 24,
+        ingredients = {
+            { type = "item", name = MOD_NAME .. "--marine--mk2", amount = 2},
+            { type = "item", name = "uranium-rounds-magazine", amount = 30 },
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        order = MOD_NAME .. "--marine--mk3--upgrade",
+        results = {
+            { type = "item", name = MOD_NAME .. "--marine--mk3", amount = 1 },
+        },
+        allow_quality = false,
+        auto_recycle = false,
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_U.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { 9, 9 }
+            },
+        },
     },
     {
         type = "recipe",
@@ -108,6 +170,37 @@ data:extend({
         },
         allow_quality = false,
         auto_recycle = false,
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. "--firebat--mk2--upgrade",
+        enabled = false,
+        energy_required = 24,
+        ingredients = {
+            { type = "item", name = MOD_NAME .. "--firebat--mk1", amount = 2 },
+            { type = "item", name = "light-oil-barrel", amount = 50 },
+        },
+        category = "erm_controllable_infantry",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        order = MOD_NAME .. "--firebat--mk2-upgrade",
+        results = {
+            { type = "item", name = MOD_NAME .. "--firebat--mk2", amount = 1 },
+        },
+        allow_quality = false,
+        auto_recycle = false,
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_U.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { 9, 9 }
+            },
+        },
     },
     {
         type = "recipe",
@@ -432,6 +525,37 @@ data:extend({
         },
         allow_quality = false,
         auto_recycle = false,
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. "--siege_tank--mk2--upgrade",
+        enabled = false,
+        energy_required = 50,
+        ingredients = {
+            { type = "item", name = MOD_NAME .. "--siege_tank", amount = 2 },
+            { type = "item", name = "uranium-cannon-shell", amount = 100 },
+        },
+        category = "erm_controllable_factory",
+        allow_as_intermediate = false,
+        always_show_made_in = true,
+        order = MOD_NAME .. "--siege_tank--mk2",
+        results = {
+            { type = "item", name = MOD_NAME .. "--siege_tank--mk2", amount = 1 },
+        },
+        allow_quality = false,
+        auto_recycle = false,
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_U.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { 9, 9 }
+            },
+        },
     },
     {
         type = "recipe",
@@ -1118,6 +1242,42 @@ data:extend({
     },
     {
         type = "recipe",
+        name = MOD_NAME .. "--bunker-turret--mk2--upgrade",
+        enabled = false,
+        energy_required = 60,
+        ingredients = {
+            { type = "item", name = MOD_NAME .. "--bunker-turret--mk1", amount = 2 },
+            { type = "item", name = "concrete", amount = 50 },
+            { type = "item", name = "piercing-rounds-magazine", amount = 160 },
+        },
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_2.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { -9, -9 }
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_U.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { 9, 9 }
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = MOD_NAME .. "--bunker-turret--mk2--upgrade",
+        results = {
+            { type = "item", name = MOD_NAME .. "--bunker-turret--mk2", amount = 1 },
+        },
+        allow_quality = false,
+        auto_recycle = false,
+    },
+    {
+        type = "recipe",
         name = MOD_NAME .. "--bunker-turret--mk3",
         enabled = false,
         energy_required = 60,
@@ -1140,6 +1300,42 @@ data:extend({
         },
         subgroup = "erm_controllable_buildings",
         order = MOD_NAME .. "--bunker-turret--mk3",
+        results = {
+            { type = "item", name = MOD_NAME .. "--bunker-turret--mk3", amount = 1 },
+        },
+        allow_quality = false,
+        auto_recycle = false,
+    },
+    {
+        type = "recipe",
+        name = MOD_NAME .. "--bunker-turret--mk3--upgrade",
+        enabled = false,
+        energy_required = 60,
+        ingredients = {
+            { type = "item", name = MOD_NAME .. "--bunker-turret--mk2", amount = 2 },
+            { type = "item", name = "refined-concrete", amount = 50 },
+            { type = "item", name = "uranium-rounds-magazine", amount = 120 },
+        },
+        icons = {
+            {
+                icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
+                icon_size = 256,
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_3.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { -9, -9 }
+            },
+            {
+                icon = "__base__/graphics/icons/signal/signal_U.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = { 9, 9 }
+            },
+        },
+        subgroup = "erm_controllable_buildings",
+        order = MOD_NAME .. "--bunker-turret--mk3--upgrade",
         results = {
             { type = "item", name = MOD_NAME .. "--bunker-turret--mk3", amount = 1 },
         },

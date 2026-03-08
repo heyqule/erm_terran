@@ -21,6 +21,11 @@ recipe["ingredients"] = {
     {type="item", name="submachine-gun", amount=1},
     {type="item", name="piercing-rounds-magazine", amount=20},
 }
+local recipe = data.raw["recipe"][MOD_NAME .. "--marine--mk2--upgrade"]
+recipe["ingredients"] = {
+    { type = "item", name = MOD_NAME .. "--marine--mk1", amount = 2},
+    { type = "item", name = "piercing-rounds-magazine", amount = 20 },
+}
 local unit = data.raw["unit"][MOD_NAME .. "--marine--mk2"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)
 
@@ -29,6 +34,11 @@ recipe["ingredients"] = {
     {type="item", name="modular-armor", amount=1},
     {type="item", name="submachine-gun", amount=1},
     {type="item", name="uranium-rounds-magazine", amount=15},
+}
+local recipe = data.raw["recipe"][MOD_NAME .. "--marine--mk3--upgrade"]
+recipe["ingredients"] = {
+    { type = "item", name = MOD_NAME .. "--marine--mk2", amount = 2},
+    { type = "item", name = "uranium-rounds-magazine", amount = 15 },
 }
 local unit = data.raw["unit"][MOD_NAME .. "--marine--mk3"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)
@@ -49,6 +59,11 @@ recipe["ingredients"] = {
     {type="item", name="flamethrower", amount=1},
     {type="item", name="light-oil-barrel", amount=25},
     {type="item", name="explosives", amount=25},
+}
+local recipe = data.raw["recipe"][MOD_NAME .. "--firebat--mk2--upgrade"]
+recipe["ingredients"] = {
+    { type = "item", name = MOD_NAME .. "--firebat--mk1", amount = 2},
+    { type = "item", name = "light-oil-barrel", amount = 25 },
 }
 local unit = data.raw["unit"][MOD_NAME .. "--firebat--mk2"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)
@@ -109,6 +124,11 @@ recipe["ingredients"] = {
     {type="item", name="low-density-structure", amount=10},
     {type="item", name="processing-unit", amount=5},
     {type="item", name="rocket-fuel", amount=10},
+}
+local recipe = data.raw["recipe"][MOD_NAME .. "--siege_tank--mk2--upgrade"]
+recipe["ingredients"] = {
+    { type = "item", name = MOD_NAME .. "--siege_tank", amount = 2},
+    { type="item", name="uranium-cannon-shell", amount=20 },
 }
 local unit = data.raw["unit"][MOD_NAME .. "--siege_tank--mk2"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)
@@ -204,3 +224,17 @@ recipe["ingredients"] = {
 }
 local unit = data.raw["unit"][MOD_NAME .. "--science_vessel"]
 unit.max_health = math.ceil(unit.max_health * health_reduction)
+
+local recipe = data.raw["recipe"][MOD_NAME .. "--bunker-turret--mk2--upgrade"]
+recipe["ingredients"] = {
+    { type = "item", name = MOD_NAME .. "--bunker-turret--mk2", amount = 2 },
+    { type = "item", name = "concrete", amount = 50 },
+    { type = "item", name = "uranium-rounds-magazine", amount = 80 },
+}
+
+local recipe = data.raw["recipe"][MOD_NAME .. "--bunker-turret--mk3--upgrade"]
+recipe["ingredients"] = {
+    { type = "item", name = MOD_NAME .. "--bunker-turret--mk2", amount = 2 },
+    { type = "item", name = "refined-concrete", amount = 50 },
+    { type = "item", name = "uranium-rounds-magazine", amount = 60 },
+}

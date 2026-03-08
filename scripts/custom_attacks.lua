@@ -36,7 +36,7 @@ CustomAttacks.add_nuke_to_queue = function(event)
 end
 
 CustomAttacks.cancel_nuke_from_queue = function(event)
-    if event.source_entity.valid and storage.nuke_tracker[event.source_entity.unit_number] then
+    if event.source_entity and event.source_entity.valid and storage.nuke_tracker[event.source_entity.unit_number] then
         local nuke_data = storage.nuke_tracker[event.source_entity.unit_number]
         nuke_data.targeter_render_obj.destroy()
         storage.nuke_tracker[event.source_entity.unit_number] = nil
@@ -142,7 +142,7 @@ end
 
 CustomAttacks.spawn_marine = function(event)
     local entity = event.source_entity
-    if entity.valid then
+    if entity and entity.valid then
         local nameToken = String.split(entity.name, "--")
         if nameToken[3] then
             spawn_marines(event, nameToken[3])
@@ -156,7 +156,7 @@ local scan_radius = 10 + settings.startup['enemyracemanager-max-attack-range'].v
 local health_ratio = 2
 CustomAttacks.asteroid_aoe = function(event)
     local source_entity = event.source_entity
-    if source_entity.valid then
+    if source_entity and source_entity.valid then
         local surface = source_entity.surface
         if surface.valid and surface.platform then
             local surface_index = surface.index

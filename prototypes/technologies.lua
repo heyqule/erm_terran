@@ -18,6 +18,10 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. "--marine--mk2"
             },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. "--marine--mk2--upgrade"
+            },
         },
         prerequisites = {"military-3","heavy-armor", MOD_NAME .. "--barrack"},
         unit =
@@ -43,6 +47,10 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. "--marine--mk3"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. "--marine--mk3--upgrade"
             },
         },
         prerequisites = {"military-4","modular-armor","uranium-ammo", MOD_NAME .. "--marine--mk-2", MOD_NAME .. "--barrack"},
@@ -96,6 +104,10 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. "--firebat--mk2"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. "--firebat--mk2--upgrade"
             },
         },
         prerequisites = {"military-4","modular-armor", "refined-flammables-5",MOD_NAME .. "--firebat--mk-1", MOD_NAME .. "--barrack"},
@@ -222,6 +234,10 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = MOD_NAME .. "--siege_tank--mk2"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. "--siege_tank--mk2--upgrade"
             },
         },
         prerequisites = {
@@ -602,7 +618,15 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
+                recipe = MOD_NAME .. "--bunker-turret--mk2--upgrade"
+            },
+            {
+                type = "unlock-recipe",
                 recipe = MOD_NAME .. "--bunker-turret--mk3"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = MOD_NAME .. "--bunker-turret--mk3--upgrade"
             },
         },
         prerequisites = {"military-2","military-science-pack", MOD_NAME .. "--barrack", "concrete"},
