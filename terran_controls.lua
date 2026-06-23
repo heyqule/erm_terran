@@ -6,7 +6,6 @@
 
 local String = require("__erm_libs__/stdlib/string")
 local CustomAttacks = require("__erm_terran__/scripts/custom_attacks")
-local RaceSettingsHelper = require("__enemyracemanager__/lib/helper/race_settings_helper")
 
 local populations = {
     ["battlecruiser"] = 5,
@@ -59,9 +58,6 @@ local addRaceSettings = function()
     race_settings.timed_units = {
         spidermine=true,
     }
-
-
-    RaceSettingsHelper.process_unit_spawn_rate_cache(race_settings)
 
     remote.call("enemyracemanager", "register_race", race_settings)
 

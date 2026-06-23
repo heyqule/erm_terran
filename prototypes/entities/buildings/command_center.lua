@@ -10,11 +10,31 @@ local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
 local AnimationDB = require("__erm_terran_hd_assets__/animation_db")
 
-local idle = AnimationDB.get_layered_animations("buildings", "command_centre", "run")
+local pictures = AnimationDB.get_layered_animations("buildings", "command_centre", "run")
 
-idle = AnimationDB.change_frame_count(idle, 1)
+local layers = pictures.layers
 
-idle = AnimationDB.alter_team_color(idle, nil, true)
+layers[1].direction_count = 6
+layers[1].frame_count = nil
+layers[1].apply_projection = false
+layers[1].line_length = 6
+layers[1].counterclockwise = true
+
+layers[2].direction_count = 6
+layers[2].frame_count = nil
+layers[2].apply_projection = false
+layers[2].line_length = 6
+layers[2].counterclockwise = true
+
+--- Remove color mask
+pictures.layers[3] = pictures.layers[4]
+pictures.layers[4] = nil
+
+layers[3].direction_count = 6
+layers[3].frame_count = nil
+layers[3].apply_projection = false
+layers[3].line_length = 6
+layers[3].counterclockwise = true
 
 data:extend({
     {
@@ -58,7 +78,7 @@ data:extend({
             usage_priority = "secondary-input"
         },
         energy_usage = "10MW",
-        pictures = idle,
+        pictures = pictures,
         vehicle_impact_sound = sounds.generic_impact,
         working_sound =
         {
@@ -74,7 +94,7 @@ data:extend({
             use_doppler_shift = false
         },
         radius_minimap_visualisation_color = { r = 0.059, g = 0.092, b = 0.235, a = 0.275 },
-        rotation_speed = 0,
+        rotation_speed = 0.002,
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
