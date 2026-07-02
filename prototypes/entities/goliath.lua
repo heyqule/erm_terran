@@ -7,7 +7,7 @@
 require("util")
 require("util")
 
-require("__erm_terran__/global")
+local ERM_TERRAN = require("__erm_terran__/global")
 
 local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
@@ -49,7 +49,7 @@ goliathAttackAnimation = AnimationDB.apply_runtime_tint(goliathAttackAnimation, 
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name,
+        name = ERM_TERRAN.MOD_NAME .. "--" .. name,
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/"..name.."256.png",
@@ -59,7 +59,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 250 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "--" .. name,
+        order = ERM_TERRAN.MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -83,6 +83,14 @@ data:extend({
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
+        steering = {
+            move = {
+                radius = 4
+            },
+            stay = {
+                radius = 7
+            },
+        },
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
@@ -108,7 +116,7 @@ data:extend({
                             {
                                 {
                                     type = "create-entity",
-                                    entity_name = MOD_NAME.."--marine_attack_hit-explosion",
+                                    entity_name = ERM_TERRAN.MOD_NAME.."--marine_attack_hit-explosion",
                                     offsets = {{0, 1}},
                                     offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
                                 },
@@ -139,7 +147,7 @@ data:extend({
                         probability = 0.25,
                         action_delivery = {
                             type = "projectile",
-                            projectile = MOD_NAME.."--goliath_rocket_projectile",
+                            projectile = ERM_TERRAN.MOD_NAME.."--goliath_rocket_projectile",
                             starting_speed = 0.3,
                             max_range = attack_range * 1.5,
                             source_effects = {
@@ -158,13 +166,13 @@ data:extend({
         run_animation = goliathAnimation,
         dying_explosion = "terran--large-explosion",
         dying_sound = TerranSound.enemy_death(name, 1),
-        corpse = MOD_NAME .. '-' .. name .. "-corpse",
+        corpse = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = MOD_NAME .. '-' .. name .. "-corpse",
+        name = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },

@@ -6,6 +6,7 @@
 
 local String = require("__erm_libs__/stdlib/string")
 local CustomAttacks = require("__erm_terran__/scripts/custom_attacks")
+local ERM_TERRAN = require("__erm_terran__/global")
 
 local populations = {
     ["battlecruiser"] = 5,
@@ -25,7 +26,7 @@ local refresh_data = function()
     -- Register Army Units
     for _, prototype in pairs(prototypes.get_entity_filtered({{filter = "type", type = "unit"}})) do
         local nameToken = String.split(prototype.name, "--")
-        if nameToken[1] == MOD_NAME and populations[nameToken[2]] then
+        if nameToken[1] == ERM_TERRAN.MOD_NAME and populations[nameToken[2]] then
             remote.call("enemyracemanager","army_units_register", prototype.name, populations[nameToken[2]]);
         end
     end
@@ -33,7 +34,7 @@ local refresh_data = function()
     -- Register Command Center
     for _, prototype in pairs(prototypes.get_entity_filtered({{filter = "type", type = "radar"}})) do
         local nameToken = String.split(prototype.name, "--")
-        if nameToken[1] == MOD_NAME then
+        if nameToken[1] == ERM_TERRAN.MOD_NAME then
             remote.call("enemyracemanager","army_command_center_register", prototype.name);
         end
     end
@@ -41,19 +42,19 @@ local refresh_data = function()
     -- Register Auto Deployers
     for _, prototype in pairs(prototypes.get_entity_filtered({{filter = "type", type = "assembling-machine"}})) do
         local nameToken = String.split(prototype.name, "--")
-        if nameToken[1] == MOD_NAME then
+        if nameToken[1] == ERM_TERRAN.MOD_NAME then
             remote.call("enemyracemanager","army_deployer_register", prototype.name);
         end
     end
 end
 
 local addRaceSettings = function()
-    local race_settings = remote.call("enemyracemanager", "get_race", MOD_NAME)
+    local race_settings = remote.call("enemyracemanager", "get_race", ERM_TERRAN.MOD_NAME)
     if race_settings == nil then
         race_settings = {}
     end
 
-    race_settings.race =  race_settings.race or MOD_NAME
+    race_settings.race =  race_settings.race or ERM_TERRAN.MOD_NAME
 
     race_settings.timed_units = {
         spidermine=true,
@@ -62,7 +63,7 @@ local addRaceSettings = function()
     remote.call("enemyracemanager", "register_race", race_settings)
 
     -- reload local cache
-    CustomAttacks.get_race_settings(MOD_NAME, true)
+    CustomAttacks.get_race_settings(ERM_TERRAN.MOD_NAME, true)
 end
 
 local adjust_color = function(player_index)
@@ -92,33 +93,33 @@ local on_player_created = function(event)
 end
 
 local attack_functions = {
-    [SELF_DESTRUCT_ATTACK] = function(args)
+    [ERM_TERRAN.SELF_DESTRUCT_ATTACK] = function(args)
         CustomAttacks.process_self_destruct(args)
     end,
-    [TIME_TO_LIVE_DIED] = function(args)
+    [ERM_TERRAN.TIME_TO_LIVE_DIED] = function(args)
         CustomAttacks.process_time_to_live_unit_died(args)
     end,
-    [TIME_TO_LIVE_CREATED] = function(args)
+    [ERM_TERRAN.TIME_TO_LIVE_CREATED] = function(args)
         CustomAttacks.process_time_to_live_unit_created(args)
     end,
-    [GHOST_ATOMIC_SEQUENCE] = function(args)
+    [ERM_TERRAN.GHOST_ATOMIC_SEQUENCE] = function(args)
         CustomAttacks.add_nuke_to_queue(args)
     end,
-    [CANCEL_GHOST_ATOMIC_SEQUENCE] = function(args)
+    [ERM_TERRAN.CANCEL_GHOST_ATOMIC_SEQUENCE] = function(args)
         CustomAttacks.cancel_nuke_from_queue(args)
     end,
-    [BUNKER_SPAWN_MARINE] = function(args)
+    [ERM_TERRAN.BUNKER_SPAWN_MARINE] = function(args)
         CustomAttacks.spawn_marine(args)
     end,
-    [ASTEROID_KILL] = function(args)
+    [ERM_TERRAN.ASTEROID_KILL] = function(args)
         CustomAttacks.asteroid_aoe(args)
     end
 }
 
 local on_script_trigger_effect = function(event)
     if attack_functions[event.effect_id] and
-        (ASTEROID_KILL == event.effect_id or   
-            CustomAttacks.valid(event, MOD_NAME)
+        (ERM_TERRAN.ASTEROID_KILL == event.effect_id or   
+            CustomAttacks.valid(event, ERM_TERRAN.MOD_NAME)
         )
     then
         attack_functions[event.effect_id](event)

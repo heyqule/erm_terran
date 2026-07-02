@@ -1,5 +1,3 @@
-require("__erm_terran__/global")
-
 -- Recipe Category
 data:extend({
     { type = "recipe-category", name = "erm_controllable_infantry" },

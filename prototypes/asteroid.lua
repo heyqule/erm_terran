@@ -3,14 +3,14 @@
 --- Created by heyqule.
 --- DateTime: 12/7/2024 1:54 PM
 ---
-
 if not mods['space-age'] then
-    return
+	return
 end
 
+local ERM_TERRAN = require("__erm_terran__/global")
 local aoe_damage = {
     type = "script",
-    effect_id = ASTEROID_KILL,
+    effect_id = ERM_TERRAN.ASTEROID_KILL,
     probability = 0.2
 }
 

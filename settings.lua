@@ -1,5 +1,3 @@
-require "global"
-
 data:extend {
     --- Startup Tab
     {

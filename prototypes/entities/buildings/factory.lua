@@ -5,6 +5,7 @@
 ---
 require ("__erm_terran__/prototypes/entities/buildings/circuit_connector_definitions")
 local util = require("util")
+local ERM_TERRAN = require("__erm_terran__/global")
 local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
 local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
@@ -25,7 +26,7 @@ working = AnimationDB.alter_team_color(working, nil, true)
 data:extend({
     {
         type = "assembling-machine",
-        name = MOD_NAME .. "--factory",
+        name = ERM_TERRAN.MOD_NAME .. "--factory",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
@@ -33,7 +34,7 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. "--factory"},
+        minable = {mining_time = 1, result = ERM_TERRAN.MOD_NAME .. "--factory"},
         max_health = 3000,
         corpse = "terran--large-base-corpse",
         dying_explosion = "terran--building-large-explosion",
