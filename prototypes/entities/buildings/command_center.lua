@@ -4,6 +4,7 @@
 --- DateTime: 11/17/2022 7:59 PM
 ---
 local util = require("util")
+local ERM_TERRAN = require("__erm_terran__/global")
 local hit_effects = require ("__base__/prototypes/entity/hit-effects")
 local sounds = require ("__base__/prototypes/entity/sounds")
 local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
@@ -39,7 +40,7 @@ layers[3].counterclockwise = true
 data:extend({
     {
         type = "radar",
-        name = MOD_NAME .. "--command-center",
+        name = ERM_TERRAN.MOD_NAME .. "--command-center",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
@@ -47,7 +48,7 @@ data:extend({
             },
         },
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
-        minable = {mining_time = 1, result = MOD_NAME .. "--command-center"},
+        minable = {mining_time = 1, result = ERM_TERRAN.MOD_NAME .. "--command-center"},
         max_health = 10000,
         corpse = "terran--large-base-corpse",
         dying_explosion = "terran--building-xlarge-explosion",

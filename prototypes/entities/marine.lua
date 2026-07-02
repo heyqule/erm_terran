@@ -7,7 +7,7 @@
 require("util")
 require("util")
 
-require("__erm_terran__/global")
+local ERM_TERRAN = require("__erm_terran__/global")
 
 local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
@@ -62,9 +62,9 @@ local corpseAnimation = AnimationDB.get_single_animation("death", "marine_death"
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name .. "--mk1",
-        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 1"},
-        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name},
+        name = ERM_TERRAN.MOD_NAME .. "--" .. name .. "--mk1",
+        localised_name = { "entity-name." .. ERM_TERRAN.MOD_NAME .. "--" .. name, "MK 1"},
+        localised_description = { "entity-description." .. ERM_TERRAN.MOD_NAME .. "--" .. name},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine256.png",
@@ -74,7 +74,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "breaths-air" },
         has_belt_immunity = false,
         max_health = 40 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "--" .. name,
+        order = ERM_TERRAN.MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         resistances = DataHelper.getResistance(25),
@@ -126,7 +126,7 @@ data:extend({
                             {
                                 {
                                     type = "create-entity",
-                                    entity_name = MOD_NAME.."--marine_attack_hit-explosion",
+                                    entity_name = ERM_TERRAN.MOD_NAME.."--marine_attack_hit-explosion",
                                     offsets = {{0, 1}},
                                     offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
                                 },
@@ -141,7 +141,7 @@ data:extend({
         distance_per_frame = 0.16,
         run_animation = runningAnimation,
         dying_sound = TerranSound.marine_death(1),
-        corpse = MOD_NAME .. '-' .. name .. "-corpse",
+        corpse = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
         light = {
@@ -165,7 +165,7 @@ data:extend({
     },
     {
         type = "corpse",
-        name = MOD_NAME .. '-' .. name .. "-corpse",
+        name = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -181,10 +181,10 @@ data:extend({
 })
 
 -- Marine MK2 --
-local marine_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "--mk1"])
+local marine_mk2 = util.table.deepcopy(data.raw["unit"][ERM_TERRAN.MOD_NAME .. "--" .. name .. "--mk1"])
 
-marine_mk2.name = MOD_NAME .. "--" .. name .. "--mk2"
-marine_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 2"}
+marine_mk2.name = ERM_TERRAN.MOD_NAME .. "--" .. name .. "--mk2"
+marine_mk2.localised_name = { "entity-name." .. ERM_TERRAN.MOD_NAME .. "--" .. name, "MK 2"}
 marine_mk2["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
@@ -208,10 +208,10 @@ marine_mk2["attack_parameters"]["animation"] = attackAnimation2
 data:extend({marine_mk2})
 
 -- Marine MK3 --
-local marine_mk3 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name .. "--mk1"])
+local marine_mk3 = util.table.deepcopy(data.raw["unit"][ERM_TERRAN.MOD_NAME .. "--" .. name .. "--mk1"])
 
-marine_mk3.name = MOD_NAME .. "--" .. name .. "--mk3"
-marine_mk3.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name, "MK 3"}
+marine_mk3.name = ERM_TERRAN.MOD_NAME .. "--" .. name .. "--mk3"
+marine_mk3.localised_name = { "entity-name." .. ERM_TERRAN.MOD_NAME .. "--" .. name, "MK 3"}
 marine_mk3["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",

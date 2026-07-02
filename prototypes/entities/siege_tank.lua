@@ -7,7 +7,7 @@
 require("util")
 require("util")
 
-require("__erm_terran__/global")
+local ERM_TERRAN = require("__erm_terran__/global")
 
 local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
@@ -58,9 +58,9 @@ attackAnimation2 = AnimationDB.apply_runtime_tint(attackAnimation2, true)
 data:extend({
     {
         type = "unit",
-        name = MOD_NAME .. "--" .. name,
-        localised_name = { "entity-name." .. MOD_NAME .. "--" .. name,  "MK1" },
-        localised_description = { "entity-description." .. MOD_NAME .. "--" .. name},
+        name = ERM_TERRAN.MOD_NAME .. "--" .. name,
+        localised_name = { "entity-name." .. ERM_TERRAN.MOD_NAME .. "--" .. name,  "MK1" },
+        localised_description = { "entity-description." .. ERM_TERRAN.MOD_NAME .. "--" .. name},
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -70,7 +70,7 @@ data:extend({
         flags = { "placeable-enemy", "placeable-player", "placeable-off-grid", "player-creation", "not-flammable" },
         has_belt_immunity = true,
         max_health = 150 * ERMPlayerUnitHelper.get_health_multiplier(),
-        order = MOD_NAME .. "--" .. name,
+        order = ERM_TERRAN.MOD_NAME .. "--" .. name,
         subgroup = "erm_controllable_units",
         shooting_cursor_size = 2,
         can_open_gates = true,
@@ -111,7 +111,7 @@ data:extend({
                     type = "direct",
                     action_delivery = {
                         type = "projectile",
-                        projectile = MOD_NAME.."--tank-cannon-projectile",
+                        projectile = ERM_TERRAN.MOD_NAME.."--tank-cannon-projectile",
                         starting_speed = 1.5,
                         max_range = attack_range * 1.5,
                         min_range = 6,
@@ -125,13 +125,13 @@ data:extend({
         run_animation = runAnimation,
         dying_explosion = "erm-fire-explosion-ground_normal-1",
         dying_sound = TerranSound.enemy_death(name, 1),
-        corpse = MOD_NAME .. '-' .. name .. "-corpse",
+        corpse = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
     },
     {
         type = "corpse",
-        name = MOD_NAME .. '-' .. name .. "-corpse",
+        name = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/" .. name .. ".png",
         icon_size = 64,
         flags = { "placeable-off-grid", "building-direction-8-way", "not-on-map" },
@@ -145,8 +145,8 @@ data:extend({
     }
 })
 
-local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][MOD_NAME.."--tank-cannon-projectile"])
-tank_projectile_mk2["name"] = MOD_NAME.."--tank-cannon-projectile-mk2"
+local tank_projectile_mk2 = util.table.deepcopy(data.raw["projectile"][ERM_TERRAN.MOD_NAME.."--tank-cannon-projectile"])
+tank_projectile_mk2["name"] = ERM_TERRAN.MOD_NAME.."--tank-cannon-projectile-mk2"
 tank_projectile_mk2["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 200, type = "physical"}
 -- Ground AOE --
 tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][2]["action"]["action_delivery"]["target_effects"][1]["damage"] = {amount = 160, type = "explosion"}
@@ -155,9 +155,9 @@ tank_projectile_mk2["final_action"]["action_delivery"]["target_effects"][3]["act
 
 data:extend({tank_projectile_mk2})
 
-local tank_mk2 = util.table.deepcopy(data.raw["unit"][MOD_NAME .. "--" .. name])
-tank_mk2.name = MOD_NAME .. "--" .. name .. "--mk2"
-tank_mk2.localised_name = { "entity-name." .. MOD_NAME .. "--" .. name,  "MK2" }
+local tank_mk2 = util.table.deepcopy(data.raw["unit"][ERM_TERRAN.MOD_NAME .. "--" .. name])
+tank_mk2.name = ERM_TERRAN.MOD_NAME .. "--" .. name .. "--mk2"
+tank_mk2.localised_name = { "entity-name." .. ERM_TERRAN.MOD_NAME .. "--" .. name,  "MK2" }
 tank_mk2["icons"] = {
     {
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
@@ -166,7 +166,7 @@ tank_mk2["icons"] = {
 }
 tank_mk2.max_health = 350 * ERMPlayerUnitHelper.get_health_multiplier()
 tank_mk2.movement_speed = 0.25 * ERMPlayerUnitHelper.get_speed_multiplier()
-tank_mk2["attack_parameters"]["ammo_type"]["action"]["action_delivery"]["projectile"] = MOD_NAME.."--tank-cannon-projectile-mk2"
+tank_mk2["attack_parameters"]["ammo_type"]["action"]["action_delivery"]["projectile"] = ERM_TERRAN.MOD_NAME.."--tank-cannon-projectile-mk2"
 tank_mk2.resistances = {
     { type = "acid", percent = 80 },
     { type = "poison", percent = 100 },

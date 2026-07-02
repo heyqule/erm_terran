@@ -5,19 +5,20 @@
 ---
 
 local simulations = require("__erm_terran__/prototypes/tips_and_tricks/simulations")
+local ERM_TERRAN = require("__erm_terran__/global")
 
 data:extend(
         {
             {
                 type = "tips-and-tricks-item-category",
-                name = MOD_NAME,
-                order = "n02-["..MOD_NAME.."]"
+                name = ERM_TERRAN.MOD_NAME,
+                order = "n02-["..ERM_TERRAN.MOD_NAME.."]"
             },
             {
                 type = "tips-and-tricks-item",
-                name = MOD_NAME.."-general-info",
-                tag = "[entity="..MOD_NAME.."--barrack]",
-                category = MOD_NAME,
+                name = ERM_TERRAN.MOD_NAME.."-general-info",
+                tag = "[entity="..ERM_TERRAN.MOD_NAME.."--barrack]",
+                category = ERM_TERRAN.MOD_NAME,
                 order = "a",
                 is_title = true,
                 starting_status = "suggested",
@@ -25,9 +26,9 @@ data:extend(
             },
             {
                 type = "tips-and-tricks-item",
-                name = MOD_NAME.."-building",
-                tag = "[entity="..MOD_NAME.."--factory]",
-                category = MOD_NAME,
+                name = ERM_TERRAN.MOD_NAME.."-building",
+                tag = "[entity="..ERM_TERRAN.MOD_NAME.."--factory]",
+                category = ERM_TERRAN.MOD_NAME,
                 order = "b",
                 indent = 1,
                 starting_status = "suggested",
@@ -35,9 +36,9 @@ data:extend(
             },
             {
                 type = "tips-and-tricks-item",
-                name = MOD_NAME.."-teleport",
-                tag = "[entity="..MOD_NAME.."--command-center]",
-                category = MOD_NAME,
+                name = ERM_TERRAN.MOD_NAME.."-teleport",
+                tag = "[entity="..ERM_TERRAN.MOD_NAME.."--command-center]",
+                category = ERM_TERRAN.MOD_NAME,
                 order = "d",
                 indent = 1,                
                 starting_status = "suggested",

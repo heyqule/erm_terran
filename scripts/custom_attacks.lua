@@ -5,8 +5,7 @@
 ---
 
 local CustomAttackHelper = require("__enemyracemanager__/lib/helper/custom_attack_helper")
-local ERMConfig = require("__enemyracemanager__/lib/global_config")
-require("__erm_terran__/global")
+local ERM_TERRAN = require("__erm_terran__/global")
 local String = require("__erm_libs__/stdlib/string")
 
 local CustomAttacks = CustomAttackHelper
@@ -19,16 +18,16 @@ CustomAttacks.add_nuke_to_queue = function(event)
         end
 
         local targeter_render_obj = rendering.draw_animation({
-            animation = MOD_NAME .. "--nuclear_targeter",
+            animation = ERM_TERRAN.MOD_NAME .. "--nuclear_targeter",
             target = target_position,
-            time_to_live = NUKE_WAIT_TIME + 60,
+            time_to_live = ERM_TERRAN.NUKE_WAIT_TIME + 60,
             surface = event.source_entity.surface.index,
             render_layer = "radius-visualization"
         })
         storage.nuke_tracker[event.source_entity.unit_number] = {
             entity = event.source_entity,
             target_position = target_position,
-            launch_tick = event.tick + NUKE_WAIT_TIME,
+            launch_tick = event.tick + ERM_TERRAN.NUKE_WAIT_TIME,
             targeter_render_obj = targeter_render_obj
         }
         storage.nuke_tracker_total = storage.nuke_tracker_total + 1
@@ -59,7 +58,7 @@ CustomAttacks.spawn_nuke = function(event)
             storage.nuke_tracker_total = storage.nuke_tracker_total - 1
 
             surface.create_entity {
-                name = MOD_NAME .. "--atomic-bomb",
+                name = ERM_TERRAN.MOD_NAME .. "--atomic-bomb",
                 --target = nuke_data.target_position,
                 target = {
                     x = nuke_data.target_position.x + math.random(-4,4),
@@ -137,7 +136,7 @@ local spawn_marines = function(event, make_string)
         count = count + 1
     end
 
-    CustomAttacks.drop_player_unit(event, MOD_NAME, "marine--"..make_string, count, drop_on_enemy_position(event.source_entity))
+    CustomAttacks.drop_player_unit(event, ERM_TERRAN.MOD_NAME, "marine--"..make_string, count, drop_on_enemy_position(event.source_entity))
 end
 
 CustomAttacks.spawn_marine = function(event)

@@ -4,6 +4,7 @@
 --- DateTime: 8/20/2023 12:56 AM
 ---
 require ("util")
+local ERM_TERRAN = require("__erm_terran__/global")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
@@ -27,7 +28,7 @@ animation = AnimationDB.apply_runtime_tint(animation, true)
 data:extend({
     {
         type = "ammo-turret",
-        name = MOD_NAME.."--missile-turret",
+        name = ERM_TERRAN.MOD_NAME.."--missile-turret",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
@@ -39,7 +40,7 @@ data:extend({
             { type = "impact", percent = 90, decrease = 50 },
         },
         flags = {"placeable-player", "player-creation"},
-        minable = {mining_time = 2, result = MOD_NAME .. "--missile-turret"},
+        minable = {mining_time = 2, result = ERM_TERRAN.MOD_NAME .. "--missile-turret"},
         max_health = 1200,
         repair_speed_modifier = 0.33,
         dying_explosion = "terran--building-large-explosion",

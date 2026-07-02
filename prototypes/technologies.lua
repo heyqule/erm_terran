@@ -4,26 +4,26 @@
 --- DateTime: 2/12/2021 8:20 PM
 ---
 
-require("__erm_terran__/global")
+local ERM_TERRAN = require("__erm_terran__/global")
 
 data:extend({
     {
         type = "technology",
-        name = MOD_NAME .. "--marine--mk-2",
+        name = ERM_TERRAN.MOD_NAME .. "--marine--mk-2",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkII256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--marine--mk2"
+                recipe = ERM_TERRAN.MOD_NAME .. "--marine--mk2"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--marine--mk2--upgrade"
+                recipe = ERM_TERRAN.MOD_NAME .. "--marine--mk2--upgrade"
             },
         },
-        prerequisites = {"military-3","heavy-armor", MOD_NAME .. "--barrack"},
+        prerequisites = {"military-3","heavy-armor", ERM_TERRAN.MOD_NAME .. "--barrack"},
         unit =
         {
             ingredients =
@@ -39,21 +39,21 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--marine--mk-3",
+        name = ERM_TERRAN.MOD_NAME .. "--marine--mk-3",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/marine_mkIII256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--marine--mk3"
+                recipe = ERM_TERRAN.MOD_NAME .. "--marine--mk3"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--marine--mk3--upgrade"
+                recipe = ERM_TERRAN.MOD_NAME .. "--marine--mk3--upgrade"
             },
         },
-        prerequisites = {"military-4","modular-armor","uranium-ammo", MOD_NAME .. "--marine--mk-2", MOD_NAME .. "--barrack"},
+        prerequisites = {"military-4","modular-armor","uranium-ammo", ERM_TERRAN.MOD_NAME .. "--marine--mk-2", ERM_TERRAN.MOD_NAME .. "--barrack"},
         unit =
         {
             ingredients =
@@ -70,17 +70,17 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--firebat--mk-1",
+        name = ERM_TERRAN.MOD_NAME .. "--firebat--mk-1",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--firebat--mk1"
+                recipe = ERM_TERRAN.MOD_NAME .. "--firebat--mk1"
             },
         },
-        prerequisites = {"military-2", MOD_NAME .. "--barrack","flamethrower"},
+        prerequisites = {"military-2", ERM_TERRAN.MOD_NAME .. "--barrack","flamethrower"},
         unit =
         {
             ingredients =
@@ -96,21 +96,21 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--firebat--mk-2",
+        name = ERM_TERRAN.MOD_NAME .. "--firebat--mk-2",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/firebat_mkII256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--firebat--mk2"
+                recipe = ERM_TERRAN.MOD_NAME .. "--firebat--mk2"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--firebat--mk2--upgrade"
+                recipe = ERM_TERRAN.MOD_NAME .. "--firebat--mk2--upgrade"
             },
         },
-        prerequisites = {"military-4","modular-armor", "refined-flammables-5",MOD_NAME .. "--firebat--mk-1", MOD_NAME .. "--barrack"},
+        prerequisites = {"military-4","modular-armor", "refined-flammables-5",ERM_TERRAN.MOD_NAME .. "--firebat--mk-1", ERM_TERRAN.MOD_NAME .. "--barrack"},
         unit =
         {
             ingredients =
@@ -127,18 +127,18 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--ghost--regular",
+        name = ERM_TERRAN.MOD_NAME .. "--ghost--regular",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--ghost--regular"
+                recipe = ERM_TERRAN.MOD_NAME .. "--ghost--regular"
             },
         },
         prerequisites = {
-            "military-4", "night-vision-equipment","discharge-defense-equipment", MOD_NAME .. "--marine--mk-3", MOD_NAME .. "--barrack"
+            "military-4", "night-vision-equipment","discharge-defense-equipment", ERM_TERRAN.MOD_NAME .. "--marine--mk-3", ERM_TERRAN.MOD_NAME .. "--barrack"
         },
         unit =
         {
@@ -156,7 +156,7 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--ghost--nuke",
+        name = ERM_TERRAN.MOD_NAME .. "--ghost--nuke",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/ghost_mkII256.png",
@@ -173,11 +173,11 @@ data:extend({
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--ghost--nuke"
+                recipe = ERM_TERRAN.MOD_NAME .. "--ghost--nuke"
             },
         },
         prerequisites = {
-            "military-4",  "night-vision-equipment", "atomic-bomb",  MOD_NAME .. "--marine--mk-3", MOD_NAME .. "--barrack"
+            "military-4",  "night-vision-equipment", "atomic-bomb",  ERM_TERRAN.MOD_NAME .. "--marine--mk-3", ERM_TERRAN.MOD_NAME .. "--barrack"
         },
         unit =
         {
@@ -197,19 +197,19 @@ data:extend({
     ----- Factory Units ----
     {
         type = "technology",
-        name = MOD_NAME .. "--siege_tank--mk-1",
+        name = ERM_TERRAN.MOD_NAME .. "--siege_tank--mk-1",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--siege_tank"
+                recipe = ERM_TERRAN.MOD_NAME .. "--siege_tank"
             },
         },
         prerequisites = {
-            "military-3", "tank", MOD_NAME .. "--factory",
-             "low-density-structure", MOD_NAME .. "--marine--mk-2"
+            "military-3", "tank", ERM_TERRAN.MOD_NAME .. "--factory",
+             "low-density-structure", ERM_TERRAN.MOD_NAME .. "--marine--mk-2"
         },
         unit =
         {
@@ -226,23 +226,23 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--siege_tank--mk-2",
+        name = ERM_TERRAN.MOD_NAME .. "--siege_tank--mk-2",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/siege_tank_mkII256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--siege_tank--mk2"
+                recipe = ERM_TERRAN.MOD_NAME .. "--siege_tank--mk2"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--siege_tank--mk2--upgrade"
+                recipe = ERM_TERRAN.MOD_NAME .. "--siege_tank--mk2--upgrade"
             },
         },
         prerequisites = {
-            "military-4", "tank", "processing-unit", MOD_NAME .. "--siege_tank--mk-1",
-            "rocket-fuel", "low-density-structure", MOD_NAME .. "--factory",
+            "military-4", "tank", "processing-unit", ERM_TERRAN.MOD_NAME .. "--siege_tank--mk-1",
+            "rocket-fuel", "low-density-structure", ERM_TERRAN.MOD_NAME .. "--factory",
         },
         unit =
         {
@@ -260,19 +260,19 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--goliath",
+        name = ERM_TERRAN.MOD_NAME .. "--goliath",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/goliath256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--goliath"
+                recipe = ERM_TERRAN.MOD_NAME .. "--goliath"
             },
         },
         prerequisites = {
             "military-4", "processing-unit", "exoskeleton-equipment", "electric-energy-accumulators",
-            "rocketry","uranium-ammo", "low-density-structure", MOD_NAME .. "--factory",
+            "rocketry","uranium-ammo", "low-density-structure", ERM_TERRAN.MOD_NAME .. "--factory",
         },
         unit =
         {
@@ -292,20 +292,20 @@ data:extend({
     ----- Starport Units ----
     {
         type = "technology",
-        name = MOD_NAME .. "--valkyrie",
+        name = ERM_TERRAN.MOD_NAME .. "--valkyrie",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/valkyrie256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--valkyrie"
+                recipe = ERM_TERRAN.MOD_NAME .. "--valkyrie"
             },
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "processing-unit",  MOD_NAME .. "--marine--mk-2",
-            "rocket-fuel", MOD_NAME .. "--starport"
+            "processing-unit",  ERM_TERRAN.MOD_NAME .. "--marine--mk-2",
+            "rocket-fuel", ERM_TERRAN.MOD_NAME .. "--starport"
         },
         unit =
         {
@@ -323,20 +323,20 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--science_vessel",
+        name = ERM_TERRAN.MOD_NAME .. "--science_vessel",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/science_vessel256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--science_vessel"
+                recipe = ERM_TERRAN.MOD_NAME .. "--science_vessel"
             },
         },
         prerequisites = {
             "military-4", "low-density-structure",
-            "processing-unit",  MOD_NAME .. "--marine--mk-2",
-            "rocket-fuel", MOD_NAME .. "--starport"
+            "processing-unit",  ERM_TERRAN.MOD_NAME .. "--marine--mk-2",
+            "rocket-fuel", ERM_TERRAN.MOD_NAME .. "--starport"
         },
         unit =
         {
@@ -354,24 +354,24 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--battlecruiser",
+        name = ERM_TERRAN.MOD_NAME .. "--battlecruiser",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/units/battlecruiser256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--battlecruiser--yamato"
+                recipe = ERM_TERRAN.MOD_NAME .. "--battlecruiser--yamato"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--battlecruiser--laser"
+                recipe = ERM_TERRAN.MOD_NAME .. "--battlecruiser--laser"
             },
         },
         prerequisites = {
             "military-4", "nuclear-power", "kovarex-enrichment-process",
-            "low-density-structure",  MOD_NAME .. "--marine--mk-3",
-            "processing-unit", "laser-turret", MOD_NAME .. "--starport"
+            "low-density-structure",  ERM_TERRAN.MOD_NAME .. "--marine--mk-3",
+            "processing-unit", "laser-turret", ERM_TERRAN.MOD_NAME .. "--starport"
         },
         unit =
         {
@@ -392,7 +392,7 @@ data:extend({
     --- Buildings ---
     {
         type = "technology",
-        name = MOD_NAME .. "--command-center",
+        name = ERM_TERRAN.MOD_NAME .. "--command-center",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/command_centre256.png",
@@ -402,7 +402,7 @@ data:extend({
         effects = {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--command-center"
+                recipe = ERM_TERRAN.MOD_NAME .. "--command-center"
             },
         },
         prerequisites = {
@@ -424,7 +424,7 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--barrack",
+        name = ERM_TERRAN.MOD_NAME .. "--barrack",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/barracks256.png",
@@ -435,11 +435,11 @@ data:extend({
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--barrack"
+                recipe = ERM_TERRAN.MOD_NAME .. "--barrack"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--marine--mk1"
+                recipe = ERM_TERRAN.MOD_NAME .. "--marine--mk1"
             },
         },
         prerequisites = {
@@ -460,7 +460,7 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--factory",
+        name = ERM_TERRAN.MOD_NAME .. "--factory",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/factory256.png",
@@ -471,11 +471,11 @@ data:extend({
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--factory"
+                recipe = ERM_TERRAN.MOD_NAME .. "--factory"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--vulture"
+                recipe = ERM_TERRAN.MOD_NAME .. "--vulture"
             },
         },
         prerequisites = {
@@ -495,7 +495,7 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--starport",
+        name = ERM_TERRAN.MOD_NAME .. "--starport",
         icons = {
             {
                 icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/starport256.png",
@@ -506,15 +506,15 @@ data:extend({
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--starport"
+                recipe = ERM_TERRAN.MOD_NAME .. "--starport"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--wraith"
+                recipe = ERM_TERRAN.MOD_NAME .. "--wraith"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--wraith--scout"
+                recipe = ERM_TERRAN.MOD_NAME .. "--wraith--scout"
             },
         },
         prerequisites = {
@@ -537,14 +537,14 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--missile-turret",
+        name = ERM_TERRAN.MOD_NAME .. "--missile-turret",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/missile_turret256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--missile-turret"
+                recipe = ERM_TERRAN.MOD_NAME .. "--missile-turret"
             },
         },
         prerequisites = {
@@ -568,18 +568,18 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--siege-tank-turret",
+        name = ERM_TERRAN.MOD_NAME .. "--siege-tank-turret",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/siege_tank_siege_mode256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--siege-tank-turret"
+                recipe = ERM_TERRAN.MOD_NAME .. "--siege-tank-turret"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--shockbomb-ammo"
+                recipe = ERM_TERRAN.MOD_NAME .. "--shockbomb-ammo"
             }
         },
         prerequisites = {
@@ -603,33 +603,33 @@ data:extend({
     },
     {
         type = "technology",
-        name = MOD_NAME .. "--bunker-turret",
+        name = ERM_TERRAN.MOD_NAME .. "--bunker-turret",
         icon_size = 256,
         icon = "__erm_terran_hd_assets__/graphics/entity/icons/buildings/bunker256.png",
         effects =
         {
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--bunker-turret--mk1"
+                recipe = ERM_TERRAN.MOD_NAME .. "--bunker-turret--mk1"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--bunker-turret--mk2"
+                recipe = ERM_TERRAN.MOD_NAME .. "--bunker-turret--mk2"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--bunker-turret--mk2--upgrade"
+                recipe = ERM_TERRAN.MOD_NAME .. "--bunker-turret--mk2--upgrade"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--bunker-turret--mk3"
+                recipe = ERM_TERRAN.MOD_NAME .. "--bunker-turret--mk3"
             },
             {
                 type = "unlock-recipe",
-                recipe = MOD_NAME .. "--bunker-turret--mk3--upgrade"
+                recipe = ERM_TERRAN.MOD_NAME .. "--bunker-turret--mk3--upgrade"
             },
         },
-        prerequisites = {"military-2","military-science-pack", MOD_NAME .. "--barrack", "concrete"},
+        prerequisites = {"military-2","military-science-pack", ERM_TERRAN.MOD_NAME .. "--barrack", "concrete"},
         unit =
         {
             ingredients =
