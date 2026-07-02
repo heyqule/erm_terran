@@ -83,6 +83,14 @@ data:extend({
         can_open_gates = true,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
+        steering = {
+            move = {
+                radius = 3
+            },
+            stay = {
+                radius = 5.25
+            },
+        },
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",

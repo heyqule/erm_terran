@@ -93,6 +93,14 @@ data:extend({
 
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
+        steering = {
+            move = {
+                radius = 4
+            },
+            stay = {
+                radius = 7
+            },
+        },
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",

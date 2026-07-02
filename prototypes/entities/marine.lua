@@ -144,6 +144,14 @@ data:extend({
         corpse = ERM_TERRAN.MOD_NAME .. '-' .. name .. "-corpse",
         map_color = ERM_UnitTint.tint_army_color(),
         enemy_map_color = { r=1, b=0, g=0 },
+        steering = {
+            move = {
+                radius = 3
+            },
+            stay = {
+                radius = 5.25
+            },
+        },
         light = {
             {
                 type = "oriented",

@@ -63,6 +63,14 @@ data:extend({
         min_pursue_time = 60 * second,
         --ai_settings = biter_ai_settings,
         radar_range = 1,
+        steering = {
+            move = {
+                radius = 4
+            },
+            stay = {
+                radius = 7
+            },
+        },
         attack_parameters = {
             type = "projectile",
             range_mode = "bounding-box-to-bounding-box",
