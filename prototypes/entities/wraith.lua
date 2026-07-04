@@ -94,6 +94,7 @@ data:extend({
         distraction_cooldown = distraction_cooldown,
         --ai_settings = biter_ai_settings,
         steering = {
+            force_unit_fuzzy_goto_behavior = true,
             move = {
                 radius = 4
             },

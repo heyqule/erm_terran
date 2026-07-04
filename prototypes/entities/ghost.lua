@@ -84,6 +84,7 @@ data:extend({
         --ai_settings = biter_ai_settings,
         radar_range = 2,
         steering = {
+            force_unit_fuzzy_goto_behavior = true,
             move = {
                 radius = 3
             },
