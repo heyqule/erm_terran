@@ -3,7 +3,7 @@ Version: 2.1.16
 Date: 2026-07-05
 
   Changes:
-    - Additional bunker collision box adjustment.
+    - Adjusted bunker collision box again.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.15
