@@ -17,7 +17,7 @@ local ERM_WeaponRig = require("__enemyracemanager__/lib/rig/weapon")
 local DataHelper = require("__erm_terran__/prototypes/data_helper")
 local ERM_UnitTint = require("__enemyracemanager__/lib/rig/unit_tint")
 
-local collision_box = { { -2.25, -1.25 }, { 2.25, 1.25 } }
+local collision_box = { { -2.5, -1.5 }, { 2.5, 1.5 } }
 local selection_box = { { -3, -2 }, { 3, 2 } }
 
 local attack_range = math.ceil(ERMPlayerUnitHelper.get_attack_range(1, 8))
