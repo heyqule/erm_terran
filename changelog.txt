@@ -4,6 +4,10 @@ Date: 2026-07-04
 
   Changes:
     - Added force_unit_fuzzy_goto_behavior = true to buildable units.
+    - Shrinked bunker collision box, playable unit has lower change of getting stuck.
+
+  Bugfixes:
+    - Fixed attacking animation not showing in 2.1
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.14
