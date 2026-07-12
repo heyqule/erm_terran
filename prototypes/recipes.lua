@@ -712,7 +712,7 @@ data:extend({
             { type = "item", name = "laser-turret", amount = 40 },
             { type = "item", name = "flying-robot-frame", amount = 50 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         allow_as_intermediate = false,
         always_show_made_in = true,
         order = ERM_TERRAN.MOD_NAME .. "--battlecruiser--yamato",
@@ -735,7 +735,7 @@ data:extend({
             { type = "item", name = "laser-turret", amount = 10 },
             { type = "item", name = "flying-robot-frame", amount = 30 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         allow_as_intermediate = false,
         always_show_made_in = true,
         order = ERM_TERRAN.MOD_NAME .. "--battlecruiser--laser",
@@ -758,7 +758,7 @@ data:extend({
             { type = "item", name = "low-density-structure", amount = 10 },
             { type = "item", name = "flying-robot-frame", amount = 10 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         allow_as_intermediate = false,
         always_show_made_in = true,
         order = ERM_TERRAN.MOD_NAME .. "--wraith",
@@ -781,7 +781,7 @@ data:extend({
             { type = "item", name = "low-density-structure", amount = 15 },
             { type = "item", name = "flying-robot-frame", amount = 15 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         allow_as_intermediate = false,
         always_show_made_in = true,
         order = ERM_TERRAN.MOD_NAME .. "--wraith--scout",
@@ -804,7 +804,7 @@ data:extend({
             { type = "item", name = "slowdown-capsule", amount = 25 },
             { type = "item", name = "processing-unit", amount = 10 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         allow_as_intermediate = false,
         always_show_made_in = true,
         order = ERM_TERRAN.MOD_NAME .. "--valkyrie",
@@ -827,7 +827,7 @@ data:extend({
             { type = "item", name = "poison-capsule", amount = 25 },
             { type = "item", name = "processing-unit", amount = 12 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         allow_as_intermediate = false,
         always_show_made_in = true,
         order = ERM_TERRAN.MOD_NAME .. "--science_vessel",
@@ -845,7 +845,7 @@ data:extend({
         ingredients = {
             { type = "item", name = ERM_TERRAN.MOD_NAME .. "--wraith--scout", amount = 1 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         hide_from_player_crafting = true,
         hidden_in_factoriopedia = true,
         order = "zzz" .. ERM_TERRAN.MOD_NAME .. "--wraith--scout",
@@ -880,7 +880,7 @@ data:extend({
         ingredients = {
             { type = "item", name = ERM_TERRAN.MOD_NAME .. "--wraith", amount = 1 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         hide_from_player_crafting = true,
         hidden_in_factoriopedia = true,
         order = "zzz" .. ERM_TERRAN.MOD_NAME .. "--wraith",
@@ -916,7 +916,7 @@ data:extend({
         ingredients = {
             { type = "item", name = ERM_TERRAN.MOD_NAME .. "--battlecruiser--yamato", amount = 1 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         hide_from_player_crafting = true,
         hidden_in_factoriopedia = true,
 
@@ -946,7 +946,7 @@ data:extend({
         ingredients = {
             { type = "item", name = ERM_TERRAN.MOD_NAME .. "--battlecruiser--laser", amount = 1 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         hide_from_player_crafting = true,
         hidden_in_factoriopedia = true,
         icons = {
@@ -975,7 +975,7 @@ data:extend({
         ingredients = {
             { type = "item", name = ERM_TERRAN.MOD_NAME .. "--valkyrie", amount = 1 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         hide_from_player_crafting = true,
         hidden_in_factoriopedia = true,
         icons = {
@@ -1004,7 +1004,7 @@ data:extend({
         ingredients = {
             { type = "item", name = ERM_TERRAN.MOD_NAME .. "--science_vessel", amount = 1 },
         },
-        categories = {"erm_controllable_factory"},
+        categories = {"erm_controllable_starport"},
         hide_from_player_crafting = true,
         hidden_in_factoriopedia = true,
         icons = {
